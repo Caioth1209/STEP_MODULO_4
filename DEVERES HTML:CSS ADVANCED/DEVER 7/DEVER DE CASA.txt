@@ -1,0 +1,5 @@
+Crie uma página de exibição de vídeos e outra de reprodução de música.
+Basta ter 1 mídia em cada.
+---IMPORTANTE---
+Os controles de mídia deverão ser personalizados e 
+devem usar ícones externos (google, BS, fonte awesome, etc...

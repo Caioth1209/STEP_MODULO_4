@@ -1,0 +1,6 @@
+DEVER DE CASA -- AULA CANCELADA por defeito no notebook do professor--
+
+Usando SVG (w3schools) crie um icone de 20 por 20 de um circulo azul
+com uma letra "i" (minúsculo) branca centralizado (será usado para informações);
+
+https://www.w3schools.com/graphics/svg_intro.asp

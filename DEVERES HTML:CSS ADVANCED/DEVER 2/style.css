@@ -1,0 +1,45 @@
+#titulo{
+    padding: 5px;
+    font-size: 16pt;
+    margin-top: 5px;
+}
+
+.bg-branca{
+    background-color: white;
+}
+
+.navbar{
+    box-shadow: 2px 2px 20px rgb(124, 115, 115);
+    height: 70px;
+}
+
+.procura{
+   margin-right: 120px;
+   max-width: 70% !important;
+}
+
+.botao{
+    margin-left: 80px;
+}
+
+.container{
+   margin: auto !important;
+   margin-top: 50px !important;
+}
+
+.texto{
+    padding: 10px;
+}
+
+.texto > h5{
+    color: grey;
+    font-size: medium;
+}
+
+.texto > p{
+    color: #2D64BC;
+    font-size: large;
+}
+.icone{
+    margin-left: 20%;
+}

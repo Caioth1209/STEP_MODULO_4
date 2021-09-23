@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming de Mídia</title>
+</head>
+<body>
+
+    <div>
+        <video width="400" height="400" controls="controls">
+            <source src="analisandoFccs - cópia.mp4" type="video/mp4" />
+    
+            <source src="analisandoFccs - cópia.mp4" type="video/mp4" />
+        </video>
+    </div>
+
+    <div>
+        <audio controls="controls">
+            <source src="bo.mp3" type="audio/mp3"/>
+    
+            <source src="bo.mp3" type="audio/mp3"/>
+        </audio>
+    </div>
+
+    <!--<h1>Streaming</h1>
+
+    <h3>Áudio</h3>
+
+    <div>
+        <audio id="musica" autoplay="autoplay">
+            <source src="bo.mp3" type="audio/mp3"/>
+            Áudio não suportado pela versão atual do navegador
+        </audio>
+
+        <div>
+            <button onclick="play()">play</button>
+            <button onclick="pause()">pause</button>
+            <button onclick="volume(+0.1)">+VOL</button>
+            <button onclick="volume(-0.1)">-VOL</button>
+        </div>
+    </div>
+
+    <h3>Vídeo</h3>
+
+    <div>
+        <video id="video" width="400" height="400" controls="controls">
+            <source src="analisandoFccs - cópia.mp4" type="video/mp4" >
+        </video>
+
+        <div>
+            <button onclick="playpause()">|| ></button>
+
+            <button onclick="volumeVideo(+0.1)">+VOL</button>
+            <button onclick="volumeVideo(-0.1)">-VOL</button>
+
+            <button onclick="videoGrande()">GRANDE</button>
+
+            <button onclick="videoMedio()">MÉDIO</button>
+
+            <button onclick="videoPequeno()">PEQUENO</button>
+
+        </div>
+    </div>-->
+    
+</body>
+
+<script>
+
+    var musica = document.getElementById("musica");
+
+    var video = document.getElementById("video");
+
+    function play(){
+        musica.play();
+    }
+
+    function pause(){
+        musica.pause();
+    }
+    
+    function volume(valor) {
+        musica.volume += valor;
+    }
+
+    ///////////////////////////////////////
+
+    function playpause(){
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    function volume(valor) {
+        video.volume += valor;
+    }
+
+    function videoGrande() {
+        video.width = 800;
+    }
+
+    function videoMedio(){
+        video.width = 500;
+    }
+
+    function videoPequeno(){
+        video.width = 250;
+    }
+
+</script>
+
+</html>

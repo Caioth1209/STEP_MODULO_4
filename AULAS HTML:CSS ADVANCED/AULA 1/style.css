@@ -1,0 +1,15 @@
+.nav-fundo {
+    background-color: yellowgreen;
+}
+
+.div-cinza{
+    background-color: darkgray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    margin-top: 10px;
+}
+
+.titulo{
+    text-shadow: 1px 1px 1px black;
+    color: white;
+}

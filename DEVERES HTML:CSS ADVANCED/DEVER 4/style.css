@@ -1,0 +1,38 @@
+.nav-content{
+    color: white;
+}
+
+.nav-bg{
+    background-image: linear-gradient(to bottom, rgb(73, 70, 70), rgb(46, 40, 40));
+}
+
+.section-bg{
+    background-image: linear-gradient(to bottom, rgb(72, 62, 62), rgb(136, 101, 48));
+    height: 83vh;
+    color: white;
+}
+
+.titulo{
+    text-align: center;
+    text-shadow: 1px 1px 1px white;
+}
+
+.texto{
+    letter-spacing: 2px;
+     margin-top: 15px;
+}
+
+.bloco{
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 30px;
+    box-shadow: 1px 1px 5px whitesmoke;
+    margin-top: 100px;
+    margin-bottom: 140px;
+    margin-left: 20px;
+    width: 100%;
+   
+}
+
+.footer-bg{
+    background-image: linear-gradient(to bottom, rgb(225, 189, 136), rgb(163, 99, 2));
+}

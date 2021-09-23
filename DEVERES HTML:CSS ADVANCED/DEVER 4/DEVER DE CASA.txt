@@ -1,0 +1,8 @@
+Crie uma página usando grid flex do BS. Deve ter:
+
+NAVBAR(faça o seu usando o grid flex + componentes)
+corpo com pelo menos 3 colunas
+rodapé
+
+-----------------------------------
+TEMA LIVRE 

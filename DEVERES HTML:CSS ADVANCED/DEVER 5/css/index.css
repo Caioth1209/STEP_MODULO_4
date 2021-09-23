@@ -1,0 +1,25 @@
+@import url('global.css');
+
+
+.home-section-titulo{
+    font-family: var(--font-family);
+    font-size: 3.7rem;
+    line-height: 1em;
+    margin-top: 20px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.home-section-sobre{
+    font-family: var(--font-family);
+    margin-top: 2em;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.9em;
+}
+
+.home-section-img{
+    width: 100%;
+    margin-left: 200px;
+    border-radius: 30px;
+}

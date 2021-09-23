@@ -1,0 +1,14 @@
+.formulario{
+    background-color: whitesmoke;
+    margin-top: 60px;
+}
+
+.alinha-bt{
+    margin: 5%;
+}
+
+#titulo{
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+}

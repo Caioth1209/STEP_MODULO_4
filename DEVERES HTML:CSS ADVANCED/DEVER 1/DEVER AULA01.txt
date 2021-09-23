@@ -1,0 +1,257 @@
+DEVER DE CASA
+
+Crie um site usando CSS com BS (Bootstrap)
+
+essa página deverá ter:
+Home - NAVBAR, um título e um carousel
+Fale conosco -NAVBAR, formulário
+
+Para o formulário, busque modelo em BS para dar aparência
+
+Sites de referência:
+
+www.w3schools.com
+getbootstrap.com
+bootsnipp.com
+wowslider.com
+
+
+
+====================================Código Usado em aula
+
+
+========== estilo.css
+.nav-fundo{
+    background-color: purple;
+}
+
+.bg-verde{
+    background-color: yellowgreen;
+}
+
+.div-cinza{
+    background-color: darkgray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px black;
+    margin-top: 10px;
+}
+
+.titulo{
+    text-shadow: 1px 1px 1px black;
+    color: white;
+}
+
+.ws_images{
+    width: 95%;
+    margin: 5px;
+}
+
+==============index.html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boot Strap</title>
+    <!-- Folhas de Estilo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./estilo.css" type="text/css">
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark nav-fundo">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Outro</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+
+    <h1>Modelos e templates</h1>
+
+    
+</body>
+</html>
+
+=============== bsantigo.html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS 4.6</title>
+
+    <!-- Folhas de Estilo-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./estilo.css" type="text/css">
+
+
+	<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+	<link rel="stylesheet" type="text/css" href="engine0/style.css" />
+	<script type="text/javascript" src="engine0/jquery.js"></script>
+	<!-- End WOWSlider.com HEAD section -->
+	<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+	<link rel="stylesheet" type="text/css" href="engine0/style.css" />
+	<!--script type="text/javascript" src="engine0/jquery.js"></script-->
+	<!-- End WOWSlider.com HEAD section --></head>
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+    </nav>
+
+    <nav class="navbar navbar-expand-sm bg-verde navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Logo</a>
+      
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+          </li>
+      
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+    
+    <div class="container div-cinza">
+        <header>
+            <h1 class="titulo">Carousel</h1>
+        </header>
+
+        <hr>
+
+        <div id="demo" class="carousel slide container" data-ride="carousel" >
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+              <li data-target="#demo" data-slide-to="3"></li>
+            </ul>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://www.civitatis.com/blog/wp-content/uploads/2020/12/castillo-chambord-loira.jpg" alt="Los Angeles" width="1100" height="500">
+                <div class="carousel-caption">
+                  <h3>Imagem 1</h3>
+                  <p>comecinho</p>
+                </div>   
+              </div>
+              <div class="carousel-item">
+                <img src="https://www.cvc.com.br/dicas-de-viagem/wp-content/uploads/2018/02/monte-saint-michel-franca-shutterstock_414453013.jpg" alt="Chicago" width="1100" height="500">
+                <div class="carousel-caption">
+                  <h3>Imagem 2</h3>
+                  <p>Ultra wide</p>
+                </div>   
+              </div>
+              <div class="carousel-item">
+                <img src="https://i.pinimg.com/564x/07/fa/86/07fa866e4d8bcea9899c243453aaeb1c.jpg" alt="New York" width="1100" height="500">
+                <div class="carousel-caption">
+                  <h3>Imagem 3</h3>
+                  <p>estreita</p>
+                </div>   
+              </div>
+              <div class="carousel-item">
+                <img src="https://www.edublin.com.br/wp-content/uploads/2013/05/cashel.jpg" alt="New York" width="1100" height="500">
+                <div class="carousel-caption">
+                  <h3>Imagem 4</h3>
+                  <p>Padrão</p>
+                </div>   
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+
+
+	<!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+	<div id="wowslider-container0" class="container carousel-2">
+	<div class="ws_images"><ul>
+		<li><img src="data0/images/images.jpg" alt="Foto 1" title="Foto 1" id="wows0_0"/></li>
+		<li><img src="data0/images/noronha-praia-sancho-vista-esquerdo-300.jpg" alt="melhores-praias-do-brasil-capa2019" title="melhores-praias-do-brasil-capa2019" id="wows0_1"/></li>
+		<li><a href="http://wowslider.net"><img src="data0/images/Melhores-Praias-do-Brasil-Capa.jpg" alt="html slideshow" title="noronha-praia-sancho-vista-esquerdo-300" id="wows0_2"/></a></li>
+		<li><img src="data0/images/melhorespraiasdobrasilcapa.jpg" alt="Melhores-Praias-do-Brasil-Capa" title="Melhores-Praias-do-Brasil-Capa" id="wows0_3"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="Foto 1"><span><img src="data0/tooltips/images.jpg" alt="Foto 1"/>1</span></a>
+		<a href="#" title="melhores-praias-do-brasil-capa2019"><span><img src="data0/tooltips/melhorespraiasdobrasilcapa2019.jpg" alt="melhores-praias-do-brasil-capa2019"/>2</span></a>
+		<a href="#" title="noronha-praia-sancho-vista-esquerdo-300"><span><img src="data0/tooltips/noronhapraiasanchovistaesquerdo300.jpg" alt="noronha-praia-sancho-vista-esquerdo-300"/>3</span></a>
+		<a href="#" title="Melhores-Praias-do-Brasil-Capa"><span><img src="data0/tooltips/melhorespraiasdobrasilcapa.jpg" alt="Melhores-Praias-do-Brasil-Capa"/>4</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">css slideshow</a> by WOWSlider.com v9.0</div>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine0/wowslider.js"></script>
+	<script type="text/javascript" src="engine0/script.js"></script>
+	<!-- End WOWSlider.com BODY section -->
+
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+</html>

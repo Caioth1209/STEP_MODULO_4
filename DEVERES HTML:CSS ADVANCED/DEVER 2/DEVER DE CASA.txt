@@ -1,0 +1,8 @@
+Monte uma página html reproduzindo o LAYOUT do trecho do site do ministério da saúde
+que está no arquivo site.png 
+Faça o nav bar e os blocos.
+
+EXTRA -> coloque os ícones do começo dos parágrafos
+
+----------------
+https://www.gov.br/saude/pt-br

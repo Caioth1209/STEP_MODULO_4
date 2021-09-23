@@ -1,0 +1,26 @@
+.div-principal{
+    background-image: linear-gradient(to bottom, #585857, #814242);
+}
+
+.bg-pers{
+    background-image: linear-gradient(to right, #604944, #9e7f7f);
+}
+
+.titulo{
+    text-align: center;
+    margin: 10px;
+    color: rgb(243, 243, 243);
+    text-shadow: 2px 2px 20px;
+}
+
+.form{
+    padding: 165px;
+}
+
+label{
+    color: white;
+}
+
+#demo{
+    padding: 75px;
+}

@@ -1,0 +1,66 @@
+:root{
+    --navbar-bg: black;
+    --navbar-color: #fff;
+    --font-family: 'times_new_romanregular';
+    --footer-bg: black;
+
+    --texto-color: #fff;
+
+    --card-bloco-width: 400px;
+    --card-bloco-padd: 30px;
+    --card-bloco-bord: 1px solid rgb(165, 165, 165);
+    --card-bloco-shadow: 2px 2px 20px rgb(130, 50, 50);
+
+    --card-bloco-font-size-titulo: 18pt;
+}
+
+a{
+    color: var(--navbar-color) !important;
+}
+
+a:hover{
+    opacity: 0.8;
+}
+
+.navbar-color{
+    color: var(--navbar-color);
+}
+
+.navbar-bg{
+    background-color: var(--navbar-bg);
+}
+
+.navbar{
+    padding: 20px !important;
+    font-family: var(--font-family);
+}
+
+.navbar-nav{
+    margin-left: 200px;
+}
+
+.nav-item{
+    margin: 0 30px 0 0;
+    text-transform: uppercase !important;
+}
+
+.footer{
+    background-color: var(--footer-bg);
+    height: 70px;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+}
+
+.footer-texto{
+    color: white;
+    padding: 5px;
+    font-family: var(--font-family);
+}
+
+.section{
+    margin-top: 130px;
+    margin-bottom: 130px;
+}
