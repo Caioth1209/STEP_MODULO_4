@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>DEVER 8</title>
+</head>
+<body>
+
+    
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-color navbar-bg fixed-top">
+            <a class="navbar-brand" href="index.html">EXIBIÇÃO DE VÍDEOS</a>
+
+        </nav>
+
+        <section class="container section-bg">
+
+            <div class="row">
+
+                <div class="bloco col-md-4">
+                    <h2 class="home-section-titulo">Vídeo 1</h2>
+
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exemplo1">
+                        Assistir vídeo
+                    </button>
+
+                    <div class="modal fade" id="exemplo1" aria-labelledby="label1" aria-hidden="true">
+
+                        <!--AQUI ESCOLHE O TAMANHO DA MODAL -->
+                        <div class="modal-dialog">
+                
+                            <div class="modal-content">
+                
+                                <div class="modal-header">
+                
+                                    <h4 class="modal-title" id="label1">Preparação da focaccia de chocolate</h4>
+                    
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    
+                                </div>
+                
+                                <div class="modal-body">
+                                    <div class="container d-flex">
+                                        <video class="flex-row midia">
+                                            <source src="video/videoChocolate.mp4" type="video/mp4">
+                                        </video>
+                            
+                                        <div class="flex-row botoes">
+                                            <button class="bt" onclick="playPause(0)">
+                            
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-play play" viewBox="0 0 16 16">
+                                                    <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+                                                </svg>
+                            
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-pause pause" viewBox="0 0 16 16">
+                                                    <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+                                                </svg>
+                            
+                                            </button>
+                            
+                                            <button class="bt" onclick="volume(0, +0.1)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-volume-up" viewBox="0 0 16 16">
+                                                    <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+                                                    <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+                                                    <path d="M10.025 8a4.486 4.486 0 0 1-1.318 3.182L8 10.475A3.489 3.489 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.486 4.486 0 0 1 10.025 8zM7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12V4zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11z"/>
+                                                  </svg>
+                                            </button>
+                            
+                                            <button class="bt" onclick="volume(0, -0.1)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-volume-down" viewBox="0 0 16 16">
+                                                    <path d="M9 4a.5.5 0 0 0-.812-.39L5.825 5.5H3.5A.5.5 0 0 0 3 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 9 12V4zM6.312 6.39 8 5.04v5.92L6.312 9.61A.5.5 0 0 0 6 9.5H4v-3h2a.5.5 0 0 0 .312-.11zM12.025 8a4.486 4.486 0 0 1-1.318 3.182L10 10.475A3.489 3.489 0 0 0 11.025 8 3.49 3.49 0 0 0 10 5.525l.707-.707A4.486 4.486 0 0 1 12.025 8z"/>
+                                                  </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                        Fechar
+                                    </button>
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                    </div>
+
+                </div>
+
+                <div class="bloco col-md-4">
+                    <h2 class="home-section-titulo">Vídeo 2</h2>
+
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exemplo2">
+                        Assistir vídeo
+                    </button>
+
+                    <div class="modal fade" id="exemplo2" aria-labelledby="label1" aria-hidden="true">
+
+                        <!--AQUI ESCOLHE O TAMANHO DA MODAL -->
+                        <div class="modal-dialog">
+                
+                            <div class="modal-content">
+                
+                                <div class="modal-header">
+                
+                                    <h4 class="modal-title" id="label1">Preparação da focaccia de alecrim</h4>
+                    
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    
+                                </div>
+                
+                                <div class="modal-body">
+                                    <div class="container d-flex">
+                                        <video class="flex-row midia">
+                                            <source src="video/videoAlecrim.mp4" type="video/mp4">
+                                        </video>
+                            
+                                        <div class="flex-row botoes">
+                                            <button class="bt" onclick="playPause(1)">
+                            
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-play play" viewBox="0 0 16 16">
+                                                    <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+                                                </svg>
+                            
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-pause pause" viewBox="0 0 16 16">
+                                                    <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+                                                </svg>
+                            
+                                            </button>
+                            
+                                            <button class="bt" onclick="volume(1, +0.1)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-volume-up" viewBox="0 0 16 16">
+                                                    <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+                                                    <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+                                                    <path d="M10.025 8a4.486 4.486 0 0 1-1.318 3.182L8 10.475A3.489 3.489 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.486 4.486 0 0 1 10.025 8zM7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12V4zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11z"/>
+                                                  </svg>
+                                            </button>
+                            
+                                            <button class="bt" onclick="volume(1, -0.1)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-volume-down" viewBox="0 0 16 16">
+                                                    <path d="M9 4a.5.5 0 0 0-.812-.39L5.825 5.5H3.5A.5.5 0 0 0 3 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 9 12V4zM6.312 6.39 8 5.04v5.92L6.312 9.61A.5.5 0 0 0 6 9.5H4v-3h2a.5.5 0 0 0 .312-.11zM12.025 8a4.486 4.486 0 0 1-1.318 3.182L10 10.475A3.489 3.489 0 0 0 11.025 8 3.49 3.49 0 0 0 10 5.525l.707-.707A4.486 4.486 0 0 1 12.025 8z"/>
+                                                  </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                        Fechar
+                                    </button>
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                    </div>
+
+                </div>
+
+                <div class="bloco col-md-4">
+                    <h2 class="home-section-titulo">Vídeo 3</h2>
+
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exemplo3">
+                        Assistir vídeo
+                    </button>
+
+                    <div class="modal fade" id="exemplo3" aria-labelledby="label1" aria-hidden="true">
+
+                        <!--AQUI ESCOLHE O TAMANHO DA MODAL -->
+                        <div class="modal-dialog">
+                
+                            <div class="modal-content">
+                
+                                <div class="modal-header">
+                
+                                    <h4 class="modal-title" id="label1">Preparação e embalagem da focaccia</h4>
+                    
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    
+                                </div>
+                
+                                <div class="modal-body">
+                                    <div class="container d-flex">
+                                        <video class="flex-row midia">
+                                            <source src="video/AlleCogumelos.mp4" type="video/mp4">
+                                        </video>
+                            
+                                        <div class="flex-row botoes">
+                                            <button class="bt" onclick="playPause(2)">
+                            
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-play play" viewBox="0 0 16 16">
+                                                    <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+                                                </svg>
+                            
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-pause pause" viewBox="0 0 16 16">
+                                                    <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+                                                </svg>
+                            
+                                            </button>
+                            
+                                            <button class="bt" onclick="volume(2, +0.1)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-volume-up" viewBox="0 0 16 16">
+                                                    <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+                                                    <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+                                                    <path d="M10.025 8a4.486 4.486 0 0 1-1.318 3.182L8 10.475A3.489 3.489 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.486 4.486 0 0 1 10.025 8zM7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12V4zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11z"/>
+                                                  </svg>
+                                            </button>
+                            
+                                            <button class="bt" onclick="volume(2, -0.1)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-volume-down" viewBox="0 0 16 16">
+                                                    <path d="M9 4a.5.5 0 0 0-.812-.39L5.825 5.5H3.5A.5.5 0 0 0 3 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 9 12V4zM6.312 6.39 8 5.04v5.92L6.312 9.61A.5.5 0 0 0 6 9.5H4v-3h2a.5.5 0 0 0 .312-.11zM12.025 8a4.486 4.486 0 0 1-1.318 3.182L10 10.475A3.489 3.489 0 0 0 11.025 8 3.49 3.49 0 0 0 10 5.525l.707-.707A4.486 4.486 0 0 1 12.025 8z"/>
+                                                  </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                        Fechar
+                                    </button>
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <div class="row">
+
+              <div class="col-md-6">
+                <p class="footer-texto">&copy;Copyright - Todos os direitos reservados</p>
+              </div>
+
+              <div class="col-md-6">
+                <p class="footer-texto">Feito por Caio Araujo da Luz</p>
+              </div>
+
+            </div>
+        </footer>
+    </div>
+  
+
+
+    
+
+
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+https://github.com/carlinojr/STEP18WPS3
+
+Repositório com os arquivos de aula
+
+DEVER DE CASA
+====
+Crie uma página de exibição de vídeos.
+cada vídeo deverá ser colocado em uma modal na tela.
+os vídeos deverão ter controles personlizados.
