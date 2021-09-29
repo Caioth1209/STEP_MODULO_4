@@ -1,0 +1,9 @@
+DEVER DE CASA
+Faça um site de uma oficina mecânica.
+Deve ter layout para celular e desktop.
+FAÇA A RESPONSIVIDADE MANUALMENTE (sem BS, materialize, etc).
+======= mínimo -> 7pt
+
+
+https://github.com/carlinojr/STEP18WPS3
+códigos usados em aula
