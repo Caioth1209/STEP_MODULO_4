@@ -7,5 +7,5 @@ Rodapé -> Reduza o valor do plano em até 40%
 https://amil.rio.br/
 ---
 
-Colocar um caroussel  de imagens após os blocos de ícones (Preços e condições imperdíveis)
+Colocar um caroussel  de imagens antes do footer
 -Esse caroussel deve sumir na apresentação para celulares.
