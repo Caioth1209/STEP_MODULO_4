@@ -1,8 +1,12 @@
+var i = 2;
 
 setInterval(() => {
 
-    var i = 1;
-
-
+    if (i == 4) {
+        i = 1;
+    }
     
-}, 5000, i++);
+    document.getElementById("back-img").style.backgroundImage = 'url("../img/fml2.jpeg")';
+
+    i++;
+}, 1000);

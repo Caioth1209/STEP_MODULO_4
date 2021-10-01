@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amil</title>
 
-    <link rel="stylesheet" href="css/estilo.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/fontawesome-free-5.15.4-web/css/all.css">
 
-
+    <link rel="stylesheet" href="css/estilo.css">
 
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="AMIL"></a>
+        <a class="navbar-brand" href="index.html">
+            <img src="img/logo.png" alt="AMIL">
+        </a>
 
         <div id="navbarNav">
           <ul class="navbar-nav">
@@ -39,15 +40,15 @@
       </nav>
 
     <section>
-        <div class="back-img">
+        <div id="back-img">
 
-            <div class="d-flex justify-content-around p-5 container">
+            <div class="container d-flex justify-content-around p-5">
                 <div class="p-5 texto">
                     <h1>REDUZIMOS O VALOR DO SEU <br> PLANO DE SAÚDE</h1>
                     <p>* Plano adesão e empresarial de acordo com o plano e número de vidas.</p>
                 </div>
         
-                <div class="p-5">
+                <div class="p-5 bl">
                     <form class="form">
                         <input class="input" id="input_nome" type="text" placeholder="Nome">
                         <input class="input" type="email" placeholder="E-mail">
@@ -111,6 +112,33 @@
             </div>
         </div>
     </section>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/fml3.jpeg" class="d-block w-100" alt="familia">
+          </div>
+          <div class="carousel-item">
+            <img src="img/fml2.jpeg" class="d-block w-100" alt="familia">
+          </div>
+          <div class="carousel-item">
+            <img src="img/fml1.jpeg" class="d-block w-100" alt="familia">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
     <footer class="footer">
         <p class="footer-brand">REDUZA O VALOR DO PLANO EM ATÉ 40%</p>
