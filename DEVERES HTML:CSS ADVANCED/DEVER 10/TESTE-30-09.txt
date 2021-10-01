@@ -1,0 +1,11 @@
+Rodapé -> Reduza o valor do plano em até 40%
+
+--- MELHORAR O NAVBAR (atenção á identidade visual do site)
+---DESAFIO (PONTO EXTRA) a imagem do banner principal (onde está o formulário) deverá ser trocada a cada 5 segundos. Pode buscar imagens do mesmo tema na internet
+
+---
+https://amil.rio.br/
+---
+
+Colocar um caroussel  de imagens após os blocos de ícones (Preços e condições imperdíveis)
+-Esse caroussel deve sumir na apresentação para celulares.
