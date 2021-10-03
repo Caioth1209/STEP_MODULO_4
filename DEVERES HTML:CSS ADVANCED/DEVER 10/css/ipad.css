@@ -30,6 +30,7 @@
 .nav-link{
     color: rgb(15, 42, 127) !important;
     text-decoration: none;
+    font-size: large;
 }
 
 .nav-link:hover{
@@ -52,10 +53,21 @@
 
 #back-img{
     width: 100%;
-    height: 100%;
-    background: url("../img/fml1.jpeg");
-    background-size: cover;
-    top: 0px;
+    height: 480px;
+    position: relative;
+}
+
+#indicador_carousel_1{
+    width: 100%;
+    position: absolute;
+}
+
+.carousel-item{
+    height: 480px;
+}
+
+.principal{
+    position: absolute;   
 }
 
 .d-flex{
@@ -63,8 +75,9 @@
 }
 
 .container{
+    max-width: 960px !important;
     text-align: center !important;
-    align-items: center;
+    align-items: center !important;
 }
 
 .texto{
@@ -77,6 +90,7 @@
     width: 100%;
     letter-spacing: 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-weight: 700;
 }
 
 .texto > p{
@@ -179,7 +193,7 @@
     font-size: 20px;
 }
 
-.carousel{
+.c2{
     display: none;
 }
 

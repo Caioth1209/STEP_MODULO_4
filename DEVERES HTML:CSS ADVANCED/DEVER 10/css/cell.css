@@ -30,6 +30,7 @@
 .nav-link{
     color: rgb(15, 42, 127) !important;
     text-decoration: none;
+    font-size: large;
 }
 
 .nav-link:hover{
@@ -53,10 +54,22 @@
 
 #back-img{
     width: 100%;
-    height: 100%;
-    background: url("../img/fml1.jpeg");
-    background-size: cover;
-    top: 0px;
+    height: 600px;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+#indicador_carousel_1{
+    width: 100%;
+    position: absolute;
+}
+
+.w-100{
+    width: 900px !important;
+}
+
+.principal{
+    position: absolute;   
 }
 
 .d-flex{
@@ -64,12 +77,13 @@
 }
 
 .container{
+    max-width: 960px !important;
     text-align: center !important;
     align-items: center;
 }
 
 .texto{
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .texto > h1{
@@ -78,6 +92,7 @@
     width: 100%;
     letter-spacing: 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-weight: 700;
 }
 
 .texto > p{
@@ -88,7 +103,7 @@
 }
 
 .p-5{
-    padding: 1rem !important;
+    padding: 0.8rem !important;
 }
 
 .form{
@@ -136,6 +151,7 @@
 #seguro{
     color: #e67e22;
     font-size: 12px;
+    margin-bottom: 10px;
 }
 
 #espaco{
@@ -175,7 +191,7 @@
     font-size: 20px;
 }
 
-.carousel{
+.c2{
     display: none;
 }
 

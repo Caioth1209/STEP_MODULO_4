@@ -40,31 +40,47 @@
       </nav>
 
     <section>
-        <div id="back-img">
+        <div id="back-img"> <!--div principal relative, back carousel absolut, bloco por cima do carousel absolut-->
 
-            <div class="container d-flex justify-content-around p-5">
-                <div class="p-5 texto">
-                    <h1>REDUZIMOS O VALOR DO SEU <br> PLANO DE SAÚDE</h1>
-                    <p>* Plano adesão e empresarial de acordo com o plano e número de vidas.</p>
-                </div>
-        
-                <div class="p-5 bl">
-                    <form class="form">
-                        <input class="input" id="input_nome" type="text" placeholder="Nome">
-                        <input class="input" type="email" placeholder="E-mail">
-                        <input class="input" type="tel" placeholder="Telefone">
-                        <input class="input" type="text" placeholder="Número de Vidas">
-        
-                        <button class="bt">SIMULAR AGORA</button>
+          <div id="indicador_carousel_1" class="carousel slide" data-bs-ride="carousel">
 
-                        <p id="seguro">
-                            <img src="img/cadeado.png">
-                            Site seguro com dados criptografados.
-                        </p>
-
-                    </form>
-                </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/fml1.webp" class="d-block w-100" alt="familia">
+              </div>
+              <div class="carousel-item">
+                <img src="img/fml2.jpeg" class="d-block w-100" alt="familia">
+              </div>
+              <div class="carousel-item">
+                <img src="img/fml3.jpg" class="d-block w-100" alt="familia">
+              </div>
             </div>
+
+          </div>
+
+          <div class="principal container d-flex justify-content-around p-5">
+              <div class="p-5 texto">
+                  <h1>REDUZIMOS O VALOR DO SEU <br> PLANO DE SAÚDE</h1>
+                  <p>* Plano adesão e empresarial de acordo com o plano e número de vidas.</p>
+               </div>
+        
+              <div class="p-5 bl">
+                  <form class="form">
+                      <input class="input" id="input_nome" type="text" placeholder="Nome">
+                      <input class="input" type="email" placeholder="E-mail">
+                      <input class="input" type="tel" placeholder="Telefone">
+                      <input class="input" type="text" placeholder="Número de Vidas">
+        
+                      <button class="bt">SIMULAR AGORA</button>
+
+                      <p id="seguro">
+                          <img src="img/cadeado.png">
+                          Site seguro com dados criptografados.
+                      </p>
+
+                  </form>
+              </div>
+          </div>
         </div>
 
         <div id="espaco">
@@ -113,28 +129,28 @@
         </div>
     </section>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div id="indicador_carousel_2" class="carousel c2 slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#indicador_carousel_2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#indicador_carousel_2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#indicador_carousel_2" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img/fml3.jpeg" class="d-block w-100" alt="familia">
+            <img src="img/fml3.jpg" class="d-block w-100" alt="familia">
           </div>
           <div class="carousel-item">
             <img src="img/fml2.jpeg" class="d-block w-100" alt="familia">
           </div>
           <div class="carousel-item">
-            <img src="img/fml1.jpeg" class="d-block w-100" alt="familia">
+            <img src="img/fml1.webp" class="d-block w-100" alt="familia">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#indicador_carousel_2" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#indicador_carousel_2" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -144,7 +160,6 @@
         <p class="footer-brand">REDUZA O VALOR DO PLANO EM ATÉ 40%</p>
     </footer>
     
-    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 </body>
