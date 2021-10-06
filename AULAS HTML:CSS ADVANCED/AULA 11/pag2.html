@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 2</title>
+</head>
+<body>
+
+    <form>
+
+        <div>
+            <label>Nome</label>
+            <input id="nome" type="text">
+        </div>
+
+        <div>
+            <label>Idade</label>
+            <input id="idade" type="number">
+        </div>
+
+        <div>
+            <label>Sexo</label>
+            <input id="sexo" type="text">
+        </div>
+
+        <input type="submit" value="CADASTRAR" onclick="cadastrar()">
+    </form>
+
+    <hr>
+
+    <div id="cadastrados"></div>
+
+</body>
+<script>
+
+    class Pessoa{
+        nome;
+        idade;
+        sexo;
+    }
+
+    var pessoas = [];
+
+    function cadastrar(){
+
+        let p1 = new Pessoa();
+
+        p1.nome = document.getElementById("nome").value;
+
+        p1.idade = document.getElementById("idade").value;
+
+        p1.sexo = document.getElementById("sexo").value;
+
+        pessoas.push(p1);
+
+        localStorage.setItem("pessoas", JSON.stringify(pessoas));
+    }
+
+    if (localStorage.getItem("pessoas") != null) {
+
+        pessoas = JSON.parse(localStorage.getItem("pessoas"));
+
+        let texto = "";
+
+        for(var i = 0; i < pessoas.length; i++){
+            texto += "Nome: " + pessoas[i].nome + "<br/>" +
+                    "Idade: " + pessoas[i].idade + "<br/>" +
+                     "Sexo: " + pessoas[i].sexo + "<br/> <hr/>";
+        }
+
+        document.getElementById("cadastrados").innerHTML = texto;
+    }
+
+    /*let outraVariavel = sessionStorage.getItem('nome');
+
+    document.writeln("Olá, " + outraVariavel);
+
+    let p1 = JSON.parse(sessionStorage.getItem("pessoa1"));
+
+    let p2 = sessionStorage.getItem("pessoa2");
+
+    console.log(p1);
+
+    console.log(p2);
+    
+    sessionStorage.clear();*/
+
+</script>
+</html>
