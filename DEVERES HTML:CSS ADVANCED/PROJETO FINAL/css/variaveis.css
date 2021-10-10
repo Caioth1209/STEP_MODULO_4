@@ -1,0 +1,16 @@
+:root{
+    --bg-color: #FFFF;
+
+    --logo-titulo-fontsize: 23pt;
+    --logo-titulo-fontfamily: sans-serif;
+
+    --logo-subtitulo-fontsize: 8pt;
+    --logo-subtitulo-fontfamily: sans-serif;
+
+    --reservar-fontfamily: Verdana, sans-serif;
+
+    --nav-bg-color: #F6F4F0;
+
+    --nav-link-fontfamily: Arial, Helvetica, sans-serif;
+    --nav-link-fontsize: 10pt;
+}

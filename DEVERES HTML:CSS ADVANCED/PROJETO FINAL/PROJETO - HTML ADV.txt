@@ -1,8 +1,3 @@
-
-MEU TEMA ESCOLHIDO: ---->>>>> HOTEL <<<<<----
-
-
-
 Projeto Final HTML ADV -> ENTREGA 4/11
 
 --------Requisitos Mínimos
@@ -18,18 +13,7 @@ Projeto Final HTML ADV -> ENTREGA 4/11
 --Galeria de fotos (ex: https://mdbootstrap.com/docs/standard/extended/gallery/)
 -- 1 formulário
 
-==============Temas Sugeridos:
--Loja de Carros:
-    -Deve ser possível ver os carros à venda
-    -enviar mensagem para agendar visita/test drive 
-    -o vendedor pode logar e ver os agendamentos -- LOCAL STORAGE
-
 -Hotel:
     -Deve ser possível conhecer os quartos e as instalações do Hotel
     -o cliente pode fazer uma pré-reserva online
     -o funcionário pode ver as pré reservas
-
--Centro médico:
-    -Deve ser possível conhecer os quartos e as instalações do Hotel
-    -o cliente pode fazer um agendamento online
-    -o funcionário pode ver os agendamentos

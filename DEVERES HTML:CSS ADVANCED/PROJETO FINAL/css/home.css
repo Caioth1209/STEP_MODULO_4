@@ -1,0 +1,109 @@
+@import url('variaveis.css');
+
+/*
+("cell.css")(max-width: 720px);
+("ipad.css")(min-width: 721px);
+("desk.css")(min-width: 1024px);
+*/
+
+@media screen and (min-width: 1024px){ /* desktop */
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .header{
+        background-color: var(--bg-color);
+        width: 100%;
+        height: 130px;
+        padding: 40px !important;
+    }
+
+    #logo{
+        text-decoration: none;
+        outline: 0;
+        color: black;
+        text-align: center;
+    }
+
+    #logo_titulo{
+        font-size: var(--logo-titulo-fontsize);
+        display: block;
+        font-family: var(--logo-titulo-fontfamily);
+        font-weight: 600;
+        margin-bottom: -10px;
+        letter-spacing: 2px;
+    }
+
+    #logo_subtitulo{
+        font-size: var(--logo-subtitulo-fontsize);
+        font-family: var(--logo-subtitulo-fontfamily);
+        letter-spacing: 0.6px;
+    }
+
+    #reservar{
+        border-radius: 0;
+        background-color: rgb(227, 227, 228);
+        text-align: center;
+        height: 50px;
+        width: 140px;
+        font-size: 10pt;
+        border: 1px solid white;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        font-family: var(--reservar-fontfamily);
+    }
+
+    #reservar:hover{
+        transition: 0.9s;
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
+    }
+
+    .navbar{
+        border-top: .1rem solid #d9d9d9;
+        border-bottom: .1rem solid #d9d9d9;
+    }
+
+    .navbar-bg-color{
+        background-color: var(--nav-bg-color);
+    }
+
+    .navbar-nav{
+        margin: auto;
+    }
+
+    .nav-link{
+        color: black !important;
+        padding: 0;
+        margin-right: 40px;
+        letter-spacing: 3px !important;
+        font-family: var(--nav-link-fontfamily);
+        font-size: var(--nav-link-fontsize);
+    }
+
+    .nav-link:hover{
+        font-weight: bold;
+    }
+
+    #carousel_1{
+        width: 100%;
+    }
+
+    .carousel-item{
+        height: 600px !important;
+    }
+
+    .bloco{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 50px !important;
+        border: 1px solid rgb(41, 41, 41);
+    }
+
+    .bloco-img > img{
+        width: 500px;
+        height: 500px;
+    }
+}
