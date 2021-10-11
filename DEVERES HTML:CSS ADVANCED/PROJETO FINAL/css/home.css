@@ -1,12 +1,13 @@
 @import url('variaveis.css');
 
 /*
-("cell.css")(max-width: 720px);
-("ipad.css")(min-width: 721px);
+("cell.css")(max-width: 766px);
+("ipad.css")(min-width: 767px) and (max-width: 1023px);
 ("desk.css")(min-width: 1024px);
 */
 
 @media screen and (min-width: 1024px){ /* desktop */
+   
     
     *{
         margin: 0;
@@ -87,8 +88,17 @@
         font-weight: bold;
     }
 
-    #carousel_1{
-        width: 100%;
+    #myCarousel .carousel-indicators {
+        position: static;
+        margin-top:20px;
+    }
+      
+    #myCarousel .carousel-indicators > li {
+        width: 140px;
+    }
+      
+    #myCarousel .carousel-indicators li img {
+        display: block;
     }
 
     .carousel-item{
@@ -97,7 +107,7 @@
 
     .bloco-acomodacoes{
         width: 1100px !important;
-        margin-top: 50px;
+        margin-top: 120px;
         margin-right: 50px;
         padding: 50px !important;
     }
@@ -109,12 +119,14 @@
     .bloco-acomodacoes-img > img{
         width: 700px;
         height: 500px;
+        border-radius: 20px;
     }
 
     .bloco-acomodacoes-texto{
         position: relative;
         width: 400px;
         height: 350px;
+        border-radius: 20px;
         margin: 30px 100px 0 530px;
         background-color: white;
         padding: 40px;
@@ -142,6 +154,279 @@
     .bloco-acomodacoes-texto > a{
         color: black;
         font-size: 11pt;
+        text-decoration: underline;
+    }
+
+    .bloco-acomodacoes-texto > a:hover{
+        transition: 0.8s;
+        color: black;
+        opacity: 0.5;
+    }
+
+    .bloco-spa{
+        margin-bottom: 100px !important;
+        margin-top: 250px !important;
+        border: 1px solid orange;
+        border-radius: 100px;
+        height: 500px;
+        width: 1200px !important;
+    }
+
+    .bloco-spa-img{
+        margin: -50px 0 0 150px;
+    }
+
+    .bloco-spa-img > img{
+        width: 400px;
+        height: 600px;
+        border-radius: 20px;
+    }
+
+    .bloco-spa-texto{
+       margin: 0 40px 0 10px;
+    }
+
+    .bloco-spa-texto > h1{
+        text-align: center;
+        font-weight: 400;
+        font-size: 24pt;
+        font-family: var(--fontfamily);
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    .bloco-spa-texto > div{
+        border-radius: 20px;
+        padding: 40px;
+        border: 1px solid white;
+        box-shadow: 2px 2px 5px rgb(212, 206, 202);
+    }
+
+    .bloco-spa-texto > div > h2{
+        text-align: center;
+        font-weight: 500;
+        font-size: 19pt;
+        text-decoration: wavy;
+        font-family: serif;
+    }
+
+    .bloco-spa-texto > div > p{
+        padding: 10px;
+        font-weight: 100;
+        font-size: 11pt;
+        font-family: var(--fontfamily);
+    }
+
+    .bloco-spa-texto > div > a{
+        color: black;
+        font-size: 11pt;
+        text-decoration: underline;
+    }
+
+    .bloco-spa-texto > div > a:hover{
+        transition: 0.8s;
+        color: black;
+        opacity: 0.5;
+    }
+
+    .footer{
+        margin: auto;
+        border-top: 1px solid rgb(200, 198, 198);
+        margin-top: 150px;
+        padding: 45px;
+    }
+
+    .direitos{
+        text-align: left;
+    }
+
+    .direitos > p{
+        font-weight: 100;
+        font-size: 10pt;
+        margin-top: 40px;
+    }
+
+    .fale-conosco{
+        padding-top: 20px;
+    }
+
+    .fale-conosco > h3{
+        margin-left: 180px;
+        text-align: center;
+        font-size: 12pt;
+        font-family: var(--fontfamily);
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: left;
+        letter-spacing: 2px;
+    }
+
+    .fale-conosco-texto{
+        margin-top: 15px;
+        margin-left: 180px;
+        text-align: left;
+        font-size: 10pt;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+    }
+
+    .fale-conosco-texto > p > b{
+        font-size: 11pt;
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){ /* ipad */
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .header{
+        background-color: white;
+        width: 100%;
+        height: 130px;
+        padding: 40px !important;
+    }
+
+    #logo{
+        text-decoration: none;
+        outline: 0;
+        color: black;
+        text-align: center;
+    }
+
+    #logo_titulo{
+        font-size: var(--logo-titulo-fontsize);
+        display: block;
+        font-family: var(--fontfamily);
+        font-weight: 600;
+        margin-bottom: -10px;
+        letter-spacing: 2px;
+    }
+
+    #logo_subtitulo{
+        font-size: var(--logo-subtitulo-fontsize);
+        font-family: var(--fontfamily);
+        letter-spacing: 0.6px;
+    }
+
+    #reservar{
+        border-radius: 0;
+        background-color: rgb(227, 227, 228);
+        text-align: center;
+        height: 50px;
+        width: 140px;
+        border: 1px solid white;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        font-size: var(--reservar-fontsize);
+        font-family: var(--reservar-fontfamily);
+    }
+
+    #reservar:hover{
+        transition: 0.9s;
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
+    }
+
+    .navbar-toggler{
+        margin-bottom: 5px;
+    }
+
+    .navbar{
+        border-top: .1rem solid #d9d9d9;
+        border-bottom: .1rem solid #d9d9d9;
+    }
+
+    .navbar-bg-color{
+        background-color: var(--nav-bg-color);
+    }
+
+    .navbar-nav{
+        margin: auto;
+    }
+
+    .nav-link{
+        color: black !important;
+        padding: 0;
+        margin-right: 40px;
+        letter-spacing: 3px !important;
+        font-family: var(--fontfamily);
+        font-size: var(--nav-link-fontsize);
+    }
+
+    .nav-link:hover{
+        font-weight: bold;
+    }
+
+    #myCarousel .carousel-indicators {
+        position: static;
+        margin-top: 10px;
+    }
+      
+    #myCarousel .carousel-indicators > li {
+        width: 140px;
+    }
+      
+    #myCarousel .carousel-indicators li img {
+        display: block;
+    }
+
+    .carousel-item{
+        height: 400px !important;
+    }
+
+    .bloco-acomodacoes{
+        width: 700px !important;
+        margin-top: 250px;
+        margin-right: 100px;
+        padding: 50px !important;
+    }
+
+    .bloco-acomodacoes-img{
+        position: absolute;
+    }
+
+    .bloco-acomodacoes-img > img{
+        width: 580px;
+        height: 400px;
+        border-radius: 20px;
+    }
+
+    .bloco-acomodacoes-texto{
+        position: relative;
+        width: 500px;
+        height: 260px;
+        border-radius: 20px;
+        margin: -180px 0px 0px 50px;
+        background-color: white;
+        padding: 30px;
+        border: 1px solid white;
+        box-shadow: 2px 2px 5px rgb(127, 101, 83);
+    }
+
+    .bloco-acomodacoes-texto > h2{
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 100;
+        letter-spacing: 2px;
+        font-size: 12pt;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .bloco-acomodacoes-texto > p{
+        font-family: sans-serif;
+        font-weight: 100;
+        letter-spacing: 1px;
+        font-size: 9.5pt;
+    }
+
+    .bloco-acomodacoes-texto > a{
+        color: black;
+        font-size: 9.5pt;
+        text-decoration: underline;
     }
 
     .bloco-acomodacoes-texto > a:hover{
@@ -169,7 +454,7 @@
     }
 
     .bloco-spa-texto{
-       margin: 0 40px 0 40px;
+       margin: 0 40px 0 10px;
     }
 
     .bloco-spa-texto > h1{
@@ -205,6 +490,7 @@
     .bloco-spa-texto > div > a{
         color: black;
         font-size: 11pt;
+        text-decoration: underline;
     }
 
     .bloco-spa-texto > div > a:hover{
@@ -235,18 +521,19 @@
     }
 
     .fale-conosco > h3{
-        margin-left: 130px;
+        margin-left: 180px;
         text-align: center;
         font-size: 12pt;
         font-family: var(--fontfamily);
         font-weight: 400;
         text-transform: uppercase;
         text-align: left;
+        letter-spacing: 2px;
     }
 
     .fale-conosco-texto{
         margin-top: 15px;
-        margin-left: 130px;
+        margin-left: 180px;
         text-align: left;
         font-size: 10pt;
         font-family: var(--fontfamily);
