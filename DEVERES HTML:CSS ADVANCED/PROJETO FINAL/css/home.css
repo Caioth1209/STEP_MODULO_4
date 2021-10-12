@@ -1,8 +1,8 @@
 @import url('variaveis.css');
 
 /*
-("cell.css")(max-width: 766px);
-("ipad.css")(min-width: 767px) and (max-width: 1023px);
+("cell.css")(max-width: 767px);
+("ipad.css")(min-width: 768px) and (max-width: 1023px);
 ("desk.css")(min-width: 1024px);
 */
 
@@ -105,6 +105,53 @@
         height: 600px !important;
     }
 
+    .sobre{
+        width: 1000px !important;
+        height: 500px;
+        margin: 200px 0 100px 0;
+        box-shadow: 2px 2px 50px whitesmoke;
+        padding: 10px;
+    }
+
+    .sobre-texto{
+       margin: auto;
+       width: 70%; 
+       height: 350px;
+       margin-top: 70px;
+       padding: 30px;
+       border: 2px solid orange;
+       box-shadow: 1px 1px 20px sienna;
+    }
+    
+    .sobre-texto > h2{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 20pt;
+        width: 60%;
+        margin: auto;
+    }
+
+    .sobre-texto > h3{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 14pt;
+        width: 60%;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    .sobre-texto > p{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 12pt;
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
+    }
+
     .bloco-acomodacoes{
         width: 1100px !important;
         margin-top: 120px;
@@ -164,66 +211,85 @@
     }
 
     .bloco-spa{
-        margin-bottom: 100px !important;
-        margin-top: 250px !important;
-        border: 1px solid orange;
-        border-radius: 100px;
-        height: 500px;
-        width: 1200px !important;
+        margin-top: 200px;
+    }
+
+    .bloco-spa-header{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .bloco-spa-header > h2{
+        letter-spacing: 2px;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 24pt;
+    }
+
+    .bloco-spa-header > p{
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 10pt;
+        letter-spacing: 1px;
+    }
+
+    .bloco-spa-content{
+        position: relative;
+    }
+
+    .bloco-spa-back{
+        border: 2px solid orange;
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        height: 78%;
+    }
+
+    .bloco-spa-dentro{
+        position: relative;
+        width: 100%;
     }
 
     .bloco-spa-img{
-        margin: -50px 0 0 150px;
+        margin: 0 0 0 100px;
     }
 
     .bloco-spa-img > img{
         width: 400px;
-        height: 600px;
-        border-radius: 20px;
+        height: 500px;
     }
 
     .bloco-spa-texto{
-       margin: 0 40px 0 10px;
+        margin: auto;
+        width: 100%;
+        padding-left: 50px;
     }
 
-    .bloco-spa-texto > h1{
-        text-align: center;
-        font-weight: 400;
-        font-size: 24pt;
+    .spa-texto > h2{
+        text-align: left;
         font-family: var(--fontfamily);
-        margin-top: 30px;
-        margin-bottom: 50px;
+        font-weight: 100;
+        font-size: 17pt;
     }
 
-    .bloco-spa-texto > div{
-        border-radius: 20px;
-        padding: 40px;
-        border: 1px solid white;
-        box-shadow: 2px 2px 5px rgb(212, 206, 202);
-    }
-
-    .bloco-spa-texto > div > h2{
-        text-align: center;
-        font-weight: 500;
-        font-size: 19pt;
-        text-decoration: wavy;
-        font-family: serif;
-    }
-
-    .bloco-spa-texto > div > p{
-        padding: 10px;
+    .spa-texto > p{
+        text-align: left;
+        font-family: var(--fontfamily);
+        width: 80%;
         font-weight: 100;
         font-size: 11pt;
-        font-family: var(--fontfamily);
+        margin: 30px 0 0 0;
     }
 
-    .bloco-spa-texto > div > a{
+    .spa-texto > a{
         color: black;
-        font-size: 11pt;
+        font-size: 12pt;
         text-decoration: underline;
     }
 
-    .bloco-spa-texto > div > a:hover{
+    .spa-texto > a:hover{
         transition: 0.8s;
         color: black;
         opacity: 0.5;
@@ -377,6 +443,53 @@
         height: 400px !important;
     }
 
+    .sobre{
+        width: 1000px !important;
+        height: 500px;
+        margin: 200px 0 100px 0;
+        box-shadow: 2px 2px 50px whitesmoke;
+        padding: 10px;
+    }
+
+    .sobre-texto{
+       margin: auto;
+       width: 80%; 
+       height: 350px;
+       margin-top: 70px;
+       padding: 30px;
+       border: 2px solid orange;
+       box-shadow: 1px 1px 20px sienna;
+    }
+    
+    .sobre-texto > h2{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 18pt;
+        width: 60%;
+        margin: auto;
+    }
+
+    .sobre-texto > h3{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 13pt;
+        width: 60%;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    .sobre-texto > p{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 11pt;
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
+    }
+
     .bloco-acomodacoes{
         width: 700px !important;
         margin-top: 250px;
@@ -436,64 +549,85 @@
     }
 
     .bloco-spa{
-        margin-bottom: 100px !important;
-        margin-top: 250px !important;
-        border: 1px solid orange;
-        border-radius: 100px;
-        height: 500px;
-        width: 1200px !important;
+        margin-top: 350px;
     }
 
-    .bloco-spa-img{
-        margin: -50px 0 0 150px;
-    }
-
-    .bloco-spa-img > img{
-        width: 400px;
-        height: 600px;
-    }
-
-    .bloco-spa-texto{
-       margin: 0 40px 0 10px;
-    }
-
-    .bloco-spa-texto > h1{
+    .bloco-spa-header{
         text-align: center;
-        font-weight: 400;
-        font-size: 24pt;
-        font-family: var(--fontfamily);
-        margin-top: 30px;
         margin-bottom: 50px;
     }
 
-    .bloco-spa-texto > div{
-        padding: 40px;
-        border: 1px solid white;
-        box-shadow: 2px 2px 5px rgb(212, 206, 202);
+    .bloco-spa-header > h2{
+        letter-spacing: 2px;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 22pt;
     }
 
-    .bloco-spa-texto > div > h2{
-        text-align: center;
-        font-weight: 500;
-        font-size: 19pt;
-        text-decoration: wavy;
-        font-family: serif;
+    .bloco-spa-header > p{
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 9pt;
+        letter-spacing: 1px;
     }
 
-    .bloco-spa-texto > div > p{
-        padding: 10px;
+    .bloco-spa-content{
+        position: relative;
+    }
+
+    .bloco-spa-back{
+        border: 2px solid orange;
+        position: absolute;
+        top: 10%;
+        width: 50%;
+        height: 78%;
+    }
+
+    .bloco-spa-dentro{
+        position: relative;
+        width: 100%;
+    }
+
+    .bloco-spa-img{
+        margin: 0 0 0 25px;
+    }
+
+    .bloco-spa-img > img{
+        width: 300px;
+        height: 400px;
+    }
+
+    .bloco-spa-texto{
+        margin: auto;
+        width: 100%;
+        padding-left: 100px;
+    }
+
+    .spa-texto > h2{
+        text-align: left;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 14pt;
+    }
+
+    .spa-texto > p{
+        text-align: left;
+        font-family: var(--fontfamily);
+        width: 80%;
         font-weight: 100;
         font-size: 11pt;
-        font-family: var(--fontfamily);
+        margin: 30px 0 0 0;
     }
 
-    .bloco-spa-texto > div > a{
+    .spa-texto > a{
         color: black;
-        font-size: 11pt;
+        font-size: 12pt;
         text-decoration: underline;
     }
 
-    .bloco-spa-texto > div > a:hover{
+    .spa-texto > a:hover{
         transition: 0.8s;
         color: black;
         opacity: 0.5;

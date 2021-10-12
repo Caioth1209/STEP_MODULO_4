@@ -1,5 +1,5 @@
 :root{
-    --fontfamily: sans-serif;
+    --fontfamily: Optima, sans-serif;
 
     --logo-titulo-fontsize: 23pt;
 
@@ -11,5 +11,5 @@
     --nav-bg-color: #F6F4F0;
 
     --nav-link-fontsize: 10pt;
-
+    
 }
