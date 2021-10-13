@@ -120,7 +120,6 @@
        margin-top: 70px;
        padding: 30px;
        border: 2px solid orange;
-       box-shadow: 1px 1px 20px sienna;
     }
     
     .sobre-texto > h2{
@@ -150,6 +149,10 @@
         width: 100%;
         margin: auto;
         margin-top: 30px;
+    }
+
+    .cell{
+        display: none;
     }
 
     .bloco-acomodacoes{
@@ -318,7 +321,7 @@
     }
 
     .fale-conosco > h3{
-        margin-left: 180px;
+        margin-left: 220px;
         text-align: center;
         font-size: 12pt;
         font-family: var(--fontfamily);
@@ -330,7 +333,7 @@
 
     .fale-conosco-texto{
         margin-top: 15px;
-        margin-left: 180px;
+        margin-left: 220px;
         text-align: left;
         font-size: 10pt;
         font-family: var(--fontfamily);
@@ -456,11 +459,9 @@
     .sobre-texto{
        margin: auto;
        width: 80%; 
-       height: 350px;
        margin-top: 70px;
        padding: 30px;
        border: 2px solid orange;
-       box-shadow: 1px 1px 20px sienna;
     }
     
     .sobre-texto > h2{
@@ -490,6 +491,10 @@
         width: 100%;
         margin: auto;
         margin-top: 30px;
+    }
+
+    .cell{
+        display: none;
     }
 
     .bloco-acomodacoes{
@@ -661,7 +666,7 @@
     .fale-conosco > h3{
         margin-left: 120px;
         text-align: center;
-        font-size: 11pt;
+        font-size: 10pt;
         font-family: var(--fontfamily);
         font-weight: 400;
         text-transform: uppercase;
@@ -673,14 +678,14 @@
         margin-top: 15px;
         margin-left: 120px;
         text-align: left;
-        font-size: 10pt;
+        font-size: 9pt;
         font-family: var(--fontfamily);
         font-weight: 100;
         width: 80%;
     }
 
     .fale-conosco-texto > p > b{
-        font-size: 11pt;
+        font-size: 10pt;
         font-weight: bold;
     }
 }
@@ -788,8 +793,6 @@
     }
 
     .sobre{
-        /*width: 350px !important;*/
-        height: 300px;
         margin: 100px 0 100px 0;
         box-shadow: 2px 2px 50px whitesmoke;
         padding: 5px;
@@ -798,7 +801,6 @@
     .sobre-texto{
        margin: auto;
        width: 90%; 
-       height: 240px;
        margin-top: 30px;
        padding: 20px;
        border: 2px solid orange;
@@ -830,54 +832,54 @@
         display: none;
     }
 
+    .off-cell{
+        display: none;
+    }
+
     .bloco-acomodacoes{
-        margin-top: 300px;
-        margin-right: 20px;
+        margin: auto;
+        margin-top: 120px;
+    }
+
+    .bloco-acomodacoes > h2{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        letter-spacing: 2px;
+        font-size: 13pt;
+        text-transform: uppercase;
+        margin-bottom: 15px;
     }
 
     .bloco-acomodacoes-img{
-        position: absolute;
         margin-right: 10px;
     }
 
     .bloco-acomodacoes-img > img{
         width: 100%;
-        height: 400px;
-        border-radius: 20px;
     }
 
     .bloco-acomodacoes-texto{
-        position: relative;
-        width: 400px;
-        height: 200px;
-        border-radius: 20px;
-        margin: -130px 0px 0px 50px;
+        width: 100%;
+        height: 250px;
         background-color: white;
-        padding: 30px;
-        border: 1px solid white;
-        box-shadow: 2px 2px 5px rgb(127, 101, 83);
-    }
-
-    .bloco-acomodacoes-texto > h2{
+        padding: 30px 10px 0 10px;
         text-align: center;
-        font-family: sans-serif;
-        font-weight: 100;
-        letter-spacing: 2px;
-        font-size: 12pt;
-        text-transform: uppercase;
-        margin-bottom: 15px;
     }
 
     .bloco-acomodacoes-texto > p{
-        font-family: sans-serif;
+        font-family: var(--fontfamily);
         font-weight: 100;
         letter-spacing: 1px;
-        font-size: 9.5pt;
+        font-size: 11pt;
+        text-align: left;
     }
 
     .bloco-acomodacoes-texto > a{
+        text-align: center;
         color: black;
-        font-size: 9.5pt;
+        font-family: var(--fontfamily);
+        font-size: 12pt;
         text-decoration: underline;
     }
 
@@ -888,7 +890,7 @@
     }
 
     .bloco-spa{
-        margin-top: 350px;
+        margin-top: 150px;
     }
 
     .bloco-spa-header{
@@ -921,7 +923,7 @@
         position: absolute;
         top: 10%;
         width: 100%;
-        height: 78%;
+        height: 50%;
     }
 
     .bloco-spa-dentro{
@@ -929,41 +931,42 @@
         width: 100%;
     }
 
-    .bloco-spa-img{
-        margin: 0 0 0 25px;
-    }
-
     .bloco-spa-img > img{
-        width: 300px;
-        height: 400px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;    
     }
 
-    .bloco-spa-texto{
-        margin: auto;
+    .spa-texto{
+        text-align: center;
+        margin-top: 30px;
         width: 100%;
-        padding-left: 50px;
     }
 
     .spa-texto > h2{
-        text-align: left;
+        text-align: center;
         font-family: var(--fontfamily);
         font-weight: 100;
-        font-size: 14pt;
+        font-size: 18pt;
     }
 
     .spa-texto > p{
         text-align: left;
         font-family: var(--fontfamily);
-        width: 80%;
+        width: 100%;
         font-weight: 100;
+        letter-spacing: 1px;
         font-size: 11pt;
-        margin: 30px 0 0 0;
+        padding: 5px;
+        margin: 30px 0 0 0px;
     }
 
     .spa-texto > a{
+        font-family: var(--fontfamily);
+        margin-top: 10px;
+        text-align: center;
         color: black;
-        font-size: 10pt;
-        margin-top: 30px;
+        font-size: 12pt;
         text-decoration: underline;
     }
 
@@ -976,12 +979,12 @@
     .footer{
         margin: auto;
         border-top: 1px solid rgb(200, 198, 198);
-        margin-top: 150px;
-        padding: 45px;
+        margin-top: 100px;
+        padding: 20px;
     }
 
     .direitos{
-        text-align: left;
+        text-align: center;
     }
 
     .direitos > p{
@@ -993,31 +996,30 @@
 
     .fale-conosco{
         padding-top: 20px;
+        width: 40%;
+        margin: auto;
     }
 
     .fale-conosco > h3{
-        margin-left: 120px;
         text-align: center;
-        font-size: 11pt;
+        font-size: 10pt;
         font-family: var(--fontfamily);
         font-weight: 400;
         text-transform: uppercase;
-        text-align: left;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
     }
 
     .fale-conosco-texto{
         margin-top: 15px;
-        margin-left: 120px;
         text-align: left;
-        font-size: 10pt;
+        font-size: 8pt;
         font-family: var(--fontfamily);
         font-weight: 100;
-        width: 80%;
     }
 
     .fale-conosco-texto > p > b{
-        font-size: 11pt;
+        font-size: 9pt;
         font-weight: bold;
+        display: block;
     }
 }
