@@ -89,7 +89,7 @@
     }
 
     .back-img{
-        background-image: url("../img/acomodacoes.jpg");
+        background-image: url("../img/piscina.jpg");
         height: 450px;
         background-size: cover;
         background-position: center center;
@@ -107,108 +107,89 @@
         letter-spacing: 2px;
     }
 
-    .texto-principal{
-        margin-top: 100px;
+    .bloco-spa{
+        margin-top: 200px;
     }
 
-    .texto-principal > h2{
-        font-family: var(--fontfamily);
-        font-size: 18pt;
+    .bloco-spa-header{
         text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .bloco-spa-header > h2{
         letter-spacing: 2px;
-    }
-
-    .texto-principal > p{
-        width: 60%;
-        text-align: center;
-        margin: auto;
-        margin-top: 30px;
-        font-size: 10pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
-    }
-
-    .texto-comodidades{
-        margin-top: 100px;
-    }
-
-    .texto-comodidades > h2{
-        font-family: var(--fontfamily);
-        font-size: 18pt;
-        text-align: center;
-        letter-spacing: 2px;
-    }
-
-    .comodidades{
-        width: 60%;
-        margin: 30px auto;
-        column-count: 2;
-        column-gap: 5rem;
-    }
-
-    .lista-comodidades{
-        text-align: left;
-        list-style-type: circle;
-    }
-
-    .lista-comodidades > li{
-        font-family: var(--fontfamily);
-        font-size: 11pt;
-        letter-spacing: 1px;
-        margin-top: 5px;
-    }
-
-    .quartos-content{
-        margin: 50px auto;
-        text-align: center;
-    }
-
-    .quartos-bloco{
-        width: 45%;
-        display: inline-block;
-        margin: 80px 10px 0 10px;
-    }
-
-
-    .quarto-img > img{
-        width: 100%;
-        height: 100%;
-    }
-
-    .quarto-texto{
-        background-color: white;
-        margin: -40px auto;
-        width: 95%;
-        position: relative;
-        padding: 50px;
-    }
-
-    .quarto-texto > h2{
-        font-family: var(--fontfamily);
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 12pt;
-        letter-spacing: 1px;
-        margin: auto;
-        margin-top: 30px;
-        width: 80%;
-    }
-
-    .quarto-texto > p{
         font-family: var(--fontfamily);
         font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 22pt;
+    }
+
+    .bloco-spa-header > p{
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        margin-bottom: 20px;
         font-size: 10pt;
-        letter-spacing: 2px;
-        margin: auto;
-        margin-top: 30px;
+        letter-spacing: 1px;
+    }
+
+    .bloco-spa-content{
+        position: relative;
+    }
+
+    .bloco-spa-back{
+        border: 2px solid orange;
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        height: 78%;
+    }
+
+    .bloco-spa-dentro{
+        position: relative;
         width: 100%;
     }
 
-    .linha{
+    .bloco-spa-img{
+        margin: 0 0 0 100px;
+    }
+
+    .bloco-spa-img > img{
+        width: 400px;
+        height: 500px;
+    }
+
+    .bloco-spa-texto{
+        margin: auto;
         width: 100%;
-        border-top: 1px solid rgb(119, 113, 113);
-        margin-top: -20px;
-        opacity: 0.4;
+        padding-left: 50px;
+    }
+
+    .spa-texto > h2{
+        text-align: left;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 17pt;
+    }
+
+    .spa-texto > p{
+        text-align: left;
+        font-family: var(--fontfamily);
+        width: 80%;
+        font-weight: 100;
+        font-size: 11pt;
+        margin: 30px 0 0 0;
+    }
+
+    .spa-texto > a{
+        color: black;
+        font-size: 11pt;
+        text-decoration: underline;
+    }
+
+    .spa-texto > a:hover{
+        transition: 0.8s;
+        color: black;
+        opacity: 0.5;
     }
 
     .footer{
@@ -353,7 +334,7 @@
     }
 
     .back-img{
-        background-image: url("../img/acomodacoes.jpg");
+        background-image: url("../img/piscina.jpg");
         height: 350px;
         background-size: cover;
         background-position: center center;
@@ -371,108 +352,90 @@
         letter-spacing: 2px;
     }
 
-    .texto-principal{
-        margin-top: 100px;
+    .bloco-spa{
+        margin-top: 350px;
     }
 
-    .texto-principal > h2{
-        font-family: var(--fontfamily);
-        font-size: 17pt;
+    .bloco-spa-header{
         text-align: center;
-        letter-spacing: 2px;
+        margin-bottom: 50px;
     }
 
-    .texto-principal > p{
-        width: 80%;
-        text-align: center;
-        margin: auto;
-        margin-top: 30px;
-        font-size: 10pt;
+    .bloco-spa-header > h2{
         letter-spacing: 2px;
         font-family: var(--fontfamily);
+        font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 22pt;
     }
 
-    .texto-comodidades{
-        margin-top: 100px;
-    }
-
-    .texto-comodidades > h2{
+    .bloco-spa-header > p{
         font-family: var(--fontfamily);
-        font-size: 18pt;
-        text-align: center;
-        letter-spacing: 2px;
-    }
-
-    .comodidades{
-        width: 80%;
-        margin: 30px auto;
-        column-count: 2;
-        column-gap: 5rem;
-    }
-
-    .lista-comodidades{
-        text-align: left;
-        list-style-type: circle;
-    }
-
-    .lista-comodidades > li{
-        font-family: var(--fontfamily);
-        font-size: 10pt;
+        font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 9pt;
         letter-spacing: 1px;
-        margin-top: 5px;
     }
 
-    .quartos-content{
-        margin: 30px auto;
-        text-align: center;
+    .bloco-spa-content{
+        position: relative;
     }
 
-    .quartos-bloco{
+    .bloco-spa-back{
+        border: 2px solid orange;
+        position: absolute;
+        top: 10%;
         width: 100%;
-        display: inline-block;
-        margin: 80px 0px 0 0px;
+        height: 78%;
     }
 
-
-    .quarto-img > img{
+    .bloco-spa-dentro{
+        position: relative;
         width: 100%;
+    }
+
+    .bloco-spa-img{
+        margin: 0 0 0 25px;
+    }
+
+    .bloco-spa-img > img{
+        width: 300px;
         height: 400px;
     }
 
-    .quarto-texto{
-        background-color: white;
-        margin: -40px auto;
-        width: 95%;
-        position: relative;
-        padding: 50px;
-    }
-
-    .quarto-texto > h2{
-        font-family: var(--fontfamily);
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 12pt;
-        letter-spacing: 1px;
+    .bloco-spa-texto{
         margin: auto;
-        margin-top: 30px;
-        width: 80%;
+        width: 100%;
+        padding-left: 50px;
     }
 
-    .quarto-texto > p{
+    .spa-texto > h2{
+        text-align: left;
         font-family: var(--fontfamily);
         font-weight: 100;
-        font-size: 10pt;
-        letter-spacing: 2px;
-        margin: auto;
-        margin-top: 30px;
-        width: 90%;
+        font-size: 14pt;
     }
 
-    .linha{
-        width: 100%;
-        border-top: 1px solid rgb(119, 113, 113);
-        margin-top: -20px;
-        opacity: 0.4;
+    .spa-texto > p{
+        text-align: left;
+        font-family: var(--fontfamily);
+        width: 80%;
+        font-weight: 100;
+        font-size: 11pt;
+        margin: 30px 0 0 0;
+    }
+
+    .spa-texto > a{
+        color: black;
+        font-size: 10pt;
+        margin-top: 30px;
+        text-decoration: underline;
+    }
+
+    .spa-texto > a:hover{
+        transition: 0.8s;
+        color: black;
+        opacity: 0.5;
     }
 
     .footer{
@@ -530,6 +493,7 @@
     .desk{
         display: none;
     }
+
 }
 
 @media screen and (max-width: 767px){ /* cell */
@@ -618,7 +582,7 @@
     }
 
     .back-img{
-        background-image: url("../img/acomodacoes.jpg");
+        background-image: url("../img/piscina.jpg");
         height: 300px;
         background-size: cover;
         background-position: center center;
@@ -636,107 +600,91 @@
         letter-spacing: 2px;
     }
 
-    .texto-principal{
-        margin-top: 100px;
+    .bloco-spa{
+        margin-top: 150px;
     }
 
-    .texto-principal > h2{
-        font-family: var(--fontfamily);
-        font-size: 15pt;
-        margin: auto;
+    .bloco-spa-header{
         text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .bloco-spa-header > h2{
         letter-spacing: 2px;
-    }
-
-    .texto-principal > p{
-        width: 90%;
-        text-align: center;
-        margin: auto;
-        margin-top: 30px;
-        font-size: 9pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
-    }
-
-    .texto-comodidades{
-        margin-top: 80px;
-    }
-
-    .texto-comodidades > h2{
-        font-family: var(--fontfamily);
-        font-size: 15pt;
-        text-align: center;
-        letter-spacing: 2px;
-    }
-
-    .comodidades{
-        width: 80%;
-        margin: 30px auto;
-    }
-
-    .lista-comodidades{
-        text-align: left;
-        list-style-type: circle;
-    }
-
-    .lista-comodidades > li{
-        font-family: var(--fontfamily);
-        font-size: 9pt;
-        letter-spacing: 1px;
-        margin-top: 4px;
-    }
-
-    .quartos-content{
-        margin: 20px auto;
-        text-align: center;
-    }
-
-    .quartos-bloco{
-        width: 100%;
-        display: inline-block;
-        margin: 60px 0px 0 0px;
-    }
-
-
-    .quarto-img > img{
-        width: 100%;
-        height: 100%;
-    }
-
-    .quarto-texto{
-        background-color: white;
-        margin: -30px auto;
-        width: 95%;
-        position: relative;
-        padding: 50px;
-    }
-
-    .quarto-texto > h2{
-        font-family: var(--fontfamily);
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 11pt;
-        letter-spacing: 1px;
-        margin: auto;
-        margin-top: 30px;
-        width: 100%;
-    }
-
-    .quarto-texto > p{
         font-family: var(--fontfamily);
         font-weight: 100;
+        margin-bottom: 20px;
+        font-size: 22pt;
+    }
+
+    .bloco-spa-header > p{
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        margin-bottom: 20px;
         font-size: 9pt;
-        letter-spacing: 2px;
-        margin: auto;
+        letter-spacing: 1px;
+    }
+
+    .bloco-spa-content{
+        position: relative;
+    }
+
+    .bloco-spa-back{
+        border: 2px solid orange;
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        height: 50%;
+    }
+
+    .bloco-spa-dentro{
+        position: relative;
+        width: 100%;
+    }
+
+    .bloco-spa-img > img{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;    
+    }
+
+    .spa-texto{
+        text-align: center;
         margin-top: 30px;
         width: 100%;
     }
 
-    .linha{
+    .spa-texto > h2{
+        text-align: center;
+        font-family: var(--fontfamily);
+        font-weight: 100;
+        font-size: 18pt;
+    }
+
+    .spa-texto > p{
+        text-align: left;
+        font-family: var(--fontfamily);
         width: 100%;
-        border-top: 1px solid rgb(119, 113, 113);
-        margin-top: -20px;
-        opacity: 0.4;
+        font-weight: 100;
+        letter-spacing: 1px;
+        font-size: 11pt;
+        padding: 5px;
+        margin: 30px 0 0 0px;
+    }
+
+    .spa-texto > a{
+        font-family: var(--fontfamily);
+        margin-top: 10px;
+        text-align: center;
+        color: black;
+        font-size: 12pt;
+        text-decoration: underline;
+    }
+
+    .spa-texto > a:hover{
+        transition: 0.8s;
+        color: black;
+        opacity: 0.5;
     }
 
     .footer{
@@ -793,4 +741,6 @@
     .desk{
         display: none;
     }
+
 }
+

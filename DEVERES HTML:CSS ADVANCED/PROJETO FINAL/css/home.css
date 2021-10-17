@@ -88,20 +88,20 @@
         font-weight: bold;
     }
 
-    #myCarousel .carousel-indicators {
+    #carousel-1 .carousel-indicators {
         position: static;
         margin-top:20px;
     }
       
-    #myCarousel .carousel-indicators > li {
+    #carousel-1 .carousel-indicators > li {
         width: 140px;
     }
       
-    #myCarousel .carousel-indicators li img {
+    #carousel-1 .carousel-indicators li img {
         display: block;
     }
 
-    .carousel-item{
+    .c1{
         height: 600px !important;
     }
 
@@ -149,10 +149,6 @@
         width: 100%;
         margin: auto;
         margin-top: 30px;
-    }
-
-    .cell{
-        display: none;
     }
 
     .bloco-acomodacoes{
@@ -213,24 +209,24 @@
         opacity: 0.5;
     }
 
-    .bloco-spa{
-        margin-top: 200px;
+    .bloco-instalacoes{
+        margin-top: 230px;
     }
 
-    .bloco-spa-header{
+    .bloco-instalacoes-header{
         text-align: center;
         margin-bottom: 50px;
     }
 
-    .bloco-spa-header > h2{
+    .bloco-instalacoes-header > h2{
         letter-spacing: 2px;
         font-family: var(--fontfamily);
         font-weight: 100;
         margin-bottom: 20px;
-        font-size: 24pt;
+        font-size: 22pt;
     }
 
-    .bloco-spa-header > p{
+    .bloco-instalacoes-header > p{
         font-family: var(--fontfamily);
         font-weight: 100;
         margin-bottom: 20px;
@@ -238,61 +234,48 @@
         letter-spacing: 1px;
     }
 
-    .bloco-spa-content{
-        position: relative;
+    .bloco-instalacoes-content{
+        padding: 20px;
     }
 
-    .bloco-spa-back{
-        border: 2px solid orange;
-        position: absolute;
-        top: 10%;
+    #carousel-2{
+        margin-top: 30px;
+    }
+
+    .c2{
+        width: 500px !important;
+        height: 400px !important;
+    }
+
+    .bloco-instalacoes-texto{
         width: 100%;
-        height: 78%;
-    }
-
-    .bloco-spa-dentro{
-        position: relative;
-        width: 100%;
-    }
-
-    .bloco-spa-img{
-        margin: 0 0 0 100px;
-    }
-
-    .bloco-spa-img > img{
-        width: 400px;
-        height: 500px;
-    }
-
-    .bloco-spa-texto{
         margin: auto;
-        width: 100%;
-        padding-left: 50px;
+        margin-left: 50px;
     }
 
-    .spa-texto > h2{
+    .bloco-instalacoes-texto > h2{
         text-align: left;
         font-family: var(--fontfamily);
         font-weight: 100;
-        font-size: 17pt;
+        font-size: 19pt;
     }
 
-    .spa-texto > p{
+    .bloco-instalacoes-texto > p{
         text-align: left;
         font-family: var(--fontfamily);
-        width: 80%;
+        width: 90%;
         font-weight: 100;
-        font-size: 11pt;
-        margin: 30px 0 0 0;
+        font-size: 12pt;
+        margin: 50px 0 30px 0;
     }
 
-    .spa-texto > a{
+    .bloco-instalacoes-texto > a{
         color: black;
         font-size: 11pt;
         text-decoration: underline;
     }
 
-    .spa-texto > a:hover{
+    .bloco-instalacoes-texto > a:hover{
         transition: 0.8s;
         color: black;
         opacity: 0.5;
@@ -312,7 +295,7 @@
     .direitos > p{
         font-weight: 100;
         font-size: 10pt;
-        margin-top: 40px;
+        margin-top: 30px;
         font-family: var(--fontfamily);
     }
 
@@ -335,7 +318,7 @@
         margin-top: 15px;
         margin-left: 220px;
         text-align: left;
-        font-size: 10pt;
+        font-size: 9pt;
         font-family: var(--fontfamily);
         font-weight: 100;
     }
@@ -344,6 +327,16 @@
         font-size: 11pt;
         font-weight: bold;
     }
+
+    .cell{
+        display: none;
+    }
+
+    .off-desk{
+        display: none;
+    }
+
+    
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px){ /* ipad */
@@ -431,20 +424,20 @@
         font-weight: bold;
     }
 
-    #myCarousel .carousel-indicators {
+    #carousel-1 .carousel-indicators {
         position: static;
         margin-top: 10px;
     }
       
-    #myCarousel .carousel-indicators > li {
+    #carousel-1 .carousel-indicators > li {
         width: 140px;
     }
       
-    #myCarousel .carousel-indicators li img {
+    #carousel-1 .carousel-indicators li img {
         display: block;
     }
 
-    .carousel-item{
+    .c1{
         height: 400px !important;
     }
 
@@ -491,10 +484,6 @@
         width: 100%;
         margin: auto;
         margin-top: 30px;
-    }
-
-    .cell{
-        display: none;
     }
 
     .bloco-acomodacoes{
@@ -555,16 +544,16 @@
         opacity: 0.5;
     }
 
-    .bloco-spa{
-        margin-top: 350px;
+    .bloco-instalacoes{
+        margin-top: 380px;
     }
 
-    .bloco-spa-header{
+    .bloco-instalacoes-header{
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
-    .bloco-spa-header > h2{
+    .bloco-instalacoes-header > h2{
         letter-spacing: 2px;
         font-family: var(--fontfamily);
         font-weight: 100;
@@ -572,7 +561,7 @@
         font-size: 22pt;
     }
 
-    .bloco-spa-header > p{
+    .bloco-instalacoes-header > p{
         font-family: var(--fontfamily);
         font-weight: 100;
         margin-bottom: 20px;
@@ -580,62 +569,44 @@
         letter-spacing: 1px;
     }
 
-    .bloco-spa-content{
-        position: relative;
+    .bloco-instalacoes-img{
+        margin-left: auto;
     }
 
-    .bloco-spa-back{
-        border: 2px solid orange;
-        position: absolute;
-        top: 10%;
+    .bloco-instalacoes-img > img{
         width: 100%;
-        height: 78%;
+        height: 350px;
+        border-radius: 20px;
     }
 
-    .bloco-spa-dentro{
-        position: relative;
-        width: 100%;
+
+    .bloco-instalacoes-texto{
+        text-align: center;
+        margin: 50px 0 0 0;        
     }
 
-    .bloco-spa-img{
-        margin: 0 0 0 25px;
-    }
-
-    .bloco-spa-img > img{
-        width: 300px;
-        height: 400px;
-    }
-
-    .bloco-spa-texto{
-        margin: auto;
-        width: 100%;
-        padding-left: 50px;
-    }
-
-    .spa-texto > h2{
-        text-align: left;
+    .bloco-instalacoes-texto > h2{
         font-family: var(--fontfamily);
         font-weight: 100;
-        font-size: 14pt;
+        font-size: 17pt;
     }
 
-    .spa-texto > p{
-        text-align: left;
+    .bloco-instalacoes-texto > p{
         font-family: var(--fontfamily);
         width: 80%;
         font-weight: 100;
-        font-size: 11pt;
-        margin: 30px 0 0 0;
+        font-size: 12pt;
+        margin: 30px auto 20px auto;
     }
 
-    .spa-texto > a{
+    .bloco-instalacoes-texto > a{
         color: black;
         font-size: 10pt;
         margin-top: 30px;
         text-decoration: underline;
     }
 
-    .spa-texto > a:hover{
+    .bloco-instalacoes-texto > a:hover{
         transition: 0.8s;
         color: black;
         opacity: 0.5;
@@ -655,7 +626,7 @@
     .direitos > p{
         font-weight: 100;
         font-size: 10pt;
-        margin-top: 40px;
+        margin-top: 30px;
         font-family: var(--fontfamily);
     }
 
@@ -688,6 +659,16 @@
         font-size: 10pt;
         font-weight: bold;
     }
+
+    .cell{
+        display: none;
+    }
+
+    .desk{
+        display: none;
+    }
+
+    
 }
 
 @media screen and (max-width: 767px){ /* cell */
@@ -775,20 +756,20 @@
         font-weight: bold;
     }
 
-    #myCarousel .carousel-indicators {
+    #carousel-1 .carousel-indicators {
         position: static;
         margin-top: 10px;
     }
       
-    #myCarousel .carousel-indicators > li {
+    #carousel-1 .carousel-indicators > li {
         width: 140px;
     }
       
-    #myCarousel .carousel-indicators li img {
+    #carousel-1 .carousel-indicators li img {
         display: block;
     }
 
-    .carousel-item{
+    .c1{
         height: 200px !important;
     }
 
@@ -829,10 +810,6 @@
     }
 
     .sobre-texto > p{
-        display: none;
-    }
-
-    .off-cell{
         display: none;
     }
 
@@ -889,24 +866,24 @@
         opacity: 0.5;
     }
 
-    .bloco-spa{
+    .bloco-instalacoes{
         margin-top: 150px;
     }
 
-    .bloco-spa-header{
+    .bloco-instalacoes-header{
         text-align: center;
         margin-bottom: 50px;
     }
 
-    .bloco-spa-header > h2{
+    .bloco-instalacoes-header > h2{
         letter-spacing: 2px;
         font-family: var(--fontfamily);
         font-weight: 100;
         margin-bottom: 20px;
-        font-size: 22pt;
+        font-size: 18pt;
     }
 
-    .bloco-spa-header > p{
+    .bloco-instalacoes-header > p{
         font-family: var(--fontfamily);
         font-weight: 100;
         margin-bottom: 20px;
@@ -914,63 +891,44 @@
         letter-spacing: 1px;
     }
 
-    .bloco-spa-content{
-        position: relative;
+    .bloco-instalacoes-img{
+        margin-left: auto;
     }
 
-    .bloco-spa-back{
-        border: 2px solid orange;
-        position: absolute;
-        top: 10%;
+    .bloco-instalacoes-img > img{
         width: 100%;
-        height: 50%;
+        height: 250px;
+        border-radius: 20px;
     }
 
-    .bloco-spa-dentro{
-        position: relative;
-        width: 100%;
-    }
-
-    .bloco-spa-img > img{
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;    
-    }
-
-    .spa-texto{
+    .bloco-instalacoes-texto{
         text-align: center;
-        margin-top: 30px;
-        width: 100%;
+        margin: 50px 0 0 0;        
     }
 
-    .spa-texto > h2{
-        text-align: center;
+    .bloco-instalacoes-texto > h2{
         font-family: var(--fontfamily);
         font-weight: 100;
         font-size: 18pt;
     }
 
-    .spa-texto > p{
+    .bloco-instalacoes-texto > p{
         text-align: left;
         font-family: var(--fontfamily);
         width: 100%;
         font-weight: 100;
-        letter-spacing: 1px;
-        font-size: 11pt;
-        padding: 5px;
-        margin: 30px 0 0 0px;
+        font-size: 12pt;
+        margin: 30px auto 20px auto;
     }
 
-    .spa-texto > a{
-        font-family: var(--fontfamily);
-        margin-top: 10px;
-        text-align: center;
+    .bloco-instalacoes-texto > a{
         color: black;
-        font-size: 12pt;
+        font-size: 11pt;
+        margin-top: 30px;
         text-decoration: underline;
     }
 
-    .spa-texto > a:hover{
+    .bloco-instalacoes-texto > a:hover{
         transition: 0.8s;
         color: black;
         opacity: 0.5;
@@ -1022,4 +980,14 @@
         font-weight: bold;
         display: block;
     }
+
+    .off-cell{
+        display: none;
+    }
+
+    .desk{
+        display: none;
+    }
+
+
 }
