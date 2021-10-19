@@ -7,7 +7,6 @@
 */
 
 @media screen and (min-width: 1024px){ /* desktop */
-   
     
     *{
         margin: 0;
@@ -84,19 +83,19 @@
         font-size: var(--nav-link-fontsize);
     }
 
-    .nav-link:hover{
-        font-weight: bold;
-    }
-
     .bt-login{
         text-align: left;
         width: 20%;
         border: 0;
         background-color: var(--nav-bg-color);;
     }
-    
+
+    .nav-link:hover{
+        font-weight: bold;
+    }
+
     .back-img{
-        background-image: url("../img/piscina.jpg");
+        background-image: url("../img/quarto4.jpg");
         height: 450px;
         background-size: cover;
         background-position: center center;
@@ -105,72 +104,19 @@
 
     .pag-titulo{
         width: 100%;
-        padding: 180px;
+        padding: 190px;
         text-align: center;
     }
 
     .pag-titulo > h2{
         font-family: var(--fontfamily);
         letter-spacing: 2px;
+        font-size: 26pt;
     }
 
-    .texto-principal{
-        margin-top: 100px;
-    }
 
-    .texto-principal > h2{
-        font-family: var(--fontfamily);
-        font-size: 15pt;
-        margin: auto;
-        text-align: center;
-        letter-spacing: 2px;
-    }
+    
 
-    .texto-principal > p{
-        width: 60%;
-        text-align: center;
-        margin: auto;
-        margin-top: 30px;
-        font-size: 9pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
-    }
-
-    .bloco{
-        width: 100%;
-        height: 500px;
-        margin: 100px 0 0 0;
-    }
-
-    .bloco-img{
-        width: 100%;
-    }
-
-    .bloco-img > img{
-        width: 100%;
-        height: 100%;
-    }
-
-    .bloco-texto{
-        width: 100%;
-        padding: 80px;
-        margin: auto;
-    }
-
-    .bloco-texto > h2{
-        font-family: var(--fontfamily);
-        font-size: 16pt;
-        letter-spacing: 2px;
-    }
-
-    .bloco-texto > p{
-        text-align: left;
-        width: 100%;
-        margin-top: 30px;
-        font-size: 10pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
-    }
 
     .footer{
         margin: auto;
@@ -226,6 +172,8 @@
     .off-desk{
         display: none;
     }
+
+    
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px){ /* ipad */
@@ -321,7 +269,7 @@
     }
 
     .back-img{
-        background-image: url("../img/piscina.jpg");
+        background-image: url("../img/quarto4.jpg");
         height: 350px;
         background-size: cover;
         background-position: center center;
@@ -337,73 +285,6 @@
     .pag-titulo > h2{
         font-family: var(--fontfamily);
         letter-spacing: 2px;
-    }
-
-    .texto-principal{
-        margin-top: 100px;
-    }
-
-    .texto-principal > h2{
-        font-family: var(--fontfamily);
-        font-size: 15pt;
-        margin: auto;
-        text-align: center;
-        letter-spacing: 2px;
-    }
-
-    .texto-principal > p{
-        width: 80%;
-        text-align: center;
-        margin: auto;
-        margin-top: 30px;
-        font-size: 9pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
-    }
-
-    .bloco{
-        margin: 100px 0 0 0;
-        padding: 30px;
-    }
-
-    .bloco{
-        width: 100%;
-        height: 300px;
-        margin: 100px 0 0 0;
-    }
-
-    .bloco-img{
-        width: 100%;
-    }
-
-    .bloco-img > img{
-        width: 100%;
-        height: 100%;
-    }
-
-    .off-cell .bloco-texto{
-        margin-right: 30px;
-    }
-
-    .bloco-texto{
-        width: 100%;
-        padding: 30px;
-        margin: 0 auto;
-    }
-
-    .bloco-texto > h2{
-        font-family: var(--fontfamily);
-        font-size: 13pt;
-        letter-spacing: 2px;
-    }
-
-    .bloco-texto > p{
-        text-align: left;
-        width: 110%;
-        margin-top: 20px;
-        font-size: 9pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
     }
 
     .footer{
@@ -462,6 +343,7 @@
         display: none;
     }
 
+    
 }
 
 @media screen and (max-width: 767px){ /* cell */
@@ -555,9 +437,8 @@
         border: 0;
         background-color: var(--nav-bg-color);;
     }
-
     .back-img{
-        background-image: url("../img/piscina.jpg");
+        background-image: url("../img/quarto4.jpg");
         height: 300px;
         background-size: cover;
         background-position: center center;
@@ -573,66 +454,6 @@
     .pag-titulo > h2{
         font-family: var(--fontfamily);
         letter-spacing: 2px;
-    }
-
-    .texto-principal{
-        margin-top: 80px;
-    }
-
-    .texto-principal > h2{
-        font-family: var(--fontfamily);
-        font-size: 13pt;
-        margin: auto;
-        text-align: center;
-        letter-spacing: 2px;
-    }
-
-    .texto-principal > p{
-        width: 90%;
-        text-align: center;
-        margin: auto;
-        margin-top: 30px;
-        font-size: 9pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
-    }
-
-    .bloco{
-        width: 100%;
-        height: 100%;
-        margin: 90px 0 0 0;
-    }
-
-    .bloco-img{
-        width: 100%;
-        height: 300px;
-    }
-
-    .bloco-img > img{
-        width: 100%;
-        height: 100%;
-    }
-
-    .bloco-texto{
-        width: 90%;
-        margin: 30px auto;
-    }
-
-    .bloco-texto > h2{
-        font-family: var(--fontfamily);
-        font-size: 13pt;
-        letter-spacing: 2px;
-        text-align: center;
-
-    }
-
-    .bloco-texto > p{
-        text-align: center;
-        width: 100%;
-        margin-top: 20px;
-        font-size: 9pt;
-        letter-spacing: 2px;
-        font-family: var(--fontfamily);
     }
 
     .footer{
@@ -682,10 +503,6 @@
         display: block;
     }
 
-    .d-flex{
-        display: none;
-    }
-
     .off-cell{
         display: none;
     }
@@ -694,5 +511,5 @@
         display: none;
     }
 
-}
 
+}

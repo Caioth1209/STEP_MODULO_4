@@ -88,6 +88,11 @@
         font-weight: bold;
     }
 
+    .bt-login{
+        border: 0;
+        background-color: var(--nav-bg-color);;
+    }
+
     #carousel-1 .carousel-indicators {
         position: static;
         margin-top:20px;
@@ -424,6 +429,13 @@
         font-weight: bold;
     }
 
+    .bt-login{
+        text-align: left;
+        width: 20%;
+        border: 0;
+        background-color: var(--nav-bg-color);;
+    }
+
     #carousel-1 .carousel-indicators {
         position: static;
         margin-top: 10px;
@@ -756,6 +768,13 @@
         font-weight: bold;
     }
 
+    .bt-login{
+        text-align: left;
+        width: 30%;
+        border: 0;
+        background-color: var(--nav-bg-color);;
+    }
+    
     #carousel-1 .carousel-indicators {
         position: static;
         margin-top: 10px;

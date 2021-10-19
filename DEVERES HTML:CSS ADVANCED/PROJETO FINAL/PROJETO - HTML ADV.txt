@@ -3,17 +3,17 @@ Projeto Final HTML ADV -> ENTREGA 4/11
 --------Requisitos Mínimos
 --Responsividade personalizada para o layout de celular
 --identidade visual documentada
---uso de variáveis de estilo
---elementos de framework (BS,Materialize, etc)
---Layout desktop usando templates de framework
-    --LAYOUT do Home Personalizado (pode pegar partes de templates diferentes)
---Carousel
+--uso de variáveis de estilo - FEITO
+--elementos de framework (BS,Materialize, etc) - FEITO
+--Layout desktop usando templates de framework - FEITO
+    --LAYOUT do Home Personalizado (pode pegar partes de templates diferentes) - FEITO
+--Carousel - FEITO
     --Com miniaturas fazendo preview dos slides
-    --com blocos de div
+    --Com blocos de div
 --Galeria de fotos (ex: https://mdbootstrap.com/docs/standard/extended/gallery/)
 -- 1 formulário
 
 -Hotel:
-    -Deve ser possível conhecer os quartos e as instalações do Hotel
+    -Deve ser possível conhecer os quartos e as instalações do Hotel - FEITO
     -o cliente pode fazer uma pré-reserva online
     -o funcionário pode ver as pré reservas

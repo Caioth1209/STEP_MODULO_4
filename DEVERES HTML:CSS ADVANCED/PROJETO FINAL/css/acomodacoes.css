@@ -88,6 +88,13 @@
         font-weight: bold;
     }
 
+    .bt-login{
+        text-align: left;
+        width: 20%;
+        border: 0;
+        background-color: var(--nav-bg-color);;
+    }
+    
     .back-img{
         background-image: url("../img/acomodacoes.jpg");
         height: 450px;
@@ -350,6 +357,13 @@
 
     .nav-link:hover{
         font-weight: bold;
+    }
+
+    .bt-login{
+        text-align: left;
+        width: 20%;
+        border: 0;
+        background-color: var(--nav-bg-color);;
     }
 
     .back-img{
@@ -615,6 +629,13 @@
 
     .nav-link:hover{
         font-weight: bold;
+    }
+
+    .bt-login{
+        text-align: left;
+        width: 30%;
+        border: 0;
+        background-color: var(--nav-bg-color);;
     }
 
     .back-img{
