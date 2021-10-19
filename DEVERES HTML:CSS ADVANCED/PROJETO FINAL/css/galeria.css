@@ -112,11 +112,39 @@
         font-family: var(--fontfamily);
         letter-spacing: 2px;
         font-size: 26pt;
+        color: white;
     }
 
+    .texto-principal{
+        margin-top: 100px;
+    }
 
-    
+    .texto-principal > h2{
+        font-family: var(--fontfamily);
+        font-size: 17pt;
+        margin: auto;
+        text-align: center;
+        letter-spacing: 2px;
+    }
 
+    .texto-principal > p{
+        width: 60%;
+        text-align: center;
+        margin: auto;
+        margin-top: 30px;
+        font-size: 10pt;
+        letter-spacing: 2px;
+        font-family: var(--fontfamily);
+    }
+
+    .galeria{
+        margin: 100px 0 0 0 !important;
+    }
+
+    .uk-inline > img{
+        width: 400px;
+        height: 350px;
+    }
 
     .footer{
         margin: auto;
@@ -285,6 +313,42 @@
     .pag-titulo > h2{
         font-family: var(--fontfamily);
         letter-spacing: 2px;
+        color: white;
+    }
+
+    .texto-principal{
+        margin-top: 100px;
+    }
+
+    .texto-principal > h2{
+        font-family: var(--fontfamily);
+        font-size: 15pt;
+        margin: auto;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    .texto-principal > p{
+        width: 80%;
+        text-align: center;
+        margin: auto;
+        margin-top: 30px;
+        font-size: 9pt;
+        letter-spacing: 2px;
+        font-family: var(--fontfamily);
+    }
+
+    .galeria{
+        margin: 100px auto !important;
+    }
+
+    .galeria > div{
+        width: 50%;
+    }
+
+    .uk-inline > img{
+        width: 400px;
+        height: 300px;
     }
 
     .footer{
@@ -454,6 +518,47 @@
     .pag-titulo > h2{
         font-family: var(--fontfamily);
         letter-spacing: 2px;
+        color: white;
+    }
+
+    .texto-principal{
+        margin-top: 80px;
+    }
+
+    .texto-principal > h2{
+        font-family: var(--fontfamily);
+        font-size: 13pt;
+        margin: auto;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    .texto-principal > p{
+        width: 90%;
+        text-align: center;
+        margin: auto;
+        margin-top: 30px;
+        font-size: 9pt;
+        letter-spacing: 2px;
+        font-family: var(--fontfamily);
+    }
+
+    .galeria{
+        margin: 100px auto !important;
+    }
+
+    .galeria > div{
+        width: 100%;
+        text-align: center;
+    }
+
+    .uk-inline > img{
+        width: 400px;
+        height: 300px;
+    }
+
+    .uk-grid > *{
+        padding: 10px !important;
     }
 
     .footer{
