@@ -1,5 +1,8 @@
 Projeto Final HTML ADV -> ENTREGA 4/11
 
+-> FAZER O LOGIN DE FUNCIONARIO JS
+-> FAZER A RESERVA
+
 --------Requisitos Mínimos
 --Responsividade personalizada para o layout de celular
 --identidade visual documentada

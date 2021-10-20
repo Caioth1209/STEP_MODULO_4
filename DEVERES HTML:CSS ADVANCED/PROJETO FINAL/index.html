@@ -41,7 +41,7 @@
                   <a class="nav-link" href="acomodacoes.html">ACOMODAÇÕES</a>
                   <a class="nav-link" href="instalacoes.html">INSTALAÇÕES</a>
                   <a class="nav-link" href="galeria.html">GALERIA</a>
-                  <button class="bt-login nav-link">
+                  <button class="bt-login nav-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                       <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                     </svg>
@@ -52,8 +52,51 @@
             </div>
           </nav>
 
-        <section>
-           
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+            <div class="modal-dialog  modal-dialog-centered">
+
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Login de Funcionário</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+
+                      <div class="mb-3">
+                        <label for="input-email" class="form-label">Login</label>
+                        <input type="text" placeholder="Digite o login" class="form-control" id="input-email">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="input-senha" class="form-label">Senha</label>
+                        <input type="password" placeholder="Digite a senha" class="form-control" id="input-senha">
+                      </div>
+                    
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                      <button type="button" class="btn btn-success">Entrar</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="msg-erro bg-danger">
+                        <h5>Login ou senha inválidos!</h5>
+                    </div>
+
+                    <div class="msg-exito bg-success">
+                      <h5>Login feito com sucesso!</h5>
+
+                      <p>Você será redirecionado(a) em 5 segundos...</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        <section>           
             <div id="middiv">
               <div id="carousel-1" class="carousel slide" data-bs-ride="carousel">
                   

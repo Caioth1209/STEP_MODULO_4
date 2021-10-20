@@ -8,10 +8,61 @@
 
 @media screen and (min-width: 1024px){ /* desktop */
    
-    
     *{
         margin: 0;
         padding: 0;
+    }
+
+    .modal-title{
+        font-family: var(--fontfamily);
+    }
+    
+    .form-label{
+        font-family: var(--fontfamily);
+    }
+    
+    .btn{
+        font-family: var(--fontfamily);
+    }
+    
+    .modal-footer{
+        justify-content: center !important;
+    }
+
+    .msg-erro{
+        width: 70%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    .msg-erro > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .msg-exito{
+        width: 80%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    .msg-exito > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .msg-exito > p{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+        font-size: 11pt;
+        margin-top: 10px;
     }
 
     .header{
@@ -349,6 +400,58 @@
     *{
         margin: 0;
         padding: 0;
+    }
+
+    .modal-title{
+        font-family: var(--fontfamily);
+    }
+    
+    .form-label{
+        font-family: var(--fontfamily);
+    }
+    
+    .btn{
+        font-family: var(--fontfamily);
+    }
+    
+    .modal-footer{
+        justify-content: center !important;
+    }
+
+    .msg-erro{
+        width: 70%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    .msg-erro > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .msg-exito{
+        width: 80%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    .msg-exito > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .msg-exito > p{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+        font-size: 11pt;
+        margin-top: 10px;
     }
 
     .header{
@@ -690,6 +793,58 @@
         padding: 0;
     }
 
+    .modal-title{
+        font-family: var(--fontfamily);
+    }
+    
+    .form-label{
+        font-family: var(--fontfamily);
+    }
+    
+    .btn{
+        font-family: var(--fontfamily);
+    }
+    
+    .modal-footer{
+        justify-content: center !important;
+    }
+
+    .msg-erro{
+        width: 70%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    .msg-erro > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .msg-exito{
+        width: 80%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    .msg-exito > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .msg-exito > p{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+        font-size: 11pt;
+        margin-top: 10px;
+    }
+    
     .header{
         background-color: white;
         width: 100%;
