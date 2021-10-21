@@ -53,7 +53,7 @@
         border-radius: 30px;
         letter-spacing: 2px;
         font-size: var(--reservar-fontsize);
-        font-family: var(--reservar-fontfamily);
+        font-family: var(--fontfamily);
     }
 
     #reservar:hover{
@@ -274,7 +274,7 @@
         border-radius: 30px;
         letter-spacing: 2px;
         font-size: var(--reservar-fontsize);
-        font-family: var(--reservar-fontfamily);
+        font-family: var(--fontfamily);
     }
 
     #reservar:hover{
@@ -510,7 +510,7 @@
         border-radius: 30px;
         letter-spacing: 2px;
         font-size: 8pt;
-        font-family: var(--reservar-fontfamily);
+        font-family: var(--fontfamily);
     }
 
     #reservar:hover{
