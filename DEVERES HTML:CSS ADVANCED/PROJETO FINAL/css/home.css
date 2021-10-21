@@ -528,6 +528,26 @@
         background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
     }
 
+    #ver-reservas{
+        border-radius: 0;
+        background-color: rgb(227, 227, 228);
+        text-align: center;
+        height: 50px;
+        width: 180px;
+        border: 1px solid white;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        font-size: var(--reservar-fontsize);
+        font-family: var(--fontfamily);
+        display: none;
+    }
+
+    #ver-reservas:hover{
+        transition: 0.9s;
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
+    }
+
     .navbar-toggler{
         margin-bottom: 5px;
     }
@@ -570,6 +590,7 @@
         width: 20%;
         border: 0;
         background-color: var(--nav-bg-color);
+        display: none;
     }
 
     #carousel-1 .carousel-indicators {
@@ -926,6 +947,26 @@
         background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
     }
 
+    #ver-reservas{
+        border-radius: 0;
+        background-color: rgb(227, 227, 228);
+        text-align: center;
+        height: 40px;
+        width: 150px;
+        border: 1px solid white;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        font-size: 8pt;
+        font-family: var(--fontfamily);
+        display: none;
+    }
+
+    #ver-reservas:hover{
+        transition: 0.9s;
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
+    }
+
     .navbar-toggler{
         margin-bottom: 5px;
     }
@@ -960,7 +1001,15 @@
         text-align: left;
         width: 30%;
         border: 0;
-        background-color: var(--nav-bg-color);;
+        background-color: var(--nav-bg-color);
+    }
+
+    #bt-logout{
+        text-align: left;
+        width: 30%;
+        border: 0;
+        background-color: var(--nav-bg-color);
+        display: none;
     }
     
     #carousel-1 .carousel-indicators {
