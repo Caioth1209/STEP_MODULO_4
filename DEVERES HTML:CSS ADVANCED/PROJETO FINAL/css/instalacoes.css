@@ -14,6 +14,58 @@
         padding: 0;
     }
 
+    .modal-title{
+        font-family: var(--fontfamily);
+    }
+    
+    .form-label{
+        font-family: var(--fontfamily);
+    }
+    
+    .btn{
+        font-family: var(--fontfamily);
+    }
+    
+    .modal-footer{
+        justify-content: center !important;
+    }
+
+    #msg-erro{
+        width: 70%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    #msg-erro > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-exito{
+        width: 80%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    #msg-exito > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-exito > p{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+        font-size: 11pt;
+        margin-top: 10px;
+    }
+
     .header{
         background-color: white;
         width: 100%;
@@ -48,7 +100,7 @@
         background-color: rgb(227, 227, 228);
         text-align: center;
         height: 50px;
-        width: 140px;
+        width: 160px;
         border: 1px solid white;
         border-radius: 30px;
         letter-spacing: 2px;
@@ -57,6 +109,26 @@
     }
 
     #reservar:hover{
+        transition: 0.9s;
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
+    }
+
+    #ver-reservas{
+        border-radius: 0;
+        background-color: rgb(227, 227, 228);
+        text-align: center;
+        height: 50px;
+        width: 180px;
+        border: 1px solid white;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        font-size: var(--reservar-fontsize);
+        font-family: var(--fontfamily);
+        display: none;
+    }
+
+    #ver-reservas:hover{
         transition: 0.9s;
         opacity: 0.7;
         background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
@@ -88,11 +160,15 @@
         font-weight: bold;
     }
 
-    .bt-login{
-        text-align: left;
-        width: 20%;
+    #bt-login{
         border: 0;
-        background-color: var(--nav-bg-color);;
+        background-color: var(--nav-bg-color);
+    }
+
+    #bt-logout{
+        border: 0;
+        background-color: var(--nav-bg-color);
+        display: none;
     }
     
     .back-img{
@@ -235,6 +311,58 @@
         padding: 0;
     }
 
+    .modal-title{
+        font-family: var(--fontfamily);
+    }
+    
+    .form-label{
+        font-family: var(--fontfamily);
+    }
+    
+    .btn{
+        font-family: var(--fontfamily);
+    }
+    
+    .modal-footer{
+        justify-content: center !important;
+    }
+
+    #msg-erro{
+        width: 70%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    #msg-erro > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-exito{
+        width: 80%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    #msg-exito > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-exito > p{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+        font-size: 11pt;
+        margin-top: 10px;
+    }
+
     .header{
         background-color: white;
         width: 100%;
@@ -283,6 +411,26 @@
         background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
     }
 
+    #ver-reservas{
+        border-radius: 0;
+        background-color: rgb(227, 227, 228);
+        text-align: center;
+        height: 50px;
+        width: 180px;
+        border: 1px solid white;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        font-size: var(--reservar-fontsize);
+        font-family: var(--fontfamily);
+        display: none;
+    }
+
+    #ver-reservas:hover{
+        transition: 0.9s;
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
+    }
+
     .navbar-toggler{
         margin-bottom: 5px;
     }
@@ -313,11 +461,19 @@
         font-weight: bold;
     }
 
-    .bt-login{
+    #bt-login{
         text-align: left;
         width: 20%;
         border: 0;
-        background-color: var(--nav-bg-color);;
+        background-color: var(--nav-bg-color);
+    }
+
+    #bt-logout{
+        text-align: left;
+        width: 20%;
+        border: 0;
+        background-color: var(--nav-bg-color);
+        display: none;
     }
 
     .back-img{
@@ -471,6 +627,58 @@
         padding: 0;
     }
 
+    .modal-title{
+        font-family: var(--fontfamily);
+    }
+    
+    .form-label{
+        font-family: var(--fontfamily);
+    }
+    
+    .btn{
+        font-family: var(--fontfamily);
+    }
+    
+    .modal-footer{
+        justify-content: center !important;
+    }
+
+    #msg-erro{
+        width: 70%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    #msg-erro > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-exito{
+        width: 80%;
+        text-align: center;
+        padding: 20px;
+        border-radius: 20px;
+        display: none;
+    }
+
+    #msg-exito > h5{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-exito > p{
+        margin: auto;
+        font-family: var(--fontfamily);
+        color: white;
+        font-size: 11pt;
+        margin-top: 10px;
+    }
+
     .header{
         background-color: white;
         width: 100%;
@@ -519,6 +727,26 @@
         background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
     }
 
+    #ver-reservas{
+        border-radius: 0;
+        background-color: rgb(227, 227, 228);
+        text-align: center;
+        height: 40px;
+        width: 150px;
+        border: 1px solid white;
+        border-radius: 30px;
+        letter-spacing: 2px;
+        font-size: 8pt;
+        font-family: var(--fontfamily);
+        display: none;
+    }
+
+    #ver-reservas:hover{
+        transition: 0.9s;
+        opacity: 0.7;
+        background-image: linear-gradient(to bottom, rgb(227, 227, 228), rgb(180, 180, 182));
+    }
+
     .navbar-toggler{
         margin-bottom: 5px;
     }
@@ -549,11 +777,19 @@
         font-weight: bold;
     }
 
-    .bt-login{
+    #bt-login{
         text-align: left;
         width: 30%;
         border: 0;
-        background-color: var(--nav-bg-color);;
+        background-color: var(--nav-bg-color);
+    }
+
+    #bt-logout{
+        text-align: left;
+        width: 30%;
+        border: 0;
+        background-color: var(--nav-bg-color);
+        display: none;
     }
 
     .back-img{
