@@ -13,6 +13,15 @@
         padding: 0;
     }
 
+    #msg-erro-nome, #msg-erro-email, #msg-erro-dts, #msg-erro-dtc{
+        display: none;
+        color: white;
+        padding: 5px;
+        width: 120px;
+        margin: 10px 0 0 0;
+        text-align: center;
+    }
+
     .modal-title{
         font-family: var(--fontfamily);
     }

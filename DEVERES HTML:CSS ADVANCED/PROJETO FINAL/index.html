@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    
 
 </head>
 <body>
@@ -25,8 +26,77 @@
                   <span id="logo-subtitulo">RIO DE JANEIRO</span>
                 </a>
               
-                <button onclick="pre_reservar()" type="button" id="reservar">PRÉ-RESERVAR</button>
+                <button type="button" id="reservar" data-bs-toggle="modal" data-bs-target="#modal-reserva">PRÉ-RESERVAR</button>
                 <button type="button" id="ver-reservas">VER PRÉ-RESERVAS</button>
+            </div>
+
+            <div class="modal fade" id="modal-reserva" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-reserva-label" aria-hidden="true">
+
+              <div class="modal-dialog  modal-dialog-centered">
+    
+                <div class="modal-content">
+    
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modal-login-label">Pré-Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+    
+                  <div class="modal-body">
+                      <form>
+    
+                        <div class="mb-3">
+                          <label for="input-nome" class="form-label">Nome</label>
+                          <input type="text" onchange="validaNome(this)" placeholder="Digite seu nome" class="form-control" id="input-nome">
+                          
+                          <div id="msg-erro-nome" class="form-text bg-danger">Nome inválido</div>
+                        </div>
+    
+                        <div class="mb-3">
+                          <label for="input-email" class="form-label">E-mail</label>
+                          <input type="email" onchange="validaEmail(this)" placeholder="Digite seu e-mail" class="form-control" id="input-email">
+
+                          <div id="msg-erro-email" class="form-text bg-danger">E-mail inválido</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="input-dt-chegada" class="form-label">Data de chegada</label>
+                          <input type="date" onchange="validaDtChegada(this)" class="form-control" id="input-dt-chegada">
+
+                          <div id="msg-erro-dtc" class="form-text bg-danger">Data inválida</div>
+                        </div>
+
+                        <div id="dt-saida" class="mb-3" style="display: none;">
+                          <label for="input-dt-saida" class="form-label">Data de saída (pelo menos um dia depois da data de chegada)</label>
+                          <input type="date" onchange="validaDtSaida(this)" class="form-control" id="input-dt-saida">
+
+                          <div id="msg-erro-dts" class="form-text bg-danger">Data inválida</div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="input-qntd-quartos" class="form-label">Quantidade de quartos (mín: 1, máx: 10)</label>
+                          <input type="number" onchange="validaQuartos(this)" value="1" min="1" max="10" class="form-control" id="input-qntd-quartos">
+
+                        </div>
+                      
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" disabled onclick="pre_reservar()" id="btn-preReserva" class="btn btn-success">Fazer pré-reserva</button>
+                      </form>
+                  </div>
+    
+                  <div class="modal-footer">
+                      <div id="msg-erro" class="bg-danger">
+                          <h5>Login ou senha inválidos!</h5>
+                      </div>
+    
+                      <div id="msg-exito" class="bg-success">
+                        <h5>Login feito com sucesso!</h5>
+    
+                        <p>Você será redirecionado(a) em 5 segundos...</p>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
             </div>
 
         </header>

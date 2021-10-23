@@ -1,7 +1,11 @@
 Projeto Final HTML ADV -> ENTREGA 4/11
 
+- Falta:
+     fazer a pré reserva
+     montar o layout das pré reservas dos funcionarios
+
 --------Requisitos Mínimos
---Responsividade personalizada para o layout de celular
+--Responsividade personalizada para o layout de celular - FEITO
 --identidade visual documentada
 --uso de variáveis de estilo - FEITO
 --elementos de framework (BS,Materialize, etc) - FEITO
@@ -10,8 +14,8 @@ Projeto Final HTML ADV -> ENTREGA 4/11
 --Carousel - FEITO
     --Com miniaturas fazendo preview dos slides
     --Com blocos de div
---Galeria de fotos (ex: https://mdbootstrap.com/docs/standard/extended/gallery/)
--- 1 formulário
+--Galeria de fotos (ex: https://mdbootstrap.com/docs/standard/extended/gallery/) - FEITO
+-- 1 formulário - FEITO
 
 -Hotel:
     -Deve ser possível conhecer os quartos e as instalações do Hotel - FEITO
