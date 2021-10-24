@@ -1,4 +1,30 @@
-/// localStorage.removeItem("pre-reservas")
+if (sessionStorage.getItem("pre-reservas") != null) {
+
+    pre_reservas = JSON.parse(sessionStorage.getItem("pre-reservas"));
+
+    let texto = "";
+
+    for(var i = 0; i < pre_reservas.length; i++){
+        
+        texto += "<div class='bloco-reservas'>" +
+                     "<p> <span class='atributo'> Nome: </span>" + pre_reservas[i].cliente.nome + "</p>" +
+                     "<p> <span class='atributo'> E-mail: </span>" + pre_reservas[i].cliente.email + "</p>" +
+                     "<p> <span class='atributo'> Data de chegada: </span>" + pre_reservas[i].dt_chegada + "</p>" +
+                     "<p> <span class='atributo'> Data de saída: </span>" + pre_reservas[i].dt_saida + "</p>" + 
+                     "<p> <span class='atributo'> Quantidade de quartos: </span>" + pre_reservas[i].qntd_quartos + "</p>" +
+                 "</div>"
+    }
+
+    document.getElementById("td-pre-reservas").innerHTML = texto;
+    
+} else {
+    document.getElementById("msg-sem-reservas").style.display = "block";
+}
+
+
+//////////////////// VALIDAÇÃO DE LOGIN ////////////////////////////////
+
+///sessionStorage.removeItem("pre-reservas")
 var bt_reservar =  document.getElementById("reservar");
 var bt_login = document.getElementById("bt-login");
 var bt_ver_reservas =  document.getElementById("ver-reservas");
@@ -27,15 +53,26 @@ class Funcionario{
 
     verificaLogin(){
 
+        var close_login = document.getElementById("close-login");
+        var btn_entrar_login = document.getElementById("btn-entrar-login");
+        var btn_fechar_login = document.getElementById("btn-fechar-login");
+
         if (this.login === "func000" && this.senha === "func123") {
 
             msg_exito.style.display = "block";
+            close_login.disabled = true; 
+            btn_entrar_login.disabled = true; 
+            btn_fechar_login.disabled = true; 
 
             sessionStorage.setItem("logado", "logado");
 
             setTimeout(() => {
 
-                document.getElementsByClassName("btn-close")[2].click();
+                close_login.disabled = false; 
+                btn_entrar_login.disabled = false; 
+                btn_fechar_login.disabled = false; 
+
+                close_login.click();
                 msg_exito.style.display = "none";
 
                 bt_reservar.style.display = "none";
@@ -90,6 +127,8 @@ window.onload = function(){
     document.getElementById("input-dt-saida").value = "";
     document.getElementById("btn-preReserva").disabled = true;
 }
+
+/////////////////// VALIDAÇÃO DE PRÉ RESERVAS E PRÉ RESERVA///////////////////////////////
 
 let validNome = 1;
 
@@ -267,6 +306,8 @@ class Reserva{
         validDtc = 1;
 
         document.getElementById("btn-preReserva").disabled = true;
+        document.getElementById("btn-fechar-preReserva").disabled = true;
+        document.getElementById("close-reserva").disabled = true;
 
 
         var dtc = new Date(this.dt_chegada);
@@ -279,7 +320,7 @@ class Reserva{
         
         pre_reservas.push(reserva);
 
-        localStorage.setItem("pre-reservas", JSON.stringify(pre_reservas));
+        sessionStorage.setItem("pre-reservas", JSON.stringify(pre_reservas));
 
         let texto = "";
 
@@ -302,8 +343,11 @@ class Reserva{
 
         setTimeout(() => {
 
+            document.getElementById("btn-fechar-preReserva").disabled = false;
+            document.getElementById("close-reserva").disabled = false;
+
             document.getElementById("msg-exito-reserva").style.display = "none";
-            document.getElementsByClassName("btn-close")[1].click();
+            document.getElementById("close-reserva").click()
 
         }, 5000)
 
@@ -329,25 +373,3 @@ function preReservar() {
     reserva.verificaPreReserva();
 }
 
-if (localStorage.getItem("pre-reservas") != null) {
-
-    pre_reservas = JSON.parse(localStorage.getItem("pre-reservas"));
-
-    let texto = "";
-
-    for(var i = 0; i < pre_reservas.length; i++){
-        
-        texto += "<div class='bloco-reservas bg-success'>" +
-                     "<p> <span class='atributo'> Nome: </span>" + pre_reservas[i].cliente.nome + "</p>" +
-                     "<p> <span class='atributo'> E-mail: </span>" + pre_reservas[i].cliente.email + "</p>" +
-                     "<p> <span class='atributo'> Data de chegada: </span>" + pre_reservas[i].dt_chegada + "</p>" +
-                     "<p> <span class='atributo'> Data de saída: </span>" + pre_reservas[i].dt_saida + "</p>" + 
-                     "<p> <span class='atributo'> Quantidade de quartos: </span>" + pre_reservas[i].qntd_quartos + "</p>" +
-                 "</div>"
-    }
-
-    document.getElementById("td-pre-reservas").innerHTML = texto;
-    
-} else {
-    document.getElementById("msg-sem-reservas").style.display = "block";
-}

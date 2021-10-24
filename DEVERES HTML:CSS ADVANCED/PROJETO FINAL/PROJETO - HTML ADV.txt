@@ -1,8 +1,5 @@
 Projeto Final HTML ADV -> ENTREGA 4/11
 
-- Falta:
-     fazer a pré reserva
-     montar o layout das pré reservas dos funcionarios
 
 --------Requisitos Mínimos
 --Responsividade personalizada para o layout de celular - FEITO
@@ -19,5 +16,5 @@ Projeto Final HTML ADV -> ENTREGA 4/11
 
 -Hotel:
     -Deve ser possível conhecer os quartos e as instalações do Hotel - FEITO
-    -o cliente pode fazer uma pré-reserva online
-    -o funcionário pode ver as pré reservas
+    -o cliente pode fazer uma pré-reserva online - FEITO
+    -o funcionário pode ver as pré reservas - FEITO

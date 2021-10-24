@@ -66,7 +66,7 @@
     
                   <div class="modal-header">
                     <h5 class="modal-title" id="modal-reserva-label">Pré-Reserva</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" id="close-reserva" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
     
                   <div class="modal-body">
@@ -106,7 +106,7 @@
 
                         </div>
                       
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" id="btn-fechar-preReserva" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                         <button type="button" disabled onclick="preReservar()" id="btn-preReserva" class="btn btn-success">Fazer pré-reserva</button>
                       </form>
                   </div>
@@ -116,6 +116,10 @@
                         <h5>Pré-reserva feita com sucesso!</h5>
 
                         <p>Em breve te mandaremos um e-mail para confirmar.</p>
+
+                        <div class="spinner-border spinner-border-sm text-secondary" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -165,7 +169,7 @@
 
                 <div class="modal-header">
                   <h5 class="modal-title" id="modal-login-label">Login de Funcionário</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close" id="close-login" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
@@ -181,8 +185,8 @@
                         <input type="password" placeholder="Digite a senha" class="form-control" id="input-senha">
                       </div>
                     
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                      <button type="button" onclick="login()" class="btn btn-success">Entrar</button>
+                      <button type="button" id="btn-fechar-login" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                      <button type="button" id="btn-entrar-login" onclick="login()" class="btn btn-success">Entrar</button>
                     </form>
                 </div>
 
@@ -195,12 +199,17 @@
                       <h5>Login feito com sucesso!</h5>
 
                       <p>Você será redirecionado(a) em 5 segundos...</p>
+                      <div class="spinner-border spinner-border-sm text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
                   </div>
                 </div>
               </div>
 
             </div>
           </div>
+
+          
         <section>           
             <div id="middiv">
               <div id="carousel-1" class="carousel slide" data-bs-ride="carousel">

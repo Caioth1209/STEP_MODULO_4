@@ -13,6 +13,12 @@
         padding: 0;
     }
 
+    .btn-success {
+        color: #fff;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+
     #msg-sem-reservas{
         text-align: center;
         color: white;
@@ -26,6 +32,8 @@
         border-radius: 20px;
         padding: 15px;
         margin-bottom: 10px;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
     }
 
     .atributo{
@@ -464,6 +472,50 @@
         padding: 0;
     }
 
+    .btn-success {
+        color: #fff;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+
+    #msg-sem-reservas{
+        text-align: center;
+        color: white;
+        padding: 30px;
+        font-family: var(--fontfamily);
+        border-radius: 30px;
+        display: none;
+    }
+
+    .bloco-reservas{
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 10px;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+
+    .atributo{
+        font-weight: bold;
+        font-size: 12pt;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .bloco-reservas > p{
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-erro-nome, #msg-erro-email, #msg-erro-dts, #msg-erro-dtc{
+        display: none;
+        color: white;
+        padding: 5px;
+        width: 120px;
+        margin: 10px 0 0 0;
+        text-align: center;
+    }
+
     .modal-title{
         font-family: var(--fontfamily);
     }
@@ -494,7 +546,7 @@
         color: white;
     }
 
-    #msg-exito{
+    #msg-exito, #msg-exito-reserva{
         width: 80%;
         text-align: center;
         padding: 20px;
@@ -502,13 +554,13 @@
         display: none;
     }
 
-    #msg-exito > h5{
+    #msg-exito > h5, #msg-exito-reserva > h5{
         margin: auto;
         font-family: var(--fontfamily);
         color: white;
     }
 
-    #msg-exito > p{
+    #msg-exito > p, #msg-exito-reserva > p{
         margin: auto;
         font-family: var(--fontfamily);
         color: white;
@@ -883,6 +935,56 @@
         padding: 0;
     }
 
+    .btn-success {
+        color: #fff;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+
+    .btn-success {
+        color: #fff;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+
+    #msg-sem-reservas{
+        text-align: center;
+        color: white;
+        padding: 30px;
+        font-family: var(--fontfamily);
+        border-radius: 30px;
+        display: none;
+    }
+
+    .bloco-reservas{
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 10px;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+    }
+
+    .atributo{
+        font-weight: bold;
+        font-size: 12pt;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .bloco-reservas > p{
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    #msg-erro-nome, #msg-erro-email, #msg-erro-dts, #msg-erro-dtc{
+        display: none;
+        color: white;
+        padding: 5px;
+        width: 120px;
+        margin: 10px 0 0 0;
+        text-align: center;
+    }
+
     .modal-title{
         font-family: var(--fontfamily);
     }
@@ -913,7 +1015,7 @@
         color: white;
     }
 
-    #msg-exito{
+    #msg-exito, #msg-exito-reserva{
         width: 80%;
         text-align: center;
         padding: 20px;
@@ -921,13 +1023,13 @@
         display: none;
     }
 
-    #msg-exito > h5{
+    #msg-exito > h5, #msg-exito-reserva > h5{
         margin: auto;
         font-family: var(--fontfamily);
         color: white;
     }
 
-    #msg-exito > p{
+    #msg-exito > p, #msg-exito-reserva > p{
         margin: auto;
         font-family: var(--fontfamily);
         color: white;
