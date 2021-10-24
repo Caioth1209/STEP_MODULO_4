@@ -27,7 +27,35 @@
                 </a>
               
                 <button type="button" id="reservar" data-bs-toggle="modal" data-bs-target="#modal-reserva">PRÉ-RESERVAR</button>
-                <button type="button" id="ver-reservas">VER PRÉ-RESERVAS</button>
+                <button type="button" id="ver-reservas" data-bs-toggle="modal" data-bs-target="#modal-ver-reserva">VER PRÉ-RESERVAS</button>
+            </div>
+
+            <div class="modal fade" id="modal-ver-reserva" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-ver-reserva-label" aria-hidden="true">
+
+              <div class="modal-dialog  modal-dialog-centered">
+    
+                <div class="modal-content">
+    
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modal-ver-reserva-label">Todas as pré-reservas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+    
+                  <div class="modal-body">
+
+                    <div id="msg-sem-reservas" class="bg-danger">
+                      Nenhuma Pré-Reserva até o momento.
+                    </div>
+                    
+                    <div id="td-pre-reservas">
+
+                    </div>
+
+                  </div>
+  
+                </div>
+    
+              </div>
             </div>
 
             <div class="modal fade" id="modal-reserva" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-reserva-label" aria-hidden="true">
@@ -37,7 +65,7 @@
                 <div class="modal-content">
     
                   <div class="modal-header">
-                    <h5 class="modal-title" id="modal-login-label">Pré-Reserva</h5>
+                    <h5 class="modal-title" id="modal-reserva-label">Pré-Reserva</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
     
@@ -79,19 +107,15 @@
                         </div>
                       
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" disabled onclick="pre_reservar()" id="btn-preReserva" class="btn btn-success">Fazer pré-reserva</button>
+                        <button type="button" disabled onclick="preReservar()" id="btn-preReserva" class="btn btn-success">Fazer pré-reserva</button>
                       </form>
                   </div>
     
                   <div class="modal-footer">
-                      <div id="msg-erro" class="bg-danger">
-                          <h5>Login ou senha inválidos!</h5>
-                      </div>
-    
-                      <div id="msg-exito" class="bg-success">
-                        <h5>Login feito com sucesso!</h5>
-    
-                        <p>Você será redirecionado(a) em 5 segundos...</p>
+                      <div id="msg-exito-reserva" class="bg-success">
+                        <h5>Pré-reserva feita com sucesso!</h5>
+
+                        <p>Em breve te mandaremos um e-mail para confirmar.</p>
                     </div>
                   </div>
                 </div>

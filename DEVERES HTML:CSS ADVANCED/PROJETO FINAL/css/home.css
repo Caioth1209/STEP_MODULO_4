@@ -13,6 +13,33 @@
         padding: 0;
     }
 
+    #msg-sem-reservas{
+        text-align: center;
+        color: white;
+        padding: 30px;
+        font-family: var(--fontfamily);
+        border-radius: 30px;
+        display: none;
+    }
+
+    .bloco-reservas{
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .atributo{
+        font-weight: bold;
+        font-size: 12pt;
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
+    .bloco-reservas > p{
+        font-family: var(--fontfamily);
+        color: white;
+    }
+
     #msg-erro-nome, #msg-erro-email, #msg-erro-dts, #msg-erro-dtc{
         display: none;
         color: white;
@@ -52,7 +79,7 @@
         color: white;
     }
 
-    #msg-exito{
+    #msg-exito, #msg-exito-reserva{
         width: 80%;
         text-align: center;
         padding: 20px;
@@ -60,13 +87,13 @@
         display: none;
     }
 
-    #msg-exito > h5{
+    #msg-exito > h5, #msg-exito-reserva > h5{
         margin: auto;
         font-family: var(--fontfamily);
         color: white;
     }
 
-    #msg-exito > p{
+    #msg-exito > p, #msg-exito-reserva > p {
         margin: auto;
         font-family: var(--fontfamily);
         color: white;

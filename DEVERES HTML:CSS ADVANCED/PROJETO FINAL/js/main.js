@@ -1,3 +1,4 @@
+/// localStorage.removeItem("pre-reservas")
 var bt_reservar =  document.getElementById("reservar");
 var bt_login = document.getElementById("bt-login");
 var bt_ver_reservas =  document.getElementById("ver-reservas");
@@ -34,7 +35,7 @@ class Funcionario{
 
             setTimeout(() => {
 
-                document.getElementsByClassName("btn-close")[0].click();
+                document.getElementsByClassName("btn-close")[2].click();
                 msg_exito.style.display = "none";
 
                 bt_reservar.style.display = "none";
@@ -197,19 +198,19 @@ function validaDtSaida(c){
 
     var dtc = document.getElementById("input-dt-chegada");
 
-    var data = new Date();
+    var btnPreReserva = document.getElementById("btn-preReserva");
 
     if (c.value > dtc.value) {
         msg.style.display = "none";
         validDts = 0;
         if ((validNome + validEmail + validDts + validDtc)==0) {
-            document.getElementById("btn-preReserva").disabled = false;
+            btnPreReserva.disabled = false;
         }
     } else {
         c.value = "";
         msg.style.display = "block";
         validDts = 1;
-        document.getElementById("btn-preReserva").disabled = true;
+        btnPreReserva.disabled = true;
     }   
 }
 
@@ -218,7 +219,6 @@ function validaQuartos(c) {
     if (isNaN(c.value) || c.value < 1 || c.value > 10) {
         c.value = 1;
     }
-
 }
 
 
@@ -232,6 +232,8 @@ class Cliente{
     }
 }
 
+var pre_reservas = [];
+
 class Reserva{
     cliente = new Cliente();
     dt_chegada;
@@ -242,11 +244,110 @@ class Reserva{
         this.cliente = cliente;
         this.dt_chegada = dt_chegada;
         this.dt_saida = dt_saida;
-        this.dt_saida = qntd_quartos;
+        this.qntd_quartos = qntd_quartos;
     }
 
-    verificaReserva(){
+    verificaPreReserva(){
+
+        document.getElementById("input-nome").value = "";
+
+        document.getElementById("input-email").value = "";
+
+        document.getElementById("input-dt-chegada").value = "";
+
+        document.getElementById("input-dt-saida").value = "";
+
+        document.getElementById("dt-saida").style.display = "none";
+
+        document.getElementById("input-qntd-quartos").value = 1;
+
+        validNome = 1;
+        validEmail = 1;
+        validDts = 1;
+        validDtc = 1;
+
+        document.getElementById("btn-preReserva").disabled = true;
+
+
+        var dtc = new Date(this.dt_chegada);
+        var dts = new Date(this.dt_saida);
+
+        this.dt_chegada = dtc.getDate() + "/" + mes[dtc.getMonth()]  + "/" + dtc.getFullYear();
+        this.dt_saida = dts.getDate() + "/" + mes[dts.getMonth()]  + "/" + dts.getFullYear();
+
+        var reserva = new Reserva(this.cliente, this.dt_chegada, this.dt_saida, this.qntd_quartos);
         
+        pre_reservas.push(reserva);
+
+        localStorage.setItem("pre-reservas", JSON.stringify(pre_reservas));
+
+        let texto = "";
+
+        for(var i = 0; i < pre_reservas.length; i++){
+            
+            texto += "<div class='bloco-reservas bg-success'>" +
+                        "<p> <span class='atributo'> Nome: </span>" + pre_reservas[i].cliente.nome + "</p>" +
+                        "<p> <span class='atributo'> E-mail: </span>" + pre_reservas[i].cliente.email + "</p>" +
+                        "<p> <span class='atributo'> Data de chegada: </span>" + pre_reservas[i].dt_chegada + "</p>" +
+                        "<p> <span class='atributo'> Data de saída: </span>" + pre_reservas[i].dt_saida + "</p>" + 
+                        "<p> <span class='atributo'> Quantidade de quartos: </span>" + pre_reservas[i].qntd_quartos + "</p>" +
+                    "</div>"
+        }
+
+        document.getElementById("td-pre-reservas").innerHTML = texto;
+
+        document.getElementById("msg-sem-reservas").style.display = "none";
+
+        document.getElementById("msg-exito-reserva").style.display = "block";
+
+        setTimeout(() => {
+
+            document.getElementById("msg-exito-reserva").style.display = "none";
+            document.getElementsByClassName("btn-close")[1].click();
+
+        }, 5000)
 
     }
+}
+
+function preReservar() {
+
+    let nome = document.getElementById("input-nome").value;
+
+    let email = document.getElementById("input-email").value;
+
+    let dtChegada = document.getElementById("input-dt-chegada").value;
+
+    let dtSaida = document.getElementById("input-dt-saida").value;
+
+    let qntd_quartos = document.getElementById("input-qntd-quartos").value;
+
+    var cliente = new Cliente(nome,email);
+
+    var reserva = new Reserva(cliente, dtChegada, dtSaida, qntd_quartos);
+
+    reserva.verificaPreReserva();
+}
+
+if (localStorage.getItem("pre-reservas") != null) {
+
+    pre_reservas = JSON.parse(localStorage.getItem("pre-reservas"));
+
+    let texto = "";
+
+    for(var i = 0; i < pre_reservas.length; i++){
+        
+        texto += "<div class='bloco-reservas bg-success'>" +
+                     "<p> <span class='atributo'> Nome: </span>" + pre_reservas[i].cliente.nome + "</p>" +
+                     "<p> <span class='atributo'> E-mail: </span>" + pre_reservas[i].cliente.email + "</p>" +
+                     "<p> <span class='atributo'> Data de chegada: </span>" + pre_reservas[i].dt_chegada + "</p>" +
+                     "<p> <span class='atributo'> Data de saída: </span>" + pre_reservas[i].dt_saida + "</p>" + 
+                     "<p> <span class='atributo'> Quantidade de quartos: </span>" + pre_reservas[i].qntd_quartos + "</p>" +
+                 "</div>"
+    }
+
+    document.getElementById("td-pre-reservas").innerHTML = texto;
+    
+} else {
+    document.getElementById("msg-sem-reservas").style.display = "block";
 }
