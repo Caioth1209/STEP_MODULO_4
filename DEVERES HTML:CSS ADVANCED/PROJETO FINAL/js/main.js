@@ -1,27 +1,3 @@
-if (sessionStorage.getItem("pre-reservas") != null) {
-
-    pre_reservas = JSON.parse(sessionStorage.getItem("pre-reservas"));
-
-    let texto = "";
-
-    for(var i = 0; i < pre_reservas.length; i++){
-        
-        texto += "<div class='bloco-reservas'>" +
-                     "<p> <span class='atributo'> Nome: </span>" + pre_reservas[i].cliente.nome + "</p>" +
-                     "<p> <span class='atributo'> E-mail: </span>" + pre_reservas[i].cliente.email + "</p>" +
-                     "<p> <span class='atributo'> Data de chegada: </span>" + pre_reservas[i].dt_chegada + "</p>" +
-                     "<p> <span class='atributo'> Data de saída: </span>" + pre_reservas[i].dt_saida + "</p>" + 
-                     "<p> <span class='atributo'> Quantidade de quartos: </span>" + pre_reservas[i].qntd_quartos + "</p>" +
-                 "</div>"
-    }
-
-    document.getElementById("td-pre-reservas").innerHTML = texto;
-    
-} else {
-    document.getElementById("msg-sem-reservas").style.display = "block";
-}
-
-
 //////////////////// VALIDAÇÃO DE LOGIN ////////////////////////////////
 
 ///sessionStorage.removeItem("pre-reservas")
@@ -326,7 +302,7 @@ class Reserva{
 
         for(var i = 0; i < pre_reservas.length; i++){
             
-            texto += "<div class='bloco-reservas bg-success'>" +
+            texto += "<div class='bloco-reservas'>" +
                         "<p> <span class='atributo'> Nome: </span>" + pre_reservas[i].cliente.nome + "</p>" +
                         "<p> <span class='atributo'> E-mail: </span>" + pre_reservas[i].cliente.email + "</p>" +
                         "<p> <span class='atributo'> Data de chegada: </span>" + pre_reservas[i].dt_chegada + "</p>" +
@@ -373,3 +349,25 @@ function preReservar() {
     reserva.verificaPreReserva();
 }
 
+if (sessionStorage.getItem("pre-reservas") != null) {
+
+    pre_reservas = JSON.parse(sessionStorage.getItem("pre-reservas"));
+
+    let texto = "";
+
+    for(var i = 0; i < pre_reservas.length; i++){
+        
+        texto += "<div class='bloco-reservas'>" +
+                     "<p> <span class='atributo'> Nome: </span>" + pre_reservas[i].cliente.nome + "</p>" +
+                     "<p> <span class='atributo'> E-mail: </span>" + pre_reservas[i].cliente.email + "</p>" +
+                     "<p> <span class='atributo'> Data de chegada: </span>" + pre_reservas[i].dt_chegada + "</p>" +
+                     "<p> <span class='atributo'> Data de saída: </span>" + pre_reservas[i].dt_saida + "</p>" + 
+                     "<p> <span class='atributo'> Quantidade de quartos: </span>" + pre_reservas[i].qntd_quartos + "</p>" +
+                 "</div>"
+    }
+
+    document.getElementById("td-pre-reservas").innerHTML = texto;
+    
+} else {
+    document.getElementById("msg-sem-reservas").style.display = "block";
+}
