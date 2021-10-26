@@ -79,8 +79,8 @@ class Funcionario{
 
 function login() {
 
-    let login = document.getElementById("input-login").value;
-    let senha = document.getElementById("input-senha").value;
+    let login = document.getElementById("input-login").value.trim();
+    let senha = document.getElementById("input-senha").value.trim();
 
     var f1 = new Funcionario(login, senha);
     
@@ -332,9 +332,9 @@ class Reserva{
 
 function preReservar() {
 
-    let nome = document.getElementById("input-nome").value;
+    let nome = document.getElementById("input-nome").value.trim();
 
-    let email = document.getElementById("input-email").value;
+    let email = document.getElementById("input-email").value.trim();
 
     let dtChegada = document.getElementById("input-dt-chegada").value;
 
