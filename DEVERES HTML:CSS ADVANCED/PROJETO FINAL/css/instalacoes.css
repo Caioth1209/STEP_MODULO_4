@@ -210,6 +210,9 @@
 
     .nav-link:hover{
         font-weight: bold;
+        animation: zoom 2s;
+        -o-animation: zoom 2s;
+        -webkit-animation: zoom 2s;
     }
 
     #bt-login{
@@ -353,6 +356,55 @@
 
     .off-desk{
         display: none;
+    }
+
+    @keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
+
+    @-o-keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
+
+
+    @-webkit-keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
     }
 }
 
@@ -563,6 +615,9 @@
 
     .nav-link:hover{
         font-weight: bold;
+        animation: zoom 2s;
+        -o-animation: zoom 2s;
+        -webkit-animation: zoom 2s;
     }
 
     #bt-login{
@@ -721,7 +776,54 @@
     .desk{
         display: none;
     }
+    @keyframes zoom{
 
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
+
+    @-o-keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
+
+
+    @-webkit-keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
 }
 
 @media screen and (max-width: 767px){ /* cell */
@@ -931,6 +1033,9 @@
 
     .nav-link:hover{
         font-weight: bold;
+        animation: zoom 2s;
+        -o-animation: zoom 2s;
+        -webkit-animation: zoom 2s;
     }
 
     #bt-login{
@@ -1086,5 +1191,53 @@
         display: none;
     }
 
+    @keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
+
+    @-o-keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
+
+
+    @-webkit-keyframes zoom{
+
+        0%{
+            transform: scale(1);
+        }
+
+        50%{
+            transform: scale(1.1);
+        }
+
+        100%{
+            transform: scale(1);
+        }
+
+    }
 }
 
