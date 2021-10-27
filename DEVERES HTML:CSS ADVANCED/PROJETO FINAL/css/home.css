@@ -380,6 +380,9 @@
         width: 100%;
         margin: auto;
         margin-left: 50px;
+        border: 1px solid orange;
+        border-radius: 20px;
+        padding: 25px;
     }
 
     .bloco-instalacoes-texto > h2{
@@ -894,6 +897,9 @@
     .bloco-instalacoes-texto{
         text-align: center;
         margin: 50px 0 0 0;        
+        border: 1px solid orange;
+        border-radius: 20px;
+        padding: 20px;
     }
 
     .bloco-instalacoes-texto > h2{
@@ -986,7 +992,7 @@
         }
 
         50%{
-            transform: scale(1.1);
+            transform: scale(0.9);
         }
 
         100%{
@@ -1494,7 +1500,7 @@
         }
 
         50%{
-            transform: scale(1.1);
+            transform: scale(0.9);
         }
 
         100%{
@@ -1510,7 +1516,7 @@
         }
 
         50%{
-            transform: scale(1.1);
+            transform: scale(0.9);
         }
 
         100%{
@@ -1527,7 +1533,7 @@
         }
 
         50%{
-            transform: scale(1.1);
+            transform: scale(0.9);
         }
 
         100%{
