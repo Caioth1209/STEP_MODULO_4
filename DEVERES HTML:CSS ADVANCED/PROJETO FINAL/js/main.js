@@ -59,7 +59,7 @@ class Funcionario{
                 document.getElementById("input-login").value = "";
                 document.getElementById("input-senha").value = "";
 
-            }, 5000)
+            }, 3000)
         
         } else{
 
@@ -71,7 +71,7 @@ class Funcionario{
 
                 msg_erro.style.display = "none";
 
-            }, 5000)
+            }, 3000)
         }
 
     }
@@ -115,15 +115,17 @@ function validaNome(c){
     var nome = c.value.replace(" ", "");
 
     var regex = /[0-9]/;
+
+    var regex2 = /\W|_/;
     
-    if(regex.test(nome)){
-    
+    if(regex.test(nome) || regex2.test(nome)){
+
         c.value = "";
 
         msg.style.display = "block";
 
         validNome = 1;
-        document.getElementById("btn-preReserva").disabled = true;
+        document.getElementById("btn-preReserva").disabled = true;   
                 
     } else {
     
@@ -289,8 +291,8 @@ class Reserva{
         var dtc = new Date(this.dt_chegada);
         var dts = new Date(this.dt_saida);
 
-        this.dt_chegada = dtc.getDate() + "/" + mes[dtc.getMonth()]  + "/" + dtc.getFullYear();
-        this.dt_saida = dts.getDate() + "/" + mes[dts.getMonth()]  + "/" + dts.getFullYear();
+        this.dt_chegada = (dtc.getDate() < 31 ? (dtc.getDate() + 1) : 1) + "/" + mes[dtc.getMonth()]  + "/" + dtc.getFullYear();
+        this.dt_saida = (dts.getDate() < 31 ? (dts.getDate() + 1) : 1) + "/" + mes[dts.getMonth()]  + "/" + dts.getFullYear();
 
         var reserva = new Reserva(this.cliente, this.dt_chegada, this.dt_saida, this.qntd_quartos);
         
@@ -325,7 +327,7 @@ class Reserva{
             document.getElementById("msg-exito-reserva").style.display = "none";
             document.getElementById("close-reserva").click()
 
-        }, 5000)
+        }, 3000)
 
     }
 }
