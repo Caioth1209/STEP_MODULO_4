@@ -272,6 +272,12 @@
         margin: 100px 0 0 30px !important;
     }
 
+    .galeria > div:hover{
+        animation: zoom 2s;
+        -o-animation: zoom 2s;
+        -webkit-animation: zoom 2s;
+    }
+
     .uk-inline > img{
         width: 400px;
         height: 350px;
@@ -657,6 +663,12 @@
 
     .galeria > div{
         width: 50%;
+    }
+
+    .galeria > div:hover{
+        animation: zoom 2s;
+        -o-animation: zoom 2s;
+        -webkit-animation: zoom 2s;
     }
 
     .uk-inline > img{
@@ -1046,6 +1058,12 @@
     .galeria > div{
         width: 100%;
         text-align: center;
+    }
+
+    .galeria > div:hover{
+        animation: zoom 2s;
+        -o-animation: zoom 2s;
+        -webkit-animation: zoom 2s;
     }
 
     .uk-inline > img{
