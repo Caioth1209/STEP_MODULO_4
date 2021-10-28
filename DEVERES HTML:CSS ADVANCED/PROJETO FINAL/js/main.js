@@ -1,6 +1,4 @@
 //////////////////// VALIDAÇÃO DE LOGIN ////////////////////////////////
-
-///sessionStorage.removeItem("pre-reservas")
 var bt_reservar =  document.getElementById("reservar");
 var bt_login = document.getElementById("bt-login");
 var bt_ver_reservas =  document.getElementById("ver-reservas");
