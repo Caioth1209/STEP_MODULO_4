@@ -1,5 +1,13 @@
-Projeto Final HTML ADV -> ENTREGA 4/11
+***********************
 
+LOGIN DE FUNCIONÁRIO:
+
+LOGIN: func000
+SENHA: func123
+
+***********************
+
+Projeto Final HTML ADV -> ENTREGA 4/11
 
 --------Requisitos Mínimos
 --Responsividade personalizada para o layout de celular - FEITO
