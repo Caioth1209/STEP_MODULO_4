@@ -1,0 +1,10 @@
+Dever de casa
+--------------
+
+O sistema usado em sala deverá ser implementado
+TELA DE LOGIN
+
+deverá ser melhorado o sistema de cadastros.
+Os usuários podem ser administradores ou padrão.
+PADRÃO -> APENAS ACESSARÁ A HOME (POR ENQUANTO)
+ADMINSITRADORES -> PODEM ADICIONAR, EXCLUIR E EDITAR USUÁRIOS
