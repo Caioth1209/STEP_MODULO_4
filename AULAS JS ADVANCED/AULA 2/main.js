@@ -43,7 +43,7 @@ $("#herois").change(() => {
 let html = "<h3> Texto inserido por JQuery </h3>";
 $("#append").append(html);
 $("#append").append(html);
-$("#append").html(html);
+$("#append").html(html); // substitui o que colocou antes
 
 let texto = "Uma bela frase";
 $("#span").text(texto);
