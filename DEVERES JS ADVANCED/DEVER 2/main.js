@@ -48,11 +48,6 @@ function logar() {
     document.formLogin.reset();
 
     if(achou){
-        //Variavel para ver se está logado ou nao se
-        //alguem tentar entrar em alguma pagina pela url. 
-        //Vai ser acessada na function verificaLogin.
-        localStorage.setItem("log", "1");
-        /////
         window.location.replace("home.html");
     } else {
 
@@ -302,6 +297,7 @@ function verificaTipoUser(){
         } else {
             $("#admin").css("display", "block");
             $("#padrao").css("display", "none");
+            localStorage.setItem("admin", "1");
         }
     } else {
         window.location.replace("index.html");
@@ -309,7 +305,7 @@ function verificaTipoUser(){
 }
 
 function verificaLogin() {
-    if (localStorage.getItem("log") == null) {
+    if (localStorage.getItem("admin") == null) {
         window.location.replace("index.html")
     }
 }
@@ -317,5 +313,5 @@ function verificaLogin() {
 function atualizaInformacoes() {
     localStorage.removeItem("logado");
     localStorage.removeItem("tipo");
-    localStorage.removeItem("log");
+    localStorage.removeItem("admin");
 }
