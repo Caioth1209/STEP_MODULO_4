@@ -1,5 +1,4 @@
-// ao se referir a um valor, usar sempre
-// $
+// ao se referir a um valor, usar sempre '$';
 
 // $(document).ready(alert("Documento carregado com sucesso!"));
 
@@ -27,7 +26,7 @@ $(".lang").change(function() {
 
     let valor = $(".lang option:selected").text();
 
-    console.log("Vc escolheu: " + valor);
+    console.log(`Vc escolheu: ${valor}`);
 })
 
 $("#herois").change(() => {

@@ -1,0 +1,4 @@
+Adaptar o ultimo exercício para interações com o DOM através de jquery
+
+$("#inputNome").value
+captura o value do input com id="inputNome"
