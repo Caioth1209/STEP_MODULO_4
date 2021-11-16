@@ -297,6 +297,8 @@ function verificaTipoUser(){
         } else {
             $("#admin").css("display", "block");
             $("#padrao").css("display", "none");
+
+            // usado para verificar o tipo na hora de entrar em alguma pagina
             localStorage.setItem("admin", "1");
         }
     } else {
@@ -306,7 +308,7 @@ function verificaTipoUser(){
 
 function verificaLogin() {
     if (localStorage.getItem("admin") == null) {
-        window.location.replace("index.html")
+        window.location.replace("index.html");
     }
 }
 
