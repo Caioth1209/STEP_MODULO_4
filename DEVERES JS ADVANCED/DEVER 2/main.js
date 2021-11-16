@@ -188,7 +188,7 @@ function editarUsuario() {
 
 function excluirUsuario() {
 
-    let index = document.getElementById("id").value;
+    let index = $("#id").val();
 
     if(localStorage.getItem("cadastros") != null){
         cadastros = JSON.parse(localStorage.getItem("cadastros"));
