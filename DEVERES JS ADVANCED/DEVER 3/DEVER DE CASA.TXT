@@ -1,0 +1,17 @@
+DEVER DE CASA
+
+Faça o tratamento do formulário antes de enviar os dados.
+
+o fomulário deverá ter:
+Nome: mínimo de 4 caracteres
+cpf: apenas números, pontos e o traço do dígito
+email e confirmar email;
+data de nascimento (não pode nascer no futuro)
+
+- Os alertas deverão ser exibidos abaixo dos campos com letras vermelhas e fonte arial narrow 11pt
+- Impeça que o usuário cole os dados nos inputs.
+
+USE OBRIGATORIAMENTE JQUERY PARA MANIPULAR OS ELEMENTOS DOM
+
+referência de seletores jquery
+https://api.jquery.com/category/selectors/
