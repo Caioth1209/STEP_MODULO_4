@@ -1,0 +1,11 @@
+DEVER DE CASA
+
+Cadastre alunos com nome, numero de matricula, cpf e telefone.
+
+valide o formulário sabendo:
+
+matricula -> AAA-0000-A?0? -> 3 letras - 4 números - 1 letra ou número
+cpf-> pode ou não ter pontos e traço
+telefone pode ser nacional ou EUA
+    nacional -> (00) 0?0000-0000
+    EUA -> (000) 000-0000

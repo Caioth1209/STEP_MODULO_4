@@ -22,28 +22,28 @@
 
     let cpf = "000.000.000-00";
     // -> "\ o que tiver aqui é obrigatório"
-    let regexCpf = "\d{3}\.\d{3}\.\d{3}\-\d{2}";
+    let regexCpf = /\d{3}\.\d{3}\.\d{3}\-\d{2}/;
 
-    let regexCpfPonto = "\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}";
+    let regexCpfPonto = /\d{3}[.]?\d{3}[.]?\d{3}[-]?\d{2}/;
 
     let celular = "(21) 99876-1234";
     // -> "[o que tiver raqui é opcional]?"
-    let regexCel = "\(\d{2}\) [d]?\d{4}\-\d{4}";
+    let regexCel = /\(\d{2}\) [d]?\d{4}\-\d{4}/;
 
-    // -> "[.-]?" ponto ou\e traço opcional
-    let expressao = "[.-]?";
+    // -> "[.-]?" ponto ou traço opcional
+    let expressao = /[.-]?/;
 
     // de 0 a 9;
-    expressao = "[0123456789]";
+    expressao = /[0123456789]/;
     //ou
     // de 0 a 9
-    expressao = "[0-9]";
+    expressao = /[0-9]/;
 
     // não caracteres
-    expressao = "[^A-Za-z0-9]";
+    expressao = /[^A-Za-z0-9]/;
 
     // caracteres maiusculos ou minusculos
-    expressao = "\W\w";
+    expressao = /\W\w/;
 
     let regexData = /[0-3][0-9][-/][0-1][0-9][/-][0-9]{4}/;
 
