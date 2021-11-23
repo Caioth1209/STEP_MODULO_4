@@ -164,7 +164,7 @@ $(document).ready(() => {
 
         let matricula = $("#numMatricula");
 
-        let regex = /[A-Za-z][A-Za-z][A-Za-z][-][0-9][0-9][0-9][0-9][-][0-9|A-Za-z]/;
+        let regex = /[A-Za-z]{3}[-][0-9]{4}[-][0-9|A-Za-z]/;
 
         if (!regex.test(matricula.val().trim())) {
 
@@ -200,7 +200,7 @@ $(document).ready(() => {
 
         } else {
 
-            if (regexUSA.test(telefone.val().trim()) && telefone.val().trim().length == 14) {
+            if (regexUSA.test(telefone.val().trim())) {
 
                 $("#erroTelefone").css({
                     "display": "none"
