@@ -67,5 +67,6 @@ function montarCanvas() {
 
     document.getElementById("btLimpa").addEventListener("click", ()=>{
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        cont = 1;
     })
 }
