@@ -1,7 +1,7 @@
 window.onload = () => {
-    // montarCanvas();
+    montarCanvas();
     // montarOutroCanvas();
-    montarCanvasEx();
+    //montarCanvasEx();
 }
 
 function montarCanvasEx() {
@@ -41,53 +41,53 @@ function montarCanvasEx() {
 }
 
 
-// function montarCanvas() {
-//     let canvas = document.getElementById("quadrado");
+function montarCanvas() {
+    let canvas = document.getElementById("quadrado");
 
-//     // Capturando o contexto do canvas em 2d para habilitar os comandos de desenhos 2d.
-//     ctx = canvas.getContext("2d");
-//     console.log("Montado canvas QUADRADO");
+    // Capturando o contexto do canvas em 2d para habilitar os comandos de desenhos 2d.
+    let ctx = canvas.getContext("2d");
+    console.log("Montado canvas QUADRADO");
 
-//     canvas.addEventListener("click", function(evento){
+    canvas.addEventListener("click", function(evento){
 
-//         var rect = this.getBoundingClientRect();
+        var rect = this.getBoundingClientRect();
 
-//         var coordenadas = {
-//             x: evento.clientX - rect.left,
-//             y: evento.clientY - rect.top
-//         }
+        var coordenadas = {
+            x: evento.clientX - rect.left,
+            y: evento.clientY - rect.top
+        }
 
-//         console.log("Coords(x:y): " + coordenadas.x + " : " + coordenadas.y);
+        console.log("Coords(x:y): " + coordenadas.x + " : " + coordenadas.y);
 
-//         ctx = this.getContext("2d");
+        ctx = this.getContext("2d");
 
-//         ctx.fillStyle = "yellow";
+        ctx.fillStyle = "yellow";
         
-//         ctx.fillRect(coordenadas.x - 10,coordenadas.y - 10,20,20);
+        ctx.fillRect(coordenadas.x - 10,coordenadas.y - 10,20,20);
 
-//         console.log("Dentro: " + 
-//         (verificaClique(coordenadas.x, coordenadas.y) ? "sim" : "não"));
-//     });
+        console.log("Dentro: " + 
+        (verificaClique(coordenadas.x, coordenadas.y) ? "sim" : "não"));
+    });
 
-//     ctx.fillStyle = "black";
+    ctx.fillStyle = "black";
 
-//     ctx.fillRect(0,0,150,150);
-// }
+    ctx.fillRect(0,0,150,150);
+}
 
-// function verificaClique(x,y) {
-//     var tamanho = [0,0,150,150];
+function verificaClique(x,y) {
+    var tamanho = [0,0,150,150];
 
-//     if (x >= tamanho[0] && // onde começa
-//         x <= tamanho[0] + tamanho[2] && // onde começa + largura
-//         y >= tamanho[1] && // onde começa
-//         y <= tamanho[1] + tamanho[3] // onde começa + altura
-//         ) {
+    if (x >= tamanho[0] && // onde começa
+        x <= tamanho[0] + tamanho[2] && // onde começa + largura
+        y >= tamanho[1] && // onde começa
+        y <= tamanho[1] + tamanho[3] // onde começa + altura
+        ) {
         
-//             return true;
-//     }
+            return true;
+    }
 
-//     return false;
-// }
+    return false;
+}
 
 // function montarOutroCanvas() {
 
