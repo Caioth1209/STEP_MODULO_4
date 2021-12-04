@@ -89,7 +89,7 @@ $("#canvas").ready(()=>{
 
         let isValid = true;
 
-        let nome = $("#nome").val();
+        let nome = $("#nome").val().trim();
 
         for(i = 0; i < cadastros.length; i++){
             if (nome == cadastros[i].nome) {
@@ -140,7 +140,7 @@ $("#canvas").ready(()=>{
 
             let cadastros = JSON.parse(localStorage.getItem("cadastros"));
 
-            let nomeProcura = $("#nomeProcura").val();
+            let nomeProcura = $("#nomeProcura").val().trim();
 
             let casa;
 
