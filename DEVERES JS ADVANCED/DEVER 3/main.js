@@ -99,7 +99,7 @@ $(document).ready(() => {
 
         let nome = $("#nome");
 
-        if (nome.val().trim().trim().length < 4) {
+        if (nome.val().trim().length < 4) {
             $("#erroNome").css({
                 "display": "block"
             })
@@ -110,7 +110,7 @@ $(document).ready(() => {
 
             let regex = /[0-9]/;
             
-            if (regex.test(nome.val().trim().trim())) {
+            if (regex.test(nome.val().trim())) {
 
                 $("#erroNome").css({
                     "display": "block"
