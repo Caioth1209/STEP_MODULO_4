@@ -11,9 +11,13 @@ class Pessoa{
 
 $("#canvas").ready(()=>{
 
+    // canvas e ctx para o cadastro
     let canvas = $("#canvas")[0];
-    
     let ctx = canvas.getContext("2d");
+
+    // outro canvas e ctx para a procura
+    let canvasLeitura = $("#canvasLeitura")[0];
+    let ctx2 = canvasLeitura.getContext("2d");
 
     let desenhando = false;
 
@@ -32,6 +36,7 @@ $("#canvas").ready(()=>{
         }
         
         ctx.moveTo(assinatura.x, assinatura.y);
+
         desenhando = true;
 
         arrayAssinaturas.push(assinatura);
@@ -154,10 +159,6 @@ $("#canvas").ready(()=>{
 
                 $("#canvas").hide();
                 $("#canvasLeitura").show();
-
-                let canvasLeitura = $("#canvasLeitura")[0];
-    
-                let ctx2 = canvasLeitura.getContext("2d");
                 
                 for(i = 0; i < cadastros[casa].arrayAssinaturas.length; i++){
 
@@ -191,6 +192,13 @@ $("#canvas").ready(()=>{
                     $("#msgNaoEncontrado").hide();
                 }, 3000);
             }
+        } else {
+            $(".btn-close").click();
+            $("#msgNaoEncontrado").show();
+
+            setTimeout(() => {
+                $("#msgNaoEncontrado").hide();
+            }, 3000);
         }
 
     })
@@ -205,6 +213,8 @@ $("#canvas").ready(()=>{
         $("#nome").val("");
         $("#nome").removeAttr("disabled");
         $("#btVoltar").hide();
+        ctx2.clearRect(0, 0, canvas.width, canvas.height);
+        ctx2.beginPath();
     })
 
     // tratando nome
@@ -230,7 +240,7 @@ $("#canvas").ready(()=>{
     ///////////////////////////
 
     // vendo se escreveu no input
-    $("#nomeProcura").on("input", ()=>{
+    $("#nomeProcura").on("input", () => {
         if($("#nomeProcura").val().trim().length > 0){
             $("#btProcurar").removeAttr("disabled");
         } else {
