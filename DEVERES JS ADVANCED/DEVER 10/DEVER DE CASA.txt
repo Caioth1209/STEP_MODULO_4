@@ -1,0 +1,13 @@
+DEVER DE CASA
+=============
+
+
+Crie um sistema de cadastro de pessoas com nome, nascimento, email e telefone.
+
+Faça uma navbar que dê acesso às seguintes opções:
+Relatório de Menores de idade
+relatório de Maiores de idade
+Relatório de Pessoas sem email
+Relatório de Pessoas sem telefone
+
+--USE ASYNC e AWAIT simulando o acesso ao banco de dados!

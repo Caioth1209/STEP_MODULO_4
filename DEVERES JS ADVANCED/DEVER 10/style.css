@@ -1,0 +1,12 @@
+*{
+    font-family: narrow, arial;
+}
+
+#erroNome, #erroTelefone, #erroEmail, #erroDataNasc{
+    display: none;
+    font-size: 11pt;
+}
+
+#msgExito, #msgErro{
+    display: none;
+}
