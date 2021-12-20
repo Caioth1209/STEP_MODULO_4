@@ -1,0 +1,16 @@
+*{
+    font-family: narrow, arial;
+}
+
+#erroNome, #erroLogin, #erroSenha, #erroCargo, #erroSalario{
+    display: none;
+    font-size: 11pt;
+}
+
+#msgExito, #msgErro{
+    display: none;
+}
+
+#formularioCadastro{
+    display: none;
+}

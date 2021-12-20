@@ -1,0 +1,22 @@
+EXERCÍCIO DE FÉRIAS
+===================
+Crie um sistema com as seguintes telas:
+
+*Login
+*Home
+    *Navbar -> Cadastros, Consultas, Sair
+
+*Cadastros -> Usuários, Clientes (id de Usuário), Funcionários (id de Usuário)
+
+*Consultas -> Usuários (Todos, Usuário por nome (cliente ou funcionário), por cliente, por funcionário)
+
+Todas as telas de consulta deverão ter botões de imprimir com saída em arquivo TXT
+Os registros deverão estar em um arquivo .dat (substituindo o bd)
+O Funcionário pode cadastrar usuários.
+O cliente só tem acesso ao HOME do sistema.
+USAR -> ASYNC/PROMISE/AWAIT
+-------
+fontes
+https://www.devmedia.com.br/criando-e-gravando-dados-em-txt-com-java/23060
+
+
