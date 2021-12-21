@@ -176,4 +176,81 @@ $(document).ready(() => {
         $(".funcCad").hide();
     })
 
+    $("#escolhaCTodos").click(()=>{
+
+        $("#escolhaCTodos").css({"background-color":"black"});
+        $("#escolhaCTodos > a").css({"color":"white"});
+        $("#cTodos").show();
+
+        $("#escolhaCNome").css({"background-color":"white"});
+        $("#escolhaCNome > a").css({"color":"#0B59CA"});
+        $("#cNome").hide();
+
+        $("#escolhaCCliente").css({"background-color":"white"});
+        $("#escolhaCCliente > a").css({"color":"#0B59CA"});
+        $("#cCliente").hide();
+
+        $("#escolhaCFunc").css({"background-color":"white"});
+        $("#escolhaCFunc > a").css({"color":"#0B59CA"});
+        $("#cFunc").hide();
+    })
+
+    $("#escolhaCNome").click(()=>{
+
+        $("#escolhaCNome").css({"background-color":"black"});
+        $("#escolhaCNome > a").css({"color":"white"});
+        $("#cNome").show();
+
+        $("#escolhaCTodos").css({"background-color":"white"});
+        $("#escolhaCTodos > a").css({"color":"#0B59CA"});
+        $("#cTodos").hide();
+
+        $("#escolhaCCliente").css({"background-color":"white"});
+        $("#escolhaCCliente > a").css({"color":"#0B59CA"});
+        $("#cCliente").hide();
+
+        $("#escolhaCFunc").css({"background-color":"white"});
+        $("#escolhaCFunc > a").css({"color":"#0B59CA"});
+        $("#cFunc").hide();
+
+    })
+
+    $("#escolhaCCliente").click(()=>{
+
+        $("#escolhaCCliente").css({"background-color":"black"});
+        $("#escolhaCCliente > a").css({"color":"white"});
+        $("#cCliente").show();
+
+        $("#escolhaCTodos").css({"background-color":"white"});
+        $("#escolhaCTodos > a").css({"color":"#0B59CA"});
+        $("#cTodos").hide();
+
+        $("#escolhaCNome").css({"background-color":"white"});
+        $("#escolhaCNome > a").css({"color":"#0B59CA"});
+        $("#cNome").hide();
+
+        $("#escolhaCFunc").css({"background-color":"white"});
+        $("#escolhaCFunc > a").css({"color":"#0B59CA"});
+        $("#cFunc").hide();
+
+    })
+
+    $("#escolhaCFunc").click(()=>{
+
+        $("#escolhaCFunc").css({"background-color":"black"});
+        $("#escolhaCFunc > a").css({"color":"white"});
+        $("#cFunc").show();
+
+        $("#escolhaCTodos").css({"background-color":"white"});
+        $("#escolhaCTodos > a").css({"color":"#0B59CA"});
+        $("#cTodos").hide();
+
+        $("#escolhaCNome").css({"background-color":"white"});
+        $("#escolhaCNome > a").css({"color":"#0B59CA"});
+        $("#cNome").hide();
+
+        $("#escolhaCCliente").css({"background-color":"white"});
+        $("#escolhaCCliente > a").css({"color":"#0B59CA"});
+        $("#cCliente").hide();
+    })
 })

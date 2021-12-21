@@ -7,10 +7,6 @@
     font-size: 11pt;
 }
 
-#msgExito, #msgErro{
-    display: none;
-}
-
-#formularioCadastro{
+#msgExito, #msgErro, #formularioCadastro, #cTodos, #cNome, #cCliente, #cFunc, .table{
     display: none;
 }
