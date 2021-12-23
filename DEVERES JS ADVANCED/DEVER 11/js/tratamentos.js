@@ -76,19 +76,7 @@ $(document).ready(() => {
 
     } else {
 
-        if (senha.split(" ").length > 1) {
-
-            $("#erroSenha").show();
-
-            setTimeout(() => {
-                $("#erroSenha").hide();
-            }, 5000);
-
-            senha.val("");
-
-        } else {
-            $("#erroSenha").hide();
-        }
+        $("#erroSenha").hide();
     }
    })
    ////////////////////////////
@@ -162,6 +150,8 @@ $(document).ready(() => {
 
         $("#formularioCadastro").show();
         $(".funcCad").show();
+
+        sessionStorage.setItem("tipoCad", "func");
     })
 
     $("#escolhaCliente").click(()=>{
@@ -174,6 +164,8 @@ $(document).ready(() => {
 
         $("#formularioCadastro").show();
         $(".funcCad").hide();
+
+        sessionStorage.setItem("tipoCad", "cliente");
     })
 
     $("#escolhaCTodos").click(()=>{

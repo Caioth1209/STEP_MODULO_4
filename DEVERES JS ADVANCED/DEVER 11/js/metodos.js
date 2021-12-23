@@ -1,72 +1,78 @@
 let cadastros = [];
 
-function logar() {
+$("#formLogin").submit((e)=>{
 
-    let login = document.getElementById("login").value;
-    let senha = document.getElementById("senha").value;
+    let login = $("#login");
+    let senha = $("#senha");
     let achou = false;
 
-    if (login == "root" && senha == "root123") {
+    if (login.val() == "root" && senha.val() == "root123") {
         localStorage.setItem("tipo", "funcionario");
         achou = true;
 
-    } else if (localStorage.getItem("cadastros") != null) {
-        cadastros = JSON.parse(localStorage.getItem("cadastros"));
+    }
 
-        for (i = 0; i < cadastros.length; i++){
-            if (login == cadastros[i].login && senha == cadastros[i].senha) {
-                achou = true;
+    // Ler o arquivo dat de cadastros e ver se tem o login e senha
+    //  else if (localStorage.getItem("cadastros") != null) {
+            
+    //     cadastros = JSON.parse(localStorage.getItem("cadastros"));
 
-                if (cadastros[i].tipo == "Cliente") {
-                    localStorage.setItem("tipo", "cliente");
-                } else {
-                    localStorage.setItem("tipo", "funcionario");
-                }
+    //     for (i = 0; i < cadastros.length; i++){
 
-                localStorage.setItem("logado", JSON.stringify(i));
-            }
-        }
-    } else {
+    //         if (login == cadastros[i].login && senha == cadastros[i].senha) {
+    //             achou = true;
 
-        document.getElementById("msgErro").style.display = "block";
+    //             if (cadastros[i].tipo == "Cliente") {
+    //                 localStorage.setItem("tipo", "cliente");
+    //             } else {
+    //                 localStorage.setItem("tipo", "funcionario");
+    //             }
+
+    //             localStorage.setItem("logado", JSON.stringify(i));
+    //         }
+    //     }
+    // }
+     else {
+
+        $("#msgErro").show();
 
         setTimeout(() => {
 
-            document.getElementById("msgErro").style.display = "none";
+            $("#msgErro").hide();
             
         }, 5000);
     }
 
-    document.formLogin.reset();
+    login.val("");
+    senha.val("");
 
     if(achou){
-        window.location.replace("home.html");
+        window.location.replace("inicio.html");
     } 
 
-}
+    e.preventDefault();
+})
 
-function cadastrarUsuario() {
+$("#formularioCadastro").submit((e)=>{
 
-    let nome = document.getElementById("nome").value;
+    let nome = $("#nome").val();
 
-    let login = document.getElementById("login").value;
+    let login = $("#login").val();
 
-    let senha = document.getElementById("senha").value;
+    let senha = $("#senha").val();
 
-    let tipo = document.getElementById("tipo").value;
+    let cargo = $("#cargo").val();
 
-    if(localStorage.getItem("cadastros") != null){
-        cadastros = JSON.parse(localStorage.getItem("cadastros"));
-    }
+    let salario = $("#salario").val();
 
     let isValid = true;
 
-    for (i = 0; i < cadastros.length; i++){
+    // for (i = 0; i < cadastros.length; i++){
 
-        if (login == cadastros[i].login || senha == cadastros[i].senha) {
-            isValid = false;   
-        }
-    }
+    //     if (login == cadastros[i].login || senha == cadastros[i].senha) {
+    //         isValid = false;   
+    //     }
+    // }
 
     if (login == "root" || senha == "root123") {
         isValid = false;   
@@ -74,34 +80,72 @@ function cadastrarUsuario() {
 
     if(isValid){
 
-        let user = new User(nome,login,senha,tipo);
+        let usuario;
 
-        cadastros.push(user);
+        if (sessionStorage.getItem("tipoCad") == "cliente") {
 
-        localStorage.setItem("cadastros", JSON.stringify(cadastros));
+            let tipo = "cliente";
 
-        document.getElementById("msgExito").style.display = "block";
-        document.getElementById("msgErro").style.display = "none";
+            usuario = new Cliente(nome, login, senha, tipo);
+
+        } else {
+
+            let tipo = "func";
+
+            usuario = new Funcionario(nome, login, senha, tipo, cargo, salario);
+        }
+
+        salvar(usuario);        
+
+        // cadastros.push(user);
+
+        // localStorage.setItem("cadastros", JSON.stringify(cadastros));
+
+        $("#msgExito").show();
+        $("#msgErro").hide();
 
         setTimeout(() => {
 
-            document.getElementById("msgExito").style.display = "none";
-                
+            $("#msgExito").hide();
+
         }, 5000);
 
     } else {
 
-        document.getElementById("msgErro").style.display = "block";
-        document.getElementById("msgExito").style.display = "none";
+        $("#msgErro").show();
+        $("#msgExito").hide();
 
         setTimeout(() => {
 
-            document.getElementById("msgErro").style.display = "none";
-            
+            $("#msgErro").hide();
+
         }, 5000);
         
     }
 
-    document.formCadastro.reset();
-    // limpa o formulario
+    e.preventDefault();
+})
+
+function salvar(usuario) {
+
+    let texto = "";
+
+    if (sessionStorage.getItem("tipoCad") == "cliente") {
+        texto = `${usuario.tipo} # ${usuario.nome} # ${usuario.login} #
+        ${usuario.senha} # x # x`;
+
+    } else {
+        texto = `${usuario.tipo} # ${usuario.nome} # ${usuario.login} #
+        ${usuario.senha} # ${usuario.cargo} # ${usuario.salario}`;
+    }
+
+    const fs = require("fs");
+
+    fs.writeFile("sample.txt", texto, (err) => {
+        if (err){
+            throw err.message();
+        };
+        console.log("Completed!");
+    });
+    
 }
