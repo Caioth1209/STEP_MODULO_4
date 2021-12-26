@@ -1,3 +1,5 @@
+$(".cNome").hide();
+
 $(document).ready(() => {
 
     // tratando nome
@@ -151,6 +153,7 @@ $(document).ready(() => {
         $("#formularioCadastro").show();
         $(".funcCad").show();
 
+        // escolhe o tipo de usuario que vai ser cadastrado
         sessionStorage.setItem("tipoCad", "func");
     })
 
@@ -165,6 +168,7 @@ $(document).ready(() => {
         $("#formularioCadastro").show();
         $(".funcCad").hide();
 
+        // escolhe o tipo de usuario que vai ser cadastrado
         sessionStorage.setItem("tipoCad", "cliente");
     })
 
@@ -176,7 +180,7 @@ $(document).ready(() => {
 
         $("#escolhaCNome").css({"background-color":"white"});
         $("#escolhaCNome > a").css({"color":"#0B59CA"});
-        $("#cNome").hide();
+        $(".cNome").hide();
 
         $("#escolhaCCliente").css({"background-color":"white"});
         $("#escolhaCCliente > a").css({"color":"#0B59CA"});
@@ -185,13 +189,15 @@ $(document).ready(() => {
         $("#escolhaCFunc").css({"background-color":"white"});
         $("#escolhaCFunc > a").css({"color":"#0B59CA"});
         $("#cFunc").hide();
+
+        $(".table").hide();
     })
 
     $("#escolhaCNome").click(()=>{
 
         $("#escolhaCNome").css({"background-color":"black"});
         $("#escolhaCNome > a").css({"color":"white"});
-        $("#cNome").show();
+        $(".cNome").show();
 
         $("#escolhaCTodos").css({"background-color":"white"});
         $("#escolhaCTodos > a").css({"color":"#0B59CA"});
@@ -205,6 +211,7 @@ $(document).ready(() => {
         $("#escolhaCFunc > a").css({"color":"#0B59CA"});
         $("#cFunc").hide();
 
+        $(".table").hide();
     })
 
     $("#escolhaCCliente").click(()=>{
@@ -219,11 +226,13 @@ $(document).ready(() => {
 
         $("#escolhaCNome").css({"background-color":"white"});
         $("#escolhaCNome > a").css({"color":"#0B59CA"});
-        $("#cNome").hide();
+        $(".cNome").hide();
 
         $("#escolhaCFunc").css({"background-color":"white"});
         $("#escolhaCFunc > a").css({"color":"#0B59CA"});
         $("#cFunc").hide();
+
+        $(".table").hide();
 
     })
 
@@ -239,10 +248,12 @@ $(document).ready(() => {
 
         $("#escolhaCNome").css({"background-color":"white"});
         $("#escolhaCNome > a").css({"color":"#0B59CA"});
-        $("#cNome").hide();
+        $(".cNome").hide();
 
         $("#escolhaCCliente").css({"background-color":"white"});
         $("#escolhaCCliente > a").css({"color":"#0B59CA"});
         $("#cCliente").hide();
+
+        $(".table").hide();
     })
 })

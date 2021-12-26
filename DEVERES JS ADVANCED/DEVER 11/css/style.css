@@ -7,6 +7,10 @@
     font-size: 11pt;
 }
 
-#msgExito, #msgErro, #formularioCadastro, #cTodos, #cNome, #cCliente, #cFunc, .table{
+#msgExito, #msgErro, #formularioCadastro, #cTodos, #cCliente, #cFunc, .table{
     display: none;
+}
+
+.alinharTabela{
+    text-align: center;
 }

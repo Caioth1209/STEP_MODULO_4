@@ -14,11 +14,7 @@ class Usuario{
 
 class Cliente extends Usuario{
     constructor(nome, login, senha, tipo){
-        super();
-        super.nome = nome;
-        super.login = login;
-        super.senha = senha;
-        super.tipo = tipo;
+        super(nome, login, senha, tipo);
     }
 
 }
@@ -28,11 +24,7 @@ class Funcionario extends Usuario{
     salario;
 
     constructor(nome, login, senha, tipo, cargo, salario){
-        super();
-        super.nome = nome;
-        super.login = login;
-        super.senha = senha;
-        super.tipo = tipo;
+        super(nome, login, senha, tipo);
         this.cargo = cargo;
         this.salario = salario;
     }
