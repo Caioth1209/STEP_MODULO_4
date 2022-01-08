@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" 
+    integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" 
+    crossorigin="anonymous"></script>
 </head>
 <body onload="permissaoAcesso()">
 
@@ -92,7 +94,7 @@
             <div class="row funcCad">
                 <div class="col-md-6 mb-3">
                     <label for="cargo" class="form-label">Cargo</label>
-                    <input type="text" id="cargo" class="form-control" placeholder="Digite o cargo." maxlength="30">
+                    <input type="text" id="cargo" class="form-control" placeholder="Digite o cargo." maxlength="30" required>
                     <div id="erroCargo" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 caracteres!</div>
                 </div>
     
@@ -101,7 +103,7 @@
                     
                     <div class="input-group">
                         <span class="input-group-text">R$</span>
-                        <input type="text" id="salario" class="form-control" placeholder="Digite o salário." maxlength="7">
+                        <input type="text" id="salario" class="form-control" placeholder="Digite o salário." maxlength="12" required>
                     </div>
 
                     <div id="erroSalario" class="form-text text-danger">Digite um valor correto</div>

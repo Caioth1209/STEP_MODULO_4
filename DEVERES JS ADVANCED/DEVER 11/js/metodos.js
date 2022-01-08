@@ -324,22 +324,3 @@ $("#cFunc").click( async () =>{
     }, 3000);
 
 })
-
-// let fileHandle;
-
-// async function salvar(usuario) {
-
-//     let texto = "";
-
-//     if (sessionStorage.getItem("tipoCad") == "cliente") {
-//         texto = `${usuario.tipo}#${usuario.nome}#${usuario.login}#${usuario.senha}#x#x`;
-
-//     } else {
-//         texto = `${usuario.tipo}#${usuario.nome}#${usuario.login}#${usuario.senha}#${usuario.cargo}#${usuario.salario}`;
-//     }
-
-//     [fileHandle] = await window.showOpenFilePicker();
-//     const writable = await fileHandle.createWritable();
-//     await writable.write(texto);
-//     await writable.close();
-// }

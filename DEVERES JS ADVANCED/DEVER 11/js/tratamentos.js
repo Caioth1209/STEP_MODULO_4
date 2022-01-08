@@ -32,9 +32,7 @@ $(document).ready(() => {
                 nome.val("");
 
             } else {
-
                 $("#erroNome").hide();
-
             }
         }
     })
@@ -56,7 +54,22 @@ $(document).ready(() => {
         login.val("");
 
     } else {
-        $("#erroLogin").hide();
+        
+        let loginSplit = login.val().trim().split(" ");
+
+        if (loginSplit.length > 1) {
+
+            $("#erroLogin").show();
+
+            setTimeout(() => {
+                $("#erroLogin").hide();
+            }, 5000);
+
+            login.val("");
+
+        } else {
+            $("#erroLogin").hide();
+        }
     }
    })
    ////////////////////////////
@@ -78,7 +91,21 @@ $(document).ready(() => {
 
     } else {
 
-        $("#erroSenha").hide();
+        let senhaSplit = senha.val().trim().split(" ");
+
+        if (senhaSplit.length > 1) {
+
+            $("#erroSenha").show();
+
+            setTimeout(() => {
+                $("#erroSenha").hide();
+            }, 5000);
+
+            senha.val("");
+
+        } else {
+            $("#erroSenha").hide();
+        }
     }
    })
    ////////////////////////////
@@ -122,23 +149,8 @@ $(document).ready(() => {
     ////////////////////////////
 
     // tratando salario
-    $("#salario").change(()=>{
-
-        let salario = $("#salario");
-
-        if (isNaN(salario.val())) {
-
-            $("#erroSalario").show();
-
-            setTimeout(() => {
-                $("#erroSalario").hide();
-            }, 5000);
-
-            salario.val("");
-
-        } else {
-            $("#erroSalario").hide();
-        }
+    $("#salario").on("input", ()=>{
+        $("#salario").mask('#,##0.00', { reverse: true });
     })
     ////////////////////////////
 
