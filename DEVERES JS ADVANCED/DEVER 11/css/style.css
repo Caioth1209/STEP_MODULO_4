@@ -10,7 +10,3 @@
 #msgExito, #msgErro, #formularioCadastro, #cTodos, #cCliente, #cFunc, .table{
     display: none;
 }
-
-.alinharTabela{
-    text-align: center;
-}

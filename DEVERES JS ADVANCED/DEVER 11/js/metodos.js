@@ -171,7 +171,7 @@ async function getCadastros() {
     $(".table").show();
     $("#colunas").html(
         `<tr>
-            <td colspan="5" class="alinharTabela">
+            <td colspan="5" class="text-center">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -210,6 +210,7 @@ $("#cTodos").click( async () =>{
                     "<td colspan='5' class='text-danger alinharTabela'> Nenhuma pessoa cadastrada até o momento.</tr>" +
                 "</tr>"
             );
+
         } else {
             $("#colunas").html(texto);
         }
