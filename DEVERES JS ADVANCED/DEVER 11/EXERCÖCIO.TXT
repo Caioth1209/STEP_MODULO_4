@@ -15,8 +15,3 @@ Os registros deverão estar em um arquivo .dat (substituindo o bd)
 O Funcionário pode cadastrar usuários.
 O cliente só tem acesso a HOME do sistema.
 USAR -> ASYNC/PROMISE/AWAIT
--------
-fontes
-https://www.devmedia.com.br/criando-e-gravando-dados-em-txt-com-java
-
-
