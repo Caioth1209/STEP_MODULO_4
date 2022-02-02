@@ -1,0 +1,7 @@
+DEVER DE CASA
+=============
+
+Crie uma página que calcule o IMC e a posição na média de idade dos cadastrados (acima da média, abaixo da média ou na média).
+
+Faça os testes unitários em QUnit.
+DESAFIO -> rode testes unitários com outro framework.
