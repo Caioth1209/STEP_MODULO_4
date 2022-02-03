@@ -11,4 +11,3 @@ class Pessoa{
         this.altura = altura;
     }
 }
-
