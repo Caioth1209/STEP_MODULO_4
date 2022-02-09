@@ -1,0 +1,12 @@
+DEVER DE CASA
+=============
+
+Busque uma biblioteca para atender o seguinte pedido:
+
+Ao passar o mouse pela tela, ele deverá apontar para um determinado ponto do site.
+
+Faça o seguinte:
+
+crie uma div e, no centro dela, coloque um imagem de 40px x 40px
+
+O mouse sempre terá uma seta apontando para o objeto, conforme imagem do chat;
