@@ -1,0 +1,35 @@
+#imagem{
+    width: 40px;
+    height: 40px;    
+}
+
+ 
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F5F9FF;
+}
+.cursor {
+    --r: 0deg;
+    position: fixed;
+    left: -10px;
+    top: -10px;
+    pointer-events: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    display: none;
+    transform: translate(var(--x), var(--y));
+    
+  }
+  .cursor svg {
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: rotate(var(--r));
+  }
+  
+  
