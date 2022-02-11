@@ -1,0 +1,13 @@
+.linha-nav{
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+#logo{
+    width: 200px;
+    height: 80px;
+}
+
+.nav-link{
+    margin: 0 20px 0 0;
+    font-size: 17px;
+}

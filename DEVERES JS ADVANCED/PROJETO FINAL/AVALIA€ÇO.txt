@@ -12,6 +12,7 @@ SISTEMA PDV (Ponto de Venda / CAIXA) LOJA DE ROUPAS
     -Produtos
     -Entregadores
     -Vendas (balcão/Entregas)
+    -CAIXA -> Opcional
 -Consultas/relatórios
     -Clientes
         *Geral, aniversariantes do mês, compras no último mês
