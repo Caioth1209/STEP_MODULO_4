@@ -1,0 +1,28 @@
+AVALIAÇÃO PROJETO JSADV
+=======================
+-----------------------
+ENTREGA 22/02/2022 ====
+-----------------------
+
+
+SISTEMA PDV (Ponto de Venda / CAIXA) LOJA DE ROUPAS
+
+-Cadastros
+    -Clientes
+    -Produtos
+    -Entregadores
+    -Vendas (balcão/Entregas)
+-Consultas/relatórios
+    -Clientes
+        *Geral, aniversariantes do mês, compras no último mês
+    -Produtos
+        *Mais vendidos, menos vendidos e geral;
+    -Entregadores
+        *Geral
+    -Vendas
+        *Geral, por cliente, por dia/período, por entregador, por produto;
+
+===============================================================
+
+Front-end com CSS3, framework, pickers e bibliotecas;
+UX -> User Xperience, usabilidade universal;

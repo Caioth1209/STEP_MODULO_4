@@ -1,0 +1,36 @@
+@media screen and (min-width: 768px) {
+    
+    #formLogin{
+        width: 80%;
+    }
+}
+
+#formLogin{
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 2px 2px 30px rgb(221, 221, 221);
+    margin-top: 50px;
+}
+
+#divLogo{
+    text-align: center;
+}
+
+#logo{
+    width: 250px;
+    height: 100px;
+}
+
+#msgErro{
+    display: none;
+}
+
+#divBtSubmit{
+    text-align: end;
+}
+
+#btSubmit{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+}
