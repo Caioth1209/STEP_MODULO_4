@@ -5,6 +5,18 @@
     }
 }
 
+@media screen and (max-width: 480px) {
+    
+    #formLogin{
+        width: 100%;
+    }
+
+    #logo{
+        width: 230px !important;
+        height: 80px !important;
+    }
+}
+
 #formLogin{
     margin: auto;
     border-radius: 20px;
