@@ -44,15 +44,13 @@
             </select>
         </div>
 
-        <hr>
-
         <form id="formularioCadastro">
 
             <div class="cadastro-caixa">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" maxlength="30" required>
-                    <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 letras!</div>
+                    <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" maxlength="25" required>
+                    <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
                 </div>
     
                 <div class="row">
@@ -68,14 +66,22 @@
                         <div id="erroSenha" class="form-text text-danger">Digite no mínimo 4 e no máximo 15 caracteres e sem espaços!</div>
                     </div>
                 </div>
+
+                <div class="alert alert-success" id="msgExitoCaixa" role="alert">
+                    Caixa cadastrado com sucesso!
+                </div>
+
+                <div class="alert alert-danger" id="msgErroCaixa" role="alert">
+                    Login ou Senha já existentes!
+                </div>
             </div>
 
             <div class="cadastro-cliente">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" id="nome" class="form-control" placeholder="Digite o nome" maxlength="30" required>
-                        <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 letras!</div>
+                        <input type="text" id="nome" class="form-control" placeholder="Digite o nome" maxlength="25" required>
+                        <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -104,17 +110,186 @@
                     <textarea id="endereco" class="form-control p-3" rows="2" placeholder="Endereço" maxlength="70" required></textarea>
                     <div id="erroEndereco" class="form-text text-danger">Digite no mínimo 10 e no máximo 70 caracteres!</div>
                 </div>
+
+                <div class="alert alert-success" id="msgExitoCliente" role="alert">
+                    Cliente cadastrado com sucesso!
+                </div>
+
+                <div class="alert alert-success" id="msgErroCliente" role="alert">
+                    CPF já cadastrado!
+                </div>
             </div>
 
-            <div class="alert alert-success" id="msgExito" role="alert">
-                Usuário cadastrado com sucesso!
+            <div class="cadastro-produto">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nome" class="form-label">Nome do produto</label>
+                        <input type="text" id="nomeProduto" class="form-control" placeholder="Digite o nome do produto" maxlength="30" required>
+                        <div id="erroNomeProduto" class="form-text text-danger">Digite no mínimo 4 e no máximo 40 caracteres!</div>
+                    </div>
+    
+                    <div class="col-md-6 mb-3">
+                        <label for="telefone" class="form-label">Preço</label>
+                        <input type="text" id="preco" class="form-control" placeholder="Digite o preço do produto" maxlength="8" required>
+                        <div id="erroPreco" class="form-text text-danger">Digite um valor!</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea id="descricao" class="form-control p-3" rows="2" placeholder="Descrição do produto" maxlength="70" required></textarea>
+                    <div id="erroDescricao" class="form-text text-danger">Digite no mínimo 10 e no máximo 70 caracteres!</div>
+                </div>
+
+                <div class="alert alert-success" id="msgExitoProduto" role="alert">
+                    Produto cadastrado com sucesso!
+                </div>
             </div>
 
-            <div class="alert alert-danger" id="msgErro" role="alert">
-                Login ou Senha já existentes!
+            <div class="cadastro-entregador">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" id="nome" class="form-control" placeholder="Digite o nome" maxlength="30" required>
+                        <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 letras!</div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" id="telefone" class="form-control" placeholder="Digite o telefone" maxlength="15" required>
+                        <div id="erroTelefone" class="form-text text-danger">Digite o telefone corretamente</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" id="cpf" class="form-control" placeholder="Digite o CPF" maxlength="11" required>
+                    <div id="erroCpf" class="form-text text-danger">Digite o CPF corretamente!</div>
+                </div>
+
+                <div class="alert alert-success" id="msgExitoEntregador" role="alert">
+                    Entregador cadastrado com sucesso!
+                </div>
+
+                <div class="alert alert-success" id="msgErroEntregador" role="alert">
+                    CPF já cadastrado!
+                </div>
             </div>
 
-            <button type="submit" class="btn btn-success">Cadastrar</button>
+            <div class="cadastro-venda-balcao">
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nome" class="form-label">Cliente</label>
+                        <select class="form-select" id="escolhaClienteVenda" required>
+                            <option selected disabled>Escolha um cliente para a venda</option>
+                        </select>
+                    </div>
+    
+                    <div class="col-md-6 mb-3">
+                        <label for="formaPagamento" class="form-label">Forma de pagamento</label>
+                        <select class="form-select" id="formaPagamento" required>
+                            <option selected disabled>Escolha uma forma de pagamento</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="credito">Cartão de crédito</option>
+                            <option value="debito">Cartão de dédito</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="escolhaProdutosLabel mb-3">
+                        <label class="form-label">Escolha de produtos</label>
+                    </div>
+
+                    <div class="alert alert-danger" id="msgNaoExistemProdutos" role="alert">
+                        Não existem produtos cadastrados até o momento!
+                    </div>
+                    <!-- <div class="escolhaProdutos p-3">
+                        <div class="divNomeProd">
+                            <input type="text" readonly value="Camisa Armani Exchange GG">
+                        </div>
+    
+                        <div class="divQuantidadeProd">
+                            <button type="button" class="btn btn-danger">-</button>
+                            <input type="text" readonly value="0" id="quantidade1"> 
+                            <button type="button" class="btn btn-success">+</button>                       
+                        </div>
+                    </div> -->
+
+                </div>
+
+                <div class="alert alert-danger" id="msgErroVendaBalcao" role="alert">
+                    Adicione produtos ao carrinho para cadastrar uma venda!
+                </div>
+
+                <div class="alert alert-success" id="msgExitoVendaBalcao" role="alert">
+                    Venda no balcão cadastrada com sucesso!
+                </div>
+            </div>
+
+            <div class="cadastro-venda-entrega">
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nome" class="form-label">Cliente</label>
+                        <select class="form-select" id="escolhaClienteVenda" required>
+                            <option selected disabled>Escolha um cliente para a venda</option>
+                        </select>
+                    </div>
+    
+                    <div class="col-md-6 mb-3">
+                        <label for="formaPagamento" class="form-label">Forma de pagamento</label>
+                        <select class="form-select" id="formaPagamento" required>
+                            <option selected disabled>Escolha uma forma de pagamento</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="credito">Cartão de crédito</option>
+                            <option value="debito">Cartão de dédito</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="escolhaEntregadorVenda" class="form-label">Entregador</label>
+                    <select class="form-select" id="escolhaEntregadorVenda" required>
+                        <option selected disabled>Escolha um entregador para a venda</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <div class="escolhaProdutosLabel mb-3">
+                        <label class="form-label">Escolha de produtos</label>
+                    </div>
+
+                    <div class="alert alert-danger" id="msgNaoExistemProdutos" role="alert">
+                        Não existem produtos cadastrados até o momento!
+                    </div>
+                    <!-- <div class="escolhaProdutos p-3">
+                        <div class="divNomeProd">
+                            <input type="text" readonly value="Camisa Armani Exchange GG">
+                        </div>
+    
+                        <div class="divQuantidadeProd">
+                            <button type="button" class="btn btn-danger">-</button>
+                            <input type="text" readonly value="0" id="quantidade1"> 
+                            <button type="button" class="btn btn-success">+</button>                       
+                        </div>
+                    </div> -->
+
+                </div>
+
+                <div class="alert alert-danger" id="msgErroVendaBalcao" role="alert">
+                    Adicione produtos ao carrinho para cadastrar uma venda!
+                </div>
+
+                <div class="alert alert-success" id="msgExitoVendaBalcao" role="alert">
+                    Venda no balcão cadastrada com sucesso!
+                </div>
+            </div>
+
+            <div class="divBtSubmit">
+                <button type="submit" id="btCadastrar" class="btn btn-success">Cadastrar</button>
+            </div>
         </form>
     </section>
     
