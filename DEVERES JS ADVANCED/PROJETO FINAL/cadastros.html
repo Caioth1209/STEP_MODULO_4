@@ -137,7 +137,7 @@
 
                 <div class="mb-3">
                     <label for="descricao" class="form-label">Descrição</label>
-                    <textarea id="descricao" class="form-control p-3" rows="2" placeholder="Descrição do produto" maxlength="70" required></textarea>
+                    <textarea id="descricao" class="form-control p-3" rows="2" placeholder="Descrição do produto" maxlength="60" required></textarea>
                     <div id="erroDescricao" class="form-text text-danger">Digite no mínimo 10 e no máximo 70 caracteres!</div>
                 </div>
 
@@ -149,7 +149,7 @@
             <div class="cadastro-entregador">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nome" class="form-label">Nome</label>
+                        <label for="nome" class="form-label">Nome do entregador</label>
                         <input type="text" id="nome" class="form-control" placeholder="Digite o nome" maxlength="30" required>
                         <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 letras!</div>
                     </div>
@@ -180,7 +180,7 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nome" class="form-label">Cliente</label>
+                        <label for="escolhaClienteVenda" class="form-label">Cliente</label>
                         <select class="form-select" id="escolhaClienteVenda" required>
                             <option selected disabled>Escolha um cliente para a venda</option>
                         </select>
@@ -205,6 +205,7 @@
                     <div class="alert alert-danger" id="msgNaoExistemProdutos" role="alert">
                         Não existem produtos cadastrados até o momento!
                     </div>
+                    
                     <!-- <div class="escolhaProdutos p-3">
                         <div class="divNomeProd">
                             <input type="text" readonly value="Camisa Armani Exchange GG">
