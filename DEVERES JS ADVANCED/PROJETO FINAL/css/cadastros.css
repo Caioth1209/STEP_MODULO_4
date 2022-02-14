@@ -71,7 +71,7 @@
     margin-top: 50px;
 }
 
-.cadastro-caixa, .cadastro-cliente, .cadastro-produto, .cadastro-entregador, .cadastro-venda-balcao, .cadastro-venda-entrega, #btCadastrar, #msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroVendaBalcao, #msgNaoExistemProdutos, #erroNome, #erroLogin, #erroSenha, #erroTelefone, #erroDataNasc, #erroCpf, #erroEndereco, #erroPreco, #erroDescricao{
+.cadastro-caixa, .cadastro-cliente, .cadastro-produto, .cadastro-entregador, .cadastro-venda-balcao, .cadastro-venda-entrega, #msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega,#msgErroCaixa, #msgErroVendaBalcao, #msgNaoExistemProdutos, #erroNomeCaixa, #erroNomeCliente, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente,#erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao{
     display: none;
 }
 

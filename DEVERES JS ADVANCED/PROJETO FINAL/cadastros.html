@@ -33,14 +33,14 @@
         <h2 class="titulo mb-3">Cadastros</h2>
 
         <div class="mb-3">
-            <select class="form-select w-75">
+            <select id="escolhaCadastro" class="form-select w-75">
                 <option disabled selected>Escolha o que deseja cadastrar</option>
-                <option value="1">Caixa</option>
-                <option value="2">Cliente</option>
-                <option value="3">Produto</option>
-                <option value="4">Entregador</option>
-                <option value="5">Venda no balcão</option>
-                <option value="6">Venda entrega</option>
+                <option value="caixa">Caixa</option>
+                <option value="cliente">Cliente</option>
+                <option value="produto">Produto</option>
+                <option value="entregador">Entregador</option>
+                <option value="vendaBalcao">Venda no balcão</option>
+                <option value="vendaEntrega">Venda entrega</option>
             </select>
         </div>
 
@@ -48,9 +48,9 @@
 
             <div class="cadastro-caixa">
                 <div class="mb-3">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" id="nome" class="form-control" placeholder="Digite seu nome" maxlength="25" required>
-                    <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
+                    <label for="nomeCaixa" class="form-label">Nome</label>
+                    <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="25" required>
+                    <div id="erroNomeCaixa" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
                 </div>
     
                 <div class="row">
@@ -74,28 +74,32 @@
                 <div class="alert alert-danger" id="msgErroCaixa" role="alert">
                     Login ou Senha já existentes!
                 </div>
+
+                <div class="divBtSubmit">
+                    <button type="submit" id="btCadastrar" class="btn btn-success">Cadastrar</button>
+                </div>
             </div>
 
             <div class="cadastro-cliente">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" id="nome" class="form-control" placeholder="Digite o nome" maxlength="25" required>
-                        <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
+                        <label for="nomeCliente" class="form-label">Nome</label>
+                        <input type="text" id="nomeCliente" class="form-control" placeholder="Digite o nome" maxlength="25" required>
+                        <div id="erroNomeCliente" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="telefone" class="form-label">Telefone</label>
-                        <input type="text" id="telefone" class="form-control" placeholder="Digite o telefone" maxlength="15" required>
-                        <div id="erroTelefone" class="form-text text-danger">Digite o telefone corretamente</div>
+                        <label for="telefoneCliente" class="form-label">Telefone</label>
+                        <input type="text" id="telefoneCliente" class="form-control" placeholder="Digite o telefone" maxlength="15" required>
+                        <div id="erroTelefoneCliente" class="form-text text-danger">Digite o telefone corretamente!</div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" id="cpf" class="form-control" placeholder="Digite o CPF" maxlength="11" required>
-                        <div id="erroCpf" class="form-text text-danger">Digite o CPF corretamente!</div>
+                        <label for="cpfCliente" class="form-label">CPF</label>
+                        <input type="text" id="cpfCliente" class="form-control" placeholder="Digite o CPF" maxlength="11" required>
+                        <div id="erroCpfCliente" class="form-text text-danger">Digite o CPF corretamente!</div>
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -149,22 +153,22 @@
             <div class="cadastro-entregador">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="nome" class="form-label">Nome do entregador</label>
-                        <input type="text" id="nome" class="form-control" placeholder="Digite o nome" maxlength="30" required>
-                        <div id="erroNome" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 letras!</div>
+                        <label for="nomeEntregador" class="form-label">Nome do entregador</label>
+                        <input type="text" id="nomeEntregador" class="form-control" placeholder="Digite o nome" maxlength="30" required>
+                        <div id="erroNomeEntregador" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="telefone" class="form-label">Telefone</label>
-                        <input type="text" id="telefone" class="form-control" placeholder="Digite o telefone" maxlength="15" required>
-                        <div id="erroTelefone" class="form-text text-danger">Digite o telefone corretamente</div>
+                        <label for="telefoneEntregador" class="form-label">Telefone</label>
+                        <input type="text" id="telefoneEntregador" class="form-control" placeholder="Digite o telefone" maxlength="15" required>
+                        <div id="ErroTelefoneEntregador" class="form-text text-danger">Digite o telefone corretamente</div>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="cpf" class="form-label">CPF</label>
-                    <input type="text" id="cpf" class="form-control" placeholder="Digite o CPF" maxlength="11" required>
-                    <div id="erroCpf" class="form-text text-danger">Digite o CPF corretamente!</div>
+                    <label for="cpfEntregador" class="form-label">CPF</label>
+                    <input type="text" id="cpfEntregador" class="form-control" placeholder="Digite o CPF" maxlength="11" required>
+                    <div id="erroCpfEntregador" class="form-text text-danger">Digite o CPF corretamente!</div>
                 </div>
 
                 <div class="alert alert-success" id="msgExitoEntregador" role="alert">
@@ -180,15 +184,15 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="escolhaClienteVenda" class="form-label">Cliente</label>
-                        <select class="form-select" id="escolhaClienteVenda" required>
+                        <label for="escolhaClienteVendaBalcao" class="form-label">Cliente</label>
+                        <select class="form-select" id="escolhaClienteVendaBalcao" required>
                             <option selected disabled>Escolha um cliente para a venda</option>
                         </select>
                     </div>
     
                     <div class="col-md-6 mb-3">
-                        <label for="formaPagamento" class="form-label">Forma de pagamento</label>
-                        <select class="form-select" id="formaPagamento" required>
+                        <label for="formaPagamentoBalcao" class="form-label">Forma de pagamento</label>
+                        <select class="form-select" id="formaPagamentoBalcao" required>
                             <option selected disabled>Escolha uma forma de pagamento</option>
                             <option value="dinheiro">Dinheiro</option>
                             <option value="credito">Cartão de crédito</option>
@@ -202,7 +206,7 @@
                         <label class="form-label">Escolha de produtos</label>
                     </div>
 
-                    <div class="alert alert-danger" id="msgNaoExistemProdutos" role="alert">
+                    <div class="alert alert-danger" id="msgNaoExistemProdutosBalcao" role="alert">
                         Não existem produtos cadastrados até o momento!
                     </div>
                     
@@ -234,14 +238,14 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="nome" class="form-label">Cliente</label>
-                        <select class="form-select" id="escolhaClienteVenda" required>
+                        <select class="form-select" id="escolhaClienteVendaEntrega" required>
                             <option selected disabled>Escolha um cliente para a venda</option>
                         </select>
                     </div>
     
                     <div class="col-md-6 mb-3">
-                        <label for="formaPagamento" class="form-label">Forma de pagamento</label>
-                        <select class="form-select" id="formaPagamento" required>
+                        <label for="formaPagamentoEntrega" class="form-label">Forma de pagamento</label>
+                        <select class="form-select" id="formaPagamentoEntrega" required>
                             <option selected disabled>Escolha uma forma de pagamento</option>
                             <option value="dinheiro">Dinheiro</option>
                             <option value="credito">Cartão de crédito</option>
@@ -251,8 +255,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="escolhaEntregadorVenda" class="form-label">Entregador</label>
-                    <select class="form-select" id="escolhaEntregadorVenda" required>
+                    <label for="escolhaEntregadorVendaEntrega" class="form-label">Entregador</label>
+                    <select class="form-select" id="escolhaEntregadorVendaEntrega" required>
                         <option selected disabled>Escolha um entregador para a venda</option>
                     </select>
                 </div>
@@ -262,9 +266,10 @@
                         <label class="form-label">Escolha de produtos</label>
                     </div>
 
-                    <div class="alert alert-danger" id="msgNaoExistemProdutos" role="alert">
+                    <div class="alert alert-danger" id="msgNaoExistemProdutosEntrega" role="alert">
                         Não existem produtos cadastrados até o momento!
                     </div>
+
                     <!-- <div class="escolhaProdutos p-3">
                         <div class="divNomeProd">
                             <input type="text" readonly value="Camisa Armani Exchange GG">
@@ -279,17 +284,13 @@
 
                 </div>
 
-                <div class="alert alert-danger" id="msgErroVendaBalcao" role="alert">
+                <div class="alert alert-danger" id="msgErroVendaEntrega" role="alert">
                     Adicione produtos ao carrinho para cadastrar uma venda!
                 </div>
 
-                <div class="alert alert-success" id="msgExitoVendaBalcao" role="alert">
+                <div class="alert alert-success" id="msgExitoVendaEntrega" role="alert">
                     Venda no balcão cadastrada com sucesso!
                 </div>
-            </div>
-
-            <div class="divBtSubmit">
-                <button type="submit" id="btCadastrar" class="btn btn-success">Cadastrar</button>
             </div>
         </form>
     </section>
@@ -299,6 +300,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" 
 integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA=" 
 crossorigin="anonymous"></script>
-<script src="js/cadastros.js"></script>
+<script src="js/classes/Caixa.js"></script>
+<script src="js/tratamentos.js"></script>
+<script src="js/metodos.js"></script>
 </body>
 </html>
