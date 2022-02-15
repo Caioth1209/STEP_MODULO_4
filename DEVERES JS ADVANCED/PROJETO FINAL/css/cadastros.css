@@ -14,7 +14,7 @@
 
     .divNomeProd > input{
         border: none;
-        width: 270px;
+        width: 330px;
         outline: none;
         padding: 5px;
     }
@@ -44,7 +44,7 @@
     .divNomeProd > input{
         text-align: center;
         border: none;
-        width: 270px;
+        width: 330px;
         outline: none;
         padding: 5px;
     }
@@ -71,16 +71,21 @@
     margin-top: 50px;
 }
 
-.cadastro-caixa, .cadastro-cliente, .cadastro-produto, .cadastro-entregador, .cadastro-venda-balcao, .cadastro-venda-entrega, #msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega,#msgErroCaixa, #msgErroVendaBalcao, #msgNaoExistemProdutos, #erroNomeCaixa, #erroNomeCliente, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente,#erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao{
+#formularioCadastroCaixa, #formularioCadastroCliente, #formularioCadastroProduto, #formularioCadastroEntregador, #formularioCadastroVendaBalcao, #formularioCadastroVendaEntrega, #msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroCliente, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao{
     display: none;
 }
 
-#endereco{
+#endereco, #descricao{
     resize: none;
 }
 
 .escolhaProdutosLabel{
     border-bottom: 1px solid rgb(163, 163, 163);
+}
+
+#valorTotalVendaBalcao,#valorTotalVendaEntrega{
+    border: none;
+    outline: none;
 }
 
 .divBtSubmit{

@@ -1,6 +1,73 @@
 $(document).ready(()=>{
 
-     // tratando nome
+    $("#escolhaCadastro").change((e)=>{
+    
+        switch (e.target.value) {
+    
+            case "caixa":{
+                $("#formularioCadastroCaixa").show();
+                $("#formularioCadastroCliente").hide();
+                $("#formularioCadastroProduto").hide();
+                $("#formularioCadastroEntregador").hide();
+                $("#formularioCadastroVendaBalcao").hide();
+                $("#formularioCadastroVendaEntrega").hide();
+                break;
+            };
+    
+            case "cliente":{
+                $("#formularioCadastroCliente").show();
+                $("#formularioCadastroCaixa").hide();
+                $("#formularioCadastroProduto").hide();
+                $("#formularioCadastroEntregador").hide();
+                $("#formularioCadastroVendaBalcao").hide();
+                $("#formularioCadastroVendaEntrega").hide();
+                break;
+            };
+    
+            case "produto":{
+                $("#formularioCadastroProduto").show();
+                $("#formularioCadastroCliente").hide();
+                $("#formularioCadastroCaixa").hide();
+                $("#formularioCadastroEntregador").hide();
+                $("#formularioCadastroVendaBalcao").hide();
+                $("#formularioCadastroVendaEntrega").hide();
+                break;
+            };
+    
+            case "entregador":{
+                $("#formularioCadastroEntregador").show();
+                $("#formularioCadastroProduto").hide();
+                $("#formularioCadastroCliente").hide();
+                $("#formularioCadastroCaixa").hide();
+                $("#formularioCadastroVendaBalcao").hide();
+                $("#formularioCadastroVendaEntrega").hide();
+                break;
+            };
+    
+            case "vendaBalcao":{
+                $("#formularioCadastroVendaBalcao").show();
+                $("#formularioCadastroEntregador").hide();
+                $("#formularioCadastroProduto").hide();
+                $("#formularioCadastroCliente").hide();
+                $("#formularioCadastroCaixa").hide();
+                $("#formularioCadastroVendaEntrega").hide();
+                break;
+            };
+    
+            case "vendaEntrega":{
+                $("#formularioCadastroVendaEntrega").show();
+                $("#formularioCadastroVendaBalcao").hide();
+                $("#formularioCadastroEntregador").hide();
+                $("#formularioCadastroProduto").hide();
+                $("#formularioCadastroCliente").hide();
+                $("#formularioCadastroCaixa").hide();
+                break;
+            };
+            
+        }
+    })
+
+    // tratando nome
     $("#nome").change(()=>{
 
         let nome = $("#nome");
