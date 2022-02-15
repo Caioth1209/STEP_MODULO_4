@@ -47,8 +47,8 @@
         <form id="formularioCadastroCaixa">
             <div class="mb-3">
                 <label for="nomeCaixa" class="form-label">Nome do caixa</label>
-                <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="25" required>
-                <div id="erroNomeCaixa" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
+                <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="35" required>
+                <div id="erroNomeCaixa" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
             </div>
 
             <div class="row">
@@ -82,8 +82,8 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nomeCliente" class="form-label">Nome</label>
-                    <input type="text" id="nomeCliente" class="form-control" placeholder="Digite o nome" maxlength="25" required>
-                    <div id="erroNomeCliente" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
+                    <input type="text" id="nomeCliente" class="form-control" placeholder="Digite o nome" maxlength="35" required>
+                    <div id="erroNomeCliente" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
                 </div>
 
                 <div class="col-md-6 mb-3">
@@ -130,7 +130,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nome" class="form-label">Nome do produto</label>
-                    <input type="text" id="nomeProduto" class="form-control" placeholder="Digite o nome do produto" maxlength="30" required>
+                    <input type="text" id="nomeProduto" class="form-control" placeholder="Digite o nome do produto" maxlength="40" required>
                     <div id="erroNomeProduto" class="form-text text-danger">Digite no mínimo 4 e no máximo 40 caracteres!</div>
                 </div>
 
@@ -176,7 +176,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="nomeEntregador" class="form-label">Nome do entregador</label>
                     <input type="text" id="nomeEntregador" class="form-control" placeholder="Digite o nome" maxlength="30" required>
-                    <div id="erroNomeEntregador" class="form-text text-danger">Digite no mínimo 4 e no máximo 25 letras!</div>
+                    <div id="erroNomeEntregador" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
                 </div>
 
                 <div class="col-md-6 mb-3">
@@ -305,17 +305,18 @@
                 </div>
 
                 <div class="listaProdutos">
-                    <div class="escolhaProdutos p-3">
+                    <!-- <div class="escolhaProdutos p-3">
                         <div class="divNomeProd">
-                            <input type="text" readonly value="R$ 280.00 - Camisa Armani Exchange GG">
+                            <input type="text" readonly value="R$ 280.00 - Camisa Armani Exchange - GG">
                         </div>
 
                         <div class="divQuantidadeProd">
                             <button type="button" class="btn btn-danger">-</button>
                             <input type="text" readonly value="0" id="quantidade1"> 
-                            <button type="button" class="btn btn-success">+</button>                       
+                            <button type="button" class="btn btn-success">+</button> 
+                            $(".divQuantidadeProd").find("input[type=text]").val(++);                      
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -346,6 +347,6 @@ integrity="sha256-yE5LLp5HSQ/z+hJeCqkz9hdjNkk1jaiGG0tDCraumnA="
 crossorigin="anonymous"></script>
 <script src="js/classes/Caixa.js"></script>
 <script src="js/tratamentos.js"></script>
-<script src="js/metodos.js"></script>
+<script src="js/metodosCaixa.js"></script>
 </body>
 </html>

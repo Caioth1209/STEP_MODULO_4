@@ -1,5 +1,6 @@
 $(document).ready(()=>{
 
+    // aparece os formularios da escolha do usuario
     $("#escolhaCadastro").change((e)=>{
     
         switch (e.target.value) {
@@ -67,17 +68,18 @@ $(document).ready(()=>{
         }
     })
 
-    // tratando nome
-    $("#nome").change(()=>{
+    /////////// tratando nomes
 
-        let nome = $("#nome");
+    $("#nomeCaixa").change(()=>{
+
+        let nome = $("#nomeCaixa");
 
         if (nome.val().trim().length < 4) {
 
-            $("#erroNome").show();
+            $("#erroNomeCaixa").show();
 
             setTimeout(() => {
-                $("#erroNome").hide();
+                $("#erroNomeCaixa").hide();
             }, 5000);
 
             nome.val("");
@@ -88,22 +90,110 @@ $(document).ready(()=>{
             
             if (regex.test(nome.val().trim())) {
 
-                $("#erroNome").show();
+                $("#erroNomeCaixa").show();
 
                 setTimeout(() => {
-                    $("#erroNome").hide();
+                    $("#erroNomeCaixa").hide();
                 }, 5000);
 
                 nome.val("");
 
             } else {
-                $("#erroNome").hide();
+                $("#erroNomeCaixa").hide();
             }
         }
     })
+
+    $("#nomeCliente").change(()=>{
+
+        let nome = $("#nomeCliente");
+
+        if (nome.val().trim().length < 4) {
+
+            $("#erroNomeCliente").show();
+
+            setTimeout(() => {
+                $("#erroNomeCliente").hide();
+            }, 5000);
+
+            nome.val("");
+
+        } else {
+
+            let regex = /[0-9]/;
+            
+            if (regex.test(nome.val().trim())) {
+
+                $("#erroNomeCliente").show();
+
+                setTimeout(() => {
+                    $("#erroNomeCliente").hide();
+                }, 5000);
+
+                nome.val("");
+
+            } else {
+                $("#erroNomeCliente").hide();
+            }
+        }
+    })
+
+    $("#nomeEntregador").change(()=>{
+
+        let nome = $("#nomeEntregador");
+
+        if (nome.val().trim().length < 4) {
+
+            $("#erroNomeEntregador").show();
+
+            setTimeout(() => {
+                $("#erroNomeEntregador").hide();
+            }, 5000);
+
+            nome.val("");
+
+        } else {
+
+            let regex = /[0-9]/;
+            
+            if (regex.test(nome.val().trim())) {
+
+                $("#erroNomeEntregador").show();
+
+                setTimeout(() => {
+                    $("#erroNomeEntregador").hide();
+                }, 5000);
+
+                nome.val("");
+
+            } else {
+                $("#erroNomeEntregador").hide();
+            }
+        }
+    })
+
+    $("#nomeProduto").change(()=>{
+
+        let nome = $("#nomeProduto");
+
+        if (nome.val().trim().length < 4) {
+
+            $("#erroNomeProduto").show();
+
+            setTimeout(() => {
+                $("#erroNomeProduto").hide();
+            }, 5000);
+
+            nome.val("");
+
+        } else {
+            $("#erroNomeProduto").hide();
+        }
+    })
+
     ////////////////////////////
 
-    // tratando login
+    // tratando login de caixa
     $("#login").change(()=>{
 
     let login = $("#login");
@@ -139,7 +229,7 @@ $(document).ready(()=>{
     })
     ////////////////////////////
 
-    // tratando senha
+    // tratando senha de caixa
     $("#senha").change(()=>{
 
     let senha = $("#senha");
@@ -174,4 +264,6 @@ $(document).ready(()=>{
     }
     })
     ////////////////////////////
+
+    
 })

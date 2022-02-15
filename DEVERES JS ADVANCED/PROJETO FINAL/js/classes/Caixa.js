@@ -13,13 +13,13 @@ class Caixa{
 
         let isValid = true;
 
-        for (i = 0; i < listaCaixas.length; i++){
-            if (login == listaCaixas[i].login || senha == listaCaixas[i].senha) {
+        for (let i = 0; i < listaCaixas.length; i++){
+            if (this.login == listaCaixas[i].login || this.senha == listaCaixas[i].senha) {
                 isValid = false;   
             }
         }
 
-        if (login == "root" || senha == "root123") {
+        if (this.login == "root" || this.senha == "root123") {
             isValid = false;   
         }
 
@@ -32,18 +32,59 @@ class Caixa{
             $("#msgExitoCaixa").show();
             $("#msgErroCaixa").hide();
 
-            setTimeout(() => {
-                $("#msgExitoCaixa").hide();
-            }, 5000);
-
         } else {
             $("#msgExitoCaixa").hide();
             $("#msgErroCaixa").show();
-
-            setTimeout(() => {
-                $("#msgErroCaixa").hide();
-            }, 5000);
         }
+
+        $("#nomeCaixa").val("");
+        $("#login").val("");
+        $("#senha").val("");
+
+        setTimeout(() => {
+            $("#msgExitoCaixa").hide();
+            $("#msgErroCaixa").hide();
+        }, 5000);
  
+    }
+
+    consultar(listaCaixas){
+
+        let texto = "";
+
+        texto = `<thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Login</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+        for(let i = 0; i < listaCaixas.length; i++){
+
+            texto += `<tr>
+                            <td>${listaCaixas[i].nome}</td>
+                            <td>${listaCaixas[i].login}</td>
+                            <td>
+                                <button type='button' onclick='pegarIdEditar(${i})' class='btn btn-primary'>Editar</button>
+                                <button type='button' onclick='pegarIdExcluir(${i})' class='btn btn-danger'>Excluir</button>
+                            </td>
+                        </tr>`;
+        }
+
+        texto += `</tbody>`;
+
+        $("#foiConsultado").html("Caixas");
+        $("#tabelaConsulta").html(texto);
+
+        if (!texto.includes("<td>")) {
+            $("#tabelaConsulta").find("<tbody>").html(
+                "<tr>" +
+                    "<td colspan='3' class='text-danger text-center'> Nenhum cadastro até o momento.</tr>" +
+                "</tr>"
+            );
+        }
+
     }
 }
