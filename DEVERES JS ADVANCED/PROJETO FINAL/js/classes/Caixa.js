@@ -9,6 +9,44 @@ class Caixa{
         this.senha = senha;
     }
 
+    static login(login, senha, listaCaixas){
+
+        let achou = false;
+
+        if (login == "root" && senha == "root123") {
+            achou = true;
+        }
+
+        if (listaCaixas != null) {
+
+            for (let i = 0; i < listaCaixas.length; i++){
+
+                if (login == listaCaixas[i].login && senha == listaCaixas[i].senha) {
+                    sessionStorage.setItem("caixaLogado", login);
+                    achou = true;
+                    break;
+                }
+            }
+            
+        }
+
+        if(achou) {
+            sessionStorage.setItem("logado", "sim");
+            window.location.replace("inicio.html");
+        } else {
+
+            $("#msgErro").show();
+            $("#login").val("");
+            $("#senha").val("");
+
+            setTimeout(() => {
+
+                $("#msgErro").hide();
+                
+            }, 3000);
+        }
+    }
+
     cadastrar(listaCaixas){
 
         let isValid = true;
@@ -44,7 +82,7 @@ class Caixa{
         setTimeout(() => {
             $("#msgExitoCaixa").hide();
             $("#msgErroCaixa").hide();
-        }, 5000);
+        }, 3000);
  
     }
 
@@ -124,13 +162,19 @@ class Caixa{
             $("#msgExitoCaixa").hide();
             $("#msgErroCaixa").hide();
                 
-        }, 5000);
+        }, 3000);
  
     }
 
     excluir(listaCaixas, id){
+
+        if (sessionStorage.getItem("caixaLogado") == listaCaixas[id].login) {
+            window.location.replace("index.html");
+        }
+
         listaCaixas.splice(id, 1);
 
         localStorage.setItem("listaCaixas", JSON.stringify(listaCaixas));
+
     }
 }

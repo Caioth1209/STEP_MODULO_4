@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/geral.css">
     <link rel="stylesheet" href="css/consultas.css">
 </head>
-<body>
+<body onload="verificaLogin()">
 
     <nav class="navbar navbar-expand-lg navbar-light linha-nav">
         <div class="container-fluid">
@@ -29,7 +29,6 @@
     </nav>
     
     <section class="container p-5">
-    
         <h2 class="titulo mb-3">Consultas</h2>
 
         <div class="p-3 mb-3">
@@ -140,77 +139,241 @@
         </div>
     </section>
 
-    <button type="button" hidden id="abrirModalEditarCaixa" data-bs-toggle="modal" data-bs-target="#modalEditarCaixa">Editar caixa</button>
+    <!-- Modals caixa -->
+    <div>
+      <button type="button" hidden id="abrirModalEditarCaixa" data-bs-toggle="modal" data-bs-target="#modalEditarCaixa">Editar caixa</button>
 
-    <div class="modal fade" id="modalEditarCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-          <div class="modal-content">
+      <div class="modal fade" id="modalEditarCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Dados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarCaixa"> 
+                        <input type="text" hidden id="idEditarCaixa">
+
+                        <div class="mb-3">
+                            <label for="nomeCaixa" class="form-label">Nome do caixa</label>
+                            <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="35" required>
+                            <div id="erroNomeCaixa" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="login" class="form-label">Login</label>
+                                <input type="text" id="login" class="form-control" placeholder="Digite o login" maxlength="30" required>
+                                <div id="erroLogin" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 caracteres e sem espaços!</div>
+                            </div>
+                
+                            <div class="col-md-6 mb-3">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" id="senha" class="form-control" placeholder="Digite a senha" maxlength="15" required>
+                                <div id="erroSenha" class="form-text text-danger">Digite no mínimo 4 e no máximo 15 caracteres e sem espaços!</div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success" id="msgExitoCaixa" role="alert">
+                            Caixa editado com sucesso!
+                        </div>
+
+                        <div class="alert alert-danger" id="msgErroCaixa" role="alert">
+                            Login ou Senha já existentes!
+                        </div>
+
+                        <div class="divBtSubmit">
+                            <button type="submit" class="btn btn-success">Editar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <button type="button" hidden id="abrirModalExcluirCaixa" data-bs-toggle="modal" data-bs-target="#modalExcluirCaixa">Excluir caixa</button>
+
+      <div class="modal fade" id="modalExcluirCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirCaixaLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title" id="modalEditarLabel">Editar Dados</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                  <form id="formularioEditarCaixa"> 
-                      <input type="text" hidden id="idEditarCaixa">
-
-                      <div class="mb-3">
-                          <label for="nomeCaixa" class="form-label">Nome do caixa</label>
-                          <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="35" required>
-                          <div id="erroNomeCaixa" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
-                      </div>
-
-                      <div class="row">
-                          <div class="col-md-6 mb-3">
-                              <label for="login" class="form-label">Login</label>
-                              <input type="text" id="login" class="form-control" placeholder="Digite o login" maxlength="30" required>
-                              <div id="erroLogin" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 caracteres e sem espaços!</div>
-                          </div>
-              
-                          <div class="col-md-6 mb-3">
-                              <label for="senha" class="form-label">Senha</label>
-                              <input type="password" id="senha" class="form-control" placeholder="Digite a senha" maxlength="15" required>
-                              <div id="erroSenha" class="form-text text-danger">Digite no mínimo 4 e no máximo 15 caracteres e sem espaços!</div>
-                          </div>
-                      </div>
-
-                      <div class="alert alert-success" id="msgExitoCaixa" role="alert">
-                          Caixa editado com sucesso!
-                      </div>
-
-                      <div class="alert alert-danger" id="msgErroCaixa" role="alert">
-                          Login ou Senha já existentes!
-                      </div>
-
-                      <div class="divBtSubmit">
-                          <button type="submit" class="btn btn-success">Editar</button>
-                      </div>
+                  <form id="formularioExcluirCaixa"> 
+                      
+                      <input type="text" hidden id="idExcluirCaixa">
+          
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+                      <button type="button" class="btn btn-success" id="excluirCaixa">Sim</button>
+                      
                   </form>
               </div>
+            </div>
+          </div>
+      </div><button type="button" hidden id="abrirModalEditarCaixa" data-bs-toggle="modal" data-bs-target="#modalEditarCaixa">Editar caixa</button>
+
+      <div class="modal fade" id="modalEditarCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Dados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarCaixa"> 
+                        <input type="text" hidden id="idEditarCaixa">
+
+                        <div class="mb-3">
+                            <label for="nomeCaixa" class="form-label">Nome do caixa</label>
+                            <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="35" required>
+                            <div id="erroNomeCaixa" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="login" class="form-label">Login</label>
+                                <input type="text" id="login" class="form-control" placeholder="Digite o login" maxlength="30" required>
+                                <div id="erroLogin" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 caracteres e sem espaços!</div>
+                            </div>
+                
+                            <div class="col-md-6 mb-3">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" id="senha" class="form-control" placeholder="Digite a senha" maxlength="15" required>
+                                <div id="erroSenha" class="form-text text-danger">Digite no mínimo 4 e no máximo 15 caracteres e sem espaços!</div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success" id="msgExitoCaixa" role="alert">
+                            Caixa editado com sucesso!
+                        </div>
+
+                        <div class="alert alert-danger" id="msgErroCaixa" role="alert">
+                            Login ou Senha já existentes!
+                        </div>
+
+                        <div class="divBtSubmit">
+                            <button type="submit" class="btn btn-success">Editar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <button type="button" hidden id="abrirModalExcluirCaixa" data-bs-toggle="modal" data-bs-target="#modalExcluirCaixa">Excluir caixa</button>
+
+      <div class="modal fade" id="modalExcluirCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirCaixaLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="formularioExcluirCaixa"> 
+                      
+                      <input type="text" hidden id="idExcluirCaixa">
+          
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+                      <button type="button" class="btn btn-success" id="excluirCaixa">Sim</button>
+                      
+                  </form>
+              </div>
+            </div>
           </div>
       </div>
     </div>
 
-    <button type="button" hidden id="abrirModalExcluirCaixa" data-bs-toggle="modal" data-bs-target="#modalExcluirCaixa">Excluir caixa</button>
+    <!-- Modals cliente -->
+    <div>
+      <button type="button" hidden id="abrirModalEditarCliente" data-bs-toggle="modal" data-bs-target="#modalEditarCliente">Editar cliente</button>
 
-    <div class="modal fade" id="modalExcluirCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirCaixaLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir?</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal fade" id="modalEditarCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Dados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarCliente"> 
+                        <input type="text" hidden id="idEditarCliente">
+
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                              <label for="nomeCliente" class="form-label">Nome</label>
+                              <input type="text" id="nomeCliente" class="form-control" placeholder="Digite o nome" maxlength="35" required>
+                              <div id="erroNomeCliente" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
+                          </div>
+          
+                          <div class="col-md-6 mb-3">
+                              <label for="telefoneCliente" class="form-label">Telefone</label>
+                              <input type="text" id="telefoneCliente" class="form-control" placeholder="Digite o telefone" maxlength="15" required>
+                              <div id="erroTelefoneCliente" class="form-text text-danger">Digite o telefone corretamente!</div>
+                          </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cpfCliente" class="form-label">CPF</label>
+                                <input type="text" id="cpfCliente" class="form-control" placeholder="Digite o CPF" maxlength="11" required>
+                                <div id="erroCpfCliente" class="form-text text-danger">Digite o CPF corretamente!</div>
+                            </div>
+            
+                            <div class="col-md-6 mb-3">
+                                <label for="dataNasc" class="form-label">Data de Nascimento</label>
+                                <input type="date" id="dataNasc" class="form-control" placeholder="Digite a data de nascimento" required>
+                                <div id="erroDataNasc" class="form-text text-danger">O cliente não nasceu no futuro!</div>
+                            </div>
+                        </div>
+            
+                        <div class="mb-3">
+                            <label for="endereco" class="form-label">Endereço</label>
+                            <textarea id="endereco" class="form-control p-3" rows="3" placeholder="Endereço" maxlength="70" required></textarea>
+                            <div id="erroEndereco" class="form-text text-danger">Digite no mínimo 10 e no máximo 70 caracteres!</div>
+                        </div>
+            
+                        <div class="alert alert-success" id="msgExitoCliente" role="alert">
+                            Cliente editado com sucesso!
+                        </div>
+            
+                        <div class="alert alert-danger" id="msgErroCliente" role="alert">
+                            CPF ou Telefone já cadastrado!
+                        </div>
+            
+                        <div class="divBtSubmit">
+                            <button type="submit" class="btn btn-success">Editar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="modal-body">
-                <form id="formularioExcluirCaixa"> 
-                    
-                    <input type="text" hidden id="idExcluirCaixa">
-        
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
-                    <button type="button" class="btn btn-success" id="excluirCaixa">Sim</button>
-                    
-                </form>
+        </div>
+      </div>
+
+      <button type="button" hidden id="abrirModalExcluirCliente" data-bs-toggle="modal" data-bs-target="#modalExcluirCliente">Excluir cliente</button>
+
+      <div class="modal fade" id="modalExcluirCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirClienteLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="formularioExcluirCliente"> 
+                      
+                      <input type="text" hidden id="idExcluirCliente">
+          
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+                      <button type="button" class="btn btn-success" id="excluirCliente">Sim</button>
+                      
+                  </form>
+              </div>
             </div>
           </div>
-        </div>
+      </div>
     </div>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>

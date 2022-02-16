@@ -1,3 +1,17 @@
+// faz login
+$("#formLogin").submit((e)=>{
+
+    let listaCaixas = [];
+
+    if (localStorage.getItem("listaCaixas") != null) {
+        listaCaixas = JSON.parse(localStorage.getItem("listaCaixas"));
+    }
+    
+    Caixa.login($("#login").val(), $("#senha").val(), listaCaixas);
+
+    e.preventDefault();
+})
+
 // faz cadastro
 $("#formularioCadastroCaixa").submit((e)=>{
 
@@ -70,6 +84,8 @@ $("#excluirCaixa").click(() => {
 
     c.excluir(listaCaixas, id);
 
+    c.consultar(listaCaixas);
+    
     $(".btn-close").click();
 })
 ////////////////////////////
@@ -94,10 +110,15 @@ function pegarIdEditarCaixa(id) {
 
 // funcao usada para levar o id ate o modal de exclusao
 function pegarIdExcluirCaixa(id) {
-
     $("#formularioExcluirCaixa").find("#idExcluirCaixa").val(id);
 
     $("#abrirModalExcluirCaixa").click(); 
-
 }
 ////////////////////////////  
+
+// funcao que verifica se está logado
+function verificaLogin() {
+    if (sessionStorage.getItem("logado") == null) {
+        window.location.replace("index.html");
+    }
+}
