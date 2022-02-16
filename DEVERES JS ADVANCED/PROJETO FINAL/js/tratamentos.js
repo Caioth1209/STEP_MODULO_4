@@ -69,7 +69,6 @@ $(document).ready(()=>{
     })
 
     /////////// tratando nomes
-
     $("#nomeCaixa").change(()=>{
 
         let nome = $("#nomeCaixa");

@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <h2 id="foiConsultado"></h2>
+        <h3 class="mb-3" id="foiConsultado"></h3>
 
         <div class="content">
           <table class="table table-striped rTable" id="tabelaConsulta">
@@ -139,6 +139,79 @@
           </table>
         </div>
     </section>
+
+    <button type="button" hidden id="abrirModalEditarCaixa" data-bs-toggle="modal" data-bs-target="#modalEditarCaixa">Editar caixa</button>
+
+    <div class="modal fade" id="modalEditarCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title" id="modalEditarLabel">Editar Dados</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="formularioEditarCaixa"> 
+                      <input type="text" hidden id="idEditarCaixa">
+
+                      <div class="mb-3">
+                          <label for="nomeCaixa" class="form-label">Nome do caixa</label>
+                          <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="35" required>
+                          <div id="erroNomeCaixa" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-md-6 mb-3">
+                              <label for="login" class="form-label">Login</label>
+                              <input type="text" id="login" class="form-control" placeholder="Digite o login" maxlength="30" required>
+                              <div id="erroLogin" class="form-text text-danger">Digite no mínimo 4 e no máximo 30 caracteres e sem espaços!</div>
+                          </div>
+              
+                          <div class="col-md-6 mb-3">
+                              <label for="senha" class="form-label">Senha</label>
+                              <input type="password" id="senha" class="form-control" placeholder="Digite a senha" maxlength="15" required>
+                              <div id="erroSenha" class="form-text text-danger">Digite no mínimo 4 e no máximo 15 caracteres e sem espaços!</div>
+                          </div>
+                      </div>
+
+                      <div class="alert alert-success" id="msgExitoCaixa" role="alert">
+                          Caixa editado com sucesso!
+                      </div>
+
+                      <div class="alert alert-danger" id="msgErroCaixa" role="alert">
+                          Login ou Senha já existentes!
+                      </div>
+
+                      <div class="divBtSubmit">
+                          <button type="submit" class="btn btn-success">Editar</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <button type="button" hidden id="abrirModalExcluirCaixa" data-bs-toggle="modal" data-bs-target="#modalExcluirCaixa">Excluir caixa</button>
+
+    <div class="modal fade" id="modalExcluirCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirCaixaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formularioExcluirCaixa"> 
+                    
+                    <input type="text" hidden id="idExcluirCaixa">
+        
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-success" id="excluirCaixa">Sim</button>
+                    
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
