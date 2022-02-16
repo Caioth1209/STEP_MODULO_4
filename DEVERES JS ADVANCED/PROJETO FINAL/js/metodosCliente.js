@@ -11,7 +11,7 @@ $("#formularioCadastroCliente").submit((e)=>{
         $("#nomeCliente").val(),
         $("#telefoneCliente").val(),
         $("#cpfCliente").val(),
-        moment($("#dataNasc").val()).format("D/MM/YYYY"),
+        moment($("#dataNasc").val()).format("DD/MM/YYYY"),
         $("#endereco").val()
     );
 
@@ -39,9 +39,9 @@ $("#formularioEditarCliente").submit((e)=>{
 
     let dataNasc = $("#formularioEditarCliente").find(".row > .col-md-6 > #dataNasc").val();
 
-    let endereco = $("#formularioEditarCliente").find(".mb-3 #endereco").val();
+    let endereco = $("#formularioEditarCliente").find(".mb-3 > #endereco").val();
 
-    let c = new Cliente(nome, telefone, cpf, dataNasc, endereco);
+    let c = new Cliente(nome, telefone, cpf, moment(dataNasc).format("DD/MM/YYYY"), endereco);
 
     c.editar(listaClientes,id);
 
@@ -52,7 +52,7 @@ $("#formularioEditarCliente").submit((e)=>{
 ////////////////////////////
 
 // faz consulta geral
-$("#cGeralClientes").click(()=>{
+$("#cGeralClientes").click((e)=>{
 
     let listaClientes = [];
 
@@ -62,7 +62,35 @@ $("#cGeralClientes").click(()=>{
 
     let c = new Cliente();
 
-    c.consultar(listaClientes);
+    c.consultarGeral(listaClientes);
+})
+
+// faz consulta de aniversariantes do mes
+$("#cNiverClientes").click((e)=>{
+
+    let listaClientes = [];
+
+    if (localStorage.getItem("listaClientes") != null) {
+        listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
+    }
+
+    let c = new Cliente();
+
+    c.consultarAniversariantesMes(listaClientes);
+})
+
+// faz consulta de compras do ultimo mes
+$("#cComprasUltimoMesClientes").click((e)=>{
+
+    let listaCompras = [];
+
+    if (localStorage.getItem("listaCompras") != null) {
+        listaCompras = JSON.parse(localStorage.getItem("listaCompras"));
+    }
+
+    let c = new Cliente();
+
+    c.consultarComprasUltimoMes(listaCompras);
 })
 
 //exclui o Cliente
@@ -80,7 +108,7 @@ $("#excluirCliente").click(() => {
 
     c.excluir(listaClientes, id);
 
-    c.consultar(listaClientes);
+    c.consultarGeral(listaClientes);
     
     $(".btn-close").click();
 })
@@ -96,9 +124,16 @@ function pegarIdEditarCliente(id) {
     }
 
     $("#formularioEditarCliente").find("#idEditarCliente").val(id);
-    $("#formularioEditarCliente").find(".mb-3 > #nomeCliente").val(listaClientes[id].nome);
-    $("#formularioEditarCliente").find(".row > .col-md-6 > #login").val(listaClientes[id].login);
-    $("#formularioEditarCliente").find(".row > .col-md-6 > #senha").val(listaClientes[id].senha);
+
+    $("#formularioEditarCliente").find(".row > .col-md-6 > #nomeCliente").val(listaClientes[id].nome);
+
+    $("#formularioEditarCliente").find(".row > .col-md-6 > #telefoneCliente").val(listaClientes[id].telefone);
+
+    $("#formularioEditarCliente").find(".row > .col-md-6 > #cpfCliente").val(listaClientes[id].cpf);
+
+    $("#formularioEditarCliente").find(".row > .col-md-6 > #dataNasc").val(moment(listaClientes[id].dataNasc).format("YYYY-DD-MM"));
+
+    $("#formularioEditarCliente").find(".mb-3 > #endereco").val(listaClientes[id].endereco);
 
     $("#abrirModalEditarCliente").click();
 }

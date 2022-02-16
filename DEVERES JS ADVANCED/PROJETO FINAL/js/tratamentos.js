@@ -71,6 +71,8 @@ $(document).ready(()=>{
     /////////// tratando nomes
     $("#nomeCaixa").change((e)=>{
 
+        $("#erroNomeCaixa").hide();
+        
         if (e.target.value.trim().length < 4) {
 
             $("#erroNomeCaixa").show();
@@ -95,13 +97,13 @@ $(document).ready(()=>{
 
                 e.target.value = "";
 
-            } else {
-                $("#erroNomeCaixa").hide();
             }
         }
     })
 
     $("#nomeCliente").change((e)=>{
+
+        $("#erroNomeCliente").hide();
 
         if (e.target.value.trim().length < 4) {
 
@@ -127,13 +129,13 @@ $(document).ready(()=>{
 
                 e.target.value= "";
 
-            } else {
-                $("#erroNomeCliente").hide();
             }
         }
     })
 
     $("#nomeEntregador").change((e)=>{
+
+        $("#erroNomeEntregador").hide();
 
         if (e.target.value.trim().length < 4) {
 
@@ -159,13 +161,13 @@ $(document).ready(()=>{
 
                 e.target.value = "";
 
-            } else {
-                $("#erroNomeEntregador").hide();
             }
         }
     })
 
     $("#nomeProduto").change((e)=>{
+
+        $("#erroNomeProduto").hide();
 
         if (e.target.value.trim().length < 4) {
 
@@ -177,8 +179,6 @@ $(document).ready(()=>{
 
             e.target.value = "";
 
-        } else {
-            $("#erroNomeProduto").hide();
         }
     })
 
@@ -186,6 +186,8 @@ $(document).ready(()=>{
 
     // tratando login de caixa
     $("#login").change((e)=>{
+
+        $("#erroLogin").hide();
 
         if (e.target.value.trim().length < 4) {
 
@@ -211,8 +213,6 @@ $(document).ready(()=>{
 
                 e.target.value = "";
 
-            } else {
-                $("#erroLogin").hide();
             }
         }
     })
@@ -220,6 +220,8 @@ $(document).ready(()=>{
 
     // tratando senha de caixa
     $("#senha").change((e)=>{
+
+        $("#erroSenha").hide();
 
         if (e.target.value.trim().length < 4) {
 
@@ -245,8 +247,6 @@ $(document).ready(()=>{
 
                 e.target.value = "";
 
-            } else {
-                $("#erroSenha").hide();
             }
         }
     })
@@ -258,6 +258,8 @@ $(document).ready(()=>{
 
     $("#cpfCliente").change((e)=>{
 
+        $("#erroCpfCliente").hide();
+
         if (e.target.value.length != 14) {
 
             $("#erroCpfCliente").show();
@@ -267,8 +269,6 @@ $(document).ready(()=>{
                 $("#erroCpfCliente").hide();
             }, 3000);
 
-        } else {
-            $("#erroCpfCliente").hide();
         }
         
     })
@@ -276,6 +276,8 @@ $(document).ready(()=>{
     $("#cpfEntregador").mask('000.000.000-00', {reverse: true});
 
     $("#cpfEntregador").change((e)=>{
+
+        $("#erroCpfEntregador").hide();
 
         if (e.target.value.length != 14) {
 
@@ -286,8 +288,6 @@ $(document).ready(()=>{
                 $("#erroCpfEntregador").hide();
             }, 3000);
 
-        } else {
-            $("#erroCpfEntregador").hide();
         }
         
     })
@@ -313,6 +313,8 @@ $(document).ready(()=>{
 
     $("#telefoneCliente").change((e)=>{
 
+        $("#erroTelefoneCliente").hide();
+        
         if (e.target.value.length < 14) {
 
             $("#erroTelefoneCliente").show();
@@ -322,12 +324,12 @@ $(document).ready(()=>{
                 $("#erroTelefoneCliente").hide();
             }, 3000);
 
-        } else {
-            $("#erroTelefoneCliente").hide();
         }
     })
 
     $("#telefoneEntregador").change((e)=>{
+
+        $("#erroTelefoneEntregador").hide();
 
         if (e.target.value.length < 14) {
 
@@ -338,8 +340,6 @@ $(document).ready(()=>{
                 $("#erroTelefoneEntregador").hide();
             }, 3000);
 
-        } else {
-            $("#erroTelefoneEntregador").hide();
         }
     })
 
@@ -348,15 +348,29 @@ $(document).ready(()=>{
     ////////// tratando data de nascimento
     
     $("#dataNasc").change((e)=>{
-
         $("#erroDataNasc").hide();
 
-        if (moment(e.target.value).format("D/MM/YYYY") >= moment().format("D/MM/YYYY")) { 
+        if (moment(e.target.value).startOf('day').fromNow().includes("in")) {
             $("#erroDataNasc").show();
             e.target.value = "";
 
             setTimeout(() => {
                 $("#erroDataNasc").hide();
+            }, 3000);
+        }
+    })
+
+    /////////// tratando endereco
+    
+    $("#endereco").change((e)=>{
+        $("#erroEndereco").hide();
+
+        if (e.target.value.trim().length < 10) {
+            $("#erroEndereco").show();
+            e.target.value = "";
+
+            setTimeout(() => {
+                $("#erroEndereco").hide();
             }, 3000);
         }
     })
