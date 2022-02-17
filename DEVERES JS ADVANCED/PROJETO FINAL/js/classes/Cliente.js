@@ -30,7 +30,6 @@ class Cliente{
             localStorage.setItem("listaClientes", JSON.stringify(listaClientes));
 
             $("#nomeCliente").val("");
-            $("#nomeCliente").val("");
             $("#cpfCliente").val("");
             $("#telefoneCliente").val("");
             $("#dataNasc").val("");
@@ -118,7 +117,9 @@ class Cliente{
         let existeAniversariante = false;
 
         for(let i = 0; i < listaClientes.length; i++){
+            
             let mesCliente = listaClientes[i].dataNasc.substring(3,5);
+
             if (mesCliente == moment(new Date()).format("MM")) {
                 existeAniversariante = true;
                 texto += `<tr>
@@ -163,7 +164,6 @@ class Cliente{
         
         let existeComprasUltimoMes = false;
 
-
         for(let i = 0; i < listaCompras.length; i++){
 
             let ultimoMes = moment().format("MM");
@@ -172,7 +172,7 @@ class Cliente{
 
             ultimoMes = ultimoMes < 10 ? "0" + ultimoMes : ultimoMes;
 
-            if (moment(listaCompras[i].data).format("DD") == ultimoMes) {
+            if (moment(new Date(listaCompras[i].data)).format("MM") == ultimoMes) {
                 existeComprasUltimoMes = true;
                 texto += `<tr>
                         <td>${listaClientes[i].cliente.nome}</td>

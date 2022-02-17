@@ -350,7 +350,7 @@ $(document).ready(()=>{
     $("#dataNasc").change((e)=>{
         $("#erroDataNasc").hide();
 
-        if (moment(e.target.value).startOf('day').fromNow().includes("in")) {
+        if (moment(new Date(e.target.value)).startOf('day').fromNow().includes("in")) {
             $("#erroDataNasc").show();
             e.target.value = "";
 

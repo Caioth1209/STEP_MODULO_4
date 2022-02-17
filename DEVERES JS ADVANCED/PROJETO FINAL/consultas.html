@@ -38,6 +38,10 @@
                         <a class="nav-link" id="cGeralCaixas" href="#">Caixas</a>
                     </li>
 
+                    <li class="nav-item" id="escolhaCaixa">
+                      <a class="nav-link" id="cGeralEntregadores" href="#">Entregadores</a>
+                  </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown-clientes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Clientes
@@ -58,10 +62,6 @@
                           <li><a class="dropdown-item" id="cMaisVendidosProdutos" href="#">Mais vendidos</a></li>
                           <li><a class="dropdown-item" id="cMenosVendidosProdutos" href="#">Menos vendidos</a></li>
                         </ul>
-                    </li>
-
-                    <li class="nav-item" id="escolhaCaixa">
-                        <a class="nav-link" id="cGeralEntregadores" href="#">Entregadores</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -304,6 +304,82 @@
           </div>
       </div>
     </div>
+
+    <!-- Modais entregador -->
+    <div>
+      <button type="button" hidden id="abrirModalEditarEntregador" data-bs-toggle="modal" data-bs-target="#modalEditarEntregador">Editar entregador</button>
+
+      <div class="modal fade" id="modalEditarEntregador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Dados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarEntregador"> 
+                        <input type="text" hidden id="idEditarEntregador">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="nomeEntregador" class="form-label">Nome do entregador</label>
+                                <input type="text" id="nomeEntregador" class="form-control" placeholder="Digite o nome" maxlength="30" required>
+                                <div id="erroNomeEntregador" class="form-text text-danger">Digite no mínimo 4 e no máximo 35 letras!</div>
+                            </div>
+            
+                            <div class="col-md-6 mb-3">
+                                <label for="telefoneEntregador" class="form-label">Telefone</label>
+                                <input type="text" id="telefoneEntregador" class="form-control" placeholder="Digite o telefone" maxlength="15" required>
+                                <div id="erroTelefoneEntregador" class="form-text text-danger">Digite o telefone corretamente</div>
+                            </div>
+                        </div>
+            
+                        <div class="mb-3">
+                            <label for="cpfEntregador" class="form-label">CPF</label>
+                            <input type="text" id="cpfEntregador" class="form-control" placeholder="Digite o CPF" maxlength="11" required>
+                            <div id="erroCpfEntregador" class="form-text text-danger">Digite o CPF corretamente!</div>
+                        </div>
+            
+                        <div class="alert alert-success" id="msgExitoEntregador" role="alert">
+                            Entregador editado com sucesso!
+                        </div>
+            
+                        <div class="alert alert-success" id="msgErroEntregador" role="alert">
+                            CPF ou Telefone já cadastrados!
+                        </div>
+            
+                        <div class="divBtSubmit">
+                            <button type="submit" class="btn btn-success">Editar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <button type="button" hidden id="abrirModalExcluirEntregador" data-bs-toggle="modal" data-bs-target="#modalExcluirEntregado">Excluir entregador</button>
+
+      <div class="modal fade" id="modalExcluirEntregador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirEntregadorLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="formularioExcluirEntregador"> 
+                      
+                      <input type="text" hidden id="idExcluirEntregador">
+          
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+                      <button type="button" class="btn btn-success" id="excluirEntregador">Sim</button>
+                      
+                  </form>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -313,8 +389,10 @@ crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js "></script>
 <script src="js/classes/Caixa.js"></script>
 <script src="js/classes/Cliente.js"></script>
+<script src="js/classes/Entregador.js"></script>
 <script src="js/tratamentos.js"></script>
-<script src="js/metodosCaixa.js"></script>
-<script src="js/metodosCliente.js"></script>
+<script src="js/metodos/metodosCliente.js"></script>
+<script src="js/metodos/metodosCaixa.js"></script>
+<script src="js/metodos/metodosEntregador.js"></script>
 </body>
 </html>
