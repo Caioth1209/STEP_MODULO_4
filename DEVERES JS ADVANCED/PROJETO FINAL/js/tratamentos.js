@@ -47,6 +47,9 @@ $(document).ready(()=>{
     
             case "vendaBalcao":{
                 $("#formularioCadastroVendaBalcao").show();
+                apareceClientes("balcao");
+                apareceProdutos("balcao");
+                $("#valorTotalVendaBalcao").val("0");
                 $("#formularioCadastroEntregador").hide();
                 $("#formularioCadastroProduto").hide();
                 $("#formularioCadastroCliente").hide();
@@ -57,6 +60,10 @@ $(document).ready(()=>{
     
             case "vendaEntrega":{
                 $("#formularioCadastroVendaEntrega").show();
+                apareceClientes("entrega");
+                apareceEntregadores();
+                apareceProdutos("entrega");
+                $("#valorTotalVendaEntrega").val("0");
                 $("#formularioCadastroVendaBalcao").hide();
                 $("#formularioCadastroEntregador").hide();
                 $("#formularioCadastroProduto").hide();
@@ -374,4 +381,36 @@ $(document).ready(()=>{
             }, 3000);
         }
     })
+
+    /////////// tratando descricao
+    
+    $("#descricao").change((e)=>{
+        $("#erroDescricao").hide();
+
+        if (e.target.value.trim().length < 10) {
+            $("#erroDescricao").show();
+            e.target.value = "";
+
+            setTimeout(() => {
+                $("#erroDescricao").hide();
+            }, 3000);
+        }
+    })
+
+    ////////// tratando preco e valor total de venda
+
+    $("#preco").mask('#.##0,00', { reverse: true });
+
+    $("#preco").change((e)=>{
+        $("#erroPreco").hide();
+
+        if (e.target.value.length == 0) {
+            $("#erroPreco").show();
+
+            setTimeout(() => {
+                $("#erroPreco").hide();
+            }, 3000);
+        }
+    })
+
 })

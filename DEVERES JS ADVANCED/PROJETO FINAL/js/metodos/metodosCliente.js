@@ -82,15 +82,15 @@ $("#cNiverClientes").click((e)=>{
 // faz consulta de compras do ultimo mes
 $("#cComprasUltimoMesClientes").click((e)=>{
 
-    let listaCompras = [];
+    let listaVendas = [];
 
-    if (localStorage.getItem("listaCompras") != null) {
-        listaCompras = JSON.parse(localStorage.getItem("listaCompras"));
+    if (localStorage.getItem("listaVendas") != null) {
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
     let c = new Cliente();
 
-    c.consultarComprasUltimoMes(listaCompras);
+    c.consultarComprasUltimoMes(listaVendas);
 })
 
 //exclui o Cliente

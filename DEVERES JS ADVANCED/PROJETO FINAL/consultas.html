@@ -116,25 +116,7 @@
 
         <div class="content">
           <table class="table table-striped rTable" id="tabelaConsulta">
-            <!-- <thead>
-              <tr>
-                <th scope="col">Nome do produto</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td>Camisa Armani Exchange Gola V GG</td>
-                  <td>R$ 271.80</td>
-                  <td>Camisa da marca armani, tamanho GG, gola V em perfeito estado. Feita por asiáticos pretos.</td>
-                  <td>
-                    <button type='button' onclick='pegarIdEditar(1)' class='btn btn-primary'>Editar</button>
-                    <button type='button' onclick='pegarIdExcluir(1)' class='btn btn-danger'>Excluir</button>
-                 </td>
-                </tr>
-            </tbody> -->
+            
           </table>
         </div>
     </section>
@@ -357,7 +339,7 @@
         </div>
       </div>
 
-      <button type="button" hidden id="abrirModalExcluirEntregador" data-bs-toggle="modal" data-bs-target="#modalExcluirEntregado">Excluir entregador</button>
+      <button type="button" hidden id="abrirModalExcluirEntregador" data-bs-toggle="modal" data-bs-target="#modalExcluirEntregador">Excluir entregador</button>
 
       <div class="modal fade" id="modalExcluirEntregador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirEntregadorLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -380,6 +362,94 @@
           </div>
       </div>
     </div>
+
+    <!-- Modais produto -->
+    <div>
+      <button type="button" hidden id="abrirModalEditarProduto" data-bs-toggle="modal" data-bs-target="#modalEditarProduto">Editar Produto</button>
+
+      <div class="modal fade" id="modalEditarProduto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Dados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioEditarProduto"> 
+                        <input type="text" hidden id="idEditarProduto">
+
+                        <input type="number" hidden id="quantidadeVendas">
+
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                              <label for="nome" class="form-label">Nome do produto</label>
+                              <input type="text" id="nomeProduto" class="form-control" placeholder="Digite o nome do produto" maxlength="40" required>
+                              <div id="erroNomeProduto" class="form-text text-danger">Digite no mínimo 4 e no máximo 40 caracteres!</div>
+                          </div>
+          
+                          <div class="col-md-6 mb-3">
+                              <label for="telefone" class="form-label">Preço</label>
+                              <input type="text" id="preco" class="form-control" placeholder="Digite o preço do produto" maxlength="8" required>
+                              <div id="erroPreco" class="form-text text-danger">Digite um valor!</div>
+                          </div>
+                      </div>
+          
+                      <div class="row">
+                          <div class="col-md-6 mb-3">
+                              <label for="tamanho" class="form-label">Tamanho</label>
+                              <select id="tamanho" class="form-select" required>
+                                  <option selected disabled value="">Escolha um tamanho de roupa</option>
+                                  <option value="PP">PP</option>
+                                  <option value="P">P</option>
+                                  <option value="M">M</option>
+                                  <option value="G">G</option>
+                                  <option value="GG">GG</option>
+                                  <option value="GGG">GGG</option>
+                              </select>
+                          </div>
+          
+                          <div class="col-md-6 mb-3">
+                              <label for="descricao" class="form-label">Descrição</label>
+                              <textarea id="descricao" class="form-control p-3" rows="3" placeholder="Descrição do produto" maxlength="60" required></textarea>
+                              <div id="erroDescricao" class="form-text text-danger">Digite no mínimo 10 e no máximo 70 caracteres!</div>
+                          </div>
+                      </div>
+          
+                      <div class="alert alert-success" id="msgExitoProduto" role="alert">
+                          Produto editado com sucesso!
+                      </div>
+          
+                      <div class="divBtSubmit">
+                          <button type="submit" class="btn btn-success">Editar</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <button type="button" hidden id="abrirModalExcluirProduto" data-bs-toggle="modal" data-bs-target="#modalExcluirProduto">Excluir produtor</button>
+
+      <div class="modal fade" id="modalExcluirProduto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirProdutoLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="formularioExcluirProduto"> 
+                      
+                      <input type="text" hidden id="idExcluirProduto">
+          
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+                      <button type="button" class="btn btn-success" id="excluirProduto">Sim</button>
+                      
+                  </form>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -390,9 +460,13 @@ crossorigin="anonymous"></script>
 <script src="js/classes/Caixa.js"></script>
 <script src="js/classes/Cliente.js"></script>
 <script src="js/classes/Entregador.js"></script>
-<script src="js/tratamentos.js"></script>
+<script src="js/classes/Produto.js"></script>
+<script src="js/classes/Venda.js"></script>
 <script src="js/metodos/metodosCliente.js"></script>
 <script src="js/metodos/metodosCaixa.js"></script>
 <script src="js/metodos/metodosEntregador.js"></script>
+<script src="js/metodos/metodosProduto.js"></script>
+<script src="js/metodos/metodosVenda.js"></script>
+<script src="js/tratamentos.js"></script>
 </body>
 </html>

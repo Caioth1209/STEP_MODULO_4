@@ -127,6 +127,9 @@
         </form>
 
         <form id="formularioCadastroProduto">
+
+            <input type="number" hidden value="0" id="quantidadeVendas">
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nome" class="form-label">Nome do produto</label>
@@ -135,9 +138,9 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="telefone" class="form-label">Preço</label>
-                    <input type="text" id="preco" class="form-control" placeholder="Digite o preço do produto" maxlength="8" required>
-                    <div id="erroPreco" class="form-text text-danger">Digite um valor!</div>
+                    <label for="preco" class="form-label">Preço</label>
+                    <input type="text" id="preco" class="form-control" placeholder="Digite o preço do produto em reais" maxlength="10" required>
+                    <div id="erroPreco" class="form-text text-danger">Digite um valor correto!</div>
                 </div>
             </div>
 
@@ -158,7 +161,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="descricao" class="form-label">Descrição</label>
                     <textarea id="descricao" class="form-control p-3" rows="3" placeholder="Descrição do produto" maxlength="60" required></textarea>
-                    <div id="erroDescricao" class="form-text text-danger">Digite no mínimo 10 e no máximo 70 caracteres!</div>
+                    <div id="erroDescricao" class="form-text text-danger">Digite no mínimo 10 e no máximo 60 caracteres!</div>
                 </div>
             </div>
 
@@ -210,7 +213,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="escolhaClienteVendaBalcao" class="form-label">Cliente</label>
                     <select class="form-select" id="escolhaClienteVendaBalcao" required>
-                        <option selected disabled value="">Escolha um cliente para a venda</option>
+                        
                     </select>
                 </div>
 
@@ -220,7 +223,7 @@
                         <option selected disabled value="">Escolha uma forma de pagamento</option>
                         <option value="dinheiro">Dinheiro</option>
                         <option value="credito">Cartão de crédito</option>
-                        <option value="debito">Cartão de dédito</option>
+                        <option value="debito">Cartão de débito</option>
                     </select>
                 </div>
             </div>
@@ -230,29 +233,23 @@
                     <label class="form-label">Escolha de produtos</label>
                 </div>
 
+                <textarea id="produtosEscolhidos" rows="10" hidden></textarea>
+
+                </textarea>
+
                 <div class="alert alert-danger" id="msgNaoExistemProdutosBalcao" role="alert">
                     Não existem produtos cadastrados até o momento!
                 </div>
                 
-                <div class="listaProdutos">
-                    <!-- <div class="escolhaProdutos p-3">
-                        <div class="divNomeProd">
-                            <input type="text" readonly value="Camisa Armani Exchange GG">
-                        </div>
-    
-                        <div class="divQuantidadeProd">
-                            <button type="button" class="btn btn-danger">-</button>
-                            <input type="text" readonly value="0" id="quantidade1"> 
-                            <button type="button" class="btn btn-success">+</button>                       
-                        </div>
-                    </div> -->
+                <div id="listaProdutosVendaBalcao">
+                    
                 </div>
 
             </div>
 
             <div class="mb-3">
                 <label for="valorTotalVendaBalcao" class="form-label">Valor Total</label>
-                <input type="text" class="form-control w-50" id="valorTotalVendaBalcao" value="0.00" readonly> 
+                <input type="text" class="form-control w-50" id="valorTotalVendaBalcao" value="0" readonly> 
             </div>
 
             <div class="alert alert-danger" id="msgErroVendaBalcao" role="alert">
@@ -273,7 +270,6 @@
                 <div class="col-md-6 mb-3">
                     <label for="nome" class="form-label">Cliente</label>
                     <select class="form-select" id="escolhaClienteVendaEntrega" required>
-                        <option selected disabled value="">Escolha um cliente para a venda</option>
                     </select>
                 </div>
 
@@ -283,7 +279,7 @@
                         <option selected disabled value="">Escolha uma forma de pagamento</option>
                         <option value="dinheiro">Dinheiro</option>
                         <option value="credito">Cartão de crédito</option>
-                        <option value="debito">Cartão de dédito</option>
+                        <option value="debito">Cartão de débito</option>
                     </select>
                 </div>
             </div>
@@ -291,7 +287,7 @@
             <div class="mb-3">
                 <label for="escolhaEntregadorVendaEntrega" class="form-label">Entregador</label>
                 <select class="form-select" id="escolhaEntregadorVendaEntrega" required>
-                    <option selected disabled value="">Escolha um entregador para a venda</option>
+                    
                 </select>
             </div>
 
@@ -304,19 +300,8 @@
                     Não existem produtos cadastrados até o momento!
                 </div>
 
-                <div class="listaProdutos">
-                    <!-- <div class="escolhaProdutos p-3">
-                        <div class="divNomeProd">
-                            <input type="text" readonly value="R$ 280.00 - Camisa Armani Exchange - GG">
-                        </div>
-
-                        <div class="divQuantidadeProd">
-                            <button type="button" class="btn btn-danger">-</button>
-                            <input type="text" readonly value="0" id="quantidade1"> 
-                            <button type="button" class="btn btn-success">+</button> 
-                            $(".divQuantidadeProd").find("input[type=text]").val(++);                      
-                        </div>
-                    </div> -->
+                <div id="listaProdutosVendaEntrega">
+                    
                 </div>
 
             </div>
@@ -331,7 +316,7 @@
             </div>
 
             <div class="alert alert-success" id="msgExitoVendaEntrega" role="alert">
-                Venda no balcão cadastrada com sucesso!
+                Venda entrega cadastrada com sucesso!
             </div>
 
             <div class="divBtSubmit">
@@ -349,9 +334,13 @@ crossorigin="anonymous"></script>
 <script src="js/classes/Caixa.js"></script>
 <script src="js/classes/Cliente.js"></script>
 <script src="js/classes/Entregador.js"></script>
-<script src="js/tratamentos.js"></script>
+<script src="js/classes/Produto.js"></script>
+<script src="js/classes/Venda.js"></script>
 <script src="js/metodos/metodosCliente.js"></script>
 <script src="js/metodos/metodosCaixa.js"></script>
 <script src="js/metodos/metodosEntregador.js"></script>
+<script src="js/metodos/metodosProduto.js"></script>
+<script src="js/metodos/metodosVenda.js"></script>
+<script src="js/tratamentos.js"></script>
 </body>
 </html>

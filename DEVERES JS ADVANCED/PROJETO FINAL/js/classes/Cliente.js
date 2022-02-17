@@ -147,16 +147,16 @@ class Cliente{
 
     }
 
-    consultarComprasUltimoMes(listaCompras){
+    consultarComprasUltimoMes(listaVendas){
 
         let texto = "";
 
         texto = `<thead>
                     <tr>
                         <th scope="col">Cliente</th>
-                        <th scope="col">CPF</th>
                         <th scope="col">Produtos</th>
                         <th scope="col">Valor Total</th>
+                        <th scope="col">Entregador</th>
                         <th scope="col">Data</th>
                     </tr>
                 </thead>
@@ -164,7 +164,7 @@ class Cliente{
         
         let existeComprasUltimoMes = false;
 
-        for(let i = 0; i < listaCompras.length; i++){
+        for(let i = 0; i < listaVendas.length; i++){
 
             let ultimoMes = moment().format("MM");
 
@@ -172,14 +172,26 @@ class Cliente{
 
             ultimoMes = ultimoMes < 10 ? "0" + ultimoMes : ultimoMes;
 
-            if (moment(new Date(listaCompras[i].data)).format("MM") == ultimoMes) {
+            if (listaVendas[i].dataVenda.substring(3,5) == ultimoMes) {
+
                 existeComprasUltimoMes = true;
+
+                let produtos = "";
+
+                for(let j = 0; j < listaVendas[i].carrinho.length; j++){
+                    produtos += 
+                                listaVendas[i].carrinho[j].quantidade + "x " +
+                                listaVendas[i].carrinho[j].produto.nome + " - " +
+                                listaVendas[i].carrinho[j].produto.tamanho + "<br>"
+                }
+
                 texto += `<tr>
-                        <td>${listaClientes[i].cliente.nome}</td>
-                        <td>${listaClientes[i].cliente.cpf}</td>
-                        <td>${listaClientes[i].produtos}</td>
-                        <td>${listaClientes[i].valorTotal}</td>
-                        <td>${listaClientes[i].dataVenda}</td>
+                        <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
+                        <td>${produtos}</td>
+                        <td>R$ ${listaVendas[i].valorTotal}</td>
+                        <td>${listaVendas[i].entregador == "Não tem" ? listaVendas[i].entregador  : 
+                        listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                        <td>${listaVendas[i].dataVenda}</td>
                     </tr>`;   
             }
         }
