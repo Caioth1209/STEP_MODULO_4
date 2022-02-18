@@ -112,7 +112,7 @@ $("#formularioCadastroVendaEntrega").submit((e)=>{
 
         for(let i = 0; i < listaProdutos.length; i++){
 
-            let quantidadeProdutos = $("#quantidade" + i + "balcao").val();
+            let quantidadeProdutos = $("#quantidade" + i + "entrega").val();
             
             if (quantidadeProdutos > 0) {
                 carrinho.push({
@@ -127,7 +127,7 @@ $("#formularioCadastroVendaEntrega").submit((e)=>{
             c,
             carrinho,
             $("#formaPagamentoEntrega").val(),
-            $("#valorTotalVendaBalcao").val(),
+            $("#valorTotalVendaEntrega").val(),
             en,
             moment(new Date()).format("DD/MM/YYYY")
         );
@@ -228,50 +228,34 @@ function tirarProduto(tipoVenda, id) {
     }
 }
 
-// // faz consulta geral
-// $("#cGeralProdutos").click((e)=>{
+// faz consulta geral
+$("#cGeralVendas").click((e)=>{
 
-//     let listaVendas = [];
+    let listaVendas = [];
 
-//     if (localStorage.getItem("listaVendas") != null) {
-//         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
-//     }
+    if (localStorage.getItem("listaVendas") != null) {
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
 
-//     let c = new Produto();
+    let v = new Venda();
 
-//     c.consultarGeral(listaVendas);
-// })
+    v.consultarGeral(listaVendas);
+})
 
-// // faz consulta de mais vendidos
-// $("#cMaisVendidosProdutos").click((e)=>{
+// clique para aparecer um select.
+// nesse select, o user vai escolher um cliente
+// para aparecer as vendas dele
+$("#cPorClienteVendas").click(()=>{
+    $(".divCPorClienteVendas").show();
+    apareceClientes("consulta");
+})
 
-//     let listaVendas = [];
+$('#escolhaClienteConsultaVendas').change((e)=>{
+    let listaVendas = [];
 
-//     if (localStorage.getItem("listaVendas") != null) {
-//         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
-//     }
-
-//     let p = new Produto();
-
-//     p.consultarMaisVendidos(listaVendas);
-// })
-
-// // faz consulta de menos vendidos
-// $("#cMenosVendidosProdutos").click((e)=>{
-
-//     let listaVendas = [];
-
-//     if (localStorage.getItem("listaVendas") != null) {
-//         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
-//     }
-
-//     let p = new Produto();
-
-//     p.consultarMenosVendidos(listaVendas);
-// })
-
-
-function apareceClientes(tipoVenda) {
+    if (localStorage.getItem("listaVendas") != null) {
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
 
     let listaClientes = [];
 
@@ -279,7 +263,23 @@ function apareceClientes(tipoVenda) {
         listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
     }
 
-    switch(tipoVenda){
+    let v = new Venda();
+
+    v.consultarPorCliente(listaVendas, listaClientes, e.target.value);
+})
+//////////////////////////////////////////////////
+
+
+
+function apareceClientes(tipo) {
+
+    let listaClientes = [];
+
+    if (localStorage.getItem("listaClientes") != null) {
+        listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
+    }
+
+    switch(tipo){
         case "balcao":{
 
             $("#escolhaClienteVendaBalcao").html("");
@@ -323,6 +323,31 @@ function apareceClientes(tipoVenda) {
             
             if (listaClientes.length == 0) {
                 $("#escolhaClienteVendaEntrega").html(
+                    `<option selected disabled value="">Não existem clientes cadastrados!</option>`
+                );
+            }
+
+            break;
+        }
+
+        case "consulta":{
+
+            $("#escolhaClienteConsultaVendas").html("");
+
+            $("#escolhaClienteConsultaVendas").append(
+                `<option selected disabled value="">Escolha um cliente para a consulta</option>`
+            );
+
+            for (let i = 0; i < listaClientes.length; i++) {
+                
+                $("#escolhaClienteConsultaVendas").append(
+                    `<option value="${i}">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                );
+                
+            }
+            
+            if (listaClientes.length == 0) {
+                $("#escolhaClienteConsultaVendas").html(
                     `<option selected disabled value="">Não existem clientes cadastrados!</option>`
                 );
             }

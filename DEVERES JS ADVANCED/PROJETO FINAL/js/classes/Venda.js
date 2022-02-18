@@ -31,6 +31,20 @@ class Venda{
         if (localStorage.getItem("listaProdutos") != null) {
             listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
         }
+            
+        for(let i = 0; i < listaProdutos.length; i++){
+
+            let quantidadeProdutos = $("#quantidade" + i + "balcao").val();
+
+            if (quantidadeProdutos > 0) {
+
+                // atualiza o numero de vendas dos produtos
+                listaProdutos[i].quantidadeVendas += quantidadeProdutos;
+    
+                localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+            }
+
+        }
 
         for(let i = 0; i < listaProdutos.length; i++){
             $("#quantidade" + i + "balcao").val("0");
@@ -63,6 +77,20 @@ class Venda{
         }
 
         for(let i = 0; i < listaProdutos.length; i++){
+
+            let quantidadeProdutos = $("#quantidade" + i + "entrega").val();
+
+            if (quantidadeProdutos > 0) {
+                
+                // atualiza o numero de vendas dos produtos
+                listaProdutos[i].quantidadeVendas += quantidadeProdutos;
+    
+                localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+            }
+
+        }
+
+        for(let i = 0; i < listaProdutos.length; i++){
             $("#quantidade" + i + "entrega").val("0");
         }
 
@@ -80,148 +108,105 @@ class Venda{
 
         texto = `<thead>
                     <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Tamanho</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Quantidade de vendas</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Entregador</th>
+                        <th scope="col">Pagamento</th>
+                        <th scope="col">Valor Total</th>
+                        <th scope="col">Data Venda</th>
                     </tr>
                 </thead>
-                <tbody id="insereProdutos">`;
+                <tbody id="insereVendas">`;
 
         for(let i = 0; i < listaVendas.length; i++){
 
+            let produtos = "";
+
+            for(let j = 0; j < listaVendas[i].carrinho.length; j++){
+                produtos += 
+                            listaVendas[i].carrinho[j].quantidade + "x " +
+                            listaVendas[i].carrinho[j].produto.nome + " - " +
+                            listaVendas[i].carrinho[j].produto.tamanho + "<br>"
+            }
+
             texto += `<tr>
-                        <td>${listaVendas[i].nome}</td>
-                        <td>${listaVendas[i].tamanho}</td>
-                        <td>${listaVendas[i].descricao}</td>
-                        <td>R$ ${listaVendas[i].preco}</td>
-                        <td>${listaVendas[i].quantidadeVendas} vendas</td>
-                        <td>
-                            <button type='button' onclick="pegarIdEditarProduto(${i})" class='btn btn-primary'>Editar</button>
-                            <button type='button' onclick='pegarIdExcluirProduto(${i})' class='btn btn-danger'>Excluir</button>
-                        </td>
-                    </tr>`;
+                        <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
+                        <td>${produtos}</td>
+                        <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
+                        listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                        <td>${listaVendas[i].formaPagamento}</td>
+                        <td>R$ ${listaVendas[i].valorTotal}</td>
+                        <td>${listaVendas[i].dataVenda}</td>
+                    </tr>`;   
         }
 
         texto += `</tbody>`;
 
-        $("#foiConsultado").html("Produtos: Geral");
+        $("#foiConsultado").html("Vendas: Geral");
         $("#tabelaConsulta").html(texto);
 
         if (listaVendas.length == 0) {
-            $("#insereProdutos").html(
+            $("#insereVendas").html(
                 "<tr>" +
-                    "<td colspan='6' class='text-danger text-center'> Nenhum produto cadastrado até o momento.</tr>" +
+                    "<td colspan='6' class='text-danger text-center'> Nenhuma venda cadastrada até o momento.</tr>" +
                 "</tr>"
             );
         }
 
     }
 
-    consultarMenosVendidos(listaVendas){
+    consultarPorCliente(listaVendas, listaClientes, idCliente){
 
         let texto = "";
 
         texto = `<thead>
                     <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Tamanho</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Quantidade de vendas</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Entregador</th>
+                        <th scope="col">Pagamento</th>
+                        <th scope="col">Valor Total</th>
+                        <th scope="col">Data Venda</th>
                     </tr>
                 </thead>
-                <tbody id="insereProdutos">`;
-        
-        let menosVendidos = false;
+                <tbody id="insereVendas">`;
 
-        let mediaVendas = 0;
-        let totalVendas = 0;
-        for(let i = 0; i < listaVendas.length; i++){
-            totalVendas += listaVendas[i].quantidadeVendas;
-        }
-
-        mediaVendas = (totalVendas/listaVendas.length);
+        let clienteComprou = false;
 
         for(let i = 0; i < listaVendas.length; i++){
-        
-            if (listaVendas[i].quantidadeVendas < mediaVendas && listaVendas[i].quantidadeVendas != 0) {
-                menosVendidos = true;
-                texto += `<tr>
-                            <td>${listaVendas[i].nome}</td>
-                            <td>${listaVendas[i].tamanho}</td>
-                            <td>${listaVendas[i].descricao}</td>
-                            <td>R$ ${listaVendas[i].preco}</td>
-                            <td>${listaVendas[i].quantidadeVendas} vendas</td>
-                        </tr>`;   
+
+            let produtos = "";
+
+            for(let j = 0; j < listaVendas[i].carrinho.length; j++){
+                produtos += 
+                            listaVendas[i].carrinho[j].quantidade + "x " +
+                            listaVendas[i].carrinho[j].produto.nome + " - " +
+                            listaVendas[i].carrinho[j].produto.tamanho + "<br>"
             }
+
+            if (JSON.stringify(listaClientes[idCliente]) == JSON.stringify(listaVendas[i].cliente)) {
+                clienteComprou = true;
+                texto += `<tr>
+                        <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
+                        <td>${produtos}</td>
+                        <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
+                        listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                        <td>${listaVendas[i].formaPagamento}</td>
+                        <td>R$ ${listaVendas[i].valorTotal}</td>
+                        <td>${listaVendas[i].dataVenda}</td>
+                    </tr>`;     
+            } 
         }
 
         texto += `</tbody>`;
 
-        $("#foiConsultado").html("Produtos: Menos Vendidos");
+        $("#foiConsultado").html("Vendas: Por cliente");
         $("#tabelaConsulta").html(texto);
 
-        if (!menosVendidos) {
-            $("#insereProdutos").html(
+        if (!clienteComprou) {
+            $("#insereVendas").html(
                 "<tr>" +
-                    "<td colspan='5' class='text-danger text-center'> Nenhum produto com poucas vendas.</tr>" +
-                "</tr>"
-            );
-        }
-
-    }
-
-    consultarMaisVendidos(listaVendas){
-
-        let texto = "";
-
-        texto = `<thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Tamanho</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Quantidade de vendas</th>
-                    </tr>
-                </thead>
-                <tbody id="insereProdutos">`;
-        
-        let maisVendidos = false;
-
-        let mediaVendas = 0;
-        let totalVendas = 0;
-        for(let i = 0; i < listaVendas.length; i++){
-            totalVendas += listaVendas[i].quantidadeVendas;
-        }
-
-        mediaVendas = (totalVendas/listaVendas.length);
-
-        for(let i = 0; i < listaVendas.length; i++){
-        
-            if (listaVendas[i].quantidadeVendas >= mediaVendas && listaVendas[i].quantidadeVendas != 0) {
-                maisVendidos = true;
-                texto += `<tr>
-                            <td>${listaVendas[i].nome}</td>
-                            <td>${listaVendas[i].tamanho}</td>
-                            <td>${listaVendas[i].descricao}</td>
-                            <td>R$ ${listaVendas[i].preco}</td>
-                            <td>${listaVendas[i].quantidadeVendas} vendas</td>
-                        </tr>`;   
-            }
-        }
-
-        texto += `</tbody>`;
-
-        $("#foiConsultado").html("Produtos: Mais Vendidos");
-        $("#tabelaConsulta").html(texto);
-
-        if (!maisVendidos) {
-            $("#insereProdutos").html(
-                "<tr>" +
-                    "<td colspan='5' class='text-danger text-center'> Nenhum produto com muitas vendas.</tr>" +
+                    "<td colspan='6' class='text-danger text-center'> Esse cliente não comprou até o momento.</tr>" +
                 "</tr>"
             );
         }

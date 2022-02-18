@@ -1,5 +1,4 @@
 $(document).ready(()=>{
-
     // aparece os formularios da escolha do usuario
     $("#escolhaCadastro").change((e)=>{
     

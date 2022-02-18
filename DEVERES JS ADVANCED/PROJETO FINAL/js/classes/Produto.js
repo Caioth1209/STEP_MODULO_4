@@ -54,7 +54,7 @@ class Produto{
                         <td>${listaProdutos[i].tamanho}</td>
                         <td>${listaProdutos[i].descricao}</td>
                         <td>R$ ${listaProdutos[i].preco}</td>
-                        <td>${listaProdutos[i].quantidadeVendas} vendas</td>
+                        <td>${listaProdutos[i].quantidadeVendas} venda(s)</td>
                         <td>
                             <button type='button' onclick="pegarIdEditarProduto(${i})" class='btn btn-primary'>Editar</button>
                             <button type='button' onclick='pegarIdExcluirProduto(${i})' class='btn btn-danger'>Excluir</button>
@@ -97,7 +97,7 @@ class Produto{
         let mediaVendas = 0;
         let totalVendas = 0;
         for(let i = 0; i < listaProdutos.length; i++){
-            totalVendas += listaProdutos[i].quantidadeVendas;
+            totalVendas += parseInt(listaProdutos[i].quantidadeVendas);
         }
 
         mediaVendas = (totalVendas/listaProdutos.length);
@@ -111,7 +111,7 @@ class Produto{
                             <td>${listaProdutos[i].tamanho}</td>
                             <td>${listaProdutos[i].descricao}</td>
                             <td>R$ ${listaProdutos[i].preco}</td>
-                            <td>${listaProdutos[i].quantidadeVendas} vendas</td>
+                            <td>${listaProdutos[i].quantidadeVendas} venda(s)</td>
                         </tr>`;   
             }
         }
@@ -151,9 +151,9 @@ class Produto{
         let mediaVendas = 0;
         let totalVendas = 0;
         for(let i = 0; i < listaProdutos.length; i++){
-            totalVendas += listaProdutos[i].quantidadeVendas;
+            totalVendas += parseInt(listaProdutos[i].quantidadeVendas);
         }
-
+        
         mediaVendas = (totalVendas/listaProdutos.length);
 
         for(let i = 0; i < listaProdutos.length; i++){
@@ -165,7 +165,7 @@ class Produto{
                             <td>${listaProdutos[i].tamanho}</td>
                             <td>${listaProdutos[i].descricao}</td>
                             <td>R$ ${listaProdutos[i].preco}</td>
-                            <td>${listaProdutos[i].quantidadeVendas} vendas</td>
+                            <td>${listaProdutos[i].quantidadeVendas} venda(s)</td>
                         </tr>`;   
             }
         }
@@ -178,7 +178,7 @@ class Produto{
         if (!maisVendidos) {
             $("#insereProdutos").html(
                 "<tr>" +
-                    "<td colspan='5' class='text-danger text-center'> Nenhum produto com muitas vendas.</tr>" +
+                    "<td colspan='5' class='text-danger text-center'> Nenhum produto mais vendido.</tr>" +
                 "</tr>"
             );
         }

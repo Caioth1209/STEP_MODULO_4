@@ -155,9 +155,10 @@ class Cliente{
                     <tr>
                         <th scope="col">Cliente</th>
                         <th scope="col">Produtos</th>
-                        <th scope="col">Valor Total</th>
                         <th scope="col">Entregador</th>
-                        <th scope="col">Data</th>
+                        <th scope="col">Pagamento</th>
+                        <th scope="col">Valor Total</th>
+                        <th scope="col">Data Venda</th>
                     </tr>
                 </thead>
                 <tbody id="insereClientes">`;
@@ -188,9 +189,10 @@ class Cliente{
                 texto += `<tr>
                         <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
                         <td>${produtos}</td>
-                        <td>R$ ${listaVendas[i].valorTotal}</td>
                         <td>${listaVendas[i].entregador == "Não tem" ? listaVendas[i].entregador  : 
                         listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                        <td>${listaVendas[i].formaPagamento}</td>
+                        <td>R$ ${listaVendas[i].valorTotal}</td>
                         <td>${listaVendas[i].dataVenda}</td>
                     </tr>`;   
             }
@@ -204,7 +206,7 @@ class Cliente{
         if (!existeComprasUltimoMes) {
             $("#insereClientes").html(
                 "<tr>" +
-                    "<td colspan='5' class='text-danger text-center'> Nenhum cliente fez compras no último mês.</tr>" +
+                    "<td colspan='6' class='text-danger text-center'> Nenhum cliente fez compras no último mês.</tr>" +
                 "</tr>"
             );
         }
