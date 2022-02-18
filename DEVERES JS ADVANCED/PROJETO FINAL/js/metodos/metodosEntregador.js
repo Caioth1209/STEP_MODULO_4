@@ -48,6 +48,9 @@ $("#formularioEditarEntregador").submit((e)=>{
 // faz consulta geral
 $("#cGeralEntregadores").click(()=>{
 
+     // esconde os inputs de consulta de vendas
+     escondeInputConsultaVendas();
+
     let listaEntregadores = [];
 
     if (localStorage.getItem("listaEntregadores") != null) {

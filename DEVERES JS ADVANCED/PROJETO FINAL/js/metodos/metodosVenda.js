@@ -462,3 +462,10 @@ function apareceProdutos(tipoVenda) {
     }
 
 }
+
+function escondeInputConsultaVendas(){
+    $(".divCPorClienteVendas").hide();
+    $(".divCPorPeriodoVendas").hide();
+    $(".divCPorEntregadorVendas").hide();
+    $(".divCPorProdutoVendas").hide();
+}

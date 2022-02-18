@@ -54,6 +54,9 @@ $("#formularioEditarProduto").submit((e)=>{
 // faz consulta geral
 $("#cGeralProdutos").click(()=>{
 
+    // esconde os inputs de consulta de vendas
+    escondeInputConsultaVendas();
+
     let listaProdutos = [];
 
     if (localStorage.getItem("listaProdutos") != null) {
@@ -66,7 +69,10 @@ $("#cGeralProdutos").click(()=>{
 })
 
 // faz consulta de mais vendidos
-$("#cMaisVendidosProdutos").click((e)=>{
+$("#cMaisVendidosProdutos").click(()=>{
+
+    // esconde os inputs de consulta de vendas
+    escondeInputConsultaVendas();  
 
     let listaProdutos = [];
 
@@ -80,7 +86,10 @@ $("#cMaisVendidosProdutos").click((e)=>{
 })
 
 // faz consulta de menos vendidos
-$("#cMenosVendidosProdutos").click((e)=>{
+$("#cMenosVendidosProdutos").click(()=>{
+
+     // esconde os inputs de consulta de vendas
+     escondeInputConsultaVendas();
 
     let listaProdutos = [];
 

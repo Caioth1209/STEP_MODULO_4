@@ -58,6 +58,9 @@ $("#formularioEditarCaixa").submit((e)=>{
 // faz consulta geral
 $("#cGeralCaixas").click(()=>{
 
+    // esconde os inputs de consulta de vendas
+    escondeInputConsultaVendas();
+    
     let listaCaixas = [];
 
     if (localStorage.getItem("listaCaixas") != null) {

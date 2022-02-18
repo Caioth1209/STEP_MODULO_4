@@ -54,6 +54,9 @@ $("#formularioEditarCliente").submit((e)=>{
 // faz consulta geral
 $("#cGeralClientes").click((e)=>{
 
+    // esconde os inputs de consulta de vendas
+    escondeInputConsultaVendas();
+
     let listaClientes = [];
 
     if (localStorage.getItem("listaClientes") != null) {
@@ -68,6 +71,9 @@ $("#cGeralClientes").click((e)=>{
 // faz consulta de aniversariantes do mes
 $("#cNiverClientes").click((e)=>{
 
+     // esconde os inputs de consulta de vendas
+     escondeInputConsultaVendas();
+     
     let listaClientes = [];
 
     if (localStorage.getItem("listaClientes") != null) {
@@ -81,6 +87,9 @@ $("#cNiverClientes").click((e)=>{
 
 // faz consulta de compras do ultimo mes
 $("#cComprasUltimoMesClientes").click((e)=>{
+
+     // esconde os inputs de consulta de vendas
+     escondeInputConsultaVendas();
 
     let listaVendas = [];
 
