@@ -34,12 +34,31 @@ class Venda{
             
         for(let i = 0; i < listaProdutos.length; i++){
 
-            let quantidadeProdutos = $("#quantidade" + i + "balcao").val();
+            let quantidadeProdutos = parseInt($("#quantidade" + i + "balcao").val());
 
             if (quantidadeProdutos > 0) {
 
                 // atualiza o numero de vendas dos produtos
-                listaProdutos[i].quantidadeVendas += quantidadeProdutos;
+                
+                let quantidadeVendas = parseInt(listaProdutos[i].quantidadeVendas);
+
+                quantidadeVendas += quantidadeProdutos;
+
+                for (let j = 0; j < listaVendas.length; j++) {
+                   
+                    for (let k = 0; k < listaVendas[j].carrinho.length; k++) {
+
+                        if (mesmoObjeto(listaVendas[j].carrinho[k].produto, listaProdutos[i])) {
+                            listaVendas[j].carrinho[k].produto.quantidadeVendas = quantidadeVendas;
+                        }
+                        
+                    }
+                    
+                }
+            
+                localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
+
+                listaProdutos[i].quantidadeVendas = quantidadeVendas;
     
                 localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
             }
@@ -78,12 +97,17 @@ class Venda{
 
         for(let i = 0; i < listaProdutos.length; i++){
 
-            let quantidadeProdutos = $("#quantidade" + i + "entrega").val();
+            let quantidadeProdutos = parseInt($("#quantidade" + i + "entrega").val());
 
             if (quantidadeProdutos > 0) {
-                
+
                 // atualiza o numero de vendas dos produtos
-                listaProdutos[i].quantidadeVendas += quantidadeProdutos;
+                
+                let quantidadeVendas = parseInt(listaProdutos[i].quantidadeVendas);
+
+                quantidadeVendas += quantidadeProdutos;
+
+                listaProdutos[i].quantidadeVendas = quantidadeVendas;
     
                 localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
             }
@@ -212,5 +236,130 @@ class Venda{
         }
 
     }
+    
+    consultarPorEntregador(listaVendas, listaEntregadores, idEntregador){
 
+        let texto = "";
+
+        texto = `<thead>
+                    <tr>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Entregador</th>
+                        <th scope="col">Pagamento</th>
+                        <th scope="col">Valor Total</th>
+                        <th scope="col">Data Venda</th>
+                    </tr>
+                </thead>
+                <tbody id="insereVendas">`;
+
+        let entregador = false;
+
+        for(let i = 0; i < listaVendas.length; i++){
+
+            let produtos = "";
+
+            for(let j = 0; j < listaVendas[i].carrinho.length; j++){
+                produtos += 
+                            listaVendas[i].carrinho[j].quantidade + "x " +
+                            listaVendas[i].carrinho[j].produto.nome + " - " +
+                            listaVendas[i].carrinho[j].produto.tamanho + "<br>"
+            }
+
+            if (JSON.stringify(listaEntregadores[idEntregador]) == JSON.stringify(listaVendas[i].entregador)) {
+                entregador = true;
+                texto += `<tr>
+                        <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
+                        <td>${produtos}</td>
+                        <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
+                        listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                        <td>${listaVendas[i].formaPagamento}</td>
+                        <td>R$ ${listaVendas[i].valorTotal}</td>
+                        <td>${listaVendas[i].dataVenda}</td>
+                    </tr>`;     
+            } 
+        }
+
+        texto += `</tbody>`;
+
+        $("#foiConsultado").html("Vendas: Por entregador");
+        $("#tabelaConsulta").html(texto);
+
+        if (!entregador) {
+            $("#insereVendas").html(
+                "<tr>" +
+                    "<td colspan='6' class='text-danger text-center'> Esse entregador não entregou até o momento.</tr>" +
+                "</tr>"
+            );
+        }
+
+    }
+
+    consultarPorProduto(listaVendas, listaProdutos, idProduto){
+
+        let texto = "";
+
+        texto = `<thead>
+                    <tr>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Entregador</th>
+                        <th scope="col">Pagamento</th>
+                        <th scope="col">Valor Total</th>
+                        <th scope="col">Data Venda</th>
+                    </tr>
+                </thead>
+                <tbody id="insereVendas">`;
+
+        let contemProduto = false;
+
+        for(let i = 0; i < listaVendas.length; i++){
+
+            let produtos = "";
+
+            for(let j = 0; j < listaVendas[i].carrinho.length; j++){
+
+                mesmoObjeto(listaProdutos[idProduto],listaVendas[i].carrinho[j].produto)
+                if (mesmoObjeto(listaProdutos[idProduto],listaVendas[i].carrinho[j].produto)) {
+                    contemProduto = true;
+                }
+            }
+
+
+            if (contemProduto) {
+
+                for(let j = 0; j < listaVendas[i].carrinho.length; j++){
+
+                    produtos += 
+                                listaVendas[i].carrinho[j].quantidade + "x " +
+                                listaVendas[i].carrinho[j].produto.nome + " - " +
+                                listaVendas[i].carrinho[j].produto.tamanho + "<br>"
+                }
+
+                texto += `<tr>
+                        <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
+                        <td>${produtos}</td>
+                        <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
+                        listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                        <td>${listaVendas[i].formaPagamento}</td>
+                        <td>R$ ${listaVendas[i].valorTotal}</td>
+                        <td>${listaVendas[i].dataVenda}</td>
+                    </tr>`;     
+            } 
+        }
+
+        texto += `</tbody>`;
+
+        $("#foiConsultado").html("Vendas: Por produto");
+        $("#tabelaConsulta").html(texto);
+
+        if (!contemProduto) {
+            $("#insereVendas").html(
+                "<tr>" +
+                    "<td colspan='6' class='text-danger text-center'> Esse produto não foi vendido até o momento.</tr>" +
+                "</tr>"
+            );
+        }
+
+    }
 }

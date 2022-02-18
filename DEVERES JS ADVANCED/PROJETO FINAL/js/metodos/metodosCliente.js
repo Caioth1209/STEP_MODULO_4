@@ -55,7 +55,7 @@ $("#formularioEditarCliente").submit((e)=>{
 $("#cGeralClientes").click((e)=>{
 
     // esconde os inputs de consulta de vendas
-    escondeInputConsultaVendas();
+    escondeInputConsultaVendas("geral");
 
     let listaClientes = [];
 
@@ -72,7 +72,7 @@ $("#cGeralClientes").click((e)=>{
 $("#cNiverClientes").click((e)=>{
 
      // esconde os inputs de consulta de vendas
-     escondeInputConsultaVendas();
+     escondeInputConsultaVendas("geral");
      
     let listaClientes = [];
 
@@ -89,7 +89,7 @@ $("#cNiverClientes").click((e)=>{
 $("#cComprasUltimoMesClientes").click((e)=>{
 
      // esconde os inputs de consulta de vendas
-     escondeInputConsultaVendas();
+     escondeInputConsultaVendas("geral");
 
     let listaVendas = [];
 

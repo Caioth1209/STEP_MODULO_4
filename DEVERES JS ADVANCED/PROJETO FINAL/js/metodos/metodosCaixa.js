@@ -59,7 +59,7 @@ $("#formularioEditarCaixa").submit((e)=>{
 $("#cGeralCaixas").click(()=>{
 
     // esconde os inputs de consulta de vendas
-    escondeInputConsultaVendas();
+    escondeInputConsultaVendas("geral");
     
     let listaCaixas = [];
 

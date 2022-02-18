@@ -43,7 +43,13 @@ $("#formularioEditarProduto").submit((e)=>{
 
     let p = new Produto(nome, tamanho, descricao, preco, quantidadeVendas);
 
-    p.editar(listaProdutos,id);
+    let listaVendas = [];
+
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    p.editar(listaProdutos, id, listaVendas);
 
     p.consultarGeral(listaProdutos);
 
@@ -55,7 +61,7 @@ $("#formularioEditarProduto").submit((e)=>{
 $("#cGeralProdutos").click(()=>{
 
     // esconde os inputs de consulta de vendas
-    escondeInputConsultaVendas();
+    escondeInputConsultaVendas("geral");
 
     let listaProdutos = [];
 
@@ -72,7 +78,7 @@ $("#cGeralProdutos").click(()=>{
 $("#cMaisVendidosProdutos").click(()=>{
 
     // esconde os inputs de consulta de vendas
-    escondeInputConsultaVendas();  
+    escondeInputConsultaVendas("geral");  
 
     let listaProdutos = [];
 
@@ -89,7 +95,7 @@ $("#cMaisVendidosProdutos").click(()=>{
 $("#cMenosVendidosProdutos").click(()=>{
 
      // esconde os inputs de consulta de vendas
-     escondeInputConsultaVendas();
+     escondeInputConsultaVendas("geral");
 
     let listaProdutos = [];
 

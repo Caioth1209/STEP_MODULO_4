@@ -49,7 +49,7 @@ $("#formularioEditarEntregador").submit((e)=>{
 $("#cGeralEntregadores").click(()=>{
 
      // esconde os inputs de consulta de vendas
-     escondeInputConsultaVendas();
+     escondeInputConsultaVendas("geral");
 
     let listaEntregadores = [];
 

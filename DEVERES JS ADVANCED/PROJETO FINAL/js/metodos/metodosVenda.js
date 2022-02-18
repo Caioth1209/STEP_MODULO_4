@@ -1,7 +1,7 @@
 // faz cadastro de venda no balcao
 $("#formularioCadastroVendaBalcao").submit((e)=>{
 
-    if($("#valorTotalVendaBalcao").val() == 0){
+    if($("#valorTotalVendaBalcao").val().replace(",00", "") == 0){
         $("#msgErroVendaBalcao").show();
         
         setTimeout(() => {
@@ -66,7 +66,7 @@ $("#formularioCadastroVendaBalcao").submit((e)=>{
 // faz cadastro de venda entrega
 $("#formularioCadastroVendaEntrega").submit((e)=>{
 
-    if($("#valorTotalVendaEntrega").val() == 0){
+    if($("#valorTotalVendaEntrega").val().replace(",00", "") == 0){
         $("#msgErroVendaEntrega").show();
         
         setTimeout(() => {
@@ -157,8 +157,11 @@ function addProduto(tipoVenda, id) {
             $("#quantidade"+id+"balcao").val(quantidade);
 
             let valorTotal = $("#valorTotalVendaBalcao").val();
+        
+            var valorFormatado = listaProdutos[id].preco.replace('.', '').replace(',', '.');
 
-            $("#valorTotalVendaBalcao").val((parseFloat(valorTotal.replace(",",".")) + parseFloat(listaProdutos[id].preco.replace(",", "."))).toFixed(2).replace(".",","));
+            $("#valorTotalVendaBalcao").val((parseFloat(valorTotal.replace(",",".")) + 
+            parseFloat(valorFormatado)).toFixed(2).replace(".",","));
 
             break;
         }
@@ -173,7 +176,10 @@ function addProduto(tipoVenda, id) {
 
             let valorTotal = $("#valorTotalVendaEntrega").val();
 
-            $("#valorTotalVendaEntrega").val((parseFloat(valorTotal.replace(",",".")) + parseFloat(listaProdutos[id].preco.replace(",", "."))).toFixed(2).replace(".",","));
+            var valorFormatado = listaProdutos[id].preco.replace('.', '').replace(',', '.');
+
+            $("#valorTotalVendaEntrega").val((parseFloat(valorTotal.replace(",",".")) + 
+            parseFloat(valorFormatado)).toFixed(2).replace(".",","));
 
             break;
         }
@@ -200,7 +206,10 @@ function tirarProduto(tipoVenda, id) {
 
                 let valorTotal = $("#valorTotalVendaBalcao").val();
 
-                $("#valorTotalVendaBalcao").val((parseFloat(valorTotal.replace(",",".")) - parseFloat(listaProdutos[id].preco.replace(",", "."))).toFixed(2).replace(".",","));
+                var valorFormatado = listaProdutos[id].preco.replace('.', '').replace(',', '.');
+
+                $("#valorTotalVendaBalcao").val((parseFloat(valorTotal.replace(",",".")) - 
+                parseFloat(valorFormatado)).toFixed(2).replace(".",","));
             }
 
             $("#quantidade"+id+"balcao").val(quantidade);
@@ -217,7 +226,10 @@ function tirarProduto(tipoVenda, id) {
 
                 let valorTotal = $("#valorTotalVendaEntrega").val();
 
-                $("#valorTotalVendaEntrega").val((parseFloat(valorTotal.replace(",",".")) - parseFloat(listaProdutos[id].preco.replace(",", "."))).toFixed(2).replace(".",","));
+                var valorFormatado = listaProdutos[id].preco.replace('.', '').replace(',', '.');
+
+                $("#valorTotalVendaEntrega").val((parseFloat(valorTotal.replace(",",".")) - 
+                parseFloat(valorFormatado)).toFixed(2).replace(".",","));
             }
 
             
@@ -230,6 +242,8 @@ function tirarProduto(tipoVenda, id) {
 
 // faz consulta geral
 $("#cGeralVendas").click((e)=>{
+
+    escondeInputConsultaVendas("geral");
 
     let listaVendas = [];
 
@@ -246,11 +260,12 @@ $("#cGeralVendas").click((e)=>{
 // nesse select, o user vai escolher um cliente
 // para aparecer as vendas dele
 $("#cPorClienteVendas").click(()=>{
-    $(".divCPorClienteVendas").show();
+    escondeInputConsultaVendas("porCliente");
     apareceClientes("consulta");
 })
 
 $('#escolhaClienteConsultaVendas').change((e)=>{
+
     let listaVendas = [];
 
     if (localStorage.getItem("listaVendas") != null) {
@@ -269,7 +284,59 @@ $('#escolhaClienteConsultaVendas').change((e)=>{
 })
 //////////////////////////////////////////////////
 
+// clique para aparecer um select.
+// nesse select, o user vai escolher um entregador
+// para aparecer as vendas dele
+$("#cPorEntregadorVendas").click(()=>{
+    escondeInputConsultaVendas("porEntregador");
+    apareceEntregadores("consulta");
+})
 
+$('#escolhaEntregadorConsultaVendas').change((e)=>{
+    let listaVendas = [];
+
+    if (localStorage.getItem("listaVendas") != null) {
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    let listaEntregadores = [];
+
+    if (localStorage.getItem("listaEntregadores") != null) {
+        listaEntregadores = JSON.parse(localStorage.getItem("listaEntregadores"));
+    }
+
+    let v = new Venda();
+
+    v.consultarPorEntregador(listaVendas, listaEntregadores, e.target.value);
+})
+//////////////////////////////////////////////////
+
+// clique para aparecer um select.
+// nesse select, o user vai escolher um produto
+// para aparecer as vendas dele
+$("#cPorProdutoVendas").click(()=>{
+    escondeInputConsultaVendas("porProduto");
+    apareceProdutos("consulta");
+})
+
+$('#escolhaProdutoConsultaVendas').change((e)=>{
+    let listaVendas = [];
+
+    if (localStorage.getItem("listaVendas") != null) {
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    let listaProdutos = [];
+
+    if (localStorage.getItem("listaProdutos") != null) {
+        listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
+    }
+
+    let v = new Venda();
+
+    v.consultarPorProduto(listaVendas, listaProdutos, e.target.value);
+})
+//////////////////////////////////////////////////
 
 function apareceClientes(tipo) {
 
@@ -358,7 +425,7 @@ function apareceClientes(tipo) {
 
 }
 
-function apareceEntregadores() {
+function apareceEntregadores(tipo) {
 
     let listaEntregadores = [];
 
@@ -366,29 +433,61 @@ function apareceEntregadores() {
         listaEntregadores = JSON.parse(localStorage.getItem("listaEntregadores"));
     }
 
-    $("#escolhaEntregadorVendaEntrega").html("");
+    switch(tipo){
 
-    $("#escolhaEntregadorVendaEntrega").append(
-        `<option selected disabled value="">Escolha um entregador para a venda</option>`
-    );
+        case "entrega":{
+            $("#escolhaEntregadorVendaEntrega").html("");
 
-    for (let i = 0; i < listaEntregadores.length; i++) {
-                
-        $("#escolhaEntregadorVendaEntrega").append(
-            `<option value="${i}">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
-        );
+            $("#escolhaEntregadorVendaEntrega").append(
+                `<option selected disabled value="">Escolha um entregador para a venda</option>`
+            );
         
-    }
-    
-    if (listaEntregadores.length == 0) {
-        $("#escolhaEntregadorVendaEntrega").html(
-            `<option selected disabled value="">Não existem entregadores cadastrados!</option>`
-        );
+            for (let i = 0; i < listaEntregadores.length; i++) {
+                        
+                $("#escolhaEntregadorVendaEntrega").append(
+                    `<option value="${i}">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
+                );
+                
+            }
+            
+            if (listaEntregadores.length == 0) {
+                $("#escolhaEntregadorVendaEntrega").html(
+                    `<option selected disabled value="">Não existem entregadores cadastrados!</option>`
+                );
+            }
+
+            break;
+        }
+
+        case "consulta":{
+
+            $("#escolhaEntregadorConsultaVendas").html("");
+
+            $("#escolhaEntregadorConsultaVendas").append(
+                `<option selected disabled value="">Escolha um entregador para a consulta</option>`
+            );
+
+            for (let i = 0; i < listaEntregadores.length; i++) {
+                
+                $("#escolhaEntregadorConsultaVendas").append(
+                    `<option value="${i}">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
+                );
+                
+            }
+            
+            if (listaEntregadores.length == 0) {
+                $("#escolhaEntregadorConsultaVendas").html(
+                    `<option selected disabled value="">Não existem entregadores cadastrados!</option>`
+                );
+            }
+
+            break;
+        }
     }
 
 }
 
-function apareceProdutos(tipoVenda) {
+function apareceProdutos(tipo) {
     
     let listaProdutos = [];
 
@@ -396,7 +495,7 @@ function apareceProdutos(tipoVenda) {
         listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
     }
 
-    switch(tipoVenda){
+    switch(tipo){
 
         case "balcao":{
 
@@ -459,13 +558,78 @@ function apareceProdutos(tipoVenda) {
 
             break;
         }
+
+        case "consulta":{
+
+            $("#escolhaProdutoConsultaVendas").html("");
+
+            $("#escolhaProdutoConsultaVendas").append(
+                `<option selected disabled value="">Escolha um produto para a consulta</option>`
+            );
+
+            for (let i = 0; i < listaProdutos.length; i++) {
+                
+                $("#escolhaProdutoConsultaVendas").append(
+                    `<option value="${i}">${listaProdutos[i].nome + " - " + listaProdutos[i].tamanho}</option>`
+                );
+                
+            }
+            
+            if (listaProdutos.length == 0) {
+                $("#escolhaProdutoConsultaVendas").html(
+                    `<option selected disabled value="">Não existem produtos cadastrados!</option>`
+                );
+            }
+
+            break;
+        }
     }
 
 }
 
-function escondeInputConsultaVendas(){
-    $(".divCPorClienteVendas").hide();
-    $(".divCPorPeriodoVendas").hide();
-    $(".divCPorEntregadorVendas").hide();
-    $(".divCPorProdutoVendas").hide();
+function escondeInputConsultaVendas(local){
+
+    switch (local) {
+
+        case "geral":{
+            $(".divCPorClienteVendas").hide();
+            $(".divCPorPeriodoVendas").hide();
+            $(".divCPorEntregadorVendas").hide();
+            $(".divCPorProdutoVendas").hide();
+            break;
+        };
+
+        case "porCliente":{
+            $(".divCPorClienteVendas").show();
+            $(".divCPorPeriodoVendas").hide();
+            $(".divCPorEntregadorVendas").hide();
+            $(".divCPorProdutoVendas").hide();
+            break;
+        };
+
+        case "porPeriodo":{
+            $(".divCPorPeriodoVendas").show();
+            $(".divCPorClienteVendas").hide();
+            $(".divCPorEntregadorVendas").hide();
+            $(".divCPorProdutoVendas").hide();
+            break;
+        };
+
+        case "porEntregador":{
+            $(".divCPorEntregadorVendas").show();
+            $(".divCPorClienteVendas").hide();
+            $(".divCPorPeriodoVendas").hide();
+            $(".divCPorProdutoVendas").hide();
+            break;
+        };
+
+        case "porProduto":{
+            $(".divCPorProdutoVendas").show();
+            $(".divCPorClienteVendas").hide();
+            $(".divCPorPeriodoVendas").hide();
+            $(".divCPorEntregadorVendas").hide();
+            break;
+        };
+
+    }
 }

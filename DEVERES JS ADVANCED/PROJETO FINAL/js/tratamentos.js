@@ -60,7 +60,7 @@ $(document).ready(()=>{
             case "vendaEntrega":{
                 $("#formularioCadastroVendaEntrega").show();
                 apareceClientes("entrega");
-                apareceEntregadores();
+                apareceEntregadores("entrega");
                 apareceProdutos("entrega");
                 $("#valorTotalVendaEntrega").val("0");
                 $("#formularioCadastroVendaBalcao").hide();
@@ -320,17 +320,23 @@ $(document).ready(()=>{
     $("#telefoneCliente").change((e)=>{
 
         $("#erroTelefoneCliente").hide();
-        
+
         if (e.target.value.length < 14) {
 
             $("#erroTelefoneCliente").show();
             e.target.value = "";
-
-            setTimeout(() => {
-                $("#erroTelefoneCliente").hide();
-            }, 3000);
-
         }
+
+        let regexNacional = /\(\d{2}\) [9]?\d{4}\-\d{4}$/;
+
+        if(!regexNacional.test(e.target.value)){
+            $("#erroTelefoneCliente").show();
+            e.target.value = "";
+        }
+
+        setTimeout(() => {
+            $("#erroTelefoneCliente").hide();
+        }, 3000);
     })
 
     $("#telefoneEntregador").change((e)=>{
@@ -342,11 +348,18 @@ $(document).ready(()=>{
             $("#erroTelefoneEntregador").show();
             e.target.value = "";
 
-            setTimeout(() => {
-                $("#erroTelefoneEntregador").hide();
-            }, 3000);
-
         }
+
+        let regexNacional = /\(\d{2}\) [9]?\d{4}\-\d{4}$/;
+
+        if(!regexNacional.test(e.target.value)){
+            $("#erroTelefoneCliente").show();
+            e.target.value = "";
+        }
+
+        setTimeout(() => {
+            $("#erroTelefoneCliente").hide();
+        }, 3000);
     })
 
     ///////////////////////////
@@ -413,3 +426,15 @@ $(document).ready(()=>{
     })
 
 })
+
+const mesmoObjeto = function(obj1, obj2) {
+    const obj1Length = Object.keys(obj1).length;
+    const obj2Length = Object.keys(obj2).length;
+
+    if (obj1Length === obj2Length) {
+        return Object.keys(obj1).every(
+            key => obj2.hasOwnProperty(key)
+                && obj2[key] === obj1[key]);
+    }
+    return false;
+}

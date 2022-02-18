@@ -185,9 +185,22 @@ class Produto{
 
     }
 
-    editar(listaProdutos, id){
+    editar(listaProdutos, id, listaVendas){
 
-    
+        for (let i = 0; i < listaVendas.length; i++) {
+            
+            for (let j = 0; j < listaVendas[i].carrinho.length; j++) {
+
+                if (mesmoObjeto(listaProdutos[id], listaVendas[i].carrinho[j].produto)) {
+                    listaVendas[i].carrinho[j].produto = this;   
+                }
+            
+            }
+            
+        }
+
+        localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
+
         listaProdutos[id] = this;
     
         localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
