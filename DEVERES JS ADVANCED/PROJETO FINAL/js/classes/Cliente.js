@@ -213,7 +213,7 @@ class Cliente{
 
     }
 
-    editar(listaClientes, id){
+    editar(listaClientes, id, listaVendas){
 
         let isValid = true;
 
@@ -229,6 +229,16 @@ class Cliente{
         }
     
         if(isValid){
+
+            for (let i = 0; i < listaVendas.length; i++) {
+            
+                if (mesmoObjeto(listaClientes[id], listaVendas[i].cliente)) {
+                    listaVendas[i].cliente = this;   
+                }
+                
+            }
+    
+            localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
             
             listaClientes[id] = this;
     

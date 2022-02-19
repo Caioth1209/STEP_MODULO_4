@@ -42,8 +42,14 @@ $("#formularioEditarCliente").submit((e)=>{
     let endereco = $("#formularioEditarCliente").find(".mb-3 > #endereco").val();
 
     let c = new Cliente(nome, telefone, cpf, moment(dataNasc).format("DD/MM/YYYY"), endereco);
+    
+    let listaVendas = [];
 
-    c.editar(listaClientes,id);
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    c.editar(listaClientes,id,listaVendas);
 
     c.consultarGeral(listaClientes);
 

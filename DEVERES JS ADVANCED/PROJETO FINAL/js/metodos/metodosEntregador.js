@@ -37,7 +37,13 @@ $("#formularioEditarEntregador").submit((e)=>{
 
     let en = new Entregador(nome, telefone, cpf);
 
-    en.editar(listaEntregadores,id);
+    let listaVendas = [];
+
+    if (localStorage.getItem("listaVendas") != null) {
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    en.editar(listaEntregadores,id,listaVendas);
 
     en.consultar(listaEntregadores);
 

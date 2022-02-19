@@ -15,19 +15,37 @@ class Produto{
 
     cadastrar(listaProdutos){
 
-        listaProdutos.push(this);
+        let isValid = true;
+
+        for (let i = 0; i < listaProdutos.length; i++){
+            if (this.nome == listaProdutos[i].nome && this.tamanho == listaProdutos[i].tamanho) {
+                isValid = false;   
+            }
+        }
+        if (isValid) {
+            listaProdutos.push(this);
             
-        localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+            localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
 
-        $("#nomeProduto").val("");
-        $("#preco").val("");
-        $("#tamanho").val("");
-        $("#descricao").val("");
+            $("#nomeProduto").val("");
+            $("#preco").val("");
+            $("#tamanho").val("");
+            $("#descricao").val("");
 
-        $("#msgExitoProduto").show();
+            $("#msgExitoProduto").show();   
+            $("#msgErroProduto").hide();  
+        } else {
+
+            $("#nomeProduto").val("");
+            $("#tamanho").val("");
+
+            $("#msgExitoProduto").hide();   
+            $("#msgErroProduto").show();
+        }
 
         setTimeout(() => {
             $("#msgExitoProduto").hide();
+            $("#msgErroProduto").hide();  
         }, 3000);
  
     }
@@ -187,32 +205,50 @@ class Produto{
 
     editar(listaProdutos, id, listaVendas){
 
-        for (let i = 0; i < listaVendas.length; i++) {
-            
-            for (let j = 0; j < listaVendas[i].carrinho.length; j++) {
+        let isValid = true;
 
-                if (mesmoObjeto(listaProdutos[id], listaVendas[i].carrinho[j].produto)) {
-                    listaVendas[i].carrinho[j].produto = this;   
-                }
-            
+        for (let i = 0; i < listaProdutos.length; i++){
+            if (this.nome == listaProdutos[i].nome && this.tamanho == listaProdutos[i].tamanho) {
+                isValid = false;   
             }
+        }
+        if (isValid) {
+
+            for (let i = 0; i < listaVendas.length; i++) {
             
+                for (let j = 0; j < listaVendas[i].carrinho.length; j++) {
+    
+                    if (mesmoObjeto(listaProdutos[id], listaVendas[i].carrinho[j].produto)) {
+                        listaVendas[i].carrinho[j].produto = this;   
+                    }
+                
+                }
+                
+            }
+    
+            localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
+    
+            listaProdutos[id] = this;
+        
+            localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+        
+            $("#msgExitoProduto").show();
+            $("#msgErroProduto").hide();
+
+        } else {
+            
+            $("#nomeProduto").val("");
+            $("#tamanho").val("");
+
+            $("#msgExitoProduto").hide();   
+            $("#msgErroProduto").show();
         }
 
-        localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
-
-        listaProdutos[id] = this;
-    
-        localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
-    
-        $("#msgExitoProduto").show();
-
         setTimeout(() => {
-    
             $("#msgExitoProduto").hide();
-                
+            $("#msgErroProduto").hide();  
         }, 3000);
- 
+
     }
 
     excluir(listaProdutos, id){

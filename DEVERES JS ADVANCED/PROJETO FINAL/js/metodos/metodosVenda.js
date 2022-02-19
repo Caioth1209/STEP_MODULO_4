@@ -338,6 +338,41 @@ $('#escolhaProdutoConsultaVendas').change((e)=>{
 })
 //////////////////////////////////////////////////
 
+// clique para aparecer um select.
+// nesse select, o user vai escolher um período
+// para aparecer as vendas desse período
+$("#cPorPeriodoVendas").click(()=>{
+    escondeInputConsultaVendas("porPeriodo");
+})
+
+$('#consultaPeriodo').click(()=>{
+
+    if($("#escolhaPorPeriodoInicialVendas").val() == "" || $("#escolhaPorPeriodoFinalVendas").val() == ""){
+         $("#msgEscolhaPeriodo").show();
+
+         setTimeout(() => {
+            $("#msgEscolhaPeriodo").hide();
+         }, 3000);
+    } else {
+
+        $("#msgEscolhaPeriodo").hide();
+        
+        let listaVendas = [];
+
+        if (localStorage.getItem("listaVendas") != null) {
+            listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+        }
+
+        let v = new Venda();
+
+        let periodoInicial = moment($("#escolhaPorPeriodoInicialVendas").val()).format("DD/MM/YYYY");
+        let periodoFinal = moment($("#escolhaPorPeriodoFinalVendas").val()).format("DD/MM/YYYY");
+
+        v.consultarPorPeriodo(listaVendas, periodoInicial, periodoFinal);
+    }
+})
+//////////////////////////////////////////////////
+
 function apareceClientes(tipo) {
 
     let listaClientes = [];

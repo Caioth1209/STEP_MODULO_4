@@ -89,7 +89,7 @@ class Entregador{
 
     }
 
-    editar(listaEntregadores, id){
+    editar(listaEntregadores, id, listaVendas){
 
         let isValid = true;
 
@@ -105,6 +105,16 @@ class Entregador{
         }
     
         if(isValid){
+
+            for (let i = 0; i < listaVendas.length; i++) {
+            
+                if (mesmoObjeto(listaEntregadores[id], listaVendas[i].entregador)) {
+                    listaVendas[i].entregador = this;   
+                }
+                
+            }
+    
+            localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
             
             listaEntregadores[id] = this;
     

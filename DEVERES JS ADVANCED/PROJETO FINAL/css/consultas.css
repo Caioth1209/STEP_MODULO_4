@@ -45,7 +45,7 @@
     .rTable tbody tr td:nth-child(6){width:20%;}
 }
 
-#msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroCliente, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao{
+#msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroClientem, #msgErroProduto, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao, #msgEscolhaPeriodo{
     display: none;
 }
 

@@ -98,7 +98,11 @@
                   </div>
                 </div>
 
-                <button type="button" id="consultaPeriodo" class="btn btn-success">Consultas</button>
+                <div class="alert alert-danger" id="msgEscolhaPeriodo" role="alert">
+                    Escolha um período correto!
+                </div>
+
+                <button type="button" id="consultaPeriodo" class="btn btn-success">Consultar</button>
             </div>  
 
             <div class="divCPorEntregadorVendas">
@@ -417,6 +421,10 @@
           
                       <div class="alert alert-success" id="msgExitoProduto" role="alert">
                           Produto editado com sucesso!
+                      </div>
+
+                      <div class="alert alert-danger" id="msgErroProduto" role="alert">
+                        Um produto com o mesmo nome e tamanho foi cadastrado!
                       </div>
           
                       <div class="divBtSubmit">

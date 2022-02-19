@@ -353,12 +353,12 @@ $(document).ready(()=>{
         let regexNacional = /\(\d{2}\) [9]?\d{4}\-\d{4}$/;
 
         if(!regexNacional.test(e.target.value)){
-            $("#erroTelefoneCliente").show();
+            $("#erroTelefoneEntregador").show();
             e.target.value = "";
         }
 
         setTimeout(() => {
-            $("#erroTelefoneCliente").hide();
+            $("#erroTelefoneEntregador").hide();
         }, 3000);
     })
 

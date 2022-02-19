@@ -71,7 +71,7 @@
     margin-top: 50px;
 }
 
-#formularioCadastroCaixa, #formularioCadastroCliente, #formularioCadastroProduto, #formularioCadastroEntregador, #formularioCadastroVendaBalcao, #formularioCadastroVendaEntrega, #msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroCliente, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao{
+#formularioCadastroCaixa, #formularioCadastroCliente, #formularioCadastroProduto, #formularioCadastroEntregador, #formularioCadastroVendaBalcao, #formularioCadastroVendaEntrega, #msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroCliente, #msgErroProduto, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao{
     display: none;
 }
 
