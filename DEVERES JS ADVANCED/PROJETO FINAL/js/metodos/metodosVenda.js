@@ -272,15 +272,15 @@ $('#escolhaClienteConsultaVendas').change((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaClientes = [];
+    let listaClientesConsultaVenda = [];
 
-    if (localStorage.getItem("listaClientes") != null) {
-        listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
+    if (localStorage.getItem("listaClientesConsultaVenda") != null) {
+        listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
     }
 
     let v = new Venda();
 
-    v.consultarPorCliente(listaVendas, listaClientes, e.target.value);
+    v.consultarPorCliente(listaVendas, listaClientesConsultaVenda, e.target.value);
 })
 //////////////////////////////////////////////////
 
@@ -434,23 +434,31 @@ function apareceClientes(tipo) {
 
         case "consulta":{
 
+            let listaClientesConsultaVenda = [];
+
+            if (localStorage.getItem("listaClientesConsultaVenda") != null) {
+                listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
+            }
+
+            console.log({listaClientesConsultaVenda});
+
             $("#escolhaClienteConsultaVendas").html("");
 
             $("#escolhaClienteConsultaVendas").append(
                 `<option selected disabled value="">Escolha um cliente para a consulta</option>`
             );
 
-            for (let i = 0; i < listaClientes.length; i++) {
+            for (let i = 0; i < listaClientesConsultaVenda.length; i++) {
                 
                 $("#escolhaClienteConsultaVendas").append(
-                    `<option value="${i}">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                    `<option value="${i}">${listaClientesConsultaVenda[i].nome + " | " + listaClientesConsultaVenda[i].cpf}</option>`
                 );
                 
             }
             
-            if (listaClientes.length == 0) {
+            if (listaClientesConsultaVenda.length == 0) {
                 $("#escolhaClienteConsultaVendas").html(
-                    `<option selected disabled value="">Não existem clientes cadastrados!</option>`
+                    `<option selected disabled value="">Não existem clientes que compraram!</option>`
                 );
             }
 

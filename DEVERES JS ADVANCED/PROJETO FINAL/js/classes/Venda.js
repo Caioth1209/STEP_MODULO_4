@@ -17,6 +17,23 @@ class Venda{
 
     cadastrarBalcao(listaVendas){
 
+        // fazendo uma lista para todos os clientes que compraram aparecerem
+        // na consulta de venda, mesmo o cliente tendo sido apagado
+        //fazer com entregador e produto
+        let listaClientesConsultaVenda = [];
+
+        if (localStorage.getItem("listaClientesConsultaVenda") != null) {
+            listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
+        } else {
+            listaClientesConsultaVenda.push(this.cliente);
+            localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
+        }
+
+        if (!mesmoObjeto(this.cliente, listaClientesConsultaVenda[listaClientesConsultaVenda.length - 1])) {
+            listaClientesConsultaVenda.push(this.cliente);
+            localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
+        }
+
         listaVendas.push(this);
             
         localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
@@ -78,6 +95,20 @@ class Venda{
     }
 
     cadastrarEntrega(listaVendas){
+
+        let listaClientesConsultaVenda = [];
+
+        if (localStorage.getItem("listaClientesConsultaVenda") != null) {
+            listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
+        }
+
+        for(let i = 0; i < listaClientesConsultaVenda; i++){
+            if (!mesmoObjeto(listaClientesConsultaVenda[i], this.cliente)) {
+                listaClientesConsultaVenda.push(this.cliente);
+            }
+        }
+
+        localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
 
         listaVendas.push(this);
             
@@ -193,7 +224,7 @@ class Venda{
 
     }
 
-    consultarPorCliente(listaVendas, listaClientes, idCliente){
+    consultarPorCliente(listaVendas, listaClientesConsultaVenda, idCliente){
 
         let texto = "";
 
@@ -222,7 +253,7 @@ class Venda{
                             listaVendas[i].carrinho[j].produto.tamanho + "<br>"
             }
 
-            if (mesmoObjeto(listaClientes[idCliente],listaVendas[i].cliente)) {
+            if (mesmoObjeto(listaClientesConsultaVenda[idCliente],listaVendas[i].cliente)) {
                 clienteComprou = true;
                 texto += `<tr>
                         <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
