@@ -10,7 +10,8 @@ $("#formularioCadastroEntregador").submit((e)=>{
     let en = new Entregador(
         $("#nomeEntregador").val(),
         $("#telefoneEntregador").val(),
-        $("#cpfEntregador").val()
+        $("#cpfEntregador").val(),
+        $("#entregadorStatus").val()
     );
 
     en.cadastrar(listaEntregadores);
@@ -35,7 +36,9 @@ $("#formularioEditarEntregador").submit((e)=>{
 
     let cpf = $("#formularioEditarEntregador").find(".mb-3 > #cpfEntregador").val();
 
-    let en = new Entregador(nome, telefone, cpf);
+    let status = $("#formularioEditarEntregador").find("#entregadorStatus").val();
+
+    let en = new Entregador(nome, telefone, cpf, status);
 
     let listaVendas = [];
 
@@ -43,13 +46,7 @@ $("#formularioEditarEntregador").submit((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaEntregadoresConsultaVenda = [];
-
-    if(localStorage.getItem("listaEntregadoresConsultaVenda") != null){
-        listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
-    }
-
-    en.editar(listaEntregadores,listaEntregadoresConsultaVenda,id,listaVendas);
+    en.editar(listaEntregadores,id,listaVendas);
 
     en.consultar(listaEntregadores);
 
@@ -74,26 +71,6 @@ $("#cGeralEntregadores").click(()=>{
     en.consultar(listaEntregadores);
 })
 
-//exclui o Entregador
-$("#excluirEntregador").click(() => {
-
-    let listaEntregadores = [];
-
-    if(localStorage.getItem("listaEntregadores") != null){
-        listaEntregadores = JSON.parse(localStorage.getItem("listaEntregadores"));
-    }
-
-    let id = $("#idExcluirEntregador").val();
-
-    let en = new Entregador();
-
-    en.excluir(listaEntregadores, id);
-
-    en.consultar(listaEntregadores);
-    
-    $(".btn-close").click();
-})
-////////////////////////////
 
 // funcao usada para levar o id ate o formulario de edição
 function pegarIdEditarEntregador(id) {
@@ -112,14 +89,42 @@ function pegarIdEditarEntregador(id) {
 
     $("#formularioEditarEntregador").find(".mb-3 #cpfEntregador").val(listaEntregadores[id].cpf);
 
+    $("#formularioEditarEntregador").find("#entregadorStatus").val(listaEntregadores[id].status);
+
     $("#abrirModalEditarEntregador").click();
 }
 ////////////////////////////
 
-// funcao usada para levar o id ate o modal de exclusao
-function pegarIdExcluirEntregador(id) {
-    $("#formularioExcluirEntregador").find("#idExcluirEntregador").val(id);
+function desativarEntregador(id) {
 
-    $("#abrirModalExcluirEntregador").click(); 
+    let listaEntregadores = [];
+
+    if (localStorage.getItem("listaEntregadores") != null) {
+        listaEntregadores = JSON.parse(localStorage.getItem("listaEntregadores"));
+    }
+
+    listaEntregadores[id].status = "desativado";
+
+    localStorage.setItem("listaEntregadores", JSON.stringify(listaEntregadores));
+
+    let e = new Entregador();
+    e.consultar(listaEntregadores);
+}
+////////////////////////////  
+
+function ativarEntregador(id) {
+
+    let listaEntregadores = [];
+
+    if (localStorage.getItem("listaEntregadores") != null) {
+        listaEntregadores = JSON.parse(localStorage.getItem("listaEntregadores"));
+    }
+
+    listaEntregadores[id].status = "ativo";
+
+    localStorage.setItem("listaEntregadores", JSON.stringify(listaEntregadores));
+
+    let e = new Entregador();
+    e.consultar(listaEntregadores);
 }
 ////////////////////////////  

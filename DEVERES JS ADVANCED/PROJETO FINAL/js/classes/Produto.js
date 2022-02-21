@@ -4,13 +4,15 @@ class Produto{
     descricao;
     preco;
     quantidadeVendas;
+    status;
 
-    constructor(nome, tamanho, descricao, preco, quantidadeVendas){
+    constructor(nome, tamanho, descricao, preco, quantidadeVendas, status){
         this.nome = nome;
         this.tamanho = tamanho;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidadeVendas = quantidadeVendas;
+        this.status = status;
     }
 
     cadastrar(listaProdutos){
@@ -61,6 +63,7 @@ class Produto{
                         <th scope="col">Descrição</th>
                         <th scope="col">Preço</th>
                         <th scope="col">Quantidade de vendas</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -73,9 +76,13 @@ class Produto{
                         <td>${listaProdutos[i].descricao}</td>
                         <td>R$ ${listaProdutos[i].preco}</td>
                         <td>${listaProdutos[i].quantidadeVendas} venda(s)</td>
+                        <td>${listaProdutos[i].status}</td>
                         <td>
                             <button type='button' onclick="pegarIdEditarProduto(${i})" class='btn btn-primary'>Editar</button>
-                            <button type='button' onclick='pegarIdExcluirProduto(${i})' class='btn btn-danger'>Excluir</button>
+                            ${listaProdutos[i].status == "ativo" ? 
+                                `<button type="button" onclick="desativarProduto(${i})" class='btn btn-danger'>Desativar</button>` : 
+                                `<button type="button" onclick="ativarProduto(${i})" class='btn btn-success'>Ativar</button>`
+                            }
                         </td>
                     </tr>`;
         }
@@ -88,7 +95,7 @@ class Produto{
         if (listaProdutos.length == 0) {
             $("#insereProdutos").html(
                 "<tr>" +
-                    "<td colspan='6' class='text-danger text-center'> Nenhum produto cadastrado até o momento.</tr>" +
+                    "<td colspan='7' class='text-danger text-center'> Nenhum produto cadastrado até o momento.</tr>" +
                 "</tr>"
             );
         }
@@ -203,61 +210,68 @@ class Produto{
 
     }
 
-    editar(listaProdutos,listaProdutosConsultaVenda, id, listaVendas){
+    editar(listaProdutos, id, listaVendas, tipo){
 
         let isValid = true;
 
         for (let i = 0; i < listaProdutos.length; i++){
-            if (this.nome == listaProdutos[i].nome && this.tamanho == listaProdutos[i].tamanho) {
-                isValid = false;   
+
+            if (i != id) {
+                if (this.nome == listaProdutos[i].nome && this.tamanho == listaProdutos[i].tamanho) {
+                    isValid = false;   
+                    break;
+                }   
             }
         }
         if (isValid) {
 
-             // atualizando a lista de vendas com a atualizacao 
+            // atualizando a lista de vendas com a atualizacao 
             // das informacoes dos produtos
+
+            if (tipo == "edicaoStatus") {
+                if (listaProdutos[id].status == "ativo") {
+                    listaProdutos[id].status = "desativado";
+                } else {
+                    listaProdutos[id].status = "ativo";
+                }
+            }
+
             for (let i = 0; i < listaVendas.length; i++) {
             
                 for (let j = 0; j < listaVendas[i].carrinho.length; j++) {
     
                     if (mesmoObjeto(listaProdutos[id], listaVendas[i].carrinho[j].produto)) {
-                        listaVendas[i].carrinho[j].produto = this;   
+                        if (tipo == "edicaoStatus") {
+                            listaVendas[i].carrinho[j].produto = listaProdutos[id];   
+                        } else {
+                            listaVendas[i].carrinho[j].produto = this;
+                        }
                     }
                 
                 }
                 
             }
 
-            // atualizando a lista de consulta de vendas com a atualizacao 
-            // das informacoes do produto
-            if (listaProdutosConsultaVenda.length != 0) {
-                let index = 0;
-
-                for (let i = 0; i < listaProdutosConsultaVenda.length; i++){
-                    if(mesmoObjeto(listaProdutos[id], listaProdutosConsultaVenda[i])){
-                        listaProdutosConsultaVenda[i] = this;
-                        index = i;
-                    }
-                }   
-
-                for (let i = 0; i < listaProdutosConsultaVenda.length; i++) {
-                    if(i != index){
-                        if (mesmoObjeto(listaClientesConsultaVenda[i], listaClientesConsultaVenda[index])) {
-                            listaProdutosConsultaVenda.splice(index, 1);
-                        }
-                    }
+            if (tipo == "edicaoStatus") {
+                if (listaProdutos[id].status == "ativo") {
+                    listaProdutos[id].status = "desativado";
+                } else {
+                    listaProdutos[id].status = "ativo";
                 }
-                localStorage.setItem("listaProdutosConsultaVenda", JSON.stringify(listaProdutosConsultaVenda));
             }
     
             localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
-    
-            listaProdutos[id] = this;
-        
+
+            if (tipo == "edicaoNormal") {
+                listaProdutos[id] = this;
+            }    
+            
             localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
         
-            $("#msgExitoProduto").show();
-            $("#msgErroProduto").hide();
+            if (tipo == "edicaoNormal") {
+                $("#msgExitoProduto").show();
+                $("#msgErroProduto").hide();   
+            }
 
         } else {
             
@@ -272,14 +286,6 @@ class Produto{
             $("#msgExitoProduto").hide();
             $("#msgErroProduto").hide();  
         }, 3000);
-
-    }
-
-    excluir(listaProdutos, id){
-
-        listaProdutos.splice(id, 1);
-
-        localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
 
     }
 }

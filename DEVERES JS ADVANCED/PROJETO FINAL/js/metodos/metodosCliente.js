@@ -12,7 +12,8 @@ $("#formularioCadastroCliente").submit((e)=>{
         $("#telefoneCliente").val(),
         $("#cpfCliente").val(),
         moment($("#dataNasc").val()).format("DD/MM/YYYY"),
-        $("#endereco").val()
+        $("#endereco").val(),
+        $("#clienteStatus").val()
     );
 
     c.cadastrar(listaClientes);
@@ -41,7 +42,9 @@ $("#formularioEditarCliente").submit((e)=>{
 
     let endereco = $("#formularioEditarCliente").find(".mb-3 > #endereco").val();
 
-    let c = new Cliente(nome, telefone, cpf, moment(dataNasc).format("DD/MM/YYYY"), endereco);
+    let status = $("#formularioEditarCliente").find("#clienteStatus").val();
+
+    let c = new Cliente(nome, telefone, cpf, moment(dataNasc).format("DD/MM/YYYY"), endereco, status);
     
     let listaVendas = [];
 
@@ -49,13 +52,7 @@ $("#formularioEditarCliente").submit((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaClientesConsultaVenda = [];
-
-    if(localStorage.getItem("listaClientesConsultaVenda") != null){
-        listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
-    }
-
-    c.editar(listaClientes,listaClientesConsultaVenda,id,listaVendas);
+    c.editar(listaClientes, id, listaVendas, "edicaoNormal");
 
     c.consultarGeral(listaClientes);
 
@@ -114,26 +111,6 @@ $("#cComprasUltimoMesClientes").click((e)=>{
     c.consultarComprasUltimoMes(listaVendas);
 })
 
-//exclui o Cliente
-$("#excluirCliente").click(() => {
-
-    let listaClientes = [];
-
-    if(localStorage.getItem("listaClientes") != null){
-        listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
-    }
-
-    let id = $("#idExcluirCliente").val();
-
-    let c = new Cliente();
-
-    c.excluir(listaClientes, id);
-
-    c.consultarGeral(listaClientes);
-    
-    $(".btn-close").click();
-})
-////////////////////////////
 
 // funcao usada para levar o id ate o formulario de edição
 function pegarIdEditarCliente(id) {
@@ -156,14 +133,66 @@ function pegarIdEditarCliente(id) {
 
     $("#formularioEditarCliente").find(".mb-3 > #endereco").val(listaClientes[id].endereco);
 
+    $("#formularioEditarCliente").find("#clienteStatus").val(listaClientes[id].status);
+
     $("#abrirModalEditarCliente").click();
 }
 ////////////////////////////
 
-// funcao usada para levar o id ate o modal de exclusao
-function pegarIdExcluirCliente(id) {
-    $("#formularioExcluirCliente").find("#idExcluirCliente").val(id);
+function desativarCliente(id) {
 
-    $("#abrirModalExcluirCliente").click(); 
+    let listaClientes = [];
+
+    if (localStorage.getItem("listaClientes") != null) {
+        listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
+    }
+
+    listaClientes[id].status = "desativado";
+
+    let c = new Cliente(listaClientes[id].nome,
+        listaClientes[id].telefone,
+        listaClientes[id].cpf,
+        listaClientes[id].dataNasc,
+        listaClientes[id].endereco,
+        listaClientes[id].status);
+
+    let listaVendas = [];
+
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    c.editar(listaClientes, id, listaVendas, "edicaoStatus");
+
+    c.consultarGeral(listaClientes);
 }
 ////////////////////////////  
+
+function ativarCliente(id) {
+
+    let listaClientes = [];
+
+    if (localStorage.getItem("listaClientes") != null) {
+        listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
+    }
+
+    listaClientes[id].status = "ativo";
+
+    let c = new Cliente(listaClientes[id].nome,
+        listaClientes[id].telefone,
+        listaClientes[id].cpf,
+        listaClientes[id].dataNasc,
+        listaClientes[id].endereco,
+        listaClientes[id].status);
+
+    let listaVendas = [];
+
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    c.editar(listaClientes, id, listaVendas, "edicaoStatus");
+
+    c.consultarGeral(listaClientes);
+}
+////////////////////////////

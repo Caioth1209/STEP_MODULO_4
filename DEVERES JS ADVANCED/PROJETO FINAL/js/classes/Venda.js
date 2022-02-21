@@ -65,10 +65,6 @@ class Venda{
 
         }
 
-        addClienteConsultaVenda(this.cliente);
-
-        addProdutoConsultaVenda(listaVendas);
-
         for(let i = 0; i < listaProdutos.length; i++){
             $("#quantidade" + i + "balcao").val("0");
         }
@@ -131,12 +127,6 @@ class Venda{
             }
 
         }
-
-        addClienteConsultaVenda(this.cliente);
-
-        addProdutoConsultaVenda(listaVendas);
-
-        addEntregadorConsultaVenda(this.entregador);
 
         for(let i = 0; i < listaProdutos.length; i++){
             $("#quantidade" + i + "entrega").val("0");
@@ -342,28 +332,31 @@ class Venda{
             let produtos = "";
 
             for(let j = 0; j < listaVendas[i].carrinho.length; j++){
-                
+
                 if (mesmoObjeto(listaProdutos[idProduto],listaVendas[i].carrinho[j].produto)) {
+                    
                     contemProduto = true;
 
-                    produtos += 
-                                    listaVendas[i].carrinho[j].quantidade + "x " +
-                                    listaVendas[i].carrinho[j].produto.nome + " - " +
-                                    listaVendas[i].carrinho[j].produto.tamanho + "<br>"
+                    for(let k = 0; k < listaVendas[i].carrinho.length; k++){
+                        produtos += 
+                                    listaVendas[i].carrinho[k].quantidade + "x " +
+                                    listaVendas[i].carrinho[k].produto.nome + " - " +
+                                    listaVendas[i].carrinho[k].produto.tamanho + "<br>"
 
-                    // fazer a pesquisa corretamente
-                    if (produtos.includes(listaProdutos[idProduto].nome) &&
-                    produtos.includes(listaProdutos[idProduto].tamanho)) {
-                        texto += `<tr>
-                                <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
-                                <td>${produtos}</td>
-                                <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
-                                listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
-                                <td>${listaVendas[i].formaPagamento}</td>
-                                <td>R$ ${listaVendas[i].valorTotal}</td>
-                                <td>${listaVendas[i].dataVenda}</td>
-                        </tr>`;   
                     }
+
+                    if (produtos.includes(listaProdutos[idProduto].nome) &&
+                        produtos.includes(listaProdutos[idProduto].tamanho)) {
+                            texto += `<tr>
+                                    <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
+                                    <td>${produtos}</td>
+                                    <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
+                                    listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                                    <td>${listaVendas[i].formaPagamento}</td>
+                                    <td>R$ ${listaVendas[i].valorTotal}</td>
+                                    <td>${listaVendas[i].dataVenda}</td>
+                            </tr>`;   
+                        }
                 }
             }
 

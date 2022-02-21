@@ -45,6 +45,9 @@
         </div>
 
         <form id="formularioCadastroCaixa">
+
+            <input type="text" hidden value="ativo" id="caixaStatus">
+
             <div class="mb-3">
                 <label for="nomeCaixa" class="form-label">Nome do caixa</label>
                 <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="35" required>
@@ -79,6 +82,9 @@
         </form>
 
         <form id="formularioCadastroCliente">
+
+            <input type="text" hidden value="ativo" id="clienteStatus">
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nomeCliente" class="form-label">Nome</label>
@@ -130,6 +136,8 @@
 
             <input type="number" hidden value="0" id="quantidadeVendas">
 
+            <input type="text" hidden value="ativo" id="produtoStatus">
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nome" class="form-label">Nome do produto</label>
@@ -179,6 +187,8 @@
         </form>
 
         <form id="formularioCadastroEntregador">
+            <input type="text" hidden value="ativo" id="entregadorStatus">
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nomeEntregador" class="form-label">Nome do entregador</label>
@@ -242,7 +252,7 @@
                 </textarea>
 
                 <div class="alert alert-danger" id="msgNaoExistemProdutosBalcao" role="alert">
-                    Não existem produtos cadastrados até o momento!
+                    Não existem produtos ativos ou cadastrados no momento!
                 </div>
                 
                 <div id="listaProdutosVendaBalcao">
@@ -301,7 +311,7 @@
                 </div>
 
                 <div class="alert alert-danger" id="msgNaoExistemProdutosEntrega" role="alert">
-                    Não existem produtos cadastrados até o momento!
+                    Não existem produtos ativos ou cadastrados no momento!
                 </div>
 
                 <div id="listaProdutosVendaEntrega">

@@ -12,7 +12,8 @@ $("#formularioCadastroProduto").submit((e)=>{
         $("#tamanho").val(),
         $("#descricao").val(),
         $("#preco").val(),
-        $("#quantidadeVendas").val()
+        $("#quantidadeVendas").val(),
+        $("#produtoStatus").val()
     );
 
     p.cadastrar(listaProdutos);
@@ -41,7 +42,9 @@ $("#formularioEditarProduto").submit((e)=>{
 
     let quantidadeVendas = $("#formularioEditarProduto").find("#quantidadeVendas").val();
 
-    let p = new Produto(nome, tamanho, descricao, preco, quantidadeVendas);
+    let status = $("#formularioEditarProduto").find("#produtoStatus").val();
+
+    let p = new Produto(nome, tamanho, descricao, preco, quantidadeVendas, status);
 
     let listaVendas = [];
 
@@ -49,13 +52,7 @@ $("#formularioEditarProduto").submit((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaProdutosConsultaVenda = [];
-
-    if(localStorage.getItem("listaProdutosConsultaVenda") != null){
-        listaProdutosConsultaVenda = JSON.parse(localStorage.getItem("listaProdutosConsultaVenda"));
-    }
-
-    p.editar(listaProdutos,listaProdutosConsultaVenda, id, listaVendas);
+    p.editar(listaProdutos, id, listaVendas, "edicaoNormal");
 
     p.consultarGeral(listaProdutos);
 
@@ -114,26 +111,6 @@ $("#cMenosVendidosProdutos").click(()=>{
     p.consultarMenosVendidos(listaProdutos);
 })
 
-//exclui o Produto
-$("#excluirProduto").click(() => {
-
-    let listaProdutos = [];
-
-    if(localStorage.getItem("listaProdutos") != null){
-        listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
-    }
-
-    let id = $("#idExcluirProduto").val();
-
-    let p = new Produto();
-
-    p.excluir(listaProdutos, id);
-
-    p.consultarGeral(listaProdutos);
-    
-    $(".btn-close").click();
-})
-////////////////////////////
 
 // funcao usada para levar o id ate o formulario de edição
 function pegarIdEditarProduto(id) {
@@ -156,14 +133,66 @@ function pegarIdEditarProduto(id) {
 
     $("#formularioEditarProduto").find("#quantidadeVendas").val(listaProdutos[id].quantidadeVendas);
 
+    $("#formularioEditarProduto").find("#produtoStatus").val(listaProdutos[id].status);
+
     $("#abrirModalEditarProduto").click();
 }
 ////////////////////////////
 
-// funcao usada para levar o id ate o modal de exclusao
-function pegarIdExcluirProduto(id) {
-    $("#formularioExcluirProduto").find("#idExcluirProduto").val(id);
+function desativarProduto(id) {
 
-    $("#abrirModalExcluirProduto").click(); 
+    let listaProdutos = [];
+
+    if (localStorage.getItem("listaProdutos") != null) {
+        listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
+    }
+
+    listaProdutos[id].status = "desativado";
+    
+    let p = new Produto(listaProdutos[id].nome,
+        listaProdutos[id].tamanho,
+        listaProdutos[id].descricao,
+        listaProdutos[id].preco,
+        listaProdutos[id].quantidadeVendas,
+        listaProdutos[id].status);
+
+    let listaVendas = [];
+
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    p.editar(listaProdutos, id, listaVendas, "edicaoStatus");
+
+    p.consultarGeral(listaProdutos);
+}
+////////////////////////////  
+
+function ativarProduto(id) {
+
+    let listaProdutos = [];
+
+    if (localStorage.getItem("listaProdutos") != null) {
+        listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
+    }
+
+    listaProdutos[id].status = "ativo";
+
+    let p = new Produto(listaProdutos[id].nome,
+                        listaProdutos[id].tamanho,
+                        listaProdutos[id].descricao,
+                        listaProdutos[id].preco,
+                        listaProdutos[id].quantidadeVendas,
+                        listaProdutos[id].status);
+
+    let listaVendas = [];
+
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    p.editar(listaProdutos, id, listaVendas, "edicaoStatus");
+
+    p.consultarGeral(listaProdutos);
 }
 ////////////////////////////  

@@ -37,12 +37,13 @@
 
 @media only screen and (min-width: 860px){
     .content{width:100%;}
-    .rTable tbody tr td:nth-child(1){width:20%;}
+    .rTable tbody tr td:nth-child(1){width:15%;}
     .rTable tbody tr td:nth-child(2){width:15%;}
     .rTable tbody tr td:nth-child(3){width:12%;}
     .rTable tbody tr td:nth-child(4){width:12%;}
     .rTable tbody tr td:nth-child(5){width:15%;}
-    .rTable tbody tr td:nth-child(6){width:20%;}
+    .rTable tbody tr td:nth-child(6){width:15%;}
+    .rTable tbody tr td:nth-child(7){width:15%;}
 }
 
 #msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroCliente, #msgErroProduto, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao, #msgEscolhaPeriodo{

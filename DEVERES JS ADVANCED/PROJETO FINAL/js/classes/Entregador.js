@@ -2,11 +2,13 @@ class Entregador{
     nome;
     telefone;
     cpf;
+    status;
 
-    constructor(nome, telefone, cpf){
+    constructor(nome, telefone, cpf, status){
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
+        this.status = status;
     }
 
     cadastrar(listaEntregadores){
@@ -56,6 +58,7 @@ class Entregador{
                         <th scope="col">Nome</th>
                         <th scope="col">CPF</th>
                         <th scope="col">Telefone</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -67,9 +70,13 @@ class Entregador{
                         <td>${listaEntregadores[i].nome}</td>
                         <td>${listaEntregadores[i].cpf}</td>
                         <td>${listaEntregadores[i].telefone}</td>
+                        <td>${listaEntregadores[i].status}</td>
                         <td>
                             <button type='button' onclick="pegarIdEditarEntregador(${i})" class='btn btn-primary'>Editar</button>
-                            <button type='button' onclick='pegarIdExcluirEntregador(${i})' class='btn btn-danger'>Excluir</button>
+                            ${listaEntregadores[i].status == "ativo" ? 
+                                `<button type="button" onclick="desativarEntregador(${i})" class='btn btn-danger'>Desativar</button>` : 
+                                `<button type="button" onclick="ativarEntregador(${i})" class='btn btn-success'>Ativar</button>`
+                            }
                         </td>
                     </tr>`;
         }
@@ -82,14 +89,14 @@ class Entregador{
         if (listaEntregadores.length == 0) {
             $("#insereEntregadores").html(
                 "<tr>" +
-                    "<td colspan='4' class='text-danger text-center'> Nenhum Entregador cadastrado até o momento.</tr>" +
+                    "<td colspan='5' class='text-danger text-center'> Nenhum Entregador cadastrado até o momento.</tr>" +
                 "</tr>"
             );
         }
 
     }
 
-    editar(listaEntregadores, listaEntregadoresConsultaVenda, id, listaVendas){
+    editar(listaEntregadores, id, listaVendas){
 
         let isValid = true;
 
@@ -115,31 +122,6 @@ class Entregador{
                 }
                 
             }
-
-            // atualizando a lista de consulta de vendas com a atualizacao 
-            // das informacoes do entregador
-            if (listaEntregadoresConsultaVenda.length != 0) {
-                let index = 0;
-
-                for (let i = 0; i < listaEntregadoresConsultaVenda.length; i++){
-                    if(mesmoObjeto(listaEntregadores[id], listaEntregadoresConsultaVenda[i])){
-                        listaEntregadoresConsultaVenda[i] = this;
-                        index = i;
-                    }
-                }   
-
-                for (let i = 0; i < listaEntregadoresConsultaVenda.length; i++) {
-                    if(i != index){
-                        if (mesmoObjeto(listaEntregadoresConsultaVenda[i], listaEntregadoresConsultaVenda[index])) {
-                            listaEntregadoresConsultaVenda.splice(index, 1);
-                        }
-                    }
-                }
-                localStorage.setItem("listaEntregadoresConsultaVenda", JSON.stringify(listaEntregadoresConsultaVenda));
-
-                console.log({listaEntregadoresConsultaVenda});
-            }
-
     
             localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
             
@@ -162,13 +144,5 @@ class Entregador{
                 
         }, 3000);
  
-    }
-
-    excluir(listaEntregadores, id){
-
-        listaEntregadores.splice(id, 1);
-
-        localStorage.setItem("listaEntregadores", JSON.stringify(listaEntregadores));
-
     }
 }

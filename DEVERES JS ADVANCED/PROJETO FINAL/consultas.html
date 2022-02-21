@@ -140,6 +140,8 @@
                     <form id="formularioEditarCaixa"> 
                         <input type="text" hidden id="idEditarCaixa">
 
+                        <input type="text" hidden id="caixaStatus">
+
                         <div class="mb-3">
                             <label for="nomeCaixa" class="form-label">Nome do caixa</label>
                             <input type="text" id="nomeCaixa" class="form-control" placeholder="Digite seu nome" maxlength="35" required>
@@ -176,29 +178,6 @@
             </div>
         </div>
       </div>
-
-      <button type="button" hidden id="abrirModalExcluirCaixa" data-bs-toggle="modal" data-bs-target="#modalExcluirCaixa">Excluir caixa</button>
-
-      <div class="modal fade" id="modalExcluirCaixa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirCaixaLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir? Você não poderá entrar mais com essa conta.</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <form id="formularioExcluirCaixa"> 
-                      
-                      <input type="text" hidden id="idExcluirCaixa">
-          
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
-                      <button type="button" class="btn btn-success" id="excluirCaixa">Sim</button>
-                      
-                  </form>
-              </div>
-            </div>
-          </div>
-      </div>
     </div>
 
     <!-- Modais cliente -->
@@ -215,6 +194,8 @@
                 <div class="modal-body">
                     <form id="formularioEditarCliente"> 
                         <input type="text" hidden id="idEditarCliente">
+
+                        <input type="text" hidden id="clienteStatus">
 
                         <div class="row">
                           <div class="col-md-6 mb-3">
@@ -266,29 +247,6 @@
             </div>
         </div>
       </div>
-
-      <button type="button" hidden id="abrirModalExcluirCliente" data-bs-toggle="modal" data-bs-target="#modalExcluirCliente">Excluir cliente</button>
-
-      <div class="modal fade" id="modalExcluirCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirClienteLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir? Ele já pode ter comprado e você não terá mais acesso as informações dele. Ele continuará no relatório de venda.</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <form id="formularioExcluirCliente"> 
-                      
-                      <input type="text" hidden id="idExcluirCliente">
-          
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
-                      <button type="button" class="btn btn-success" id="excluirCliente">Sim</button>
-                      
-                  </form>
-              </div>
-            </div>
-          </div>
-      </div>
     </div>
 
     <!-- Modais entregador -->
@@ -305,6 +263,8 @@
                 <div class="modal-body">
                     <form id="formularioEditarEntregador"> 
                         <input type="text" hidden id="idEditarEntregador">
+
+                        <input type="text" hidden id="entregadorStatus">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -342,29 +302,6 @@
             </div>
         </div>
       </div>
-
-      <button type="button" hidden id="abrirModalExcluirEntregador" data-bs-toggle="modal" data-bs-target="#modalExcluirEntregador">Excluir entregador</button>
-
-      <div class="modal fade" id="modalExcluirEntregador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirEntregadorLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir? Ele já pode ter feito alguma entrega e você não terá mais acesso as informações dele. Ele continuará no relatório de venda.</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <form id="formularioExcluirEntregador"> 
-                      
-                      <input type="text" hidden id="idExcluirEntregador">
-          
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
-                      <button type="button" class="btn btn-success" id="excluirEntregador">Sim</button>
-                      
-                  </form>
-              </div>
-            </div>
-          </div>
-      </div>
     </div>
 
     <!-- Modais produto -->
@@ -383,6 +320,8 @@
                         <input type="text" hidden id="idEditarProduto">
 
                         <input type="number" hidden id="quantidadeVendas">
+
+                        <input type="text" hidden  id="produtoStatus">
 
                         <div class="row">
                           <div class="col-md-6 mb-3">
@@ -433,29 +372,6 @@
                 </div>
             </div>
         </div>
-      </div>
-
-      <button type="button" hidden id="abrirModalExcluirProduto" data-bs-toggle="modal" data-bs-target="#modalExcluirProduto">Excluir produtor</button>
-
-      <div class="modal fade" id="modalExcluirProduto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirProdutoLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalExcluirLabel">Deseja realmente excluir? Ele já pode ter sido vendido e você não terá mais acesso as informações dele. A venda continuará no relatório.</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <form id="formularioExcluirProduto"> 
-                      
-                      <input type="text" hidden id="idExcluirProduto">
-          
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
-                      <button type="button" class="btn btn-success" id="excluirProduto">Sim</button>
-                      
-                  </form>
-              </div>
-            </div>
-          </div>
       </div>
     </div>
     

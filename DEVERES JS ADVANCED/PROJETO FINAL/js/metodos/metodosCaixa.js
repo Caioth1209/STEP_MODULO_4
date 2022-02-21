@@ -21,7 +21,7 @@ $("#formularioCadastroCaixa").submit((e)=>{
         listaCaixas = JSON.parse(localStorage.getItem("listaCaixas"));
     }
 
-    let c = new Caixa($("#nomeCaixa").val(), $("#login").val(), $("#senha").val());
+    let c = new Caixa($("#nomeCaixa").val(), $("#login").val(), $("#senha").val(), $("#caixaStatus").val());
 
     c.cadastrar(listaCaixas);
 
@@ -45,7 +45,9 @@ $("#formularioEditarCaixa").submit((e)=>{
 
     let senha = $("#formularioEditarCaixa").find(".row > .col-md-6 > #senha").val();
 
-    let c = new Caixa(nome, login, senha);
+    let status = $("#formularioEditarCaixa").find("#caixaStatus").val();
+
+    let c = new Caixa(nome, login, senha, status);
 
     c.editar(listaCaixas,id);
 
@@ -72,27 +74,6 @@ $("#cGeralCaixas").click(()=>{
     c.consultar(listaCaixas);
 })
 
-//exclui o caixa
-$("#excluirCaixa").click(() => {
-
-    let listaCaixas = [];
-
-    if(localStorage.getItem("listaCaixas") != null){
-        listaCaixas = JSON.parse(localStorage.getItem("listaCaixas"));
-    }
-
-    let id = $("#idExcluirCaixa").val();
-
-    let c = new Caixa();
-
-    c.excluir(listaCaixas, id);
-
-    c.consultar(listaCaixas);
-    
-    $(".btn-close").click();
-})
-////////////////////////////
-
 // funcao usada para levar o id ate o formulario de edição
 function pegarIdEditarCaixa(id) {
 
@@ -106,18 +87,46 @@ function pegarIdEditarCaixa(id) {
     $("#formularioEditarCaixa").find(".mb-3 > #nomeCaixa").val(listaCaixas[id].nome);
     $("#formularioEditarCaixa").find(".row > .col-md-6 > #login").val(listaCaixas[id].login);
     $("#formularioEditarCaixa").find(".row > .col-md-6 > #senha").val(listaCaixas[id].senha);
+    $("#formularioEditarCaixa").find("#caixaStatus").val(listaCaixas[id].status);
 
     $("#abrirModalEditarCaixa").click();
 }
 ////////////////////////////
 
-// funcao usada para levar o id ate o modal de exclusao
-function pegarIdExcluirCaixa(id) {
-    $("#formularioExcluirCaixa").find("#idExcluirCaixa").val(id);
 
-    $("#abrirModalExcluirCaixa").click(); 
+function desativarCaixa(id) {
+
+    let listaCaixas = [];
+
+    if (localStorage.getItem("listaCaixas") != null) {
+        listaCaixas = JSON.parse(localStorage.getItem("listaCaixas"));
+    }
+
+    listaCaixas[id].status = "desativado";
+
+    localStorage.setItem("listaCaixas", JSON.stringify(listaCaixas));
+
+    let c = new Caixa();
+    c.consultar(listaCaixas);
 }
 ////////////////////////////  
+
+function ativarCaixa(id) {
+
+    let listaCaixas = [];
+
+    if (localStorage.getItem("listaCaixas") != null) {
+        listaCaixas = JSON.parse(localStorage.getItem("listaCaixas"));
+    }
+
+    listaCaixas[id].status = "ativo";
+
+    localStorage.setItem("listaCaixas", JSON.stringify(listaCaixas));
+
+    let c = new Caixa();
+    c.consultar(listaCaixas);
+}
+////////////////////////////
 
 // funcao que verifica se está logado
 function verificaLogin() {

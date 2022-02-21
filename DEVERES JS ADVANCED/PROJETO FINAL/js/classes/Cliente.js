@@ -4,13 +4,15 @@ class Cliente{
     cpf;
     dataNasc;
     endereco;
+    status;
 
-    constructor(nome, telefone, cpf, dataNasc, endereco){
+    constructor(nome, telefone, cpf, dataNasc, endereco, status){
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
         this.dataNasc = dataNasc;
         this.endereco = endereco;
+        this.status = status;
     }
 
     cadastrar(listaClientes){
@@ -64,6 +66,7 @@ class Cliente{
                         <th scope="col">Telefone</th>
                         <th scope="col">Nascimento</th>
                         <th scope="col">Endereço</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -77,9 +80,13 @@ class Cliente{
                         <td>${listaClientes[i].telefone}</td>
                         <td>${listaClientes[i].dataNasc}</td>
                         <td>${listaClientes[i].endereco}</td>
+                        <td>${listaClientes[i].status}</td>
                         <td>
                             <button type='button' onclick="pegarIdEditarCliente(${i})" class='btn btn-primary'>Editar</button>
-                            <button type='button' onclick='pegarIdExcluirCliente(${i})' class='btn btn-danger'>Excluir</button>
+                            ${listaClientes[i].status == "ativo" ? 
+                            `<button type="button" onclick="desativarCliente(${i})" class='btn btn-danger'>Desativar</button>` : 
+                            `<button type="button" onclick="ativarCliente(${i})" class='btn btn-success'>Ativar</button>`
+                            }
                         </td>
                     </tr>`;
         }
@@ -213,7 +220,7 @@ class Cliente{
 
     }
 
-    editar(listaClientes, listaClientesConsultaVenda, id, listaVendas){
+    editar(listaClientes, id, listaVendas, tipo){
 
         let isValid = true;
 
@@ -232,42 +239,45 @@ class Cliente{
 
             // atualizando a lista de vendas com a atualizacao 
             // das informacoes do cliente
-            for (let i = 0; i < listaVendas.length; i++) {
-                if (mesmoObjeto(listaClientes[id], listaVendas[i].cliente)) {
-                    listaVendas[i].cliente = this;   
+
+            if (tipo == "edicaoStatus") {
+                if (listaClientes[id].status == "ativo") {
+                    listaClientes[id].status = "desativado";
+                } else {
+                    listaClientes[id].status = "ativo";
                 }
             }
 
-            // atualizando a lista de consulta de vendas com a atualizacao 
-            // das informacoes do cliente
-            if (listaClientesConsultaVenda.length != 0) {
-                let index = 0;
-
-                for (let i = 0; i < listaClientesConsultaVenda.length; i++){
-                    if(mesmoObjeto(listaClientes[id], listaClientesConsultaVenda[i])){
-                        listaClientesConsultaVenda[i] = this;
-                        index = i;
-                    }
-                }   
-
-                for (let i = 0; i < listaClientesConsultaVenda.length; i++) {
-                    if(i != index){
-                        if (mesmoObjeto(listaClientesConsultaVenda[i], listaClientesConsultaVenda[index])) {
-                            listaClientesConsultaVenda.splice(index, 1);
-                        }
-                    }
+            for (let i = 0; i < listaVendas.length; i++) {
+                if (mesmoObjeto(listaClientes[id], listaVendas[i].cliente)) {
+                    if (tipo == "edicaoStatus") {
+                        listaVendas[i].cliente = listaClientes[id];   
+                    } else {
+                        listaVendas[i].cliente = this;
+                    }  
                 }
-                localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
+            }
+
+            if (tipo == "edicaoStatus") {
+                if (listaClientes[id].status == "ativo") {
+                    listaClientes[id].status = "desativado";
+                } else {
+                    listaClientes[id].status = "ativo";
+                }
             }
     
             localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
             
-            listaClientes[id] = this;
-    
+            if (tipo == "edicaoNormal") {
+                listaClientes[id] = this;
+            }    
+            
             localStorage.setItem("listaClientes", JSON.stringify(listaClientes));
         
-            $("#msgExitoCliente").show();
-            $("#msgErroCliente").hide();   
+            if (tipo == "edicaoNormal") {
+                $("#msgExitoCliente").show();
+                $("#msgErroCliente").hide();   
+            }  
         
         } else {
             $("#msgExitoCliente").hide();
@@ -281,13 +291,5 @@ class Cliente{
                 
         }, 3000);
  
-    }
-
-    excluir(listaClientes, id){
-
-        listaClientes.splice(id, 1);
-
-        localStorage.setItem("listaClientes", JSON.stringify(listaClientes));
-
     }
 }

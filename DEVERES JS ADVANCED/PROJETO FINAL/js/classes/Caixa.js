@@ -2,11 +2,13 @@ class Caixa{
     nome;
     login;
     senha;
+    status
 
-    constructor(nome, login, senha){
+    constructor(nome, login, senha, status){
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+        this.status = status;
     }
 
     static login(login, senha, listaCaixas){
@@ -21,7 +23,7 @@ class Caixa{
 
             for (let i = 0; i < listaCaixas.length; i++){
 
-                if (login == listaCaixas[i].login && senha == listaCaixas[i].senha) {
+                if (login == listaCaixas[i].login && senha == listaCaixas[i].senha && listaCaixas[i].status == "ativo") {
                     sessionStorage.setItem("caixaLogado", login);
                     achou = true;
                     break;
@@ -94,6 +96,7 @@ class Caixa{
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">Login</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -106,9 +109,13 @@ class Caixa{
             texto += `<tr>
                         <td>${listaCaixas[i].nome}</td>
                         <td>${listaCaixas[i].login}</td>
+                        <td>${listaCaixas[i].status}</td>
                         <td>
                             <button type='button' onclick="pegarIdEditarCaixa(${i})" class='btn btn-primary'>Editar</button>
-                            <button type='button' onclick='pegarIdExcluirCaixa(${i})' class='btn btn-danger'>Excluir</button>
+                            ${listaCaixas[i].status == "ativo" ? 
+                                `<button type="button" onclick="desativarCaixa(${i})" class='btn btn-danger'>Desativar</button>` : 
+                                `<button type="button" onclick="ativarCaixa(${i})" class='btn btn-success'>Ativar</button>`
+                            }
                         </td>
                     </tr>`;
         }
@@ -121,7 +128,7 @@ class Caixa{
         if (listaCaixas.length == 0) {
             $("#insereCaixas").html(
                 "<tr>" +
-                    "<td colspan='3' class='text-danger text-center'> Nenhum caixa cadastrado até o momento.</tr>" +
+                    "<td colspan='4' class='text-danger text-center'> Nenhum caixa cadastrado até o momento.</tr>" +
                 "</tr>"
             );
         }
@@ -164,17 +171,5 @@ class Caixa{
                 
         }, 3000);
  
-    }
-
-    excluir(listaCaixas, id){
-
-        if (sessionStorage.getItem("caixaLogado") == listaCaixas[id].login) {
-            window.location.replace("index.html");
-        }
-
-        listaCaixas.splice(id, 1);
-
-        localStorage.setItem("listaCaixas", JSON.stringify(listaCaixas));
-
     }
 }

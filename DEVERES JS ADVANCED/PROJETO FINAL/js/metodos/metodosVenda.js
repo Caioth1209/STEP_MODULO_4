@@ -272,15 +272,14 @@ $('#escolhaClienteConsultaVendas').change((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaClientesConsultaVenda = [];
+    let listaClientes = [];
 
-    if (localStorage.getItem("listaClientesConsultaVenda") != null) {
-        listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
+    if (localStorage.getItem("listaClientes") != null) {
+        listaClientes = JSON.parse(localStorage.getItem("listaClientes"));
     }
 
     let v = new Venda();
-
-    v.consultarPorCliente(listaVendas, listaClientesConsultaVenda, e.target.value);
+    v.consultarPorCliente(listaVendas, listaClientes, e.target.value);
 })
 //////////////////////////////////////////////////
 
@@ -299,15 +298,15 @@ $('#escolhaEntregadorConsultaVendas').change((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaEntregadoresConsultaVenda = [];
+    let listaEntregadores = [];
 
-    if (localStorage.getItem("listaEntregadoresConsultaVenda") != null) {
-        listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
+    if (localStorage.getItem("listaEntregadores") != null) {
+        listaEntregadores = JSON.parse(localStorage.getItem("listaEntregadores"));
     }
 
     let v = new Venda();
 
-    v.consultarPorEntregador(listaVendas, listaEntregadoresConsultaVenda, e.target.value);
+    v.consultarPorEntregador(listaVendas,listaEntregadores, e.target.value);
 })
 //////////////////////////////////////////////////
 
@@ -326,15 +325,15 @@ $('#escolhaProdutoConsultaVendas').change((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaProdutosConsultaVenda = [];
+    let listaProdutos = [];
 
-    if (localStorage.getItem("listaProdutosConsultaVenda") != null) {
-        listaProdutosConsultaVenda = JSON.parse(localStorage.getItem("listaProdutosConsultaVenda"));
+    if (localStorage.getItem("listaProdutos") != null) {
+        listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
     }
 
     let v = new Venda();
 
-    v.consultarPorProduto(listaVendas, listaProdutosConsultaVenda, e.target.value);
+    v.consultarPorProduto(listaVendas, listaProdutos, e.target.value);
 })
 //////////////////////////////////////////////////
 
@@ -391,11 +390,15 @@ function apareceClientes(tipo) {
             );
 
             for (let i = 0; i < listaClientes.length; i++) {
-                
-                $("#escolhaClienteVendaBalcao").append(
-                    `<option value="${i}">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
-                );
-                
+                if (listaClientes[i].status == "ativo") {
+                    $("#escolhaClienteVendaBalcao").append(
+                        `<option value="${i}">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                    );
+                } else {
+                    $("#escolhaClienteVendaBalcao").append(
+                        `<option disabled value="">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                    );
+                }    
             }
             
             if (listaClientes.length == 0) {
@@ -416,11 +419,15 @@ function apareceClientes(tipo) {
             );
 
             for (let i = 0; i < listaClientes.length; i++) {
-                
-                $("#escolhaClienteVendaEntrega").append(
-                    `<option value="${i}">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
-                );
-                
+                if (listaClientes[i].status == "ativo") {
+                    $("#escolhaClienteVendaEntrega").append(
+                        `<option value="${i}">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                    );
+                } else {
+                    $("#escolhaClienteVendaEntrega").append(
+                        `<option disa value="">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                    );
+                }   
             }
             
             if (listaClientes.length == 0) {
@@ -434,29 +441,21 @@ function apareceClientes(tipo) {
 
         case "consulta":{
 
-            let listaClientesConsultaVenda = [];
-
-            if (localStorage.getItem("listaClientesConsultaVenda") != null) {
-                listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
-            }
-
             $("#escolhaClienteConsultaVendas").html("");
 
             $("#escolhaClienteConsultaVendas").append(
                 `<option selected disabled value="">Escolha um cliente para a consulta</option>`
             );
 
-            for (let i = 0; i < listaClientesConsultaVenda.length; i++) {
-                
+            for (let i = 0; i < listaClientes.length; i++) {
                 $("#escolhaClienteConsultaVendas").append(
-                    `<option value="${i}">${listaClientesConsultaVenda[i].nome + " | " + listaClientesConsultaVenda[i].cpf}</option>`
-                );
-                
+                    `<option value="${i}">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                );          
             }
             
-            if (listaClientesConsultaVenda.length == 0) {
+            if (listaClientes.length == 0) {
                 $("#escolhaClienteConsultaVendas").html(
-                    `<option selected disabled value="">Não existem clientes que compraram!</option>`
+                    `<option selected disabled value="">Não existem clientes cadastrados!</option>`
                 );
             }
 
@@ -484,11 +483,15 @@ function apareceEntregadores(tipo) {
             );
         
             for (let i = 0; i < listaEntregadores.length; i++) {
-                        
-                $("#escolhaEntregadorVendaEntrega").append(
-                    `<option value="${i}">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
-                );
-                
+                if (listaEntregadores[i].status == "ativo") {
+                    $("#escolhaEntregadorVendaEntrega").append(
+                        `<option value="${i}">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
+                    );   
+                } else {
+                    $("#escolhaEntregadorVendaEntrega").append(
+                        `<option disabled value="">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
+                    ); 
+                }  
             }
             
             if (listaEntregadores.length == 0) {
@@ -502,29 +505,23 @@ function apareceEntregadores(tipo) {
 
         case "consulta":{
 
-            let listaEntregadoresConsultaVenda = [];
-
-            if (localStorage.getItem("listaEntregadoresConsultaVenda") != null) {
-                listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
-            }
-
             $("#escolhaEntregadorConsultaVendas").html("");
 
             $("#escolhaEntregadorConsultaVendas").append(
                 `<option selected disabled value="">Escolha um entregador para a consulta</option>`
             );
 
-            for (let i = 0; i < listaEntregadoresConsultaVenda.length; i++) {
+            for (let i = 0; i < listaEntregadores.length; i++) {
                 
                 $("#escolhaEntregadorConsultaVendas").append(
-                    `<option value="${i}">${listaEntregadoresConsultaVenda[i].nome + " | " + listaEntregadoresConsultaVenda[i].cpf}</option>`
+                    `<option value="${i}">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
                 );
                 
             }
             
-            if (listaEntregadoresConsultaVenda.length == 0) {
+            if (listaEntregadores.length == 0) {
                 $("#escolhaEntregadorConsultaVendas").html(
-                    `<option selected disabled value="">Não existem entregadores que entregaram!</option>`
+                    `<option selected disabled value="">Não existem entregadores cadastrados!</option>`
                 );
             }
 
@@ -548,27 +545,33 @@ function apareceProdutos(tipo) {
 
             $("#listaProdutosVendaBalcao").html("");
 
+            let cont = 0;
+
             for (let i = 0; i < listaProdutos.length; i++) {
 
-                $("#msgNaoExistemProdutosBalcao").hide();
+                if (listaProdutos[i].status == "ativo") {
+                    $("#msgNaoExistemProdutosBalcao").hide();
                 
-                $("#listaProdutosVendaBalcao").append(
-                    `<div class="escolhaProdutos p-3">
-                        <div class="divNomeProd">
-                            <input type="text" id="${i}" readonly value="${"R$" + listaProdutos[i].preco + " - " + listaProdutos[i].nome + " - " + listaProdutos[i].tamanho}">
-                        </div>
-            
-                        <div class="divQuantidadeProd">
-                            <button type="button" onclick="tirarProduto('balcao', ${i})" class="btn btn-danger">-</button>
-                            <input type="text" readonly value="0" id="quantidade${i}balcao"> 
-                            <button type="button" onclick="addProduto('balcao', ${i})" class="btn btn-success">+</button>                       
-                        </div>
-                    </div>`
-                );
+                    $("#listaProdutosVendaBalcao").append(
+                        `<div class="escolhaProdutos p-3">
+                            <div class="divNomeProd">
+                                <input type="text" id="${i}" readonly value="${"R$" + listaProdutos[i].preco + " - " + listaProdutos[i].nome + " - " + listaProdutos[i].tamanho}">
+                            </div>
                 
+                            <div class="divQuantidadeProd">
+                                <button type="button" onclick="tirarProduto('balcao', ${i})" class="btn btn-danger">-</button>
+                                <input type="text" readonly value="0" id="quantidade${i}balcao"> 
+                                <button type="button" onclick="addProduto('balcao', ${i})" class="btn btn-success">+</button>                       
+                            </div>
+                        </div>`
+                    );
+                    
+                    cont++;
+                }                 
             }
             
-            if (listaProdutos.length == 0) {
+            
+            if (listaProdutos.length == 0 || cont == 0) {
                 $("#msgNaoExistemProdutosBalcao").show();
             }
 
@@ -579,27 +582,31 @@ function apareceProdutos(tipo) {
 
             $("#listaProdutosVendaEntrega").html("");
 
+            let cont = 0;
+
             for (let i = 0; i < listaProdutos.length; i++) {
 
-                $("#msgNaoExistemProdutosEntrega").hide();
+                if (listaProdutos[i].status == "ativo") {
+                    $("#msgNaoExistemProdutosEntrega").hide();
                 
-                $("#listaProdutosVendaEntrega").append(
-                    `<div class="escolhaProdutos p-3">
-                        <div class="divNomeProd">
-                            <input type="text" id="${i}" readonly value="${"R$" + listaProdutos[i].preco + " - " + listaProdutos[i].nome + " - " + listaProdutos[i].tamanho}">
-                        </div>
-            
-                        <div class="divQuantidadeProd">
-                            <button type="button" onclick="tirarProduto('entrega', ${i})" class="btn btn-danger">-</button>
-                            <input type="text" readonly value="0" id="quantidade${i}entrega"> 
-                            <button type="button" onclick="addProduto('entrega', ${i})" class="btn btn-success">+</button>                       
-                        </div>
-                    </div>`
-                );
+                    $("#listaProdutosVendaEntrega").append(
+                        `<div class="escolhaProdutos p-3">
+                            <div class="divNomeProd">
+                                <input type="text" id="${i}" readonly value="${"R$" + listaProdutos[i].preco + " - " + listaProdutos[i].nome + " - " + listaProdutos[i].tamanho}">
+                            </div>
                 
+                            <div class="divQuantidadeProd">
+                                <button type="button" onclick="tirarProduto('entrega', ${i})" class="btn btn-danger">-</button>
+                                <input type="text" readonly value="0" id="quantidade${i}entrega"> 
+                                <button type="button" onclick="addProduto('entrega', ${i})" class="btn btn-success">+</button>                       
+                            </div>
+                        </div>`
+                    );
+                    cont++;
+                } 
             }
-            
-            if (listaProdutos.length == 0) {
+        
+            if (listaProdutos.length == 0 || cont == 0) {
                 $("#msgNaoExistemProdutosEntrega").show();
             }
 
@@ -608,29 +615,21 @@ function apareceProdutos(tipo) {
 
         case "consulta":{
 
-            let listaProdutosConsultaVenda = [];
-
-            if (localStorage.getItem("listaProdutosConsultaVenda") != null) {
-                listaProdutosConsultaVenda = JSON.parse(localStorage.getItem("listaProdutosConsultaVenda"));
-            }
-
             $("#escolhaProdutoConsultaVendas").html("");
 
             $("#escolhaProdutoConsultaVendas").append(
-                `<option selected disabled value="">Escolha um produto que foi comprado</option>`
+                `<option selected disabled value="">Escolha um produto para a consulta</option>`
             );
 
-            for (let i = 0; i < listaProdutosConsultaVenda.length; i++) {
-                
+            for (let i = 0; i < listaProdutos.length; i++) {
                 $("#escolhaProdutoConsultaVendas").append(
-                    `<option value="${i}">${listaProdutosConsultaVenda[i].nome + " - " + listaProdutosConsultaVenda[i].tamanho}</option>`
-                );
-                
+                    `<option value="${i}">${listaProdutos[i].nome + " - " + listaProdutos[i].tamanho}</option>`
+                );    
             }
             
-            if (listaProdutosConsultaVenda.length == 0) {
+            if (listaProdutos.length == 0) {
                 $("#escolhaProdutoConsultaVendas").html(
-                    `<option selected disabled value="">Não existem produtos que foram comprados!</option>`
+                    `<option selected disabled value="">Não existem produtos cadastrados!</option>`
                 );
             }
 
@@ -684,82 +683,5 @@ function escondeInputConsultaVendas(local){
             break;
         };
 
-    }
-}
-
-// fazendo uma lista para todos os clientes que compraram aparecerem
-// na consulta de venda, mesmo o cliente tendo sido apagado
-// o mesmo para entregadores e produtos
-function addClienteConsultaVenda(cliente) {
-
-    let listaClientesConsultaVenda = [];
-
-    if (localStorage.getItem("listaClientesConsultaVenda") != null) {
-        listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
-    } else {
-        listaClientesConsultaVenda.push(cliente);
-        localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
-    }
-
-    if (!mesmoObjeto(cliente, listaClientesConsultaVenda[listaClientesConsultaVenda.length - 1])) {
-        listaClientesConsultaVenda.push(cliente);
-        localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
-    }
-}
-
-function addProdutoConsultaVenda(listaVendas) {
-
-    let listaProdutosConsultaVenda = [];
-
-    let arrayAux = [];
-
-    for (let i = 0; i < listaVendas.length; i++) {
-        for (let j = 0; j < listaVendas[i].carrinho.length; j++) {
-            arrayAux.push(listaVendas[i].carrinho[j].produto);
-            // console.log(listaVendas[i].carrinho[j].produto);
-        }
-    }
-
-    let conta = 0;
-
-    let i = 0;
-
-    do {
-        for(let j = 0; j < arrayAux.length; j++){
-            if (mesmoObjeto(arrayAux[i], arrayAux[j])) {
-                conta++;
-
-                if (conta > 1) {
-                    arrayAux.splice(j, 1);
-                }
-            }
-        }
-
-        conta = 0;
-
-        i++;
-    } while (i < arrayAux.length);
-
-
-    for (let i = 0; i < arrayAux.length; i++) {
-        listaProdutosConsultaVenda.push(arrayAux[i]);
-        localStorage.setItem("listaProdutosConsultaVenda", JSON.stringify(listaProdutosConsultaVenda));
-    }
-    console.log(listaProdutosConsultaVenda);
-}
-
-function addEntregadorConsultaVenda(entregador) {
-
-    let listaEntregadoresConsultaVenda = [];
-    if (localStorage.getItem("listaEntregadoresConsultaVenda") != null) {
-        listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
-    } else {
-        listaEntregadoresConsultaVenda.push(entregador);
-        localStorage.setItem("listaEntregadoresConsultaVenda", JSON.stringify(listaEntregadoresConsultaVenda));
-    }
-
-    if (!mesmoObjeto(entregador, listaEntregadoresConsultaVenda[listaEntregadoresConsultaVenda.length - 1])) {
-        listaEntregadoresConsultaVenda.push(entregador);
-        localStorage.setItem("listaEntregadoresConsultaVenda", JSON.stringify(listaEntregadoresConsultaVenda));
     }
 }
