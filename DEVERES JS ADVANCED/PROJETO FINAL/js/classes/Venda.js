@@ -17,23 +17,6 @@ class Venda{
 
     cadastrarBalcao(listaVendas){
 
-        // fazendo uma lista para todos os clientes que compraram aparecerem
-        // na consulta de venda, mesmo o cliente tendo sido apagado
-        //fazer com entregador e produto
-        let listaClientesConsultaVenda = [];
-
-        if (localStorage.getItem("listaClientesConsultaVenda") != null) {
-            listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
-        } else {
-            listaClientesConsultaVenda.push(this.cliente);
-            localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
-        }
-
-        if (!mesmoObjeto(this.cliente, listaClientesConsultaVenda[listaClientesConsultaVenda.length - 1])) {
-            listaClientesConsultaVenda.push(this.cliente);
-            localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
-        }
-
         listaVendas.push(this);
             
         localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
@@ -82,6 +65,10 @@ class Venda{
 
         }
 
+        addClienteConsultaVenda(this.cliente);
+
+        addProdutoConsultaVenda(listaVendas);
+
         for(let i = 0; i < listaProdutos.length; i++){
             $("#quantidade" + i + "balcao").val("0");
         }
@@ -91,24 +78,10 @@ class Venda{
         setTimeout(() => {
             $("#msgExitoVendaBalcao").hide();
         }, 3000);
- 
+
     }
 
     cadastrarEntrega(listaVendas){
-
-        let listaClientesConsultaVenda = [];
-
-        if (localStorage.getItem("listaClientesConsultaVenda") != null) {
-            listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
-        }
-
-        for(let i = 0; i < listaClientesConsultaVenda; i++){
-            if (!mesmoObjeto(listaClientesConsultaVenda[i], this.cliente)) {
-                listaClientesConsultaVenda.push(this.cliente);
-            }
-        }
-
-        localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
 
         listaVendas.push(this);
             
@@ -158,6 +131,12 @@ class Venda{
             }
 
         }
+
+        addClienteConsultaVenda(this.cliente);
+
+        addProdutoConsultaVenda(listaVendas);
+
+        addEntregadorConsultaVenda(this.entregador);
 
         for(let i = 0; i < listaProdutos.length; i++){
             $("#quantidade" + i + "entrega").val("0");
@@ -224,7 +203,7 @@ class Venda{
 
     }
 
-    consultarPorCliente(listaVendas, listaClientesConsultaVenda, idCliente){
+    consultarPorCliente(listaVendas, listaClientes, idCliente){
 
         let texto = "";
 
@@ -253,7 +232,7 @@ class Venda{
                             listaVendas[i].carrinho[j].produto.tamanho + "<br>"
             }
 
-            if (mesmoObjeto(listaClientesConsultaVenda[idCliente],listaVendas[i].cliente)) {
+            if (mesmoObjeto(listaClientes[idCliente],listaVendas[i].cliente)) {
                 clienteComprou = true;
                 texto += `<tr>
                         <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
@@ -367,27 +346,23 @@ class Venda{
                 if (mesmoObjeto(listaProdutos[idProduto],listaVendas[i].carrinho[j].produto)) {
                     contemProduto = true;
 
-                    for(let j = 0; j < listaVendas[i].carrinho.length; j++){
-
-                        produtos += 
+                    produtos += 
                                     listaVendas[i].carrinho[j].quantidade + "x " +
                                     listaVendas[i].carrinho[j].produto.nome + " - " +
                                     listaVendas[i].carrinho[j].produto.tamanho + "<br>"
 
-                        if (produtos.includes(listaProdutos[idProduto].nome) &&
-                        produtos.includes(listaProdutos[idProduto].tamanho)) {
-                            texto += `<tr>
-                                    <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
-                                    <td>${produtos}</td>
-                                    <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
-                                    listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
-                                    <td>${listaVendas[i].formaPagamento}</td>
-                                    <td>R$ ${listaVendas[i].valorTotal}</td>
-                                    <td>${listaVendas[i].dataVenda}</td>
-                            </tr>`;   
-                        }
-
-                        
+                    // fazer a pesquisa corretamente
+                    if (produtos.includes(listaProdutos[idProduto].nome) &&
+                    produtos.includes(listaProdutos[idProduto].tamanho)) {
+                        texto += `<tr>
+                                <td>${listaVendas[i].cliente.nome + " | " + listaVendas[i].cliente.cpf}</td>
+                                <td>${produtos}</td>
+                                <td>${listaVendas[i].entregador == "Não tem entregador" ? listaVendas[i].entregador  : 
+                                listaVendas[i].entregador.nome + " | " + listaVendas[i].entregador.cpf}</td>
+                                <td>${listaVendas[i].formaPagamento}</td>
+                                <td>R$ ${listaVendas[i].valorTotal}</td>
+                                <td>${listaVendas[i].dataVenda}</td>
+                        </tr>`;   
                     }
                 }
             }

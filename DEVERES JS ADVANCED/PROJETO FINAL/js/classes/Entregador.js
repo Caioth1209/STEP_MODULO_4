@@ -89,7 +89,7 @@ class Entregador{
 
     }
 
-    editar(listaEntregadores, id, listaVendas){
+    editar(listaEntregadores, listaEntregadoresConsultaVenda, id, listaVendas){
 
         let isValid = true;
 
@@ -106,6 +106,8 @@ class Entregador{
     
         if(isValid){
 
+            // atualizando a lista de vendas com a atualizacao 
+            // das informacoes do entregador
             for (let i = 0; i < listaVendas.length; i++) {
             
                 if (mesmoObjeto(listaEntregadores[id], listaVendas[i].entregador)) {
@@ -113,6 +115,31 @@ class Entregador{
                 }
                 
             }
+
+            // atualizando a lista de consulta de vendas com a atualizacao 
+            // das informacoes do entregador
+            if (listaEntregadoresConsultaVenda.length != 0) {
+                let index = 0;
+
+                for (let i = 0; i < listaEntregadoresConsultaVenda.length; i++){
+                    if(mesmoObjeto(listaEntregadores[id], listaEntregadoresConsultaVenda[i])){
+                        listaEntregadoresConsultaVenda[i] = this;
+                        index = i;
+                    }
+                }   
+
+                for (let i = 0; i < listaEntregadoresConsultaVenda.length; i++) {
+                    if(i != index){
+                        if (mesmoObjeto(listaEntregadoresConsultaVenda[i], listaEntregadoresConsultaVenda[index])) {
+                            listaEntregadoresConsultaVenda.splice(index, 1);
+                        }
+                    }
+                }
+                localStorage.setItem("listaEntregadoresConsultaVenda", JSON.stringify(listaEntregadoresConsultaVenda));
+
+                console.log({listaEntregadoresConsultaVenda});
+            }
+
     
             localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
             

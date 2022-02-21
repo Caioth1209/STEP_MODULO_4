@@ -213,7 +213,7 @@ class Cliente{
 
     }
 
-    editar(listaClientes, id, listaVendas){
+    editar(listaClientes, listaClientesConsultaVenda, id, listaVendas){
 
         let isValid = true;
 
@@ -230,12 +230,34 @@ class Cliente{
     
         if(isValid){
 
+            // atualizando a lista de vendas com a atualizacao 
+            // das informacoes do cliente
             for (let i = 0; i < listaVendas.length; i++) {
-            
                 if (mesmoObjeto(listaClientes[id], listaVendas[i].cliente)) {
                     listaVendas[i].cliente = this;   
                 }
-                
+            }
+
+            // atualizando a lista de consulta de vendas com a atualizacao 
+            // das informacoes do cliente
+            if (listaClientesConsultaVenda.length != 0) {
+                let index = 0;
+
+                for (let i = 0; i < listaClientesConsultaVenda.length; i++){
+                    if(mesmoObjeto(listaClientes[id], listaClientesConsultaVenda[i])){
+                        listaClientesConsultaVenda[i] = this;
+                        index = i;
+                    }
+                }   
+
+                for (let i = 0; i < listaClientesConsultaVenda.length; i++) {
+                    if(i != index){
+                        if (mesmoObjeto(listaClientesConsultaVenda[i], listaClientesConsultaVenda[index])) {
+                            listaClientesConsultaVenda.splice(index, 1);
+                        }
+                    }
+                }
+                localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
             }
     
             localStorage.setItem("listaVendas", JSON.stringify(listaVendas));

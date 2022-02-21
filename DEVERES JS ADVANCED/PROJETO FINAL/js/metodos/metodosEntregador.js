@@ -43,7 +43,13 @@ $("#formularioEditarEntregador").submit((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    en.editar(listaEntregadores,id,listaVendas);
+    let listaEntregadoresConsultaVenda = [];
+
+    if(localStorage.getItem("listaEntregadoresConsultaVenda") != null){
+        listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
+    }
+
+    en.editar(listaEntregadores,listaEntregadoresConsultaVenda,id,listaVendas);
 
     en.consultar(listaEntregadores);
 
@@ -83,7 +89,7 @@ $("#excluirEntregador").click(() => {
 
     en.excluir(listaEntregadores, id);
 
-    en.consultarGeral(listaEntregadores);
+    en.consultar(listaEntregadores);
     
     $(".btn-close").click();
 })

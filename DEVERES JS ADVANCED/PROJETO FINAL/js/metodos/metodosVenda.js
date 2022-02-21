@@ -299,15 +299,15 @@ $('#escolhaEntregadorConsultaVendas').change((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaEntregadores = [];
+    let listaEntregadoresConsultaVenda = [];
 
-    if (localStorage.getItem("listaEntregadores") != null) {
-        listaEntregadores = JSON.parse(localStorage.getItem("listaEntregadores"));
+    if (localStorage.getItem("listaEntregadoresConsultaVenda") != null) {
+        listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
     }
 
     let v = new Venda();
 
-    v.consultarPorEntregador(listaVendas, listaEntregadores, e.target.value);
+    v.consultarPorEntregador(listaVendas, listaEntregadoresConsultaVenda, e.target.value);
 })
 //////////////////////////////////////////////////
 
@@ -326,15 +326,15 @@ $('#escolhaProdutoConsultaVendas').change((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    let listaProdutos = [];
+    let listaProdutosConsultaVenda = [];
 
-    if (localStorage.getItem("listaProdutos") != null) {
-        listaProdutos = JSON.parse(localStorage.getItem("listaProdutos"));
+    if (localStorage.getItem("listaProdutosConsultaVenda") != null) {
+        listaProdutosConsultaVenda = JSON.parse(localStorage.getItem("listaProdutosConsultaVenda"));
     }
 
     let v = new Venda();
 
-    v.consultarPorProduto(listaVendas, listaProdutos, e.target.value);
+    v.consultarPorProduto(listaVendas, listaProdutosConsultaVenda, e.target.value);
 })
 //////////////////////////////////////////////////
 
@@ -440,8 +440,6 @@ function apareceClientes(tipo) {
                 listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
             }
 
-            console.log({listaClientesConsultaVenda});
-
             $("#escolhaClienteConsultaVendas").html("");
 
             $("#escolhaClienteConsultaVendas").append(
@@ -504,23 +502,29 @@ function apareceEntregadores(tipo) {
 
         case "consulta":{
 
+            let listaEntregadoresConsultaVenda = [];
+
+            if (localStorage.getItem("listaEntregadoresConsultaVenda") != null) {
+                listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
+            }
+
             $("#escolhaEntregadorConsultaVendas").html("");
 
             $("#escolhaEntregadorConsultaVendas").append(
                 `<option selected disabled value="">Escolha um entregador para a consulta</option>`
             );
 
-            for (let i = 0; i < listaEntregadores.length; i++) {
+            for (let i = 0; i < listaEntregadoresConsultaVenda.length; i++) {
                 
                 $("#escolhaEntregadorConsultaVendas").append(
-                    `<option value="${i}">${listaEntregadores[i].nome + " | " + listaEntregadores[i].cpf}</option>`
+                    `<option value="${i}">${listaEntregadoresConsultaVenda[i].nome + " | " + listaEntregadoresConsultaVenda[i].cpf}</option>`
                 );
                 
             }
             
-            if (listaEntregadores.length == 0) {
+            if (listaEntregadoresConsultaVenda.length == 0) {
                 $("#escolhaEntregadorConsultaVendas").html(
-                    `<option selected disabled value="">Não existem entregadores cadastrados!</option>`
+                    `<option selected disabled value="">Não existem entregadores que entregaram!</option>`
                 );
             }
 
@@ -604,23 +608,29 @@ function apareceProdutos(tipo) {
 
         case "consulta":{
 
+            let listaProdutosConsultaVenda = [];
+
+            if (localStorage.getItem("listaProdutosConsultaVenda") != null) {
+                listaProdutosConsultaVenda = JSON.parse(localStorage.getItem("listaProdutosConsultaVenda"));
+            }
+
             $("#escolhaProdutoConsultaVendas").html("");
 
             $("#escolhaProdutoConsultaVendas").append(
-                `<option selected disabled value="">Escolha um produto para a consulta</option>`
+                `<option selected disabled value="">Escolha um produto que foi comprado</option>`
             );
 
-            for (let i = 0; i < listaProdutos.length; i++) {
+            for (let i = 0; i < listaProdutosConsultaVenda.length; i++) {
                 
                 $("#escolhaProdutoConsultaVendas").append(
-                    `<option value="${i}">${listaProdutos[i].nome + " - " + listaProdutos[i].tamanho}</option>`
+                    `<option value="${i}">${listaProdutosConsultaVenda[i].nome + " - " + listaProdutosConsultaVenda[i].tamanho}</option>`
                 );
                 
             }
             
-            if (listaProdutos.length == 0) {
+            if (listaProdutosConsultaVenda.length == 0) {
                 $("#escolhaProdutoConsultaVendas").html(
-                    `<option selected disabled value="">Não existem produtos cadastrados!</option>`
+                    `<option selected disabled value="">Não existem produtos que foram comprados!</option>`
                 );
             }
 
@@ -674,5 +684,82 @@ function escondeInputConsultaVendas(local){
             break;
         };
 
+    }
+}
+
+// fazendo uma lista para todos os clientes que compraram aparecerem
+// na consulta de venda, mesmo o cliente tendo sido apagado
+// o mesmo para entregadores e produtos
+function addClienteConsultaVenda(cliente) {
+
+    let listaClientesConsultaVenda = [];
+
+    if (localStorage.getItem("listaClientesConsultaVenda") != null) {
+        listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
+    } else {
+        listaClientesConsultaVenda.push(cliente);
+        localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
+    }
+
+    if (!mesmoObjeto(cliente, listaClientesConsultaVenda[listaClientesConsultaVenda.length - 1])) {
+        listaClientesConsultaVenda.push(cliente);
+        localStorage.setItem("listaClientesConsultaVenda", JSON.stringify(listaClientesConsultaVenda));
+    }
+}
+
+function addProdutoConsultaVenda(listaVendas) {
+
+    let listaProdutosConsultaVenda = [];
+
+    let arrayAux = [];
+
+    for (let i = 0; i < listaVendas.length; i++) {
+        for (let j = 0; j < listaVendas[i].carrinho.length; j++) {
+            arrayAux.push(listaVendas[i].carrinho[j].produto);
+            // console.log(listaVendas[i].carrinho[j].produto);
+        }
+    }
+
+    let conta = 0;
+
+    let i = 0;
+
+    do {
+        for(let j = 0; j < arrayAux.length; j++){
+            if (mesmoObjeto(arrayAux[i], arrayAux[j])) {
+                conta++;
+
+                if (conta > 1) {
+                    arrayAux.splice(j, 1);
+                }
+            }
+        }
+
+        conta = 0;
+
+        i++;
+    } while (i < arrayAux.length);
+
+
+    for (let i = 0; i < arrayAux.length; i++) {
+        listaProdutosConsultaVenda.push(arrayAux[i]);
+        localStorage.setItem("listaProdutosConsultaVenda", JSON.stringify(listaProdutosConsultaVenda));
+    }
+    console.log(listaProdutosConsultaVenda);
+}
+
+function addEntregadorConsultaVenda(entregador) {
+
+    let listaEntregadoresConsultaVenda = [];
+    if (localStorage.getItem("listaEntregadoresConsultaVenda") != null) {
+        listaEntregadoresConsultaVenda = JSON.parse(localStorage.getItem("listaEntregadoresConsultaVenda"));
+    } else {
+        listaEntregadoresConsultaVenda.push(entregador);
+        localStorage.setItem("listaEntregadoresConsultaVenda", JSON.stringify(listaEntregadoresConsultaVenda));
+    }
+
+    if (!mesmoObjeto(entregador, listaEntregadoresConsultaVenda[listaEntregadoresConsultaVenda.length - 1])) {
+        listaEntregadoresConsultaVenda.push(entregador);
+        localStorage.setItem("listaEntregadoresConsultaVenda", JSON.stringify(listaEntregadoresConsultaVenda));
     }
 }

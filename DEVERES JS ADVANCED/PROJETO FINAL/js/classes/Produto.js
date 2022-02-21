@@ -203,7 +203,7 @@ class Produto{
 
     }
 
-    editar(listaProdutos, id, listaVendas){
+    editar(listaProdutos,listaProdutosConsultaVenda, id, listaVendas){
 
         let isValid = true;
 
@@ -214,6 +214,8 @@ class Produto{
         }
         if (isValid) {
 
+             // atualizando a lista de vendas com a atualizacao 
+            // das informacoes dos produtos
             for (let i = 0; i < listaVendas.length; i++) {
             
                 for (let j = 0; j < listaVendas[i].carrinho.length; j++) {
@@ -224,6 +226,28 @@ class Produto{
                 
                 }
                 
+            }
+
+            // atualizando a lista de consulta de vendas com a atualizacao 
+            // das informacoes do produto
+            if (listaProdutosConsultaVenda.length != 0) {
+                let index = 0;
+
+                for (let i = 0; i < listaProdutosConsultaVenda.length; i++){
+                    if(mesmoObjeto(listaProdutos[id], listaProdutosConsultaVenda[i])){
+                        listaProdutosConsultaVenda[i] = this;
+                        index = i;
+                    }
+                }   
+
+                for (let i = 0; i < listaProdutosConsultaVenda.length; i++) {
+                    if(i != index){
+                        if (mesmoObjeto(listaClientesConsultaVenda[i], listaClientesConsultaVenda[index])) {
+                            listaProdutosConsultaVenda.splice(index, 1);
+                        }
+                    }
+                }
+                localStorage.setItem("listaProdutosConsultaVenda", JSON.stringify(listaProdutosConsultaVenda));
             }
     
             localStorage.setItem("listaVendas", JSON.stringify(listaVendas));

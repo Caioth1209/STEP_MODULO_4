@@ -49,7 +49,13 @@ $("#formularioEditarCliente").submit((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    c.editar(listaClientes,id,listaVendas);
+    let listaClientesConsultaVenda = [];
+
+    if(localStorage.getItem("listaClientesConsultaVenda") != null){
+        listaClientesConsultaVenda = JSON.parse(localStorage.getItem("listaClientesConsultaVenda"));
+    }
+
+    c.editar(listaClientes,listaClientesConsultaVenda,id,listaVendas);
 
     c.consultarGeral(listaClientes);
 
