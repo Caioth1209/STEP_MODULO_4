@@ -8,7 +8,7 @@ $("#formularioCadastroEntregador").submit((e)=>{
     }
 
     let en = new Entregador(
-        $("#nomeEntregador").val(),
+        $("#nomeEntregador").val().trim(),
         $("#telefoneEntregador").val(),
         $("#cpfEntregador").val(),
         $("#entregadorStatus").val()
@@ -30,7 +30,7 @@ $("#formularioEditarEntregador").submit((e)=>{
 
     let id = $("#formularioEditarEntregador").find("#idEditarEntregador").val();
 
-    let nome = $("#formularioEditarEntregador").find(".row > .col-md-6 > #nomeEntregador").val();
+    let nome = $("#formularioEditarEntregador").find(".row > .col-md-6 > #nomeEntregador").val().trim();
 
     let telefone = $("#formularioEditarEntregador").find(".row > .col-md-6 > #telefoneEntregador").val();
 

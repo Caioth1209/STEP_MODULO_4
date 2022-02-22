@@ -21,7 +21,7 @@ $("#formularioCadastroCaixa").submit((e)=>{
         listaCaixas = JSON.parse(localStorage.getItem("listaCaixas"));
     }
 
-    let c = new Caixa($("#nomeCaixa").val(), $("#login").val(), $("#senha").val(), $("#caixaStatus").val());
+    let c = new Caixa($("#nomeCaixa").val().trim(), $("#login").val().trim(), $("#senha").val().trim(), $("#caixaStatus").val());
 
     c.cadastrar(listaCaixas);
 
@@ -39,11 +39,11 @@ $("#formularioEditarCaixa").submit((e)=>{
 
     let id = $("#formularioEditarCaixa").find("#idEditarCaixa").val();
 
-    let nome = $("#formularioEditarCaixa").find(".mb-3 > #nomeCaixa").val();
+    let nome = $("#formularioEditarCaixa").find(".mb-3 > #nomeCaixa").val().trim();
 
-    let login = $("#formularioEditarCaixa").find(".row > .col-md-6 > #login").val();
+    let login = $("#formularioEditarCaixa").find(".row > .col-md-6 > #login").val().trim();
 
-    let senha = $("#formularioEditarCaixa").find(".row > .col-md-6 > #senha").val();
+    let senha = $("#formularioEditarCaixa").find(".row > .col-md-6 > #senha").val().trim();
 
     let status = $("#formularioEditarCaixa").find("#caixaStatus").val();
 

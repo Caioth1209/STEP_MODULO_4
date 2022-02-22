@@ -8,9 +8,9 @@ $("#formularioCadastroProduto").submit((e)=>{
     }
 
     let p = new Produto(
-        $("#nomeProduto").val(),
+        $("#nomeProduto").val().trim(),
         $("#tamanho").val(),
-        $("#descricao").val(),
+        $("#descricao").val().trim(),
         $("#preco").val(),
         $("#quantidadeVendas").val(),
         $("#produtoStatus").val()
@@ -32,11 +32,11 @@ $("#formularioEditarProduto").submit((e)=>{
 
     let id = $("#formularioEditarProduto").find("#idEditarProduto").val();
 
-    let nome = $("#formularioEditarProduto").find(".row > .col-md-6 > #nomeProduto").val();
+    let nome = $("#formularioEditarProduto").find(".row > .col-md-6 > #nomeProduto").val().trim();
 
     let tamanho = $("#formularioEditarProduto").find(".row > .col-md-6 > #tamanho").val();
 
-    let descricao = $("#formularioEditarProduto").find(".row > .col-md-6 > #descricao").val();
+    let descricao = $("#formularioEditarProduto").find(".row > .col-md-6 > #descricao").val().trim();
 
     let preco = $("#formularioEditarProduto").find(".row > .col-md-6 > #preco").val();
 

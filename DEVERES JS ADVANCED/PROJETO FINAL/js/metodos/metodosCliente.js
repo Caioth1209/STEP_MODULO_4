@@ -8,11 +8,11 @@ $("#formularioCadastroCliente").submit((e)=>{
     }
 
     let c = new Cliente(
-        $("#nomeCliente").val(),
+        $("#nomeCliente").val().trim(),
         $("#telefoneCliente").val(),
         $("#cpfCliente").val(),
         moment($("#dataNasc").val()).format("DD/MM/YYYY"),
-        $("#endereco").val(),
+        $("#endereco").val().trim(),
         $("#clienteStatus").val()
     );
 
@@ -32,7 +32,7 @@ $("#formularioEditarCliente").submit((e)=>{
 
     let id = $("#formularioEditarCliente").find("#idEditarCliente").val();
 
-    let nome = $("#formularioEditarCliente").find(".row > .col-md-6 > #nomeCliente").val();
+    let nome = $("#formularioEditarCliente").find(".row > .col-md-6 > #nomeCliente").val().trim();
 
     let telefone = $("#formularioEditarCliente").find(".row > .col-md-6 > #telefoneCliente").val();
 
@@ -40,7 +40,7 @@ $("#formularioEditarCliente").submit((e)=>{
 
     let dataNasc = $("#formularioEditarCliente").find(".row > .col-md-6 > #dataNasc").val();
 
-    let endereco = $("#formularioEditarCliente").find(".mb-3 > #endereco").val();
+    let endereco = $("#formularioEditarCliente").find(".mb-3 > #endereco").val().trim();
 
     let status = $("#formularioEditarCliente").find("#clienteStatus").val();
 

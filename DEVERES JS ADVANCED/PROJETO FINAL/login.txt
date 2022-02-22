@@ -1,0 +1,4 @@
+LOGIN E SENHA DE ROOT
+
+LOGIN: root
+SENHA: root123
