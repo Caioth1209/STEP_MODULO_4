@@ -24,7 +24,7 @@ class Caixa{
             for (let i = 0; i < listaCaixas.length; i++){
 
                 if (login == listaCaixas[i].login && senha == listaCaixas[i].senha && listaCaixas[i].status == "ativo") {
-                    sessionStorage.setItem("caixaLogado", login);
+                    sessionStorage.setItem("caixaLogado", JSON.stringify({id: i}));
                     achou = true;
                     break;
                 }
@@ -135,7 +135,7 @@ class Caixa{
 
     }
 
-    editar(listaCaixas, id){
+    editar(listaCaixas, id, tipo){
 
         let isValid = true;
 
@@ -156,9 +156,10 @@ class Caixa{
     
             localStorage.setItem("listaCaixas", JSON.stringify(listaCaixas));
         
-            $("#msgExitoCaixa").show();
-            $("#msgErroCaixa").hide();   
-        
+            if (tipo == "edicaoNormal") {
+                $("#msgExitoCaixa").show();
+                $("#msgErroCaixa").hide();  
+            }
         } else {
             $("#msgExitoCaixa").hide();
             $("#msgErroCaixa").show();   

@@ -46,7 +46,7 @@ $("#formularioEditarEntregador").submit((e)=>{
         listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
     }
 
-    en.editar(listaEntregadores,id,listaVendas);
+    en.editar(listaEntregadores,id,listaVendas, "edicaoNormal");
 
     en.consultar(listaEntregadores);
 
@@ -105,9 +105,19 @@ function desativarEntregador(id) {
 
     listaEntregadores[id].status = "desativado";
 
-    localStorage.setItem("listaEntregadores", JSON.stringify(listaEntregadores));
+    let e = new Entregador(listaEntregadores[id].nome,
+        listaEntregadores[id].telefone,
+        listaEntregadores[id].cpf,
+        listaEntregadores[id].status);
 
-    let e = new Entregador();
+    let listaVendas = [];
+
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    e.editar(listaEntregadores, id, listaVendas, "edicaoStatus");
+
     e.consultar(listaEntregadores);
 }
 ////////////////////////////  
@@ -122,9 +132,19 @@ function ativarEntregador(id) {
 
     listaEntregadores[id].status = "ativo";
 
-    localStorage.setItem("listaEntregadores", JSON.stringify(listaEntregadores));
+    let e = new Entregador(listaEntregadores[id].nome,
+        listaEntregadores[id].telefone,
+        listaEntregadores[id].cpf,
+        listaEntregadores[id].status);
 
-    let e = new Entregador();
+    let listaVendas = [];
+
+    if(localStorage.getItem("listaVendas") != null){
+        listaVendas = JSON.parse(localStorage.getItem("listaVendas"));
+    }
+
+    e.editar(listaEntregadores, id, listaVendas, "edicaoStatus");
+
     e.consultar(listaEntregadores);
 }
 ////////////////////////////  

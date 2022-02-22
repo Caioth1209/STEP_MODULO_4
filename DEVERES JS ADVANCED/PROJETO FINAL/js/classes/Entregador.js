@@ -96,7 +96,7 @@ class Entregador{
 
     }
 
-    editar(listaEntregadores, id, listaVendas){
+    editar(listaEntregadores, id, listaVendas, tipo){
 
         let isValid = true;
 
@@ -115,22 +115,47 @@ class Entregador{
 
             // atualizando a lista de vendas com a atualizacao 
             // das informacoes do entregador
+
+            if (tipo == "edicaoStatus") {
+                if (listaEntregadores[id].status == "ativo") {
+                    listaEntregadores[id].status = "desativado";
+                } else {
+                    listaEntregadores[id].status = "ativo";
+                }
+            }
+
             for (let i = 0; i < listaVendas.length; i++) {
             
                 if (mesmoObjeto(listaEntregadores[id], listaVendas[i].entregador)) {
-                    listaVendas[i].entregador = this;   
+                    if (tipo == "edicaoStatus") {
+                        listaVendas[i].entregador = listaEntregadores[id];   
+                    } else {
+                        listaVendas[i].entregador = this;
+                    }    
                 }
                 
+            }
+
+            if (tipo == "edicaoStatus") {
+                if (listaEntregadores[id].status == "ativo") {
+                    listaEntregadores[id].status = "desativado";
+                } else {
+                    listaEntregadores[id].status = "ativo";
+                }
             }
     
             localStorage.setItem("listaVendas", JSON.stringify(listaVendas));
             
-            listaEntregadores[id] = this;
+            if (tipo == "edicaoNormal") {
+                listaEntregadores[id] = this;
+            } 
     
             localStorage.setItem("listaEntregadores", JSON.stringify(listaEntregadores));
         
-            $("#msgExitoEntregador").show();
-            $("#msgErroEntregador").hide();   
+            if (tipo == "edicaoNormal") {
+                $("#msgExitoEntregador").show();
+                $("#msgErroEntregador").hide();     
+            } 
         
         } else {
             $("#msgExitoEntregador").hide();

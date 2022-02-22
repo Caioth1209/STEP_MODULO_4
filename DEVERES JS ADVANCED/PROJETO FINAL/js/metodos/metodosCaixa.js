@@ -49,7 +49,7 @@ $("#formularioEditarCaixa").submit((e)=>{
 
     let c = new Caixa(nome, login, senha, status);
 
-    c.editar(listaCaixas,id);
+    c.editar(listaCaixas,id,"edicaoNormal");
 
     c.consultar(listaCaixas);
 
@@ -104,10 +104,20 @@ function desativarCaixa(id) {
 
     listaCaixas[id].status = "desativado";
 
-    localStorage.setItem("listaCaixas", JSON.stringify(listaCaixas));
+    let c = new Caixa(listaCaixas[id].nome,
+        listaCaixas[id].login,
+        listaCaixas[id].senha,
+        listaCaixas[id].status);
 
-    let c = new Caixa();
+    c.editar(listaCaixas, id, "edicaoStatus");
+
     c.consultar(listaCaixas);
+
+    let caixaLogado = JSON.parse(sessionStorage.getItem("caixaLogado"));
+    
+    if (id == caixaLogado.id) {
+        window.location.replace("index.html");
+    }
 }
 ////////////////////////////  
 
@@ -121,9 +131,13 @@ function ativarCaixa(id) {
 
     listaCaixas[id].status = "ativo";
 
-    localStorage.setItem("listaCaixas", JSON.stringify(listaCaixas));
+    let c = new Caixa(listaCaixas[id].nome,
+        listaCaixas[id].login,
+        listaCaixas[id].senha,
+        listaCaixas[id].status);
 
-    let c = new Caixa();
+    c.editar(listaCaixas, id, "edicaoStatus");
+
     c.consultar(listaCaixas);
 }
 ////////////////////////////

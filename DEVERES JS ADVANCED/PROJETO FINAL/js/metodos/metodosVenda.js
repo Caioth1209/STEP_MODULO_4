@@ -425,7 +425,7 @@ function apareceClientes(tipo) {
                     );
                 } else {
                     $("#escolhaClienteVendaEntrega").append(
-                        `<option disa value="">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
+                        `<option disabled value="">${listaClientes[i].nome + " | " + listaClientes[i].cpf}</option>`
                     );
                 }   
             }
