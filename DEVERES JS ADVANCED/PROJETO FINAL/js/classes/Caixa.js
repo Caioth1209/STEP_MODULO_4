@@ -159,7 +159,10 @@ class Caixa{
             if (tipo == "edicaoNormal") {
                 $("#msgExitoCaixa").show();
                 $("#msgErroCaixa").hide();  
+            } else {
+                $("#msgExitoStatus").show();  
             }
+            
         } else {
             $("#msgExitoCaixa").hide();
             $("#msgErroCaixa").show();   
@@ -169,6 +172,7 @@ class Caixa{
     
             $("#msgExitoCaixa").hide();
             $("#msgErroCaixa").hide();
+            $("#msgExitoStatus").hide();  
                 
         }, 3000);
  

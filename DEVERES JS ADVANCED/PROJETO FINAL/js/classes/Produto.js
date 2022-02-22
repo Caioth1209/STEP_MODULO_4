@@ -271,6 +271,8 @@ class Produto{
             if (tipo == "edicaoNormal") {
                 $("#msgExitoProduto").show();
                 $("#msgErroProduto").hide();   
+            } else {
+                $("#msgExitoStatus").show();  
             }
 
         } else {
@@ -285,6 +287,7 @@ class Produto{
         setTimeout(() => {
             $("#msgExitoProduto").hide();
             $("#msgErroProduto").hide();  
+            $("#msgExitoStatus").hide();  
         }, 3000);
 
     }

@@ -155,7 +155,9 @@ class Entregador{
             if (tipo == "edicaoNormal") {
                 $("#msgExitoEntregador").show();
                 $("#msgErroEntregador").hide();     
-            } 
+            } else {
+                $("#msgExitoStatus").show();  
+            }
         
         } else {
             $("#msgExitoEntregador").hide();
@@ -166,7 +168,7 @@ class Entregador{
     
             $("#msgExitoEntregador").hide();
             $("#msgErroEntregador").hide();
-                
+            $("#msgExitoStatus").hide();  
         }, 3000);
  
     }

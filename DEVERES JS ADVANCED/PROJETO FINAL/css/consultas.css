@@ -46,7 +46,7 @@
     .rTable tbody tr td:nth-child(7){width:15%;}
 }
 
-#msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroCliente, #msgErroProduto, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao, #msgEscolhaPeriodo{
+#msgExitoCaixa, #msgExitoCliente, #msgExitoProduto, #msgExitoEntregador, #msgExitoVendaBalcao, #msgExitoVendaEntrega, #msgErroCliente, #msgErroProduto, #msgErroEntregador,  #msgErroCaixa, #msgErroVendaBalcao, #msgErroVendaEntrega, #msgNaoExistemProdutosEntrega, #msgNaoExistemProdutosBalcao, #erroNomeCaixa, #erroNomeCliente, #erroNomeProduto, #erroNomeEntregador, #erroLogin, #erroSenha, #erroTelefoneCliente, #erroTelefoneEntregador, #erroDataNasc, #erroCpfCliente, #erroCpfEntregador, #erroEndereco, #erroPreco, #erroDescricao, #msgEscolhaPeriodo, #msgExitoStatus{
     display: none;
 }
 

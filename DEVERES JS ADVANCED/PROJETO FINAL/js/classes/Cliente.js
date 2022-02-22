@@ -277,7 +277,9 @@ class Cliente{
             if (tipo == "edicaoNormal") {
                 $("#msgExitoCliente").show();
                 $("#msgErroCliente").hide();   
-            }  
+            } else{
+                $("#msgExitoStatus").show();  
+            }
         
         } else {
             $("#msgExitoCliente").hide();
@@ -288,6 +290,7 @@ class Cliente{
     
             $("#msgExitoCliente").hide();
             $("#msgErroCliente").hide();
+            $("#msgExitoStatus").hide();  
                 
         }, 3000);
  
