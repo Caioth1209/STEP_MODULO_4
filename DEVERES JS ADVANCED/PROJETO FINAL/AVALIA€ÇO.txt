@@ -1,10 +1,3 @@
-AVALIAÇÃO PROJETO JSADV
-=======================
------------------------
-ENTREGA 22/02/2022 ====
------------------------
-
-
 SISTEMA PDV (Ponto de Venda / CAIXA) LOJA DE ROUPAS
 
 -Cadastros
@@ -13,6 +6,7 @@ SISTEMA PDV (Ponto de Venda / CAIXA) LOJA DE ROUPAS
     -Entregadores
     -Vendas (balcão/Entregas)
     -CAIXA -> Opcional
+    
 -Consultas/relatórios
     -Clientes
         *Geral, aniversariantes do mês, compras no último mês
