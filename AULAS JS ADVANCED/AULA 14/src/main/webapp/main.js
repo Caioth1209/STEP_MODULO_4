@@ -11,5 +11,4 @@ $("#bt").click(()=>{
 			alert("Errro")
 		}
 	});
-	
 })

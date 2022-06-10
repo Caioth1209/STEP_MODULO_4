@@ -97,8 +97,8 @@ $("#cNiverClientes").click((e)=>{
 // faz consulta de compras do ultimo mes
 $("#cComprasUltimoMesClientes").click((e)=>{
 
-     // esconde os inputs de consulta de vendas
-     escondeInputConsultaVendas("geral");
+    // esconde os inputs de consulta de vendas
+    escondeInputConsultaVendas("geral");
 
     let listaVendas = [];
 

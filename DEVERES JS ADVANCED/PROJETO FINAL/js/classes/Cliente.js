@@ -75,12 +75,12 @@ class Cliente{
         for(let i = 0; i < listaClientes.length; i++){
 
             texto += `<tr>
-                        <td>${listaClientes[i].nome}</td>
-                        <td>${listaClientes[i].cpf}</td>
-                        <td>${listaClientes[i].telefone}</td>
-                        <td>${listaClientes[i].dataNasc}</td>
-                        <td>${listaClientes[i].endereco}</td>
-                        <td>${listaClientes[i].status}</td>
+                        <td> <span>Nome:</span> &nbsp; ${listaClientes[i].nome}</td>
+                        <td> <span>CPF:</span> &nbsp; ${listaClientes[i].cpf}</td>
+                        <td> <span>Telefone:</span> &nbsp; ${listaClientes[i].telefone}</td>
+                        <td> <span>Nascimento:</span> &nbsp; ${listaClientes[i].dataNasc}</td>
+                        <td> <span>Endereço:</span>${listaClientes[i].endereco}</td>
+                        <td> <span>Status:</span> &nbsp; ${listaClientes[i].status}</td>
                         <td>
                             <button type='button' onclick="pegarIdEditarCliente(${i})" class='btn btn-primary'>Editar</button>
                             ${listaClientes[i].status == "ativo" ? 
