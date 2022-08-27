@@ -1,9 +1,0 @@
-#erroNome, #erroCpf, #erroEmail, #erroEmailConfirm, #erroDataNasc{
-    display: none;
-    font-family: narrow, arial;
-    font-size: 11pt;
-}
-
-#cadastros, #msgExito, #msgErro{
-    display: none;
-}
